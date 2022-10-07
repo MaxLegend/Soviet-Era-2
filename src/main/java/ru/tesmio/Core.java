@@ -37,6 +37,7 @@ public class Core {
         RegBlocks.register(eventBus);
 
     }
+
     public static class ItemGroups {
 
         public static final ItemGroup TAB_MAIN = new ItemGroup("soviet_main") {

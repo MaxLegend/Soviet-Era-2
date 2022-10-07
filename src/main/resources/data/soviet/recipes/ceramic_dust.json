@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "soviet:quad_tile"
-  },
-  "result": "soviet:ceramic_dust",
-  "count": 1
-}
