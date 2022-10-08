@@ -7,6 +7,7 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import ru.tesmio.Core;
 
+
 public class SovietItemModelProvider extends ItemModelProvider {
     public SovietItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, Core.MODID, existingFileHelper);
@@ -17,14 +18,19 @@ public class SovietItemModelProvider extends ItemModelProvider {
 
        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
 
-       builder(itemGenerated, "big_tile");
-    //    withExistingParent("concrete_orange", modLoc("block/concrete/concrete_orange"));
-   //     withExistingParent("concrete_orange_br", modLoc("block/concrete/concrete_orange_br"));
+
+        builderItem(itemGenerated, "big_tile");
+
+        builderItemBlock("item/concrete/concrete_orange", "block/concrete/concrete_orange");
+        builderItemBlock("item/concrete/concrete_orange_br", "block/concrete/concrete_orange_br");
 
     }
 
-    private ItemModelBuilder builder(ModelFile itemGenerated, String name) {
+    private ItemModelBuilder builderItem(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    }
+    private ItemModelBuilder builderItemBlock(String path, String name) {
+        return getBuilder(path).parent(getExistingFile(modLoc(name)));
     }
 
 }

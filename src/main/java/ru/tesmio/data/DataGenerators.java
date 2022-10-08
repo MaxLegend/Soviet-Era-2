@@ -19,7 +19,7 @@ public class DataGenerators {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-            gen.addProvider(new SovietBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(new SovietBlockStateProvider(gen, existingFileHelper));
        // gen.addProvider(new SovietBlockModelProvider(gen, existingFileHelper));
           gen.addProvider(new SovietItemModelProvider(gen, existingFileHelper));
 
