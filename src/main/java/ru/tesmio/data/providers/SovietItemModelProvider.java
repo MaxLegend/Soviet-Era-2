@@ -21,16 +21,25 @@ public class SovietItemModelProvider extends ItemModelProvider {
 
         builderItem(itemGenerated, "big_tile");
 
-        builderItemBlock("item/concrete/concrete_orange", "block/concrete/concrete_orange");
-        builderItemBlock("item/concrete/concrete_orange_br", "block/concrete/concrete_orange_br");
-
+        builderItemBlock("concrete/concrete_orange", "concrete/concrete_orange");
+        builderItemBlock("concrete/concrete_orange_br", "concrete/concrete_orange_br");
+        builderItemBlock("resttile/tile_rest_blue", "resttile/tile_rest_blue");
+        builderItemBlock("resttile/tile_rest_blue_br", "resttile/tile_rest_blue_br");
+        builderItemBlock("resttile/tile_rest_brown", "resttile/tile_rest_brown");
+        builderItemBlock("resttile/tile_rest_brown_br", "resttile/tile_rest_brown_br");
+        builderItemBlock("resttile/tile_rest_white", "resttile/tile_rest_white");
+        builderItemBlock("resttile/tile_rest_white_br", "resttile/tile_rest_white_br");
+        builderItemBlock("resttile/tile_rest_black", "resttile/tile_rest_black");
+        builderItemBlock("resttile/tile_rest_black_br", "resttile/tile_rest_black_br");
+        builderItemBlock("resttile/tile_rest_dark_blue", "resttile/tile_rest_dark_blue");
+        builderItemBlock("resttile/tile_rest_dark_blue_br", "resttile/tile_rest_dark_blue_br");
     }
 
     private ItemModelBuilder builderItem(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
     }
     private ItemModelBuilder builderItemBlock(String path, String name) {
-        return getBuilder(path).parent(getExistingFile(modLoc(name)));
+        return getBuilder("item/" + path).parent(getExistingFile(modLoc("block/" + name)));
     }
 
 }

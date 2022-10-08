@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "soviet:block/resttile/tile_rest_brown_br"
+  }
+}
