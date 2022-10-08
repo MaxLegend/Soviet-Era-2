@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    " $ ",
+    " % "
+  ],
+  "key": {
+    "#": {
+      "item": "soviet:pestle"
+    },
+    "$": {
+      "item": "soviet:small_tile"
+    },
+    "%": {
+      "item": "soviet:mortar"
+    }
+  },
+  "result": {
+    "item": "soviet:ceramic_dust"
+  }
+}

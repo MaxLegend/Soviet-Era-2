@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "package": "ru.tesmio.soviet.mixins",
+  "refmap": "mixins.soviet.refmap.json",
+  "mixins": [
+
+  ],
+  "client": [],
+  "server": []
+}

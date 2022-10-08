@@ -1,9 +1,13 @@
 package ru.tesmio.data.providers;
 
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
 import net.minecraft.data.ShapedRecipeBuilder;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
 import ru.tesmio.Core;
@@ -34,7 +38,7 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
                 .patternLine(" # ")
                 .patternLine(" $ ")
                 .patternLine(" % ")
-                .addCriterion("pestle", InventoryChangeTrigger.Instance.forItems(RegItems.PESTLE.get(),RegItems.QUAD_TILE.get(), RegItems.MORTAR.get()))
+                .addCriterion("pestle", InventoryChangeTrigger.Instance.forItems(RegItems.PESTLE.get(),RegItems.REST_TILE.get(), RegItems.MORTAR.get()))
                 .build(consumer, "ceramic_dust2");
         ShapedRecipeBuilder.shapedRecipe(RegItems.CERAMIC_DUST.get())
                 .key('#', RegItems.PESTLE.get())
@@ -43,25 +47,42 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
                 .patternLine(" # ")
                 .patternLine(" $ ")
                 .patternLine(" % ")
-                .addCriterion("pestle", InventoryChangeTrigger.Instance.forItems(RegItems.PESTLE.get(),RegItems.QUAD_TILE.get(), RegItems.MORTAR.get()))
+                .addCriterion("pestle", InventoryChangeTrigger.Instance.forItems(RegItems.PESTLE.get(),RegItems.SMALL_TILE.get(), RegItems.MORTAR.get()))
                 .build(consumer, "ceramic_dust3");
-    }
-
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
-//        ShapelessRecipeBuilder.shapelessRecipe(ModItems.SILVER_INGOT.get(), 9)
-//                .requires(ModBlocks.SILVER_BLOCK.get())
-//                .unlockedBy("has_item", has(ModItems.SILVER_INGOT.get()))
-//                .save(consumer);
-
         ShapedRecipeBuilder.shapedRecipe(RegItems.CERAMIC_DUST.get())
                 .key('#', RegItems.PESTLE.get())
-                .key('$', RegItems.QUAD_TILE.get())
+                .key('$', RegItems.BIG_TILE.get())
                 .key('%', RegItems.MORTAR.get())
                 .patternLine(" # ")
                 .patternLine(" $ ")
                 .patternLine(" % ")
+                .addCriterion("pestle", InventoryChangeTrigger.Instance.forItems(RegItems.PESTLE.get(),RegItems.SMALL_TILE.get(), RegItems.MORTAR.get()))
+                .build(consumer, "ceramic_dust4");
+        ShapedRecipeBuilder.shapedRecipe(RegItems.PESTLE.get())
+                .key('$', Items.STICK)
+                .key('%', Items.IRON_INGOT)
+                .patternLine("   ")
+                .patternLine(" $ ")
+                .patternLine("%  ")
+                .addCriterion("has_item",  hasItem(Items.IRON_INGOT))
+                .build(consumer, "pestle");
+        ShapedRecipeBuilder.shapedRecipe(RegItems.MORTAR.get())
+                .key('$', Blocks.STONE)
+                .patternLine("   ")
+                .patternLine("$ $")
+                .patternLine(" $ ")
+                .addCriterion("has_item",  hasItem(Items.IRON_INGOT))
+                .build(consumer, "mortar");
+
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.CERAMIC_DUST.get()), RegItems.SILICON_INGOT.get(), 0.7f, 100)
                 .addCriterion("has_item", hasItem(RegItems.CERAMIC_DUST.get()))
-                .build(consumer);
+                .build(consumer, modId("silicon_ingot"));
+    }
+
+    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
+
+
+
 
 
 //        CookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.SILVER_ORE.get()), ModItems.SILVER_INGOT.get(), 0.7f, 200)
