@@ -17,6 +17,7 @@ public class SovietBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         variantBuilder(RegBlocks.CONCRETE_ORANGE.get(),"concrete/concrete_orange");
         variantBuilder(RegBlocks.CONCRETE_ORANGE_BR.get(),"concrete/concrete_orange_br");
+        //rest tiles
         variantBuilder(RegBlocks.TILE_REST_BLACK.get(), "resttile/tile_rest_black");
         variantBuilder(RegBlocks.TILE_REST_BLACK_BR.get(), "resttile/tile_rest_black_br");
         variantBuilder(RegBlocks.TILE_REST_BROWN.get(), "resttile/tile_rest_brown");
@@ -27,6 +28,24 @@ public class SovietBlockStateProvider extends BlockStateProvider {
         variantBuilder(RegBlocks.TILE_REST_WHITE_BR.get(), "resttile/tile_rest_white_br");
         variantBuilder(RegBlocks.TILE_REST_DARK_BLUE.get(), "resttile/tile_rest_dark_blue");
         variantBuilder(RegBlocks.TILE_REST_DARK_BLUE_BR.get(), "resttile/tile_rest_dark_blue_br");
+
+        //horiz tiles
+        variantBuilder(RegBlocks.HORIZ_TILE_WHITE.get(), "horiztile/horiz_tile_white");
+        variantBuilder(RegBlocks.HORIZ_TILE_WHITE_BR.get(), "horiztile/horiz_tile_white_br");
+        variantBuilder(RegBlocks.HORIZ_TILE_BLUE.get(), "horiztile/horiz_tile_blue");
+        variantBuilder(RegBlocks.HORIZ_TILE_BLUE_BR.get(), "horiztile/horiz_tile_blue_br");
+        variantBuilder(RegBlocks.HORIZ_TILE_DARK_BLUE.get(), "horiztile/horiz_tile_dark_blue");
+        variantBuilder(RegBlocks.HORIZ_TILE_DARK_BLUE_BR.get(), "horiztile/horiz_tile_dark_blue_br");
+
+        //small tiles
+        variantBuilder(RegBlocks.SMALL_TILE_BLUE.get(), "smalltile/small_tile_blue");
+        variantBuilder(RegBlocks.SMALL_TILE_BLUE_BR.get(), "smalltile/small_tile_blue_br");
+        variantBuilder(RegBlocks.SMALL_TILE_WHITE.get(), "smalltile/small_tile_white");
+        variantBuilder(RegBlocks.SMALL_TILE_WHITE_BR.get(), "smalltile/small_tile_white_br");
+        variantBuilder(RegBlocks.SMALL_TILE_RED.get(), "smalltile/small_tile_red");
+        variantBuilder(RegBlocks.SMALL_TILE_RED_BR.get(), "smalltile/small_tile_red_br");
+        variantBuilder(RegBlocks.SMALL_TILE_YELLOW.get(), "smalltile/small_tile_yellow");
+        variantBuilder(RegBlocks.SMALL_TILE_YELLOW_BR.get(), "smalltile/small_tile_yellow_br");
     }
     public ModelBuilder<BlockModelBuilder> builder(String name, ResourceLocation rs) {
         return models().cubeAll(name, rs);
