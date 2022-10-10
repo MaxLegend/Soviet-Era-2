@@ -52,6 +52,10 @@ public class SovietItemModelProvider extends ItemModelProvider {
         builderItemBlock("smalltile/small_tile_red_br");
         builderItemBlock("smalltile/small_tile_yellow");
         builderItemBlock("smalltile/small_tile_yellow_br");
+
+        //reg tiles
+        builderItemBlock("regtile/brown_tilled_block");
+
     }
 
     private ItemModelBuilder builderItem(ModelFile itemGenerated, String name) {

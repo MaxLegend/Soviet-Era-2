@@ -46,6 +46,10 @@ public class SovietBlockStateProvider extends BlockStateProvider {
         variantBuilder(RegBlocks.SMALL_TILE_RED_BR.get(), "smalltile/small_tile_red_br");
         variantBuilder(RegBlocks.SMALL_TILE_YELLOW.get(), "smalltile/small_tile_yellow");
         variantBuilder(RegBlocks.SMALL_TILE_YELLOW_BR.get(), "smalltile/small_tile_yellow_br");
+
+        //reg tiles
+        variantBuilder(RegBlocks.REGULAR_BROWN_TILE.get(), "regtile/brown_tilled_block");
+
     }
     public ModelBuilder<BlockModelBuilder> builder(String name, ResourceLocation rs) {
         return models().cubeAll(name, rs);
