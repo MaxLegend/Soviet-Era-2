@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "soviet:block/concrete/beton_panel_ang_lu"
+  }
+}

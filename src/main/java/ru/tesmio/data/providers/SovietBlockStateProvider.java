@@ -15,8 +15,11 @@ public class SovietBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        //concrete
         variantBuilder(RegBlocks.CONCRETE_ORANGE.get(),"concrete/concrete_orange");
         variantBuilder(RegBlocks.CONCRETE_ORANGE_BR.get(),"concrete/concrete_orange_br");
+        variantBuilder(RegBlocks.CONCRETE_CORNER_PANEL.get(),"concrete/beton_panel_ang_lu");
+
         //rest tiles
         variantBuilder(RegBlocks.TILE_REST_BLACK.get(), "resttile/tile_rest_black");
         variantBuilder(RegBlocks.TILE_REST_BLACK_BR.get(), "resttile/tile_rest_black_br");

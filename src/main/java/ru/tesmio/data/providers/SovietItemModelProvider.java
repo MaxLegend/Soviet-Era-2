@@ -22,8 +22,6 @@ public class SovietItemModelProvider extends ItemModelProvider {
         builderItem(itemGenerated, "big_tile");
 
         //rest tiles
-        builderItemBlock("concrete/concrete_orange");
-        builderItemBlock( "concrete/concrete_orange_br");
         builderItemBlock( "resttile/tile_rest_blue");
         builderItemBlock( "resttile/tile_rest_blue_br");
         builderItemBlock("resttile/tile_rest_brown");
@@ -55,6 +53,12 @@ public class SovietItemModelProvider extends ItemModelProvider {
 
         //reg tiles
         builderItemBlock("regtile/brown_tilled_block");
+
+        //concrete
+        builderItemBlock("concrete/concrete_orange");
+        builderItemBlock( "concrete/concrete_orange_br");
+        builderItemBlock("concrete/beton_panel_ang_lu");
+
 
     }
 
