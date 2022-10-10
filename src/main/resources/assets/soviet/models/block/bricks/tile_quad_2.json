@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "soviet:block/quadtile/tile_quad_1_br"
+        "all": "soviet:block/brick/tile_quad_2"
     }
 }

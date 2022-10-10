@@ -53,6 +53,10 @@ public class SovietBlockStateProvider extends BlockStateProvider {
         //reg tiles
         variantBuilder(RegBlocks.REGULAR_BROWN_TILE.get(), "regtile/brown_tilled_block");
 
+        //bricks
+        variantBuilder(RegBlocks.SOVIET_BRICKS_WITH_WHITE.get(), "brick/soviet_bricks_with_white");
+        variantBuilder(RegBlocks.WALL_BRICKS.get(), "brick/light_bricks2");
+        variantBuilder(RegBlocks.LIGHT_BRICKS.get(), "brick/light_bricks");
     }
     public ModelBuilder<BlockModelBuilder> builder(String name, ResourceLocation rs) {
         return models().cubeAll(name, rs);

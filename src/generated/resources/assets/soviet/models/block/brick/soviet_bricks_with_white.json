@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "soviet:block/brick/soviet_bricks_with_white"
+  }
+}

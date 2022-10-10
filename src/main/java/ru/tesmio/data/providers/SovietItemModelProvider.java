@@ -59,6 +59,11 @@ public class SovietItemModelProvider extends ItemModelProvider {
         builderItemBlock( "concrete/concrete_orange_br");
         builderItemBlock("concrete/beton_panel_ang_lu");
 
+        //bricks
+        builderItemBlock("brick/soviet_bricks_with_white");
+        builderItemBlock("brick/light_bricks2");
+        builderItemBlock("brick/light_bricks");
+
 
     }
 
