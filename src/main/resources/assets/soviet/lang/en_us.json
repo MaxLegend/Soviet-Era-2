@@ -68,5 +68,15 @@
   "block.soviet.quadtile.tile_quad_5_br": "Splintered Square Tile",
   "info.quadtile_5_br": "§bBlue",
   "block.soviet.quadtile.tile_quad_5_brf": "Splintered Square Tile",
-  "info.quadtile_5_brf": "White and §bBlue"
+  "info.quadtile_5_brf": "White and §bBlue",
+  "block.soviet.concrete.concrete_orange": "Concrete",
+  "info.concrete_orange": "§6Orange",
+  "block.soviet.concrete.concrete_orange_br": "Peeling Concrete",
+  "info.concrete_orange_br": "§6Orange",
+  "block.soviet.resttile.tile_rest_black": "Rectangle Tile",
+  "info.tile_rest_black": "§0Black",
+  "block.soviet.resttile.tile_rest_black_br": "Shot Rectangle Tile",
+  "info.tile_rest_black_br": "§0Black",
+  "block.soviet.resttile.tile_rest_brown_br": "Shot Rectangle Tile",
+  "info.tile_rest_brown_br": "Brown"
 }
