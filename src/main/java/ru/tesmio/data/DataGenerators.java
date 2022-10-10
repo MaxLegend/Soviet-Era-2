@@ -8,6 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 import ru.tesmio.Core;
 import ru.tesmio.data.providers.SovietBlockStateProvider;
 import ru.tesmio.data.providers.SovietItemModelProvider;
+import ru.tesmio.data.providers.SovietLootProvider;
 import ru.tesmio.data.providers.SovietRecipeProvider;
 
 @Mod.EventBusSubscriber(modid = Core.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -27,7 +28,7 @@ public class DataGenerators {
 //        gen.addProvider(blockTags);
 //        gen.addProvider(new SovietItemTagsProvider(gen, blockTags, existingFileHelper));
 
-       // gen.addProvider(new SovietLootTableProvider(gen));
+        gen.addProvider(new SovietLootProvider(gen));
         gen.addProvider(new SovietRecipeProvider(gen));
     }
 }
