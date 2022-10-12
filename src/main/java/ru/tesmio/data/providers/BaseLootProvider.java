@@ -52,14 +52,14 @@ public abstract class BaseLootProvider extends LootTableProvider {
     protected static LootTable.Builder standartItemBlockBuilder(String name, Item item) {
         LootPool.Builder builder = LootPool.builder().name(name)
                 .rolls(ConstantRange.of(1))
-                .addEntry(ItemLootEntry.builder(item).acceptFunction(SetContents.builderIn().addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("soviet", "contents")))));
+                .addEntry(ItemLootEntry.builder(item));
         return LootTable.builder().addLootPool(builder);
     }
     protected static LootTable.Builder standart2ItemBlockBuilder(String name, Item item1, Item item2) {
         LootPool.Builder builder = LootPool.builder().name(name)
                 .rolls(ConstantRange.of(1))
-                .addEntry(ItemLootEntry.builder(item1).acceptFunction(SetContents.builderIn().addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("soviet", "contents")))))
-                .rolls(ConstantRange.of(3)).addEntry(ItemLootEntry.builder(item2).acceptFunction(SetContents.builderIn().addLootEntry(DynamicLootEntry.func_216162_a(new ResourceLocation("soviet", "contents")))));
+                .addEntry(ItemLootEntry.builder(item1))
+                .rolls(ConstantRange.of(3)).addEntry(ItemLootEntry.builder(item2));
 
         return LootTable.builder().addLootPool(builder);
     }

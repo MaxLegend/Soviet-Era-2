@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "horiztile/horiz_tile_dark_blue_br",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soviet:armatures"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soviet:rest_tile"
+        }
+      ]
+    }
+  ]
+}

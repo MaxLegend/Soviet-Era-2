@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "resttile/tile_rest_blue_br",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soviet:armatures"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soviet:rest_tile"
+        }
+      ]
+    }
+  ]
+}

@@ -77,6 +77,9 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.CERAMIC_DUST.get()), RegItems.SILICON_INGOT.get(), 0.7f, 100)
                 .addCriterion("has_item", hasItem(RegItems.CERAMIC_DUST.get()))
                 .build(consumer, modId("silicon_ingot"));
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.ARMATURES.get()), Items.IRON_INGOT, 0.4f, 600)
+                .addCriterion("has_item", hasItem(RegItems.ARMATURES.get()))
+                .build(consumer, modId("iron_ingot"));
     }
 
     protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {

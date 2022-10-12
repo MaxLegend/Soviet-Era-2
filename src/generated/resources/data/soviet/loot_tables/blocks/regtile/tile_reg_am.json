@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "regtile/tile_reg_am",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soviet:armatures"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soviet:big_tile"
+        }
+      ]
+    }
+  ]
+}

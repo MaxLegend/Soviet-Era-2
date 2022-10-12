@@ -7,32 +7,10 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_contents",
-              "entries": [
-                {
-                  "type": "minecraft:dynamic",
-                  "name": "soviet:contents"
-                }
-              ]
-            }
-          ],
           "name": "soviet:armatures"
         },
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "function": "minecraft:set_contents",
-              "entries": [
-                {
-                  "type": "minecraft:dynamic",
-                  "name": "soviet:contents"
-                }
-              ]
-            }
-          ],
           "name": "soviet:quad_tile"
         }
       ]
