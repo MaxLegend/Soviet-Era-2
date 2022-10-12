@@ -20,6 +20,7 @@ public class SovietItemModelProvider extends ItemModelProvider {
 
 
         builderItem(itemGenerated, "big_tile");
+        builderItem(itemGenerated, "armatures");
 
         //rest tiles
         builderItemBlock( "resttile/tile_rest_blue");
@@ -52,7 +53,12 @@ public class SovietItemModelProvider extends ItemModelProvider {
         builderItemBlock("smalltile/small_tile_yellow_br");
 
         //reg tiles
-        builderItemBlock("regtile/brown_tilled_block");
+        builderItemBlock("regtile/tile_reg_brown");
+        builderItemBlock("regtile/tile_reg_brown_br");
+        builderItemBlock("regtile/tile_reg_lil");
+        builderItemBlock("regtile/tile_reg_lil_br");
+        builderItemBlock("regtile/tile_reg_am");
+        builderItemBlock("regtile/tile_reg_am_br");
 
         //concrete
         builderItemBlock("concrete/concrete_orange");

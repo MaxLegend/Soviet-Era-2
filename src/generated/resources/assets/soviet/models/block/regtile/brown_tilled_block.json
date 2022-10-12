@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "soviet:block/regtile/brown_tilled_block"
-  }
-}

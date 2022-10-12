@@ -51,7 +51,12 @@ public class SovietBlockStateProvider extends BlockStateProvider {
         variantBuilder(RegBlocks.SMALL_TILE_YELLOW_BR.get(), "smalltile/small_tile_yellow_br");
 
         //reg tiles
-        variantBuilder(RegBlocks.REGULAR_BROWN_TILE.get(), "regtile/brown_tilled_block");
+        variantBuilder(RegBlocks.REGULAR_BROWN_TILE.get(), "regtile/tile_reg_brown");
+        variantBuilder(RegBlocks.REGULAR_BROWN_TILE_BR.get(), "regtile/tile_reg_brown_br");
+        variantBuilder(RegBlocks.REGULAR_AM_TILE.get(), "regtile/tile_reg_am");
+        variantBuilder(RegBlocks.REGULAR_AM_TILE_BR.get(), "regtile/tile_reg_am_br");
+        variantBuilder(RegBlocks.REGULAR_LIL_TILE.get(), "regtile/tile_reg_lil");
+        variantBuilder(RegBlocks.REGULAR_LIL_TILE_BR.get(), "regtile/tile_reg_lil_br");
 
         //bricks
         variantBuilder(RegBlocks.SOVIET_BRICKS_WITH_WHITE.get(), "brick/soviet_bricks_with_white");

@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "soviet:block/brick/tile_quad_1"
-    }
-}
