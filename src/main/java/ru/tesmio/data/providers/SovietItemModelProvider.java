@@ -1,11 +1,15 @@
 package ru.tesmio.data.providers;
 
+import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.RegistryObject;
 import ru.tesmio.Core;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 
 public class SovietItemModelProvider extends ItemModelProvider {
@@ -15,69 +19,20 @@ public class SovietItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
-       ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
-
-
-        builderItem(itemGenerated, "big_tile");
-        builderItem(itemGenerated, "armatures");
-
-        //rest tiles
-        builderItemBlock( "resttile/tile_rest_blue");
-        builderItemBlock( "resttile/tile_rest_blue_br");
-        builderItemBlock("resttile/tile_rest_brown");
-        builderItemBlock("resttile/tile_rest_brown_br");
-        builderItemBlock( "resttile/tile_rest_white");
-        builderItemBlock("resttile/tile_rest_white_br");
-        builderItemBlock("resttile/tile_rest_black");
-        builderItemBlock("resttile/tile_rest_black_br");
-        builderItemBlock("resttile/tile_rest_dark_blue");
-        builderItemBlock("resttile/tile_rest_dark_blue_br");
-
-        //horiz tiles
-        builderItemBlock( "horiztile/horiz_tile_blue");
-        builderItemBlock("horiztile/horiz_tile_blue_br");
-        builderItemBlock( "horiztile/horiz_tile_white");
-        builderItemBlock("horiztile/horiz_tile_white_br");
-        builderItemBlock("horiztile/horiz_tile_dark_blue");
-        builderItemBlock("horiztile/horiz_tile_dark_blue_br");
-
-        //small tiles
-        builderItemBlock("smalltile/small_tile_blue");
-        builderItemBlock("smalltile/small_tile_blue_br");
-        builderItemBlock("smalltile/small_tile_white");
-        builderItemBlock("smalltile/small_tile_white_br");
-        builderItemBlock("smalltile/small_tile_red");
-        builderItemBlock("smalltile/small_tile_red_br");
-        builderItemBlock("smalltile/small_tile_yellow");
-        builderItemBlock("smalltile/small_tile_yellow_br");
-
-        //reg tiles
-        builderItemBlock("regtile/tile_reg_brown");
-        builderItemBlock("regtile/tile_reg_brown_br");
-        builderItemBlock("regtile/tile_reg_lil");
-        builderItemBlock("regtile/tile_reg_lil_br");
-        builderItemBlock("regtile/tile_reg_am");
-        builderItemBlock("regtile/tile_reg_am_br");
-
-        //concrete
-        builderItemBlock("concrete/concrete_orange");
-        builderItemBlock( "concrete/concrete_orange_br");
-        builderItemBlock("concrete/beton_panel_ang_lu");
-
-        //bricks
-        builderItemBlock("brick/soviet_bricks_with_white");
-        builderItemBlock("brick/light_bricks2");
-        builderItemBlock("brick/light_bricks");
-
-
+        ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
+        builderItem(itemGenerated);
+        builderItemBlock();
     }
 
-    private ItemModelBuilder builderItem(ModelFile itemGenerated, String name) {
-        return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    private void builderItem(ModelFile itemGenerated) {
+        for(RegistryObject<Item> item : RegItems.ITEMS.getEntries()) {
+            getBuilder(item.get().getRegistryName().toString().substring(7)).parent(itemGenerated).texture("layer0", "item/" + item.get().getRegistryName().toString().substring(7));
+        }
     }
-    private ItemModelBuilder builderItemBlock(String name) {
-        return getBuilder("item/" + name).parent(getExistingFile(modLoc("block/" + name)));
+    private void builderItemBlock() {
+        for(RegistryObject<Block> b2 : RegBlocks.BLOCKS.getEntries()) {
+            getBuilder("item/" + b2.get().getRegistryName().toString().substring(7)).parent(getExistingFile(modLoc("block/" + b2.get().getRegistryName().toString().substring(7))));
+        }
     }
 
 }

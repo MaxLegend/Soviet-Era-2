@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "soviet:block/concrete/concrete_yellow_br"
+  }
+}
