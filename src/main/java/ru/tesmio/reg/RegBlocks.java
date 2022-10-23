@@ -2,25 +2,33 @@ package ru.tesmio.reg;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.Core;
 import ru.tesmio.blocks.BlockInfo;
+import ru.tesmio.blocks.BlockRotatedAxisCustomModel;
+import ru.tesmio.blocks.const_panel.PanelBlockCorner;
+import ru.tesmio.blocks.const_panel.PanelBlockSide;
+import ru.tesmio.blocks.crusher.BlockCrusher;
 
 import java.util.function.Supplier;
 
 public class RegBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
+    public static final DeferredRegister<Block> NOT_DEFAULT_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
+    public static final DeferredRegister<Block> BLOCKS_CUSTOM_MODELS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
     public static final DeferredRegister<Item> ITEM_BLOCKS = DeferredRegister.create(ForgeRegistries.ITEMS, Core.MODID);
 
 
-    public static RegistryObject<Block> CONCRETE_ORANGE,CONCRETE_ORANGE_BR,CONCRETE_BLUE,CONCRETE_RED,CONCRETE_GREEN,CONCRETE_GRAY,CONCRETE_BEIGE,CONCRETE_BEIGE2,CONCRETE_YELLOW,CONCRETE_WHITE,CONCRETE_BLUE_BR,CONCRETE_RED_BR,CONCRETE_GREEN_BR,CONCRETE_GRAY_BR,CONCRETE_BEIGE_BR,CONCRETE_BEIGE2_BR,CONCRETE_YELLOW_BR,CONCRETE_WHITE_BR, CONCRETE_CORNER_PANEL;
+    public static RegistryObject<Block> CONCRETE_ORANGE,CONCRETE_ORANGE_BR,CONCRETE_BLUE,CONCRETE_RED,CONCRETE_GREEN,CONCRETE_GRAY,CONCRETE_BEIGE,CONCRETE_BEIGE2,CONCRETE_YELLOW,CONCRETE_WHITE,CONCRETE_BLUE_BR,CONCRETE_RED_BR,CONCRETE_GREEN_BR,CONCRETE_GRAY_BR,CONCRETE_BEIGE_BR,CONCRETE_BEIGE2_BR,CONCRETE_YELLOW_BR,CONCRETE_WHITE_BR;
     public static RegistryObject<Block> TILE_QUAD_WHITE,TILE_QUAD_GRAY, TILE_QUAD_BLUE, TILE_QUAD_CONCRETE, TILE_QUAD_WHITE_BR, TILE_QUAD_BLUE_BR;
     public static RegistryObject<Block>  TILE_QUAD_3, TILE_QUAD_3_BR, TILE_QUAD_4, TILE_QUAD_5,TILE_QUAD_5_BR,TILE_QUAD_5_BRf;
     public static RegistryObject<Block> REGULAR_BROWN_TILE, REGULAR_BROWN_TILE_BR, REGULAR_AM_TILE, REGULAR_AM_TILE_BR, REGULAR_LIL_TILE, REGULAR_LIL_TILE_BR;
@@ -30,10 +38,64 @@ public class RegBlocks {
     public static RegistryObject<Block> HORIZ_TILE_BLUE, HORIZ_TILE_BLUE_BR, HORIZ_TILE_WHITE, HORIZ_TILE_WHITE_BR, HORIZ_TILE_DARK_BLUE, HORIZ_TILE_DARK_BLUE_BR;
     public static RegistryObject<Block> SMALL_TILE_BLUE, SMALL_TILE_BLUE_BR, SMALL_TILE_WHITE, SMALL_TILE_WHITE_BR, SMALL_TILE_RED, SMALL_TILE_RED_BR, SMALL_TILE_YELLOW, SMALL_TILE_YELLOW_BR;
     public static RegistryObject<Block> TILE_QUAD_1, TILE_QUAD_1_BR, TILE_QUAD_2, TILE_QUAD_2_BR;
+    public static RegistryObject<Block> TILE_MOSAIC_1, TILE_MOSAIC_2;
+    public static RegistryObject<Block> LINO_1, LINO_2, LINO_3, LINO_4, LINO_5, LINO_6, LINO_7, LINO_8;
     public static RegistryObject<Block> SMALL_BRICKS, YELLOW_BRICKS_3_BR, YELLOW_BRICKS_3, YELLOW_BRICKS_2_BR, YELLOW_BRICKS_2,YELLOW_BRICKS_1_BR, YELLOW_BRICKS_1, WHITE_BRICKS_BR, WHITE_BRICKS,RED_BRICKS_BR, RED_BRICKS, BRICKS_WITH_WHITE, BRICKS, BRICKS_BR, WALL_BRICKS,WALL_BRICKS_BR, LIGHT_BRICKS, LIGHT_BRICKS_BR, SHORT_BRICKS;
+    public static RegistryObject<Block> IRON_BEAM_THIN, IRON_BEAM_CONCRETE, IRON_BEAM;
+    public static RegistryObject<Block> PANEL_CONCRETE_CORNER, PANEL_CONCRETE_SIDE, PANEL_CONCRETE, PANEL_TILE_CORNER, PANEL_TILE_SIDE, PANEL_TILE, PANEL_CONCRETE_YELLOW_CORNER, PANEL_CONCRETE_YELLOW_SIDE, PANEL_CONCRETE_YELLOW;
+    public static RegistryObject<Block> CONCRETE_RAILING_GRAY, CONCRETE_RAILING_WHITE, CONCRETE_RAILING_RED, CONCRETE_RAILING_BEIGE, CONCRETE_RAILING_BEIGE2, CONCRETE_RAILING_YELLOW, CONCRETE_RAILING_BLUE, CONCRETE_RAILING_GREEN, CONCRETE_RAILING_ORANGE;
+    public static RegistryObject<Block> CERAMIC_GLASS_BLUE, CERAMIC_GLASS_GREEN, CERAMIC_GLASS_BROWN;
+    public static RegistryObject<Block> CRUSHER;
+    public static RegistryObject<Block> TRIM_TILE_1,TRIM_TILE_1_BR, TRIM_STONE_1, TRIM_STONE_2, TRIM_STONE_3, TRIM_STONE_4, PARQUET_BLOCK, TRIM_TILE_RED, TRIM_TILE_BLUE, CONCRETE_PLATE, CONTAINMENT_BLOCK, TRIM_METAL_1, TRIM_METAL_2, LEADCERAMIC_TILE;
     public static void init() {
-        //concrete
+        CRUSHER = registerBlockWithModel("mech/crusher", () -> new BlockCrusher(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()));
 
+        //trim_stone
+        TRIM_TILE_1 = registerBlock("structural/trim_tile_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_TILE_1_BR = registerBlock("structural/trim_tile_1_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_STONE_1 = registerBlock("structural/trim_stone_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_STONE_2 = registerBlock("structural/trim_stone_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_STONE_3 = registerBlock("structural/trim_stone_3", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_STONE_4 = registerBlock("structural/trim_stone_4", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        PARQUET_BLOCK = registerBlock("structural/parquet_block", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_TILE_RED = registerBlock("structural/trim_tile_red", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_TILE_BLUE = registerBlock("structural/trim_tile_blue", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        CONCRETE_PLATE = registerBlock("structural/concrete_plate", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        CONTAINMENT_BLOCK = registerBlock("structural/containment_block", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_METAL_1 = registerBlock("structural/trim_metal_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TRIM_METAL_2 = registerBlock("structural/trim_metal_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        LEADCERAMIC_TILE = registerBlock("structural/leadceramic_tile", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+
+        //ceramic_glass
+        CERAMIC_GLASS_BLUE = registerBlock("structural/ceramic_glass_blue", () -> new Block(AbstractBlock.Properties.create(Material.GLASS).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).notSolid()));
+        CERAMIC_GLASS_GREEN = registerBlock("structural/ceramic_glass_green", () -> new Block(AbstractBlock.Properties.create(Material.GLASS).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).notSolid()));
+        CERAMIC_GLASS_BROWN = registerBlock("structural/ceramic_glass_brown", () -> new Block(AbstractBlock.Properties.create(Material.GLASS).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).notSolid()));
+
+        //linos
+        LINO_1 = registerBlock("lino/lino1", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_2 = registerBlock("lino/lino2", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_3 = registerBlock("lino/lino3", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_4 = registerBlock("lino/lino4", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_5 = registerBlock("lino/lino5", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_6 = registerBlock("lino/lino6", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_7 = registerBlock("lino/lino7", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        LINO_8 = registerBlock("lino/lino8", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)));
+        //concrete_railing
+        CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_WHITE = registerBlockWithModel("structural/concrete_railing_white", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_GRAY = registerBlockWithModel("structural/concrete_railing_gray", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_GREEN = registerBlockWithModel("structural/concrete_railing_green", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_RED = registerBlockWithModel("structural/concrete_railing_red", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_BLUE = registerBlockWithModel("structural/concrete_railing_blue", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_BEIGE = registerBlockWithModel("structural/concrete_railing_beige", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_BEIGE2 = registerBlockWithModel("structural/concrete_railing_beige2", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+        CONCRETE_RAILING_YELLOW = registerBlockWithModel("structural/concrete_railing_yellow", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()));
+
+        //beams
+        IRON_BEAM_CONCRETE = registerBlockWithModel("structural/iron_beam_concrete", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()));
+        IRON_BEAM = registerBlockWithModel("structural/iron_beam", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()));
+        IRON_BEAM_THIN = registerBlockWithModel("structural/iron_beam_thin", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()));
+        //concrete
         CONCRETE_ORANGE = registerBlock("concrete/concrete_orange", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.concrete_orange"));
         CONCRETE_BLUE = registerBlock("concrete/concrete_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.concrete_blue"));
         CONCRETE_RED = registerBlock("concrete/concrete_red", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.concrete_red"));
@@ -52,7 +114,17 @@ public class RegBlocks {
         CONCRETE_GREEN_BR = registerBlock("concrete/concrete_green_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.concrete_green_br"));
         CONCRETE_GRAY_BR = registerBlock("concrete/concrete_gray_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.concrete_gray_br"));
         CONCRETE_BEIGE2_BR = registerBlock("concrete/concrete_beige2_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.concrete_beige2_br"));
-        CONCRETE_CORNER_PANEL = registerBlock("concrete/beton_panel_ang_lu", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.beton_panel_ang_lu"));
+
+        //panels
+        PANEL_CONCRETE_CORNER = registerNDBlock("structural/panel_concrete_corner", () -> new PanelBlockCorner(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_CONCRETE_SIDE = registerNDBlock("structural/panel_concrete_side", () -> new PanelBlockSide(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_CONCRETE = registerBlock("structural/panel_concrete", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_CONCRETE_YELLOW_CORNER = registerNDBlock("structural/panel_concrete_yellow_corner", () -> new PanelBlockCorner(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_CONCRETE_YELLOW_SIDE = registerNDBlock("structural/panel_concrete_yellow_side", () -> new PanelBlockSide(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_CONCRETE_YELLOW = registerBlock("structural/panel_concrete_yellow", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_TILE_CORNER = registerNDBlock("structural/panel_tile_corner", () -> new PanelBlockCorner(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_TILE_SIDE = registerNDBlock("structural/panel_tile_side", () -> new PanelBlockSide(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
+        PANEL_TILE = registerBlock("structural/panel_tile", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)));
 
         //horizontal_tiles
         HORIZ_TILE_BLUE = registerBlock("horiztile/horiz_tile_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_blue"));
@@ -71,6 +143,10 @@ public class RegBlocks {
         SMALL_TILE_RED_BR = registerBlock("smalltile/small_tile_red_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_red_br"));
         SMALL_TILE_YELLOW = registerBlock("smalltile/small_tile_yellow", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_yellow"));
         SMALL_TILE_YELLOW_BR = registerBlock("smalltile/small_tile_yellow_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_yellow_br"));
+
+        //mosaic_tile
+        TILE_MOSAIC_1 = registerBlock("mosaictile/tile_mosaic_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
+        TILE_MOSAIC_2 = registerBlock("mosaictile/tile_mosaic_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)));
 
         //quad_tiles
         TILE_QUAD_GRAY = registerBlock("quadtile/tile_quad_gray", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_gray"));
@@ -134,11 +210,24 @@ public class RegBlocks {
     }
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
+
+        BLOCKS_CUSTOM_MODELS.register(eventBus);
+        NOT_DEFAULT_BLOCKS.register(eventBus);
         ITEM_BLOCKS.register(eventBus);
         init();
     }
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+    private static <T extends Block> RegistryObject<T> registerNDBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = NOT_DEFAULT_BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+    private static <T extends Block> RegistryObject<T> registerBlockWithModel(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS_CUSTOM_MODELS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }

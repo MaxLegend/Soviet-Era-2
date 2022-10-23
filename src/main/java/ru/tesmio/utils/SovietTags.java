@@ -25,14 +25,19 @@ public class SovietTags {
 
     public static class Items {
 
-        public static final Tags.IOptionalNamedTag<Item> SILICON_INGOT = createForgeTag("ingots/silicon");
-
+        public static final Tags.IOptionalNamedTag<Item> SILICON_INGOT = createForgeTag("ingots/silicon_ingot");
+        public static final Tags.IOptionalNamedTag<Item> LEAD_INGOT = createForgeTag("ingots/lead_ingot");
+        public static final Tags.IOptionalNamedTag<Item> LEAD_NUGGET = createForgeTag("nuggets/lead_nugget");
         private static Tags.IOptionalNamedTag<Item> createTag(String name) {
             return ItemTags.createOptional(new ResourceLocation(Core.MODID, name));
         }
 
         private static Tags.IOptionalNamedTag<Item> createForgeTag(String name) {
             return ItemTags.createOptional(new ResourceLocation("forge", name));
+        }
+
+        public static Item getItemFromTag(Tags.IOptionalNamedTag<Item> tag) {
+            return tag.getAllElements().get(0);
         }
     }
 }

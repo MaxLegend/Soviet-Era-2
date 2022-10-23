@@ -2,13 +2,11 @@ package ru.tesmio.data.providers;
 
 import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.CookingRecipeBuilder;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.data.ShapedRecipeBuilder;
+import net.minecraft.data.*;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
 import ru.tesmio.Core;
 import ru.tesmio.reg.RegItems;
@@ -73,27 +71,33 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
                 .patternLine(" $ ")
                 .addCriterion("has_item",  hasItem(Items.IRON_INGOT))
                 .build(consumer, "mortar");
+        ShapedRecipeBuilder.shapedRecipe(RegItems.SIEVE.get())
+                .key('$', Tags.Items.NUGGETS_IRON)
+                .patternLine("   ")
+                .patternLine("$ $")
+                .patternLine(" $ ")
+                .addCriterion("has_item",  hasItem(Items.IRON_INGOT))
+                .build(consumer, "sieve");
 
+        ShapelessRecipeBuilder.shapelessRecipe(RegItems.SMALL_LEAD_DUST.get(), 1)
+                .addIngredient(RegItems.LEADCERAMIC_DUST.get())
+                .addIngredient(RegItems.SIEVE.get())
+                .addCriterion("has_item", hasItem(RegItems.SMALL_LEAD_DUST.get()))
+                .build(consumer);
+
+        ShapelessRecipeBuilder.shapelessRecipe(RegItems.LEAD_DUST.get(), 1)
+                .addIngredient(RegItems.SMALL_LEAD_DUST.get(), 4)
+                .addCriterion("has_item", hasItem(RegItems.LEAD_DUST.get()))
+                .build(consumer);
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.LEAD_DUST.get()), RegItems.LEAD_INGOT.get(), 0.7f, 100)
+                .addCriterion("has_item", hasItem(RegItems.LEAD_DUST.get()))
+                .build(consumer, modId("lead_ingot"));
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.CERAMIC_DUST.get()), RegItems.SILICON_INGOT.get(), 0.7f, 100)
                 .addCriterion("has_item", hasItem(RegItems.CERAMIC_DUST.get()))
                 .build(consumer, modId("silicon_ingot"));
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.ARMATURES.get()), Items.IRON_INGOT, 0.4f, 600)
                 .addCriterion("has_item", hasItem(RegItems.ARMATURES.get()))
                 .build(consumer, modId("iron_ingot"));
-    }
-
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> consumer) {
-
-
-
-
-
-//        CookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.SILVER_ORE.get()), ModItems.SILVER_INGOT.get(), 0.7f, 200)
-//                .unlockedBy("has_item", has(ModBlocks.SILVER_ORE.get()))
-//                .save(consumer, modId("silver_ingot_smelting"));
-//        CookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.SILVER_ORE.get()), ModItems.SILVER_INGOT.get(), 0.7f, 100)
-//                .unlockedBy("has_item", has(ModBlocks.SILVER_ORE.get()))
-//                .save(consumer, modId("silver_ingot_blasting"));
     }
 
     private static ResourceLocation modId(String path) {

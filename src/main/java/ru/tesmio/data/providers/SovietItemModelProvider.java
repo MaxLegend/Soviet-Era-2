@@ -33,6 +33,12 @@ public class SovietItemModelProvider extends ItemModelProvider {
         for(RegistryObject<Block> b2 : RegBlocks.BLOCKS.getEntries()) {
             getBuilder("item/" + b2.get().getRegistryName().toString().substring(7)).parent(getExistingFile(modLoc("block/" + b2.get().getRegistryName().toString().substring(7))));
         }
+        for(RegistryObject<Block> b2 : RegBlocks.BLOCKS_CUSTOM_MODELS.getEntries()) {
+            getBuilder("item/" + b2.get().getRegistryName().toString().substring(7)).parent(getExistingFile(modLoc("block/" + b2.get().getRegistryName().toString().substring(7))));
+        }
+        for(RegistryObject<Block> b2 : RegBlocks.NOT_DEFAULT_BLOCKS.getEntries()) {
+            getBuilder("item/" + b2.get().getRegistryName().toString().substring(7)).parent(getExistingFile(modLoc("block/" + b2.get().getRegistryName().toString().substring(7))));
+        }
     }
 
 }

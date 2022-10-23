@@ -49,9 +49,9 @@ public abstract class BaseLootProvider extends LootTableProvider {
                 );
         return LootTable.builder().addLootPool(builder);
     }
-    protected static LootTable.Builder standartItemBlockBuilder(String name, Item item) {
+    protected static LootTable.Builder standartItemBlockBuilder(String name, Item item, int count) {
         LootPool.Builder builder = LootPool.builder().name(name)
-                .rolls(ConstantRange.of(1))
+                .rolls(ConstantRange.of(count))
                 .addEntry(ItemLootEntry.builder(item));
         return LootTable.builder().addLootPool(builder);
     }

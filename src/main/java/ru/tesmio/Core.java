@@ -1,6 +1,9 @@
 package ru.tesmio;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,8 +17,12 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import ru.tesmio.blocks.crusher.CrusherScreen;
+import ru.tesmio.recipes.RecipeSerializerInit;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegContainers;
 import ru.tesmio.reg.RegItems;
+import ru.tesmio.reg.RegTileEntitys;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Core.MODID)
@@ -34,7 +41,10 @@ public class Core {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
         RegItems.register(eventBus);
+        RecipeSerializerInit.RECIPE_SERIALIZERS.register(eventBus);
         RegBlocks.register(eventBus);
+        RegContainers.CONTAINER_TYPES.register(eventBus);
+        RegTileEntitys.TILE_ENTITY_TYPES.register(eventBus);
 
     }
 
@@ -59,6 +69,15 @@ public class Core {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
 
+        event.enqueueWork(() -> {
+            ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
+            RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_THIN.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_CONCRETE.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_BLUE.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_GREEN.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_BROWN.get(), RenderType.getTranslucent());
+        });
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
