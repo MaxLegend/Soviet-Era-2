@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "facing=down": {
+       "model": "soviet:block/structural/panel_concrete_side"
+    },
+    "facing=up": {
+       "model": "soviet:block/structural/panel_concrete_side",
+   "x": 180
+    },
+    "facing=south": {
+       "model": "soviet:block/structural/panel_concrete_side",
+   	"x": 90
+    },
+    "facing=north": {
+       "model": "soviet:block/structural/panel_concrete_side",
+   	"x": 270
+    },
+    "facing=east": {
+       "model": "soviet:block/structural/panel_concrete_side",
+	"x": 270,
+           "y": 90
+    },
+    "facing=west": {
+       "model": "soviet:block/structural/panel_concrete_side",
+	"x": 90,
+           "y": 90
+    }
+  }
+}

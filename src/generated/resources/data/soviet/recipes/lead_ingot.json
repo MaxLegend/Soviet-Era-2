@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "soviet:lead_dust"
+  },
+  "result": "soviet:lead_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

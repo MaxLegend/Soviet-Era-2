@@ -1,0 +1,10 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:leadceramic_dust"
+	},
+	
+	"input": {
+		"item": "soviet:leadceramic_tile"
+	}
+}

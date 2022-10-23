@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "soviet:block/structural/containment_block"
+    }
+  }
+}

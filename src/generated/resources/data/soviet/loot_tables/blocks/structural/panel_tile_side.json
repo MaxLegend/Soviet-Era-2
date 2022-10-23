@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "name": "structural/panel_tile_side",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "soviet:armatures"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "soviet:small_tile"
+        }
+      ]
+    }
+  ]
+}

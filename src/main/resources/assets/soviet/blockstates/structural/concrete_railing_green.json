@@ -1,0 +1,39 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "soviet:block/structural/concrete_railing_green",
+      "x": 90,
+"y": 270
+    },
+    "facing=west": {
+      "model": "soviet:block/structural/concrete_railing_green",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+       "model": "soviet:block/structural/concrete_railing_green",
+	"x": 90,
+       "y": 180
+    },
+    "facing=south": {
+       "model": "soviet:block/structural/concrete_railing_green",
+	"x": 90
+    },
+    "facing=down_x": {
+       "model": "soviet:block/structural/concrete_railing_green",
+       "y": 90
+    },    
+    "facing=down_z": {
+       "model": "soviet:block/structural/concrete_railing_green"
+    },
+    "facing=up_x": {
+       "model": "soviet:block/structural/concrete_railing_green",
+   "x": 180,
+	"y": 90
+    },    
+    "facing=up_z": {
+       "model": "soviet:block/structural/concrete_railing_green",
+   "x": 180
+    }
+  }
+}

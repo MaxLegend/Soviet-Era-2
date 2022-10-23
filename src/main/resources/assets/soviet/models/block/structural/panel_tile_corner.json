@@ -1,0 +1,24 @@
+{
+	"parent": "block/cube_all",
+	"credit": "Made special for SovietLab",
+	"textures": {
+		"0": "soviet:block/structural/panel_tile_corner",
+		"1": "soviet:block/structural/panel_concrete_both",
+		"2": "soviet:block/structural/panel_tile_side",
+		"particle": "soviet:block/structural/panel_tile_corner"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#1"}
+			}
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "soviet:small_lead_dust"
+    },
+    {
+      "item": "soviet:small_lead_dust"
+    },
+    {
+      "item": "soviet:small_lead_dust"
+    },
+    {
+      "item": "soviet:small_lead_dust"
+    }
+  ],
+  "result": {
+    "item": "soviet:lead_dust"
+  }
+}

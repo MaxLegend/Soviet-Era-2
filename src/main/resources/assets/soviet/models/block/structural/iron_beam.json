@@ -1,0 +1,48 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"particle": "soviet:block/structural/containment_block",
+		"texture": "soviet:block/structural/containment_block"
+	},
+	"elements": [
+		{
+			"__comment": "Cube10",
+			"from": [ 5, 4.5, 0 ],
+			"to": [ 11, 11.5, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 5, 16, 11 ], "texture": "#texture", "rotation": 270 },
+				"up": { "uv": [ 0, 5, 16, 11 ], "texture": "#texture", "rotation": 90 },
+				"north": { "uv": [ 5, 4.5, 11, 11.5 ], "texture": "#texture" },
+				"south": { "uv": [ 5, 4.5, 11, 11.5 ], "texture": "#texture" },
+				"west": { "uv": [ 0, 4.5, 16, 11.5 ], "texture": "#texture" },
+				"east": { "uv": [ 0, 4.5, 16, 11.5 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "Cube10",
+			"from": [ 0, 0, 0 ],
+			"to": [ 16, 4.5, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture", "rotation": 270 },
+				"up": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture", "rotation": 90 },
+				"north": { "uv": [ 1, 10.5, 15, 15 ], "texture": "#texture" },
+				"south": { "uv": [ 1, 10.5, 15, 15 ], "texture": "#texture" },
+				"west": { "uv": [ 1, 10.5, 15, 15 ], "texture": "#texture" },
+				"east": { "uv": [ 1, 10.5, 15, 15 ], "texture": "#texture" }
+			}
+		},
+		{
+			"__comment": "Cube10",
+			"from": [ 0, 11.5, 0 ],
+			"to": [ 16, 16, 16 ],
+			"faces": {
+				"down": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture", "rotation": 270 },
+				"up": { "uv": [ 0, 0, 16, 16 ], "texture": "#texture", "rotation": 90 },
+				"north": { "uv": [ 1, 1, 15, 6 ], "texture": "#texture" },
+				"south": { "uv": [ 1, 1, 15, 6 ], "texture": "#texture" },
+				"west": { "uv": [ 1, 1, 15, 6 ], "texture": "#texture" },
+				"east": { "uv": [ 1, 1, 15, 5.5 ], "texture": "#texture" }
+			}
+		}
+	]
+}

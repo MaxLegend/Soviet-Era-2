@@ -1,0 +1,38 @@
+{
+  "variants": {
+    "facing=north,half=lower": {
+       "model": "soviet:block/structural/panel_tile_corner",
+           "y": 180
+    },
+    "facing=north,half=upper": {
+       "model": "soviet:block/structural/panel_tile_corner",
+           "x": 90,
+           "y": 180
+    },
+    "facing=south,half=lower": {
+       "model": "soviet:block/structural/panel_tile_corner"
+    },
+    "facing=south,half=upper": {
+       "model": "soviet:block/structural/panel_tile_corner",
+           "x": 90
+    },
+    "facing=west,half=lower": {
+       "model": "soviet:block/structural/panel_tile_corner",
+           "y": 90
+    },
+    "facing=west,half=upper": {
+       "model": "soviet:block/structural/panel_tile_corner",
+  "x": 90,
+           "y": 90
+    },
+    "facing=east,half=lower": {
+       "model": "soviet:block/structural/panel_tile_corner",
+           "y": 270
+    },
+    "facing=east,half=upper": {
+       "model": "soviet:block/structural/panel_tile_corner",
+  "x": 90,
+           "y": 270
+    }
+  }
+}
