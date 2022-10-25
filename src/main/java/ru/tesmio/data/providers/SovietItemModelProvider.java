@@ -20,13 +20,14 @@ public class SovietItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         ModelFile itemGenerated = getExistingFile(mcLoc("item/generated"));
+
         builderItem(itemGenerated);
         builderItemBlock();
     }
 
     private void builderItem(ModelFile itemGenerated) {
         for(RegistryObject<Item> item : RegItems.ITEMS.getEntries()) {
-            getBuilder(item.get().getRegistryName().toString().substring(7)).parent(itemGenerated).texture("layer0", "item/" + item.get().getRegistryName().toString().substring(7));
+            getBuilder("item/" + item.get().getRegistryName().toString().substring(7)).parent(itemGenerated).texture("layer0", "item/" + item.get().getRegistryName().toString().substring(7));
         }
     }
     private void builderItemBlock() {

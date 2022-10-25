@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=down_x": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 0, "y": 180},
+        "facing=down_z": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 0, "y": 90 },
+        "facing=up_x": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 180, "y": 0  },
+        "facing=up_z": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 180, "y": 90 },
+        "facing=west": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 90, "y": 90 },
+        "facing=east": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 90, "y": 270 },
+        "facing=north": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 90, "y": 180 },
+        "facing=south": { "model": "soviet:block/innerdeco/tubing_horizontal", "x": 90 }
+    }
+}

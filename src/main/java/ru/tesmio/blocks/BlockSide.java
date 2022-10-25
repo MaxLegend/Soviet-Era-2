@@ -10,10 +10,10 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 
-public class BlockSide extends BlockInfo {
+public class BlockSide extends Block {
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
-    public BlockSide(Properties properties, String info) {
-        super(properties, info);
+    public BlockSide(Properties properties) {
+        super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {

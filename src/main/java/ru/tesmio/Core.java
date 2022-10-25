@@ -62,16 +62,24 @@ public class Core {
                 return new ItemStack(RegItems.ARMATURE.get());
             }
         };
+        public static final ItemGroup TAB_INNER_DECO = new ItemGroup("soviet_inner_deco") {
+            @Override
+            public ItemStack createIcon() {
+                return new ItemStack(RegBlocks.CRUSHER.get());
+            }
+        };
+
     }
     private void setup(final FMLCommonSetupEvent event) {
 
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-
         event.enqueueWork(() -> {
             ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_THIN.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT_EMPTY.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_CONCRETE.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_BLUE.get(), RenderType.getTranslucent());

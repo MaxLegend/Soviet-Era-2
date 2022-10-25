@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=west":  { "model": "soviet:block/innerdeco/accelerator/accl_rings", "y": 270},
+        "facing=east":  { "model": "soviet:block/innerdeco/accelerator/accl_rings", "y": 90},
+        "facing=north": { "model": "soviet:block/innerdeco/accelerator/accl_rings", "y": 0 },
+        "facing=south": { "model": "soviet:block/innerdeco/accelerator/accl_rings", "y": 180 }
+ }
+}
