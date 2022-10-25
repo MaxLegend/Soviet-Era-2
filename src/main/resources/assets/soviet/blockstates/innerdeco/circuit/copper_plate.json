@@ -5,7 +5,6 @@
 "diss=2": { "model": "soviet:block/innerdeco/circuit/copper_plate_2"},
 "diss=3": { "model": "soviet:block/innerdeco/circuit/copper_plate_3"},
 "diss=4": { "model": "soviet:block/innerdeco/circuit/copper_plate_4"},
-"diss=5": { "model": "soviet:block/innerdeco/circuit/copper_plate_5"},
-"diss=6": { "model": "soviet:block/innerdeco/circuit/copper_plate_empty"}
+"diss=5": { "model": "soviet:block/innerdeco/circuit/copper_plate_5"}
     }
 }

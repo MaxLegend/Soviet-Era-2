@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "diss=0": { "model": "soviet:block/innerdeco/circuit/gold_plate_0"},
+"diss=1": { "model": "soviet:block/innerdeco/circuit/gold_plate_1"},
+"diss=2": { "model": "soviet:block/innerdeco/circuit/gold_plate_2"},
+"diss=3": { "model": "soviet:block/innerdeco/circuit/gold_plate_3"},
+"diss=4": { "model": "soviet:block/innerdeco/circuit/gold_plate_4"},
+"diss=5": { "model": "soviet:block/innerdeco/circuit/gold_plate_5"},
+"diss=6": { "model": "soviet:block/innerdeco/circuit/gold_plate_6"},
+"diss=7": { "model": "soviet:block/innerdeco/circuit/gold_plate_7"},
+"diss=8": { "model": "soviet:block/innerdeco/circuit/gold_plate_8"}
+    }
+}

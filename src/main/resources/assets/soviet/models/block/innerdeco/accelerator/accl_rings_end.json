@@ -2,14 +2,14 @@
     "parent": "block/cube_all",
 	"credit": "Made special for SovietLab",
 	"textures": {
-		"0": "soviet:blocks/rusty_copper",
-		"1": "soviet:blocks/aluminum",
-		"2": "soviet:blocks/gofro_gold",
-		"3": "soviet:blocks/gold",
-		"4": "soviet:blocks/rusty_ralling",
-		"5": "soviet:blocks/soviet_plastic",
-		"6": "soviet:blocks/lead",
-		"particle": "soviet:blocks/rusty_copper"
+		"0": "soviet:block/structural/rusty_copper",
+		"1": "soviet:block/structural/aluminum",
+		"2": "soviet:block/structural/trim_metal_1",
+		"3": "soviet:block/structural/gold",
+		"4": "soviet:block/structural/rusty_ralling",
+		"5": "soviet:block/structural/soviet_plastic",
+		"6": "soviet:block/structural/lead",
+		"particle": "soviet:block/structural/rusty_copper"
 	},
 	"elements": [
 		{
