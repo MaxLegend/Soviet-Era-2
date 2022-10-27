@@ -3,8 +3,10 @@
 	"output": {
 		"item": "soviet:leadceramic_dust"
 	},
-	
+	"countOutput": 2,
 	"input": {
 		"item": "soviet:leadceramic_tile"
-	}
+	},
+	"countInput": 6
+
 }

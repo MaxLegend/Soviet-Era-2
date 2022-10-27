@@ -9,25 +9,29 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.Core;
-import ru.tesmio.blocks.crusher.CrusherRecipe;
-import ru.tesmio.blocks.crusher.CrusherRecipeSerializer;
+import ru.tesmio.blocks.affinage_factory.recipe.AffinageRecipe;
+import ru.tesmio.blocks.crusher.recipe.CrusherRecipe;
 
 public class RecipeSerializerInit {
-        public static final IRecipeSerializer<CrusherRecipe> CRUSHER_RECIPE_SERIALIZER = new CrusherRecipeSerializer();
-        public static final IRecipeType<ICrusherRecipe> CRUSHER_TYPE = registerType(ICrusherRecipe.RECIPE_TYPE_ID);
+    static ResourceLocation CRUSHER_TYPE_ID = new ResourceLocation(Core.MODID, "crusher");
+    static ResourceLocation AFFINAGE_TYPE_ID = new ResourceLocation(Core.MODID, "affinage");
+    public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Core.MODID);
+    public static final IRecipeType<IOneByOneRecipe> CRUSHER_TYPE = registerType(CRUSHER_TYPE_ID);
+    public static final IRecipeType<IOneByOneRecipe> AFFINAGE_TYPE = registerType(AFFINAGE_TYPE_ID);
+    public static final RegistryObject<IRecipeSerializer<?>> CRUSHER_SERIALIZER = RECIPE_SERIALIZERS.register("crusher", () -> new OneByOneRecipeSerializer<>(1,1, CrusherRecipe::new));
+    public static final RegistryObject<IRecipeSerializer<?>> AFFINAGE_SERIALIZER = RECIPE_SERIALIZERS.register("affinage", () -> new OneByOneRecipeSerializer<>(1, 1, AffinageRecipe::new));
 
-        public static final DeferredRegister<IRecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Core.MODID);
-
-        public static final RegistryObject<IRecipeSerializer<?>> CRUSHER_SERIALIZER = RECIPE_SERIALIZERS.register("crusher", () -> CRUSHER_RECIPE_SERIALIZER);
-
-private static class RecipeType<T extends IRecipe<?>> implements IRecipeType<T> {
-    @Override
-    public String toString() {
-        return Registry.RECIPE_TYPE.getKey(this).toString();
+    private static class RecipeType<T extends IRecipe<?>> implements IRecipeType<T> {
+        @Override
+        public String toString() {
+            return Registry.RECIPE_TYPE.getKey(this).toString();
+        }
     }
-}
 
     private static <T extends IRecipeType> T registerType(ResourceLocation recipeTypeId) {
         return (T) Registry.register(Registry.RECIPE_TYPE, recipeTypeId, new RecipeType<>());
     }
+
+
+
 }

@@ -17,6 +17,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import ru.tesmio.blocks.affinage_factory.AffinageScreen;
 import ru.tesmio.blocks.crusher.CrusherScreen;
 import ru.tesmio.recipes.RecipeSerializerInit;
 import ru.tesmio.reg.RegBlocks;
@@ -76,6 +77,7 @@ public class Core {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            ScreenManager.registerFactory(RegContainers.AFFINAGE_CONT.get(), AffinageScreen::new);
             ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_THIN.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT.get(), RenderType.getCutout());
