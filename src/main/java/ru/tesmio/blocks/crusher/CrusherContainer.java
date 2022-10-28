@@ -25,8 +25,7 @@ public class CrusherContainer extends Container {
     public FunctionalIntReferenceHolder currentSmeltTime;
 
     // Server Constructor
-    public CrusherContainer(final int windowID, final PlayerInventory playerInv,
-                                   final CrusherTileEntity tile) {
+    public CrusherContainer(final int windowID, final PlayerInventory playerInv, final CrusherTileEntity tile) {
         super(RegContainers.CRUSHER_CONT.get(), windowID);
 
         this.tileEntity = tile;

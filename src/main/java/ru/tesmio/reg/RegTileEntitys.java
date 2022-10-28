@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.Core;
 import ru.tesmio.blocks.affinage_factory.AffinageTileEntity;
 import ru.tesmio.blocks.crusher.CrusherTileEntity;
+import ru.tesmio.blocks.diesel_generator.TileDieselGenerator;
 
 public class RegTileEntitys {
     public static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Core.MODID);
@@ -16,4 +17,7 @@ public class RegTileEntitys {
     public static final RegistryObject<TileEntityType<AffinageTileEntity>> AFFINAGE_TE = TILE_ENTITY_TYPES
             .register("affinage", () -> TileEntityType.Builder
                     .create(AffinageTileEntity::new, RegBlocks.AFFINAGE_FACTORY.get()).build(null));
+    public static final RegistryObject<TileEntityType<TileDieselGenerator>> DIESEL_TE = TILE_ENTITY_TYPES
+            .register("diesel", () -> TileEntityType.Builder
+                    .create(TileDieselGenerator::new, RegBlocks.ENERGY_GENERATOR.get()).build(null));
 }
