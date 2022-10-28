@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "soviet:diamond_dust"
+  },
+  "result": "minecraft:diamond",
+  "experience": 0.4,
+  "cookingtime": 600
+}

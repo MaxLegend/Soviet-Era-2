@@ -1,0 +1,13 @@
+{
+	"type": "soviet:affinage",
+	"output": {
+		"item": "soviet:netherite_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:detail_scrap/dark_blue_micro_dust"
+	},
+	"countInput": 10,
+	"oneByOne": false
+
+}

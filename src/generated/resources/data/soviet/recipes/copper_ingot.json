@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "soviet:copper_dust"
+  },
+  "result": "soviet:copper_ingot",
+  "experience": 0.4,
+  "cookingtime": 600
+}

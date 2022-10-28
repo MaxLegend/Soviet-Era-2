@@ -1,0 +1,13 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:detail_scrap/diode_gray_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:circuits/diode_gray"
+	},
+	"countInput": 1, 
+	"oneByOne": true
+
+}

@@ -1,0 +1,12 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:detail_scrap/red_condenser_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:circuits/red_condenser"
+	},
+	"countInput": 1, 
+	"oneByOne": true
+}

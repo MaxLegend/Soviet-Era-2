@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "soviet:platinum_dust"
+  },
+  "result": "soviet:platinum_ingot",
+  "experience": 0.4,
+  "cookingtime": 600
+}

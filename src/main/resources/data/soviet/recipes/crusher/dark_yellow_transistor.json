@@ -1,0 +1,13 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:detail_scrap/dark_yellow_transistor_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:circuits/dark_yellow_transistor"
+	},
+	"countInput": 1, 
+	"oneByOne": true
+
+}

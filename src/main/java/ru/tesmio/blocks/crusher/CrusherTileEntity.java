@@ -33,7 +33,7 @@ import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
 import ru.tesmio.Core;
 import ru.tesmio.blocks.crusher.recipe.CrusherRecipe;
-import ru.tesmio.recipes.RecipeSerializerInit;
+import ru.tesmio.reg.RegRecipeSerializers;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nullable;
@@ -71,7 +71,9 @@ public class CrusherTileEntity extends TileEntity implements ITickableTileEntity
         if (this.world != null && !this.world.isRemote) {
             if (this.world.isBlockPowered(this.getPos())) {
                 if (this.getRecipe(this.inventory.getStackInSlot(0)) != null) {
+                    int count = this.getRecipe(this.inventory.getStackInSlot(0)).getCountInput();
                     if (this.currentSmeltTime != this.maxSmeltTime) {
+
                         this.world.setBlockState(this.getPos(),
                                 this.getBlockState().with(BlockCrusher.LIT, true));
                         this.currentSmeltTime++;
@@ -81,8 +83,11 @@ public class CrusherTileEntity extends TileEntity implements ITickableTileEntity
                                 this.getBlockState().with(BlockCrusher.LIT, false));
                         this.currentSmeltTime = 0;
                         ItemStack output = this.getRecipe(this.inventory.getStackInSlot(0)).getRecipeOutput();
-                        this.inventory.insertItem(1, output.copy(), false);
-                        this.inventory.decrStackSize(0, 1);
+                        int countOutput = this.getRecipe(this.inventory.getStackInSlot(0)).getCountOutput();
+
+                            this.inventory.insertItem(1, new ItemStack(output.copy().getItem(), countOutput), false);
+                            this.inventory.decrStackSize(0, count);
+
                         dirty = true;
                     }
                 }
@@ -154,7 +159,7 @@ public class CrusherTileEntity extends TileEntity implements ITickableTileEntity
             return null;
         }
 
-        Set<IRecipe<?>> recipes = findRecipesByType(RecipeSerializerInit.CRUSHER_TYPE, this.world);
+        Set<IRecipe<?>> recipes = findRecipesByType(RegRecipeSerializers.CRUSHER_TYPE, this.world);
         for (IRecipe<?> iRecipe : recipes) {
             CrusherRecipe recipe = (CrusherRecipe) iRecipe;
             if (recipe.matches(new RecipeWrapper(this.inventory), this.world)) {

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " $ ",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "item": "soviet:platol_ingot"
+    }
+  },
+  "result": {
+    "item": "soviet:platol_shovel"
+  }
+}

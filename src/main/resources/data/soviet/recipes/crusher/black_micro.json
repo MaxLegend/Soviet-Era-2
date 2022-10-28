@@ -1,0 +1,13 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:detail_scrap/black_micro_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:circuits/black_micro"
+	},
+	"countInput": 1, 
+	"oneByOne": true
+
+}

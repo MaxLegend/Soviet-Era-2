@@ -1,0 +1,13 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:detail_scrap/blue_jack_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:circuits/blue_jack"
+	},
+	"countInput": 1, 
+	"oneByOne": true
+
+}

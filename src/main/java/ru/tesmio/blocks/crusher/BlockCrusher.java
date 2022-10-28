@@ -18,13 +18,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.reg.RegTileEntitys;
 
 public class BlockCrusher extends Block {
-
+    public static final  VoxelShape AABB = VoxelShapes.or(Block.makeCuboidShape(5.5D, 1.25D, 1.5D, 10.5D, 14.0D, 14.5D),
+            Block.makeCuboidShape(3.5D, 1.25D, 2.5D, 12.5D, 14.0D, 13.5D),
+            Block.makeCuboidShape(2.5D, 1.25D, 3.5D, 13.5D, 14.0D, 12.5D),
+            Block.makeCuboidShape(1.5D, 1.25D, 5.5D, 14.5D, 14.0D, 10.5D));
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
@@ -32,7 +38,12 @@ public class BlockCrusher extends Block {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false));
     }
+    @Override
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
+
+        return AABB;
+    }
     @Override
     public boolean hasTileEntity(BlockState state) {
         return true;

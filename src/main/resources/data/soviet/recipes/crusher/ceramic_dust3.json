@@ -1,0 +1,13 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:ceramic_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:small_tile"
+	},
+	"countInput": 2,
+	"oneByOne": false
+
+}

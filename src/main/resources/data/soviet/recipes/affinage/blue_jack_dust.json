@@ -1,0 +1,13 @@
+{
+	"type": "soviet:affinage",
+	"output": {
+		"item": "soviet:diamond_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:detail_scrap/blue_jack_dust"
+	},
+	"countInput": 4,
+	"oneByOne": false
+
+}

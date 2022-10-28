@@ -19,11 +19,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import ru.tesmio.blocks.affinage_factory.AffinageScreen;
 import ru.tesmio.blocks.crusher.CrusherScreen;
-import ru.tesmio.recipes.RecipeSerializerInit;
-import ru.tesmio.reg.RegBlocks;
-import ru.tesmio.reg.RegContainers;
-import ru.tesmio.reg.RegItems;
-import ru.tesmio.reg.RegTileEntitys;
+import ru.tesmio.reg.*;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Core.MODID)
@@ -42,7 +38,7 @@ public class Core {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
         RegItems.register(eventBus);
-        RecipeSerializerInit.RECIPE_SERIALIZERS.register(eventBus);
+        RegRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
         RegBlocks.register(eventBus);
         RegContainers.CONTAINER_TYPES.register(eventBus);
         RegTileEntitys.TILE_ENTITY_TYPES.register(eventBus);
