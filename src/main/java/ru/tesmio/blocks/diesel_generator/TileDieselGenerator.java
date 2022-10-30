@@ -1,142 +1,175 @@
 package ru.tesmio.blocks.diesel_generator;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.INBTSerializable;
+import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.fml.network.PacketDistributor;
-import ru.tesmio.Core;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import ru.tesmio.blocks.api.SEEnergyStorage;
-import ru.tesmio.packet.EnergyPacket;
-import ru.tesmio.packet.PacketHandler;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class TileDieselGenerator extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
+public class TileDieselGenerator extends TileEntity implements ITickableTileEntity {
 
-    private LazyOptional<IEnergyStorage> energy = LazyOptional.of(this::createEnergy);
-    private int energyGeneration, maxEnergyOutput;
-    public int maxEnergy;
-    public int energyClient, energyProductionClient;
+    private ItemStackHandler itemHandler = createHandler();
+    private SEEnergyStorage energyStorage = createEnergy();
+
+    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
+    private LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
+    LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
+
+    private int counter;
+
     public TileDieselGenerator() {
-        this(RegTileEntitys.DIESEL_TE.get());
-    }
-    public TileDieselGenerator(TileEntityType<?> tileEntityTypeIn) {
-        super(tileEntityTypeIn);
-        energyGeneration = (int) Math.pow(8, 4);
-        maxEnergyOutput = energyGeneration * 2;
-        maxEnergy = energyGeneration * 1000;
-        energyClient = energyProductionClient = -1;
+
+        super(RegTileEntitys.DIESEL_TILE.get());
+              this.getType().isValidBlock(RegBlocks.ENERGY_GENERATOR.get());
     }
 
-    private IEnergyStorage createEnergy() {
-        return new SEEnergyStorage(maxEnergyOutput, maxEnergy);
-    }
     @Override
-    public ITextComponent getDisplayName() {
-        return new TranslationTextComponent("container." + Core.MODID + ".diesel");
+    public void remove() {
+
+        handler.invalidate();
+        energy.invalidate();
+        super.markDirty();
     }
 
-    @Nullable
-    @Override
-    public Container createMenu(final int windowID, final PlayerInventory playerInv, final PlayerEntity playerIn) {
-        return new ContainerDieselGenerator(windowID, playerInv, this);
-    }
 
     @Override
     public void tick() {
-        if(world.isRemote) {
-            energy.ifPresent(e -> ((SEEnergyStorage) e).generatePower(currentAmountEnergyProduced()));
-            sendEnergy();
-            if(energyClient != getEnergy() || energyProductionClient != currentAmountEnergyProduced()) {
-                int energyProduced = (getEnergy() != getMaxEnergy()) ? currentAmountEnergyProduced() : 0;
-                PacketHandler.INSTANCE.send(PacketDistributor.ALL.noArg(), new EnergyPacket(getPos(), getEnergy(), energyProduced));
+        if (world.isRemote) {
+            return;
+        }
+
+        if (counter > 0) {
+            counter--;
+            if (counter <= 0) {
+                energyStorage.addEnergy(1000);
+            }
+            markDirty();
+        }
+
+        if (counter <= 0) {
+            ItemStack stack = itemHandler.getStackInSlot(0);
+            if (stack.getItem() == Items.DIAMOND) {
+                itemHandler.extractItem(0, 1, false);
+                counter = 20;
+                markDirty();
+            }
+        }
+
+        BlockState blockState = world.getBlockState(getPos());
+        if (blockState.get(BlockStateProperties.POWERED) != counter > 0) {
+            world.setBlockState(getPos(), blockState.with(BlockStateProperties.POWERED, counter > 0),
+                    Constants.BlockFlags.NOTIFY_NEIGHBORS + Constants.BlockFlags.BLOCK_UPDATE);
+        }
+
+        sendOutPower();
+    }
+
+    private void sendOutPower() {
+        AtomicInteger capacity = new AtomicInteger(energyStorage.getEnergyStored());
+        if (capacity.get() > 0) {
+            for (Direction direction : Direction.values()) {
+                TileEntity te = world.getTileEntity(getPos().offset(direction));
+                if (te != null) {
+                    boolean doContinue = te.getCapability(CapabilityEnergy.ENERGY, direction).map(handler -> {
+                                if (handler.canReceive()) {
+                                    int received = handler.receiveEnergy(Math.min(capacity.get(), 100), false);
+                                    capacity.addAndGet(-received);
+                                    energyStorage.consumeEnergy(received);
+                                    markDirty();
+                                    return capacity.get() > 0;
+                                } else {
+                                    return true;
+                                }
+                            }
+                    ).orElse(true);
+                    if (!doContinue) {
+                        return;
+                    }
+                }
             }
         }
     }
-    private int getMaxEnergy() {
-        return getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getMaxEnergyStored).orElse(0);
-    }
 
-    private int getEnergy() {
-        return getCapability(CapabilityEnergy.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
-    }
+    @Override
+    public void read(BlockState state, CompoundNBT tag) {
+        itemHandler.deserializeNBT(tag.getCompound("inv"));
+        energyStorage.deserializeNBT(tag.getCompound("energy"));
 
-    private int currentAmountEnergyProduced() {
-        return energyGeneration * 10;
-    }
-    private void sendEnergy() {
-        energy.ifPresent(energy -> {
-            AtomicInteger capacity = new AtomicInteger(energy.getEnergyStored());
-
-            for(int i = 0; (i < Direction.values().length) && (capacity.get() > 0); i++)
-            {
-                Direction facing = Direction.values()[i];
-
-                    TileEntity tileEntity = world.getTileEntity(getPos());
-
-                    if(tileEntity != null)
-                    {
-                        tileEntity.getCapability(CapabilityEnergy.ENERGY, facing.getOpposite()).ifPresent(handler -> {
-                            if(handler.canReceive())
-                            {
-                                int received = handler.receiveEnergy(Math.min(capacity.get(), maxEnergyOutput), false);
-                                capacity.addAndGet(-received);
-                                ((SEEnergyStorage) energy).consumePower(received);
-                            }
-                        });
-                    }
-
-            }
-        });
+        counter = tag.getInt("counter");
+        super.read(state, tag);
     }
 
     @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, Direction facing)
-    {
-        if(capability == CapabilityEnergy.ENERGY)
-        {
+    public CompoundNBT write(CompoundNBT tag) {
+        tag.put("inv", itemHandler.serializeNBT());
+        tag.put("energy", energyStorage.serializeNBT());
+
+        tag.putInt("counter", counter);
+        return super.write(tag);
+    }
+
+    private ItemStackHandler createHandler() {
+        return new ItemStackHandler(1) {
+
+            @Override
+            protected void onContentsChanged(int slot) {
+                // To make sure the TE persists when the chunk is saved later we need to
+                // mark it dirty every time the item handler changes
+                markDirty();
+            }
+
+            @Override
+            public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+                return stack.getItem() == Items.DIAMOND;
+            }
+
+            @Nonnull
+            @Override
+            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+                if (stack.getItem() != Items.DIAMOND) {
+                    return stack;
+                }
+                return super.insertItem(slot, stack, simulate);
+            }
+        };
+    }
+
+    private SEEnergyStorage createEnergy() {
+        return new SEEnergyStorage(8096, 0) {
+            @Override
+            protected void onEnergyChanged() {
+                markDirty();
+            }
+        };
+    }
+
+    @Nonnull
+    @Override
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return handler.cast();
+        }
+        if (cap == CapabilityEnergy.ENERGY) {
             return energy.cast();
         }
-        return super.getCapability(capability, facing);
-    }
-
-
-
-    @SuppressWarnings("unchecked")
-    @Override
-    public CompoundNBT write(CompoundNBT compound)
-    {
-        CompoundNBT energyTag = compound.getCompound("diesel");
-        energy.ifPresent(h -> ((INBTSerializable<CompoundNBT>) h).deserializeNBT(energyTag));
-        return super.write(compound);
-    }
-    @SuppressWarnings("unchecked")
-    @Override
-    public void read(BlockState state, CompoundNBT compound)
-    {
-        CompoundNBT energyTag = compound.getCompound("diesel");
-
-        this.energy.ifPresent(h -> {
-            ((INBTSerializable<CompoundNBT>)h).deserializeNBT(energyTag);
-
-        });
-        super.read(state, compound);
+        return super.getCapability(cap, side);
     }
 }
