@@ -10,7 +10,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -21,10 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import ru.tesmio.blocks.affinage_factory.AffinageScreen;
 import ru.tesmio.blocks.crusher.CrusherScreen;
 import ru.tesmio.blocks.diesel_generator.DieselGeneratorScreen;
-import ru.tesmio.packet.PacketHandler;
-import ru.tesmio.proxy.IProxy;
-import ru.tesmio.proxy.Proxy;
-import ru.tesmio.proxy.ProxyClient;
 import ru.tesmio.reg.*;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -32,7 +27,7 @@ import ru.tesmio.reg.*;
 public class Core {
 
     public static final String MODID = "soviet";
-    public static IProxy proxy = DistExecutor.safeRunForDist(() -> ProxyClient::new, () -> Proxy::new);
+
     public Core() {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -49,7 +44,7 @@ public class Core {
         RegBlocks.register(eventBus);
         RegContainers.CONTAINER_TYPES.register(eventBus);
         RegTileEntitys.TILE_ENTITY_TYPES.register(eventBus);
-        PacketHandler.init();
+
 
     }
 
@@ -81,7 +76,7 @@ public class Core {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            ScreenManager.registerFactory(RegContainers.DIESEL_CONT.get(), DieselGeneratorScreen::new);
+            ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);
             ScreenManager.registerFactory(RegContainers.AFFINAGE_CONT.get(), AffinageScreen::new);
             ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_THIN.get(), RenderType.getCutout());

@@ -29,7 +29,7 @@ displayName = "Soviet Era 2" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="soviet.png" #optional
 # A text field displayed in the mod UI
-#credits="Thanks for this example mod goes to Java" #optional
+#credits="Thanks Max_Freemen, SlimeF, Vincent11A for 3d models and textures"
 # A text field displayed in the mod UI
 #authors="Love, Cheese and small house plants" #optional
 # The description text for the mod (multi line!) (#mandatory)

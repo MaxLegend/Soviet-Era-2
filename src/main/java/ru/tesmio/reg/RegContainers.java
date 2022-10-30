@@ -1,6 +1,8 @@
 package ru.tesmio.reg;
 
 import net.minecraft.inventory.container.ContainerType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -8,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.Core;
 import ru.tesmio.blocks.affinage_factory.AffinageContainer;
 import ru.tesmio.blocks.crusher.CrusherContainer;
-import ru.tesmio.blocks.diesel_generator.ContainerDieselGenerator;
+import ru.tesmio.blocks.diesel_generator.DieselGeneratorContainer;
 
 public class RegContainers {
     public static final DeferredRegister<ContainerType<?>> CONTAINER_TYPES = DeferredRegister.create(ForgeRegistries.CONTAINERS, Core.MODID);
@@ -17,6 +19,10 @@ public class RegContainers {
     public static final RegistryObject<ContainerType<AffinageContainer>> AFFINAGE_CONT = CONTAINER_TYPES
             .register("affinage", () -> IForgeContainerType.create(AffinageContainer::new));
 
-    public static final RegistryObject<ContainerType<ContainerDieselGenerator>> DIESEL_CONT = CONTAINER_TYPES
-            .register("diesel", () -> IForgeContainerType.create(ContainerDieselGenerator::new));
+    public static final RegistryObject<ContainerType<DieselGeneratorContainer>> DIESEL_CONTAINER = CONTAINER_TYPES.register("diesel_container", () -> IForgeContainerType.create((windowId, inv, data) -> {
+        BlockPos pos = data.readBlockPos();
+        World world = inv.player.getEntityWorld();
+        return new DieselGeneratorContainer(windowId, world, pos, inv, inv.player);
+    }));
+
 }

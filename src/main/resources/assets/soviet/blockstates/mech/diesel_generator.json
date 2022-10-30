@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "soviet:block/mech/diesel_generator",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "soviet:block/mech/diesel_generator",
+      "y": 0
+    },
+    "facing=north,powered=false": {
+       "model": "soviet:block/mech/diesel_generator",
+       "y": 90
+    },
+    "facing=south,powered=false": {
+       "model": "soviet:block/mech/diesel_generator",
+       "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "soviet:block/mech/diesel_generator_enable",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "soviet:block/mech/diesel_generator_enable",
+      "y": 0
+    },
+    "facing=north,powered=true": {
+       "model": "soviet:block/mech/diesel_generator_enable",
+       "y": 90
+    },
+    "facing=south,lit=true": {
+       "model": "soviet:block/mech/crusher_lit",
+       "y": 270
+    }
+  }
+}

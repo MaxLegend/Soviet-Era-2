@@ -17,7 +17,8 @@ public class RegTileEntitys {
     public static final RegistryObject<TileEntityType<AffinageTileEntity>> AFFINAGE_TE = TILE_ENTITY_TYPES
             .register("affinage", () -> TileEntityType.Builder
                     .create(AffinageTileEntity::new, RegBlocks.AFFINAGE_FACTORY.get()).build(null));
-    public static final RegistryObject<TileEntityType<TileDieselGenerator>> DIESEL_TE = TILE_ENTITY_TYPES
-            .register("diesel", () -> TileEntityType.Builder
-                    .create(TileDieselGenerator::new, RegBlocks.ENERGY_GENERATOR.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<TileDieselGenerator>> DIESEL_TILE =
+            TILE_ENTITY_TYPES.register("diesel_tile", () -> TileEntityType.Builder.create(TileDieselGenerator::new, RegBlocks.ENERGY_GENERATOR.get()).build(null));
+
 }
