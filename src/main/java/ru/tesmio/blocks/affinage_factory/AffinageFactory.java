@@ -6,6 +6,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
@@ -56,14 +58,17 @@ public class AffinageFactory extends Block {
             Block.makeCuboidShape(5D, 0D, 11D, 0D, 5D, 16D));
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
     public AffinageFactory(Properties properties) {
 
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false).with(WATERLOGGED, false));
     }
-
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
     @Override
     public boolean hasTileEntity(BlockState state) {
         return true;
@@ -77,7 +82,7 @@ public class AffinageFactory extends Block {
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         super.fillStateContainer(builder);
-        builder.add(FACING, LIT);
+        builder.add(FACING, LIT, WATERLOGGED);
     }
 
     @Override
@@ -106,6 +111,7 @@ public class AffinageFactory extends Block {
         }
         return NORTH_AABB;
     }
+
     @Override
     public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         super.onBlockPlacedBy(worldIn, pos, state, placer, stack);

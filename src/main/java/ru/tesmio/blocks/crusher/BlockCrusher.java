@@ -6,6 +6,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
@@ -27,6 +29,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.reg.RegTileEntitys;
 
 public class BlockCrusher extends Block {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final  VoxelShape AABB = VoxelShapes.or(Block.makeCuboidShape(5.5D, 1.25D, 1.5D, 10.5D, 14.0D, 14.5D),
             Block.makeCuboidShape(3.5D, 1.25D, 2.5D, 12.5D, 14.0D, 13.5D),
             Block.makeCuboidShape(2.5D, 1.25D, 3.5D, 13.5D, 14.0D, 12.5D),
@@ -36,7 +39,10 @@ public class BlockCrusher extends Block {
 
     public BlockCrusher(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false).with(WATERLOGGED, false));
+    }
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -57,7 +63,7 @@ public class BlockCrusher extends Block {
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         super.fillStateContainer(builder);
-        builder.add(FACING, LIT);
+        builder.add(FACING, LIT, WATERLOGGED);
     }
 
     @Override

@@ -7,6 +7,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
@@ -89,7 +91,7 @@ public class DieselGenerator extends BlockCustomModel {
     }
     public DieselGenerator(Properties properties, VoxelShape s) {
         super(properties, s);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(BlockStateProperties.POWERED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(BlockStateProperties.POWERED, Boolean.valueOf(false)).with(WATERLOGGED, false));
     }
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -123,11 +125,13 @@ public class DieselGenerator extends BlockCustomModel {
     }
     @Override
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
-        if(worldIn.getTileEntity(pos) instanceof TileDieselGenerator) {
-            return true;
-        }
-        else return  false;
 
+            return true;
+
+
+    }
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }
 
     @SuppressWarnings("deprecation")

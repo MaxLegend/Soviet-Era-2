@@ -23,6 +23,8 @@ import ru.tesmio.blocks.crusher.BlockCrusher;
 import ru.tesmio.blocks.diesel_generator.DieselElectroGenerator;
 import ru.tesmio.blocks.diesel_generator.DieselGenerator;
 import ru.tesmio.blocks.diesel_generator.DieselTank;
+import ru.tesmio.blocks.doors.AirlockDoorBlock;
+import ru.tesmio.blocks.doors.AluminiumDoorBlock;
 
 import java.util.function.Supplier;
 
@@ -55,7 +57,7 @@ public class RegBlocks {
     public static RegistryObject<Block> TRIM_TILE_1,TRIM_TILE_1_BR, TRIM_STONE_1, TRIM_STONE_2, TRIM_STONE_3, TRIM_STONE_4, PARQUET_BLOCK, TRIM_TILE_RED, TRIM_TILE_BLUE, CONCRETE_PLATE, CONTAINMENT_BLOCK, TRIM_METAL_1, TRIM_METAL_2, LEADCERAMIC_TILE;
     public static RegistryObject<Block> TUBING_HORIZONTAL, TUBING_VERTICAL;
     public static RegistryObject<Block> CONTROL_PANEL_1_UP, CONTROL_PANEL_1_DOWN;
-    public static RegistryObject<Block> AIRLOCK_DOOR;
+    public static RegistryObject<Block> AIRLOCK_DOOR,ALUMINIUM_DOOR;
     public static RegistryObject<Block> ACCELERATOR_CALC_BLOCK, ACCELERATOR_STAND, ACCELERATOR, ACCELERATOR_RINGS_END, ACCELERATOR_RINGS, ACCELERATOR_RINGS_CORNER_LEFT, ACCELERATOR_RINGS_CORNER_RIGHT;
     public static RegistryObject<Block> COPPER_CIRCUIT, COPPER_CIRCUIT_EMPTY, SILVER_CIRCUIT,SILVER_CIRCUIT_EMPTY, GOLD_CIRCUIT,GOLD_CIRCUIT_EMPTY, DIAMOND_CIRCUIT, DIAMOND_CIRCUIT_EMPTY,NETHERITE_CIRCUIT, NETHERITE_CIRCUIT_EMPTY,PLATINUM_CIRCUIT, PLATINUM_CIRCUIT_EMPTY , PLATE_GOLDEN_JACKS, PLATE_GOLDEN_JACKS_EMPTY, PLATE_PLATINUM_JACKS, PLATE_PLATINUM_JACKS_EMPTY;
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
@@ -64,8 +66,9 @@ public class RegBlocks {
     public static void init() {
         //doors
         AIRLOCK_DOOR = registerOnlyCustomBlock("innerdeco/airlock_door", () -> new AirlockDoorBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
+        ALUMINIUM_DOOR = registerOnlyCustomBlock("innerdeco/aluminium_door", () -> new AluminiumDoorBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
 
-//circuits
+        //circuits
         PLATE_GOLDEN_JACKS = registerBlockWithModel("innerdeco/circuit/plate_golden_jack", () -> new PlateGoldenJack(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_INNER_DECO);
         PLATE_GOLDEN_JACKS_EMPTY = registerBlockWithModel("innerdeco/circuit/plate_golden_jack_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_INNER_DECO);
         PLATE_PLATINUM_JACKS = registerBlockWithModel("innerdeco/circuit/plate_platinum_jack", () -> new PlatePlatinumJack(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_INNER_DECO);

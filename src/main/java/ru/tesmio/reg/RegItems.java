@@ -35,6 +35,7 @@ public class RegItems {
 
     public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static RegistryObject<Item> LEADCERAMIC_TILE;
+    public static RegistryObject<Item> KEY_DOOR;
     public static RegistryObject<Item> RED_CONDENSER, ORANGE_CONDENSER, YELLOW_CONDENSER, GREEN_CONDENSER, BLUE_CONDENSER, DIODE_BLACK, DIODE_GRAY, BLACK_MICRO, DARK_YELLOW_MICRO,
             DARK_RED_MICRO, DARK_BLUE_MICRO, DARK_YELLOW_TRANSISTOR, DARK_GRAY_TRANSISTOR, YELLOW_JACK, GREEN_JACK, BLUE_JACK;
     public static RegistryObject<Item> RED_CONDENSER_DUST, ORANGE_CONDENSER_DUST, YELLOW_CONDENSER_DUST, GREEN_CONDENSER_DUST, BLUE_CONDENSER_DUST, DIODE_BLACK_DUST, DIODE_GRAY_DUST, BLACK_MICRO_DUST, DARK_YELLOW_MICRO_DUST,
@@ -44,6 +45,8 @@ public class RegItems {
     public static RegistryObject<Item> PLATOL_PICKAXE, PLATOL_AXE, PLATOL_SHOVEL, PLATOL_SWORD, PLATOL_HOE;
     public static RegistryObject<Item> COPPER_INGOT, COPPER_DUST, SILVER_INGOT, SILVER_DUST, GOLD_DUST, DIAMOND_DUST, NETHERITE_DUST, PLATINUM_INGOT, PLATINUM_DUST, PLATOL_DUST, PLATOL_INGOT;
     public static void init() {
+        KEY_DOOR = registerItem2("key_door", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "key.key_door"));
+
         PLATOL_INGOT = registerItem("platol_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         PLATOL_DUST = registerItem("platol_dust", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "platol.platol_dust"));
         PLATOL_SWORD = registerItem("platol_sword", () -> new SwordItem(SovietItemTier.PLATOL, 5, -1F, (new Item.Properties()).group(ItemGroup.COMBAT)));

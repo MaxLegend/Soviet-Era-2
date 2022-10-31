@@ -1,9 +1,12 @@
-package ru.tesmio.blocks;
+package ru.tesmio.blocks.doors;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.DoorBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoorHingeSide;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.util.ActionResultType;
@@ -18,6 +21,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class AirlockDoorBlock extends DoorBlock {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public final VoxelShape lowerFrameEast = VoxelShapes.or(Block.makeCuboidShape(0D, 0D, 0D, 3D, 1.0D, 16D),
             Block.makeCuboidShape(0D, 0D, 0D, 3D, 2.0D, 6D),
             Block.makeCuboidShape(0D, 0D, 0D, 3D, 3.0D, 4D),
@@ -95,6 +99,7 @@ public class AirlockDoorBlock extends DoorBlock {
     public VoxelShape lowerDoorEast, upperDoorEast, both, lowerDoorWest, upperDoorWest, lowerDoorSouth, upperDoorSouth, lowerDoorNorth, upperDoorNorth;
     public AirlockDoorBlock(Properties properties) {
         super(properties);
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(OPEN, Boolean.valueOf(false)).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.valueOf(false)).with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, Boolean.valueOf(false)));
     }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
          {
@@ -103,6 +108,9 @@ public class AirlockDoorBlock extends DoorBlock {
          //   worldIn.playEvent(player, state.get(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
             return ActionResultType.func_233537_a_(worldIn.isRemote);
         }
+    }
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(HALF, FACING, OPEN, HINGE, POWERED, WATERLOGGED);
     }
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

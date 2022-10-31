@@ -1,11 +1,13 @@
 package ru.tesmio;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -27,16 +29,16 @@ import ru.tesmio.reg.*;
 public class Core {
 
     public static final String MODID = "soviet";
-
+    IReloadableResourceManager resMgr = (IReloadableResourceManager) Minecraft.getInstance().getResourceManager();
     public Core() {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
+        //   resMgr.addReloadListener(AssetPreLoader.INSTANCE);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
         RegItems.register(eventBus);
@@ -75,11 +77,13 @@ public class Core {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+
         event.enqueueWork(() -> {
             ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);
             ScreenManager.registerFactory(RegContainers.AFFINAGE_CONT.get(), AffinageScreen::new);
             ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
             RenderTypeLookup.setRenderLayer(RegBlocks.AIRLOCK_DOOR.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.ALUMINIUM_DOOR.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_THIN.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT_EMPTY.get(), RenderType.getCutout());
