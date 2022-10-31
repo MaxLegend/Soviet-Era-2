@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/innerdeco/control_panel/cp_1_down", "y": 270},
+        "facing=west":  { "model": "soviet:block/innerdeco/control_panel/cp_1_down", "y": 90},
+        "facing=south": { "model": "soviet:block/innerdeco/control_panel/cp_1_down", "y": 0 },
+        "facing=north": { "model": "soviet:block/innerdeco/control_panel/cp_1_down", "y": 180 }
+ }
+}

@@ -1,4 +1,4 @@
-package ru.tesmio.blocks.api;
+package ru.tesmio.energy;
 
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.common.util.INBTSerializable;

@@ -79,6 +79,7 @@ public class Core {
             ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);
             ScreenManager.registerFactory(RegContainers.AFFINAGE_CONT.get(), AffinageScreen::new);
             ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
+            RenderTypeLookup.setRenderLayer(RegBlocks.AIRLOCK_DOOR.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.IRON_BEAM_THIN.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.COPPER_CIRCUIT_EMPTY.get(), RenderType.getCutout());

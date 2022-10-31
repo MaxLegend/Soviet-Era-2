@@ -4,10 +4,14 @@ import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.Constants;
 import net.minecraftforge.common.util.LazyOptional;
@@ -16,8 +20,8 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import ru.tesmio.blocks.api.SEEnergyStorage;
-import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.Core;
+import ru.tesmio.energy.SEEnergyStorage;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nonnull;
@@ -29,27 +33,31 @@ public class TileDieselGenerator extends TileEntity implements ITickableTileEnti
     private ItemStackHandler itemHandler = createHandler();
     private SEEnergyStorage energyStorage = createEnergy();
 
-    // Never create lazy optionals in getCapability. Always place them as fields in the tile entity:
     private LazyOptional<IItemHandler> handler = LazyOptional.of(() -> itemHandler);
     LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
-
+    private ITextComponent customName;
     private int counter;
 
     public TileDieselGenerator() {
-
         super(RegTileEntitys.DIESEL_TILE.get());
-              this.getType().isValidBlock(RegBlocks.ENERGY_GENERATOR.get());
     }
 
     @Override
     public void remove() {
-
         handler.invalidate();
         energy.invalidate();
         super.markDirty();
     }
+    public ITextComponent getName() {
+        return this.customName != null ? this.customName : this.getDefaultName();
+    }
 
-
+    private ITextComponent getDefaultName() {
+        return new TranslationTextComponent("container." + Core.MODID + ".diesel");
+    }
+    public void setCustomName(ITextComponent name) {
+        this.customName = name;
+    }
     @Override
     public void tick() {
         if (world.isRemote) {
@@ -160,7 +168,22 @@ public class TileDieselGenerator extends TileEntity implements ITickableTileEnti
             }
         };
     }
+    @Override
+    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+        this.read(this.getBlockState(), pkt.getNbtCompound());
+    }
 
+    @Override
+    public CompoundNBT getUpdateTag() {
+        CompoundNBT nbt = new CompoundNBT();
+        this.write(nbt);
+        return nbt;
+    }
+
+    @Override
+    public void handleUpdateTag(BlockState s, CompoundNBT nbt) {
+        this.read(s, nbt);
+    }
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {

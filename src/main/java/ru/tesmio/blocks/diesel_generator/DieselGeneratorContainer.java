@@ -17,7 +17,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
-import ru.tesmio.blocks.api.SEEnergyStorage;
+import ru.tesmio.energy.SEEnergyStorage;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegContainers;
 
