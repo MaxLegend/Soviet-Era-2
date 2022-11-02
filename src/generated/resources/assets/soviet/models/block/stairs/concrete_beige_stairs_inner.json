@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "soviet:block/concrete/concrete_beige",
+    "bottom": "soviet:block/concrete/concrete_beige",
+    "top": "soviet:block/concrete/concrete_gray"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "side": "soviet:block/concrete/concrete_orange",
+    "bottom": "soviet:block/concrete/concrete_orange",
+    "top": "soviet:block/concrete/concrete_orange"
+  }
+}

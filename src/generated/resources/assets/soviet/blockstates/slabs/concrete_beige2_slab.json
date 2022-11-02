@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "soviet:block/slabs/concrete_beige2_slab_top",
+      "x": 180
+    },
+    "type=bottom": {
+      "model": "soviet:block/slabs/concrete_beige2_slab"
+    },
+    "type=double": {
+      "model": "soviet:block/slabs/concrete_beige2_slab_double"
+    }
+  }
+}
