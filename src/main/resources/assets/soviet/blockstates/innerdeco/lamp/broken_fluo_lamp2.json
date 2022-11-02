@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=up_x": { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 0, "y": 180},
+        "facing=up_z": { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 0, "y": 90 },
+        "facing=down_x": { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 180, "y": 0  },
+        "facing=down_z": { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 180, "y": 90 },
+        "facing=east": { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 90, "y": 90 },
+        "facing=west": { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 90, "y": 270 },
+        "facing=south" : { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 90, "y": 180 },
+        "facing=north" : { "model": "soviet:block/innerdeco/lamp/broken_fluo_lamp2", "x": 90 }
+    }
+}

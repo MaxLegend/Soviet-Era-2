@@ -1,0 +1,17 @@
+{
+    "multipart": [
+        {   "apply": { "model": "soviet:block/innerdeco/rusty_bars" }},
+        {   "when": { "north": "true" },
+            "apply": { "model": "soviet:block/innerdeco/rusty_bars_side", "y": 180, "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "soviet:block/innerdeco/rusty_bars_side", "y": 270, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "soviet:block/innerdeco/rusty_bars_side", "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "soviet:block/innerdeco/rusty_bars_side", "y": 90, "uvlock": true }
+        }
+    ]
+}

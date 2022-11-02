@@ -1,0 +1,75 @@
+{
+	"credit": "Made special for SovietLab",
+	"parent": "block/cube_all",
+	"textures": {
+		"particle": "soviet:block/structural/rusty_ralling",
+		"texture": "soviet:block/structural/rusty_ralling"
+	},
+	"elements": [
+		{
+			"name": "Cube1",
+			"from": [7, 12, 4.5],
+			"to": [8, 13, 10.5],
+			"faces": {
+				"north": {"uv": [8, 3, 9, 4], "texture": "#texture"},
+				"east": {"uv": [5.5, 3, 14.5, 4], "texture": "#texture"},
+				"south": {"uv": [7, 3, 8, 4], "texture": "#texture"},
+				"west": {"uv": [1.5, 3, 10.5, 4], "texture": "#texture"},
+				"up": {"uv": [7, 1.5, 8, 10.5], "texture": "#texture"},
+				"down": {"uv": [7, 5.5, 8, 14.5], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "Cube1",
+			"from": [7.5, 0, 8],
+			"to": [8.5, 16, 9],
+			"faces": {
+				"north": {"uv": [7.5, 0, 8.5, 16], "texture": "#texture"},
+				"east": {"uv": [6, 0, 7, 16], "texture": "#texture"},
+				"south": {"uv": [7.5, 0, 8.5, 16], "texture": "#texture"},
+				"west": {"uv": [9, 0, 10, 16], "texture": "#texture"},
+				"up": {"uv": [7.5, 9, 8.5, 10], "texture": "#texture"},
+				"down": {"uv": [7.5, 6, 8.5, 7], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "Cube1",
+			"from": [7.5, 0, 6],
+			"to": [8.5, 16, 7],
+			"faces": {
+				"north": {"uv": [7.5, 0, 8.5, 16], "texture": "#texture"},
+				"east": {"uv": [9, 0, 10, 16], "texture": "#texture"},
+				"south": {"uv": [7.5, 0, 8.5, 16], "texture": "#texture"},
+				"west": {"uv": [6, 0, 7, 16], "texture": "#texture"},
+				"up": {"uv": [7.5, 6, 8.5, 7], "texture": "#texture"},
+				"down": {"uv": [7.5, 9, 8.5, 10], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "Cube1",
+			"from": [7, 6.5, 5],
+			"to": [8, 7.5, 11.5],
+			"faces": {
+				"north": {"uv": [8, 12, 9, 13], "texture": "#texture"},
+				"east": {"uv": [2, 12, 11, 13], "texture": "#texture"},
+				"south": {"uv": [7, 12, 8, 13], "texture": "#texture"},
+				"west": {"uv": [5, 12, 14, 13], "texture": "#texture"},
+				"up": {"uv": [7, 5, 8, 14], "texture": "#texture"},
+				"down": {"uv": [7, 2, 8, 11], "texture": "#texture"}
+			}
+		},
+		{
+			"name": "Cube2",
+			"from": [7, 0.5, 5],
+			"to": [8, 1.5, 7.5],
+			"faces": {
+				"north": {"uv": [8, 12, 9, 13], "texture": "#texture"},
+				"east": {"uv": [2, 12, 11, 13], "texture": "#texture"},
+				"south": {"uv": [7, 12, 8, 13], "texture": "#texture"},
+				"west": {"uv": [5, 14.5, 7.5, 15.5], "texture": "#texture"},
+				"up": {"uv": [7, 5, 8, 7.5], "texture": "#texture"},
+				"down": {"uv": [7, 2, 8, 11], "texture": "#texture"}
+			}
+		}
+	]
+}

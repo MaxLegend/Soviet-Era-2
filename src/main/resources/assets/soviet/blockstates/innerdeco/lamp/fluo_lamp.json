@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=up_x,closed=false": { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 0, "y": 180},
+        "facing=up_z,closed=false": { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 0, "y": 90 },
+        "facing=down_x,closed=false": { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 180, "y": 0  },
+        "facing=down_z,closed=false": { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 180, "y": 90 },
+        "facing=east,closed=false": { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 90, "y": 90 },
+        "facing=west,closed=false": { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 90, "y": 270 },
+        "facing=south,closed=false" : { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 90, "y": 180 },
+        "facing=north,closed=false" : { "model": "soviet:block/innerdeco/lamp/fluo_lamp", "x": 90 },
+        "facing=up_x,closed=true": { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 0, "y": 180},
+        "facing=up_z,closed=true": { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 0, "y": 90 },
+        "facing=down_x,closed=true": { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 180, "y": 0  },
+        "facing=down_z,closed=true": { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 180, "y": 90 },
+        "facing=east,closed=true": { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 90, "y": 90 },
+        "facing=west,closed=true": { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 90, "y": 270 },
+        "facing=south,closed=true" : { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 90, "y": 180 },
+        "facing=north,closed=true" : { "model": "soviet:block/innerdeco/lamp/fluo_lamp_closed", "x": 90 }
+    }
+}
