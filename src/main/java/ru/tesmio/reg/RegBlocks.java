@@ -20,21 +20,19 @@ import ru.tesmio.blocks.circuits.*;
 import ru.tesmio.blocks.const_panel.PanelBlockCorner;
 import ru.tesmio.blocks.const_panel.PanelBlockSide;
 import ru.tesmio.blocks.crusher.BlockCrusher;
-import ru.tesmio.blocks.decorative.RustyBars;
-import ru.tesmio.blocks.decorative.RustyHandhold;
 import ru.tesmio.blocks.decorative.devices.ControlTable;
-import ru.tesmio.blocks.decorative.lamp.BrokenFluoLamp;
-import ru.tesmio.blocks.decorative.lamp.BrokenFluoLamp2;
-import ru.tesmio.blocks.decorative.lamp.FluoLamp;
-import ru.tesmio.blocks.decorative.lamp.FluoLamp2;
+import ru.tesmio.blocks.decorative.lamp.*;
+import ru.tesmio.blocks.decorative.props.RustyBars;
+import ru.tesmio.blocks.decorative.props.RustyHandhold;
 import ru.tesmio.blocks.decorative.slabs.BaseSlab;
+import ru.tesmio.blocks.decorative.stairs.BaseStairs;
 import ru.tesmio.blocks.diesel_generator.DieselElectroGenerator;
 import ru.tesmio.blocks.diesel_generator.DieselGenerator;
 import ru.tesmio.blocks.diesel_generator.DieselTank;
 import ru.tesmio.blocks.doors.AirlockDoorBlock;
 import ru.tesmio.blocks.doors.AluminiumDoorBlock;
 import ru.tesmio.blocks.doors.RailingDoorBlock;
-import ru.tesmio.blocks.decorative.stairs.BaseStairs;
+import ru.tesmio.blocks.redstone_wire.RedstoneWire;
 
 import java.util.function.Supplier;
 
@@ -67,7 +65,7 @@ public class RegBlocks {
     public static RegistryObject<Block> TRIM_TILE_1,TRIM_TILE_1_BR, TRIM_STONE_1, TRIM_STONE_2, TRIM_STONE_3, TRIM_STONE_4, PARQUET_BLOCK, TRIM_TILE_RED, TRIM_TILE_BLUE, CONCRETE_PLATE, CONTAINMENT_BLOCK, TRIM_METAL_1, TRIM_METAL_2, LEADCERAMIC_TILE;
     public static RegistryObject<Block> TUBING_HORIZONTAL, TUBING_VERTICAL;
     public static RegistryObject<Block> CONTROL_PANEL_UP, CONTROL_PANEL_DOWN;
-    public static RegistryObject<Block> FLUORESCENT_LAMP, BROKEN_FLUORESCENT_LAMP,FLUORESCENT_LAMP2, BROKEN_FLUORESCENT_LAMP2;
+    public static RegistryObject<Block> FLUORESCENT_LAMP, BROKEN_FLUORESCENT_LAMP,FLUORESCENT_LAMP2, BROKEN_FLUORESCENT_LAMP2,FLUORESCENT_LAMP3, BROKEN_FLUORESCENT_LAMP3;
     public static RegistryObject<Block> AIRLOCK_DOOR,ALUMINIUM_DOOR,RAILING_DOOR,RUSTY_BARS;
     public static RegistryObject<Block> ACCELERATOR_CALC_BLOCK, ACCELERATOR_STAND, ACCELERATOR, ACCELERATOR_RINGS_END, ACCELERATOR_RINGS,
             ACCELERATOR_RINGS_CORNER_LEFT, ACCELERATOR_RINGS_CORNER_RIGHT, RUSTY_HANDHOLD;
@@ -77,16 +75,22 @@ public class RegBlocks {
             CONCRETE_STAIRS_BEIGE2, CONCRETE_STAIRS_RED, CONCRETE_STAIRS_YELLOW, CONCRETE_STAIRS_WHITE, CONCRETE_STAIRS_ORANGE;
     public static RegistryObject<Block> CONCRETE_SLAB_GRAY, CONCRETE_SLAB_GREEN, CONCRETE_SLAB_BLUE, CONCRETE_SLAB_BEIGE,
             CONCRETE_SLAB_BEIGE2, CONCRETE_SLAB_RED, CONCRETE_SLAB_YELLOW, CONCRETE_SLAB_WHITE, CONCRETE_SLAB_ORANGE;
+
+    public static RegistryObject<Block> REDSTONE_WIRE;
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
     protected static VoxelShape BOX = Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 16D, 16.0D);
     protected static VoxelShape SHAPE_CIRCUIT2 = Block.makeCuboidShape(0.0D, 0.0D, 3.0D, 16.0D, 0.25D, 13.0D);
     public static void init() {
+        //redstone devices
+        REDSTONE_WIRE = registerOnlyCustomBlock("innerdeco/redstonewire/redstone_wire", () -> new RedstoneWire(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
         //lamp
         FLUORESCENT_LAMP = registerBlockWithModel("innerdeco/lamp/fluo_lamp", () -> new FluoLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
         BROKEN_FLUORESCENT_LAMP = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp", () -> new BrokenFluoLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
         FLUORESCENT_LAMP2 = registerBlockWithModel("innerdeco/lamp/fluo_lamp2", () -> new FluoLamp2(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
         BROKEN_FLUORESCENT_LAMP2 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp2", () -> new BrokenFluoLamp2(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
+        FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/fluo_lamp3", () -> new FluoLamp3(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
+        BROKEN_FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp3", () -> new BrokenFluoLamp3(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
         //doors
         AIRLOCK_DOOR = registerOnlyCustomBlock("innerdeco/airlock_door", () -> new AirlockDoorBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);

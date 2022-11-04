@@ -30,6 +30,7 @@ public class BlockSideCustomModel extends  BlockSide implements IWaterLoggable {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
     }
+
     public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }

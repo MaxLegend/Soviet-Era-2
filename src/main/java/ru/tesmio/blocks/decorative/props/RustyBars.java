@@ -1,4 +1,4 @@
-package ru.tesmio.blocks.decorative;
+package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

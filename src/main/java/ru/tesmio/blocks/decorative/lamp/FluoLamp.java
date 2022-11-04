@@ -48,6 +48,9 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false).with(CLOSED, true));
     }
+    public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return this.getShape(state, worldIn, pos, null);
+    }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
         ItemStack activeItemRight = playerEntity.getHeldItemMainhand();
         ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();
@@ -165,24 +168,24 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
     }
     public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
         if (!worldIn.isRemote) {
-
+            worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
             for(Direction facing : Direction.values()) {
-                int powerLight = worldIn.getRedstonePower(pos, facing);
+                int powerLight = worldIn.getRedstonePower(pos.offset(facing), facing);
 
                 if (powerLight <= 4 && powerLight > 0) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
+
                         worldIn.setBlockState(pos, state.with(LIT_VALUE, 1), 2);
                     }
                 if (powerLight <= 8 && powerLight > 4) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
+
                         worldIn.setBlockState(pos, state.with(LIT_VALUE, 2), 2);
                     }
                 if (powerLight <= 12 && powerLight > 8) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
+
                     worldIn.setBlockState(pos, state.with(LIT_VALUE, 3), 2);
                 }
                 if(powerLight > 12) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
+
                     worldIn.setBlockState(pos, state.with(LIT_VALUE, 4), 2);
                 }
                 }
@@ -192,7 +195,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
         if (worldIn.isBlockPowered(pos)) {
             for (Direction facing : Direction.values()) {
-                int powerLight = worldIn.getRedstonePower(pos, facing);
+                int powerLight = worldIn.getRedstonePower(pos.offset(facing), facing);
                 worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
                 if (powerLight <= 4 && powerLight > 0) {
 

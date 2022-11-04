@@ -72,6 +72,7 @@ public class RailingDoorBlock extends DoorBlock implements IWaterLoggable{
             return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }
     }
+
    final VoxelShape upperFrame = VoxelShapes.or(Block.makeCuboidShape(7D, 16D, 0D, 9D, 15.5D, 16D),
             Block.makeCuboidShape(7D, 0D, 15.5D, 9D, 16D, 16D),
             Block.makeCuboidShape(7D, 0D, 0D, 9D, 16D, 0.5D));

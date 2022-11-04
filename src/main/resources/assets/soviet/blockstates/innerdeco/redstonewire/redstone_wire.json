@@ -1,0 +1,22 @@
+{
+    "multipart": [
+        {
+            "apply": { "model": "soviet:block/innerdeco/redstonewire/default" }
+        },
+        {   "when": { "face": "floor", "north": "true" },
+            "apply": { "model": "soviet:block/innerdeco/redstonewire/north", "uvlock": true }
+        },
+        {   "when": { "face": "ceiling", "north": "true" },
+            "apply": { "model": "soviet:block/innerdeco/redstonewire/north", "y": "90", "uvlock": true }
+        },
+        {   "when": { "face": "floor", "east": "true" },
+            "apply": { "model": "soviet:block/innerdeco/redstonewire/east", "uvlock": true }
+        },
+        {   "when": { "face": "floor", "south": "true" },
+            "apply": { "model": "soviet:block/innerdeco/redstonewire/south", "uvlock": true }
+        },
+        {   "when": { "face": "floor", "west": "true" },
+            "apply": { "model": "soviet:block/innerdeco/redstonewire/west", "uvlock": true }
+        }
+    ]
+}

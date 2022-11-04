@@ -1,0 +1,142 @@
+package ru.tesmio.blocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.EnumProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.util.Direction;
+import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+
+import java.util.Random;
+
+public class BlockCornerCustomModel extends BlockSideCustomModel {
+    public static final EnumProperty<EnumConnent> ENUM_CONNECT = EnumProperty.create("corner", EnumConnent.class);
+    public BlockCornerCustomModel(Properties properties) {
+        super(properties);
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(ENUM_CONNECT, EnumConnent.NOT_CONNECT));
+
+    }
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(FACING,ENUM_CONNECT,WATERLOGGED);
+    }
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
+        World w = context.getWorld();
+        BlockPos p = context.getPos();
+        w.getPendingBlockTicks().scheduleTick(p, this, 1);
+        BlockState thisBS = this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite())
+                .with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
+        return thisBS.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT);
+
+    }
+    public void neighborChanged(BlockState s, World w, BlockPos p, Block b, BlockPos fromPos, boolean isMoving) {
+        if (!w.isRemote) {
+            BlockState state = w.getBlockState(p);
+            BlockState southPos = w.getBlockState(p.south());
+            BlockState northPos = w.getBlockState(p.north());
+            BlockState eastPos = w.getBlockState(p.east());
+            BlockState westPos = w.getBlockState(p.west());
+            w.getPendingBlockTicks().scheduleTick(p, this, 4);
+            switch(s.get(FACING)) {
+                case SOUTH:
+                    if (southPos.getBlock() instanceof BlockCornerCustomModel) {
+                        if (southPos.get(FACING) == Direction.EAST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                        if (southPos.get(FACING) == Direction.WEST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                    } else {
+                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                    }
+                    break;
+                case WEST:
+                    if (westPos.getBlock() instanceof BlockCornerCustomModel) {
+                        if (westPos.get(ENUM_CONNECT) == EnumConnent.NOT_CONNECT) {
+                            if (westPos.get(FACING) == Direction.NORTH) w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                            if (westPos.get(FACING) == Direction.SOUTH) w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                        }
+                    } else {
+                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                    }
+                    break;
+                case EAST:
+                    if (eastPos.getBlock() instanceof BlockCornerCustomModel) {
+                        if (eastPos.get(FACING) == Direction.NORTH) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                        if (eastPos.get(FACING) == Direction.SOUTH) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                    } else {
+                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                    }
+                    break;
+                case NORTH:
+                    if (northPos.getBlock() instanceof BlockCornerCustomModel) {
+                        if (northPos.get(FACING) == Direction.WEST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                        if (northPos.get(FACING) == Direction.EAST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                    } else {
+                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                    }
+                    break;
+            }
+        }
+    }
+    public void tick(BlockState s, ServerWorld w, BlockPos p, Random r) {
+        BlockState state = w.getBlockState(p);
+        BlockState southPos = w.getBlockState(p.south());
+        BlockState northPos = w.getBlockState(p.north());
+        BlockState eastPos = w.getBlockState(p.east());
+        BlockState westPos = w.getBlockState(p.west());
+        w.getPendingBlockTicks().scheduleTick(p, this, 4);
+        switch(s.get(FACING)) {
+            case SOUTH:
+                if (southPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (southPos.get(FACING) == Direction.EAST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                    if (southPos.get(FACING) == Direction.WEST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                } else {
+                    w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                }
+                break;
+            case WEST:
+                if (westPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (westPos.get(ENUM_CONNECT) == EnumConnent.NOT_CONNECT) {
+                        if (westPos.get(FACING) == Direction.NORTH) w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                        if (westPos.get(FACING) == Direction.SOUTH) w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                    }
+                } else {
+                    w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                }
+                break;
+            case EAST:
+                if (eastPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (eastPos.get(FACING) == Direction.NORTH) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                    if (eastPos.get(FACING) == Direction.SOUTH) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                } else {
+                    w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                }
+                break;
+            case NORTH:
+                if (northPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (northPos.get(FACING) == Direction.WEST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
+                    if (northPos.get(FACING) == Direction.EAST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
+                } else {
+                    w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
+                }
+                break;
+        }
+    }
+    public enum EnumConnent implements IStringSerializable {
+        NOT_CONNECT("not"),
+        CORNER_RIGHT("right"),
+        CORNER_LEFT("left");
+
+        @Override
+        public String getString() {
+            return this.name;
+        }
+        private final String name;
+        EnumConnent(String name) {
+            this.name = name;
+        }
+    }
+}

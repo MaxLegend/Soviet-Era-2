@@ -26,19 +26,19 @@ import ru.tesmio.reg.RegItems;
 
 import java.util.Random;
 
-public class FluoLamp2 extends BlockRotatedAxisCustomModel {
+public class FluoLamp3 extends BlockRotatedAxisCustomModel {
 
     public static final IntegerProperty LIT_VALUE = IntegerProperty.create("lit_power", 0, 4);
 
-    final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(16D, 0D, 11D, 0D, 2D, 5D),
-            Block.makeCuboidShape(11D, 0D, 16D, 5D, 2D, 0D),
-            Block.makeCuboidShape(11D, 16D, 16D, 5D, 14D, 0D),
-            Block.makeCuboidShape(16D, 16D, 11D, 0D, 14D, 5D),
-            Block.makeCuboidShape(0D, 5D, 0D, 16D, 11D, 2D),
-            Block.makeCuboidShape(0D, 5D, 14D, 16D, 11D, 16D),
-            Block.makeCuboidShape(14D, 5D, 0D, 16D, 11D, 16D),
-            Block.makeCuboidShape(0D, 5D, 0D, 2D, 11D, 16D)};
-    public FluoLamp2(Properties builder) {
+    final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(16D, 0D, 10.5D, 0D, 3.2D, 5.5D),
+            Block.makeCuboidShape(10.5D, 0D, 16D, 5.5D, 3.2D, 0D),
+            Block.makeCuboidShape(10.5D, 16D, 16D, 5.5D, 12.8D, 0D),
+            Block.makeCuboidShape(16D, 16D, 10.5D, 0D, 12.8D, 5.5D),
+            Block.makeCuboidShape(0D, 5.5D, 0D, 16D, 10.5D, 3.2D),
+            Block.makeCuboidShape(0D, 5D, 12.8D, 16D, 10.5D, 16D),
+            Block.makeCuboidShape(12.8D, 5.5D, 0D, 16D, 10.5D, 16D),
+            Block.makeCuboidShape(0D, 5.5D, 0D, 3.2D, 10.5D, 16D)};
+    public FluoLamp3(Properties builder) {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false));
     }
@@ -47,9 +47,9 @@ public class FluoLamp2 extends BlockRotatedAxisCustomModel {
         ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();
 
         if(activeItemRight.getItem() == RegItems.PULLER.get()) {
-            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP2.get().getDefaultState().with(BrokenFluoLamp.FACING, state.get(FACING)));
-            activeItemRight.damageItem(2, playerEntity, (player) -> player.sendBreakAnimation(handIn));
-            state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 2));
+            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP3.get().getDefaultState().with(BrokenFluoLamp3.FACING, state.get(FACING)));
+            activeItemRight.damageItem(1, playerEntity, (player) -> player.sendBreakAnimation(handIn));
+            state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 1));
             return ActionResultType.SUCCESS;
         }
         return ActionResultType.FAIL;
@@ -57,7 +57,6 @@ public class FluoLamp2 extends BlockRotatedAxisCustomModel {
     public BlockState getStateForPlacement(BlockItemUseContext c) {
         FluidState fluidstate = c.getWorld().getFluidState(c.getPos());
         int powerLight = c.getWorld().getRedstonePower(c.getPos(), c.getFace());
-
         for(Direction direction : c.getNearestLookingDirections()) {
 
             if (direction.getAxis() == Direction.Axis.Y) {
@@ -153,7 +152,6 @@ public class FluoLamp2 extends BlockRotatedAxisCustomModel {
         if (!worldIn.isRemote) {
 
             for(Direction facing : Direction.values()) {
-
                 int powerLight = worldIn.getRedstonePower(pos.offset(facing), facing);
 
                 if (powerLight <= 4 && powerLight > 0) {
@@ -200,4 +198,3 @@ public class FluoLamp2 extends BlockRotatedAxisCustomModel {
         } else {   worldIn.setBlockState(pos, state.with(LIT_VALUE, 0), 2); }
     }
 }
-
