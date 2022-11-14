@@ -13,7 +13,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.BlockRotatedAxisCustomModel;
+import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 

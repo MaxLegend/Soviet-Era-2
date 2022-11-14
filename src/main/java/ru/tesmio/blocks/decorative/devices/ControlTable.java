@@ -25,7 +25,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.BlockSideCustomModel;
+import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 

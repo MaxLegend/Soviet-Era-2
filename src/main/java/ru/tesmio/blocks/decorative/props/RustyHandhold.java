@@ -7,7 +7,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.BlockCornerCustomModel;
+import ru.tesmio.blocks.baseblock.BlockCornerCustomModel;
 
 public class RustyHandhold extends BlockCornerCustomModel {
       final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(0D, 0D, 0D, 3D, 16D, 16D),

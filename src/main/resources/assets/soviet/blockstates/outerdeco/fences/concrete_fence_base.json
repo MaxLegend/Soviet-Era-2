@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/outerdeco/fences/concrete_fence_base", "y": 270},
+        "facing=west":  { "model": "soviet:block/outerdeco/fences/concrete_fence_base", "y": 90},
+        "facing=south": { "model": "soviet:block/outerdeco/fences/concrete_fence_base", "y": 0 },
+        "facing=north": { "model": "soviet:block/outerdeco/fences/concrete_fence_base", "y": 180 }
+ }
+}

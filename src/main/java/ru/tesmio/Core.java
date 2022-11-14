@@ -68,6 +68,13 @@ public class Core {
                 return new ItemStack(RegBlocks.CRUSHER.get());
             }
         };
+        public static final ItemGroup TAB_OUTER_DECO = new ItemGroup("soviet_outer_deco") {
+            @Override
+            public ItemStack createIcon() {
+                //temporary icon
+                return new ItemStack(RegBlocks.DIESEL_TANK.get());
+            }
+        };
 
     }
     private void setup(final FMLCommonSetupEvent event) {

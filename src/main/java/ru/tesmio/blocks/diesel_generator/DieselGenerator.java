@@ -29,7 +29,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
-import ru.tesmio.blocks.BlockCustomModel;
+import ru.tesmio.blocks.baseblock.BlockCustomModel;
 import ru.tesmio.reg.RegBlocks;
 
 import javax.annotation.Nullable;

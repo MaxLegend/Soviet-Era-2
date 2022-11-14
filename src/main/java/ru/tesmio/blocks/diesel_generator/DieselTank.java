@@ -7,7 +7,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.BlockSideCustomModel;
+import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 
 public class DieselTank extends BlockSideCustomModel {
     private static final VoxelShape NORTH_AABB = VoxelShapes.or(Block.makeCuboidShape(2D, 0D, 3D, 16D, 13.0D, 13D),
