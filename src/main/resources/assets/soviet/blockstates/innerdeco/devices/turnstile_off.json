@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=east,status=off":  { "model": "soviet:block/innerdeco/devices/turnstile_off", "y": 90},
+        "facing=west,status=off":  { "model": "soviet:block/innerdeco/devices/turnstile_off", "y": 270},
+        "facing=south,status=off": { "model": "soviet:block/innerdeco/devices/turnstile_off", "y": 180 },
+        "facing=north,status=off": { "model": "soviet:block/innerdeco/devices/turnstile_off", "y": 0 },
+        "facing=east,status=close":  { "model": "soviet:block/innerdeco/devices/turnstile_close", "y": 90},
+        "facing=west,status=close":  { "model": "soviet:block/innerdeco/devices/turnstile_close", "y": 270},
+        "facing=south,status=close": { "model": "soviet:block/innerdeco/devices/turnstile_close", "y": 180 },
+        "facing=north,status=close": { "model": "soviet:block/innerdeco/devices/turnstile_close", "y": 0 },
+        "facing=east,status=open":  { "model": "soviet:block/innerdeco/devices/turnstile_open", "y": 90},
+        "facing=west,status=open":  { "model": "soviet:block/innerdeco/devices/turnstile_open", "y": 270},
+        "facing=south,status=open": { "model": "soviet:block/innerdeco/devices/turnstile_open", "y": 180 },
+        "facing=north,status=open": { "model": "soviet:block/innerdeco/devices/turnstile_open", "y": 0 }
+    }
+}

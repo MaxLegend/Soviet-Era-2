@@ -97,6 +97,7 @@ public class Core {
             RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_BLUE.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_GREEN.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_BROWN.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.MOTION_SENSOR.get(), RenderType.getTranslucent());
         });
     }
 

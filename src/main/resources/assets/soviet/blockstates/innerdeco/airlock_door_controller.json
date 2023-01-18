@@ -7,7 +7,7 @@
         "facing=west,status=powered,opened=false": { "model": "soviet:block/innerdeco/airlock_door_controller_powered", "y": 90 },
         "facing=east,status=powered,opened=false": { "model": "soviet:block/innerdeco/airlock_door_controller_powered", "y": 270 },
         "facing=north,status=powered,opened=false": { "model": "soviet:block/innerdeco/airlock_door_controller_powered","y": 180 },
-        "facing=south,status=powered,opened=true": { "model": "soviet:block/innerdeco/airlock_door_controller_powered"},
+        "facing=south,status=powered,opened=false": { "model": "soviet:block/innerdeco/airlock_door_controller_powered"},
         "facing=west,status=powered,opened=true": { "model": "soviet:block/innerdeco/airlock_door_controller_open", "y": 90 },
         "facing=east,status=powered,opened=true": { "model": "soviet:block/innerdeco/airlock_door_controller_open","y": 270 },
         "facing=north,status=powered,opened=true": { "model": "soviet:block/innerdeco/airlock_door_controller_open", "y": 180 },

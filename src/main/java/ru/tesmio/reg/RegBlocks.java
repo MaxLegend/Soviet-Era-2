@@ -22,6 +22,8 @@ import ru.tesmio.blocks.const_panel.PanelBlockCorner;
 import ru.tesmio.blocks.const_panel.PanelBlockSide;
 import ru.tesmio.blocks.crusher.BlockCrusher;
 import ru.tesmio.blocks.decorative.devices.ControlTable;
+import ru.tesmio.blocks.decorative.devices.EntitySensor;
+import ru.tesmio.blocks.decorative.devices.Turnstile;
 import ru.tesmio.blocks.decorative.lamp.*;
 import ru.tesmio.blocks.decorative.props.RustyBars;
 import ru.tesmio.blocks.decorative.props.RustyHandhold;
@@ -37,6 +39,7 @@ import ru.tesmio.blocks.doors.RailingDoorBlock;
 import ru.tesmio.blocks.fences.ConcreteFence;
 import ru.tesmio.blocks.fences.ConcreteFenceHigh;
 import ru.tesmio.blocks.fences.ElectroFence;
+import ru.tesmio.blocks.fences.ElectroFenceDouble;
 import ru.tesmio.blocks.tumbler.AirlockDoorController;
 import ru.tesmio.blocks.tumbler.ElectroFenceTumbler;
 
@@ -83,8 +86,8 @@ public class RegBlocks {
     public static RegistryObject<Block> CONCRETE_SLAB_GRAY, CONCRETE_SLAB_GREEN, CONCRETE_SLAB_BLUE, CONCRETE_SLAB_BEIGE,
             CONCRETE_SLAB_BEIGE2, CONCRETE_SLAB_RED, CONCRETE_SLAB_YELLOW, CONCRETE_SLAB_WHITE, CONCRETE_SLAB_ORANGE;
 
-    public static RegistryObject<Block> CONCRETE_FENCE, CONCRETE_FENCE_HIGH, CONCRETE_FENCE_BASE, ELECTRO_FENCE, ELECTRO_FENCE_TUMBLER;
-
+    public static RegistryObject<Block> CONCRETE_FENCE, CONCRETE_FENCE_HIGH, CONCRETE_FENCE_BASE, ELECTRO_FENCE, ELECTRO_FENCE_TUMBLER, ELECTRO_FENCE_DOUBLE;
+    public static RegistryObject<Block> MOTION_SENSOR,TURNSTILE;
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
     protected static VoxelShape BOX = Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 16D, 16.0D);
     protected static VoxelShape BOX_CONCRETE_FENCE_BASE[] = new VoxelShape[] {VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 6D, 16.0D),
@@ -97,12 +100,18 @@ public class RegBlocks {
         //redstone devices
      //   REDSTONE_WIRE = registerOnlyCustomBlock("innerdeco/redstonewire/redstone_wire", () -> new RedstoneWire(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
+        //other devices
+        MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
+        }, Core.ItemGroups.TAB_OUTER_DECO);
+        TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
+        }, Core.ItemGroups.TAB_INNER_DECO);
         //fence
         CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
         CONCRETE_FENCE_HIGH = registerOnlyCustomBlock("outerdeco/fences/concrete_fence_high", () -> new ConcreteFenceHigh(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
         CONCRETE_FENCE_BASE = registerBlockWithModel("outerdeco/fences/concrete_fence_base", () -> new BlockSideWithModelCustomAABB(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), BOX_CONCRETE_FENCE_BASE, true), Core.ItemGroups.TAB_OUTER_DECO);
-        ELECTRO_FENCE = registerBlockWithModel("outerdeco/electro_fence", () -> new ElectroFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
-        ELECTRO_FENCE_TUMBLER = registerBlockWithModel("outerdeco/electro_fence_tumbler", () -> new ElectroFenceTumbler(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
+        ELECTRO_FENCE = registerBlockWithModel("outerdeco/fences/electro_fence", () -> new ElectroFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
+        ELECTRO_FENCE_TUMBLER = registerBlockWithModel("outerdeco/fences/electro_fence_tumbler", () -> new ElectroFenceTumbler(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
+        ELECTRO_FENCE_DOUBLE = registerBlockWithModel("outerdeco/fences/electro_fence_double", () -> new ElectroFenceDouble(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
 
 
 

@@ -5,7 +5,7 @@
 		"0": "soviet:block/structural/ceramic",
 		"1": "soviet:block/structural/rusty_ralling",
 		"2": "soviet:block/concrete/concrete_gray",
-		"particle": "soviet:block/structural/ceramik"
+		"particle": "soviet:block/structural/ceramic"
 	},
 	"elements": [
 		{

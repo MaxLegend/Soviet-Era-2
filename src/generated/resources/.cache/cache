@@ -390,6 +390,8 @@ d59e2f68589ebaddc247e288fccd890dca566114 assets/soviet/models/item/innerdeco/acc
 fb8a760b880eb3974c6c89fff99d589fcd81b6b1 assets/soviet/models/item/innerdeco/airlock_door_controller.json
 ae40ba3d652c4e5316cdc025f0bd7de195dfb673 assets/soviet/models/item/innerdeco/control_panel/cp_down.json
 8e203fdb6b697559e103319b1ec4d500a6c07465 assets/soviet/models/item/innerdeco/control_panel/cp_up.json
+737f9e5525b190d7a2c902970191b5c34e221de7 assets/soviet/models/item/innerdeco/devices/motion_sensor.json
+01ee002f310e4e1551e25f61b089c5a32ead2555 assets/soviet/models/item/innerdeco/devices/turnstile_off.json
 880f4537c2ee4fc02d545df074ad8bf32f2c9006 assets/soviet/models/item/innerdeco/handhold/balcony_handhold.json
 2bd823fcb783296b41a0426fcc7331a66970da03 assets/soviet/models/item/innerdeco/handhold/rusty_handhold.json
 5cc92b9c9e03d3a58c264f9bfd6f409d77f0ca74 assets/soviet/models/item/innerdeco/handhold/street_handhold.json
@@ -424,9 +426,10 @@ f02a6b920e6ef2702ff5c6433581c919f49097ed assets/soviet/models/item/mech/diesel_g
 4e9ca372c3186f8c6048dc18c779dedcf52cb1df assets/soviet/models/item/mosaictile/tile_mosaic_1.json
 8184ecb3944c31cdc6faa99a4b1b9d972edca521 assets/soviet/models/item/mosaictile/tile_mosaic_2.json
 d90674569d975912ed628c31b320b7513131f6c2 assets/soviet/models/item/netherite_dust.json
-34a31e1143f6c0f549d1d027b396b0e033a5746f assets/soviet/models/item/outerdeco/electro_fence.json
-2baefac21158919a7d1f62176e9da95b64498abd assets/soviet/models/item/outerdeco/electro_fence_tumbler.json
 8d48a796ed6e2fd44a5bb411cb18d0e770141393 assets/soviet/models/item/outerdeco/fences/concrete_fence_base.json
+8a9971e1de02b19b3329f5d35c42e66b386a0825 assets/soviet/models/item/outerdeco/fences/electro_fence.json
+c309a2ef937d781a99216ba154687b268b960f7b assets/soviet/models/item/outerdeco/fences/electro_fence_double.json
+5a39528cf81b53b5d22e866b7545be9fb15134d7 assets/soviet/models/item/outerdeco/fences/electro_fence_tumbler.json
 d98b02c41ed5643d228f47ffa204b3205018d277 assets/soviet/models/item/pestle.json
 5f1692928e5f2c14f17d82d4aa494461da689743 assets/soviet/models/item/platinum_axe.json
 c129dade0ff48eec3ed14c6c0ebe5a2f564cfec2 assets/soviet/models/item/platinum_dust.json

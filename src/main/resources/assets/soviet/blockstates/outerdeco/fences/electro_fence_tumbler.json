@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=east,powered=false": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler", "y": 90 },
+        "facing=west,powered=false": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler",  "y": 270 },
+        "facing=south,powered=false": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler", "y": 180 },
+        "facing=north,powered=false": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler"},
+        "facing=east,powered=true": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler_on", "y": 90 },
+        "facing=west,powered=true": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler_on", "y": 270 },
+        "facing=south,powered=true": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler_on","y": 180 },
+        "facing=north,powered=true": { "model": "soviet:block/outerdeco/fences/electro_fence_tumbler_on"}
+    }
+}

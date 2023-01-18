@@ -210,12 +210,33 @@ public class ElectroFence extends BlockSideCustomModel {
         }
     }
     public boolean canConnect(World w, BlockPos p, Direction facing) {
+        BlockState state = w.getBlockState(p.offset(facing));
         Block block = w.getBlockState(p.offset(facing)).getBlock();
+
         if(block instanceof ElectroFence) {
             if(w.getBlockState(p.offset(facing)).get(FACING) == w.getBlockState(p).get(FACING)) return true;
         }
         if(block instanceof ElectroFenceTumbler) {
-            return true;
+            if(w.getBlockState(p).get(FACING) == Direction.WEST || w.getBlockState(p).get(FACING) == Direction.EAST ) {
+                if(facing != Direction.NORTH) {
+                    return state.get(FACING) == Direction.SOUTH;
+                }
+            }
+            if(w.getBlockState(p).get(FACING) == Direction.WEST || w.getBlockState(p).get(FACING) == Direction.EAST ) {
+                if(facing != Direction.SOUTH) {
+                    return state.get(FACING) == Direction.NORTH;
+                }
+            }
+            if(w.getBlockState(p).get(FACING) == Direction.SOUTH || w.getBlockState(p).get(FACING) == Direction.NORTH ) {
+                if(facing != Direction.EAST) {
+                    return state.get(FACING) == Direction.WEST;
+                }
+            }
+            if(w.getBlockState(p).get(FACING) == Direction.SOUTH || w.getBlockState(p).get(FACING) == Direction.NORTH ) {
+                if(facing != Direction.WEST) {
+                    return state.get(FACING) == Direction.EAST;
+                }
+            }
         }
         return false;
     }

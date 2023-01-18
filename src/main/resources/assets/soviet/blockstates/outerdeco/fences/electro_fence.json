@@ -1,0 +1,64 @@
+{
+    "multipart": [
+        {   "when": { "facing": "north" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence" }
+        },
+        {   "when": { "facing": "south" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence", "y": 180 }
+        },
+        {   "when": { "facing": "west" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence", "y": 270 }
+        },
+        {   "when": { "facing": "east" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence", "y": 90 }
+        },
+        {   "when": { "facing": "north", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left" }
+        },
+        {   "when": { "facing": "north", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right" }
+        },
+        {   "when": { "facing": "north", "left_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left_back" }
+        },
+        {   "when": { "facing": "north", "right_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right_back" }
+        },
+        {   "when": { "facing": "south", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left", "y": 180 }
+        },
+        {   "when": { "facing": "south", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right", "y": 180 }
+        },
+        {   "when": { "facing": "south", "left_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left_back", "y": 180 }
+        },
+        {   "when": { "facing": "south", "right_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right_back", "y": 180 }
+        },
+        {   "when": { "facing": "east", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left", "y": 90 }
+        },
+        {   "when": { "facing": "east", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right", "y": 90 }
+        },
+        {   "when": { "facing": "east", "left_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left_back", "y": 90 }
+        },
+        {   "when": { "facing": "east", "right_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right_back", "y": 90 }
+        },
+        {   "when": { "facing": "west", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left", "y": 270 }
+        },
+        {   "when": { "facing": "west", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right", "y": 270 }
+        },
+        {   "when": { "facing": "west", "left_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_left_back", "y": 270 }
+        },
+        {   "when": { "facing": "west", "right_back": "true" },
+            "apply": { "model": "soviet:block/outerdeco/fences/electro_fence_right_back", "y": 270 }
+        }
+    ]
+}
