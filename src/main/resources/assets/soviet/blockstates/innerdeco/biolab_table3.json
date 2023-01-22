@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=east,states=def":  { "model": "soviet:block/innerdeco/table/biolab_table2_def2", "y": 270},
+        "facing=west,states=def":  { "model": "soviet:block/innerdeco/table/biolab_table2_def2", "y": 90},
+        "facing=south,states=def": { "model": "soviet:block/innerdeco/table/biolab_table2_def2", "y": 0 },
+        "facing=north,states=def": { "model": "soviet:block/innerdeco/table/biolab_table2_def2", "y": 180 },
+        "facing=east,states=left":  { "model": "soviet:block/innerdeco/table/biolab_table2_right2", "y": 270},
+        "facing=west,states=left":  { "model": "soviet:block/innerdeco/table/biolab_table2_right2", "y": 90},
+        "facing=south,states=left": { "model": "soviet:block/innerdeco/table/biolab_table2_right2", "y": 0 },
+        "facing=north,states=left": { "model": "soviet:block/innerdeco/table/biolab_table2_right2", "y": 180 },
+        "facing=east,states=right":  { "model": "soviet:block/innerdeco/table/biolab_table2_left2", "y": 270},
+        "facing=west,states=right":  { "model": "soviet:block/innerdeco/table/biolab_table2_left2", "y": 90},
+        "facing=south,states=right": { "model": "soviet:block/innerdeco/table/biolab_table2_left2", "y": 0 },
+        "facing=north,states=right": { "model": "soviet:block/innerdeco/table/biolab_table2_left2", "y": 180 },
+        "facing=east,states=center":  { "model": "soviet:block/innerdeco/table/biolab_table2_mid2", "y": 270},
+        "facing=west,states=center":  { "model": "soviet:block/innerdeco/table/biolab_table2_mid2", "y": 90},
+        "facing=south,states=center": { "model": "soviet:block/innerdeco/table/biolab_table2_mid2", "y": 0 },
+        "facing=north,states=center": { "model": "soviet:block/innerdeco/table/biolab_table2_mid2", "y": 180 }
+    }
+}

@@ -10,7 +10,8 @@ import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.baseblock.BlockCornerCustomModel;
 
 public class RustyHandhold extends BlockCornerCustomModel {
-      final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(0D, 0D, 0D, 3D, 16D, 16D),
+      final VoxelShape BOXS[] = new VoxelShape[] {
+              Block.makeCuboidShape(0D, 0D, 0D, 3D, 16D, 16D),
               Block.makeCuboidShape(13D, 0D, 0D, 16D, 16D, 16D),
               Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 3D),
               Block.makeCuboidShape(0D, 0D, 13D, 16D, 16D, 16D)};
@@ -25,6 +26,7 @@ public class RustyHandhold extends BlockCornerCustomModel {
     public VoxelShape getRayTraceShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
         return this.getShape(state, reader, pos, context);
     }
+
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
         switch (state.get(FACING)) {

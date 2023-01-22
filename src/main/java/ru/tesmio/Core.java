@@ -84,6 +84,7 @@ public class Core {
     private void doClientStuff(final FMLClientSetupEvent event) {
 
         event.enqueueWork(() -> {
+
             ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);
             ScreenManager.registerFactory(RegContainers.AFFINAGE_CONT.get(), AffinageScreen::new);
             ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
@@ -98,6 +99,8 @@ public class Core {
             RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_GREEN.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.CERAMIC_GLASS_BROWN.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.MOTION_SENSOR.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.BIOLAB_TABLE_CASE.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.CHEMLAB_TABLE_CASE.get(), RenderType.getTranslucent());
         });
     }
 

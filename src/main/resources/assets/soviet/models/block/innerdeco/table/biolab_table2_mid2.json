@@ -1,0 +1,50 @@
+{
+	"credit": "Made special for SovietLab",
+	"textures": {
+		"0": "soviet:block/structural/rasty_blue_metal_d",
+		"4": "soviet:block/structural/gray_metal",
+		"5": "soviet:block/structural/gray_metal",
+		"particle": "soviet:block/structural/rasty_blue_metal_d"
+	},
+	"elements": [
+		{
+			"from": [0, 15, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.22794, 8]},
+			"faces": {
+				"north": {"uv": [16, 0, 0, 1.25], "texture": "#4"},
+				"east": {"uv": [16, 0, 0, 1.25], "texture": "#4"},
+				"south": {"uv": [16, 0, 0, 1.25], "texture": "#4"},
+				"west": {"uv": [16, 0, 0, 1.25], "texture": "#4"},
+				"up": {"uv": [0, 16, 16, 0], "rotation": 270, "texture": "#5"},
+				"down": {"uv": [0, 16, 16, 0], "rotation": 270, "texture": "#4"}
+			}
+		},
+		{
+			"from": [0, 12, 0.5],
+			"to": [16, 14, 1.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.22794, 8]},
+			"faces": {
+				"north": {"uv": [16, 0, 0, 2], "texture": "#0"},
+				"east": {"uv": [3, 2, 2, 4], "texture": "#0"},
+				"south": {"uv": [16, 0, 0, 2], "texture": "#0"},
+				"west": {"uv": [1, 0, 0, 2], "texture": "#0"},
+				"up": {"uv": [0, 13, 1, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 13, 1, 0], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 12, 14.5],
+			"to": [16, 14, 15.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7.22794, 8]},
+			"faces": {
+				"north": {"uv": [16, 0, 0, 2], "texture": "#0"},
+				"east": {"uv": [3, 2, 2, 4], "texture": "#0"},
+				"south": {"uv": [16, 8, 0, 10], "texture": "#0"},
+				"west": {"uv": [1, 0, 0, 2], "texture": "#0"},
+				"up": {"uv": [0, 13, 1, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 13, 1, 0], "rotation": 270, "texture": "#0"}
+			}
+		}
+	]
+}

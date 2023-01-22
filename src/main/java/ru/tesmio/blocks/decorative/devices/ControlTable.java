@@ -33,7 +33,8 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ControlTable extends BlockSideCustomModel implements IWaterLoggable {
-    final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(8D, 0D, 0D, 16D, 16D, 16D), Block.makeCuboidShape(0D, 0D, 0D, 8D, 16D, 16D)
+    final VoxelShape BOXS[] = new VoxelShape[] {
+            Block.makeCuboidShape(8D, 0D, 0D, 16D, 16D, 16D), Block.makeCuboidShape(0D, 0D, 0D, 8D, 16D, 16D)
     ,Block.makeCuboidShape(0D, 0D, 8D, 16D, 16D, 16D),Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 8D), VoxelShapes.or(Block.makeCuboidShape(8D, 0D, 0D, 16D, 16D, 16D),
             Block.makeCuboidShape(0.5D, 10D, 0D, 16D, 13D, 16D)),VoxelShapes.or(Block.makeCuboidShape(0D, 0D, 0D, 8D, 16D, 16D),
             Block.makeCuboidShape(0.5D, 10D, 0D, 15.5D, 13D, 16D)), VoxelShapes.or(Block.makeCuboidShape(0D, 0D, 8D, 16D, 16D, 16D),
