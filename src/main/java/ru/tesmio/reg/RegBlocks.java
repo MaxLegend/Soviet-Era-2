@@ -21,6 +21,7 @@ import ru.tesmio.blocks.circuits.*;
 import ru.tesmio.blocks.const_panel.PanelBlockCorner;
 import ru.tesmio.blocks.const_panel.PanelBlockSide;
 import ru.tesmio.blocks.crusher.BlockCrusher;
+import ru.tesmio.blocks.decorative.devices.BlockRedstoneWire;
 import ru.tesmio.blocks.decorative.devices.ControlTable;
 import ru.tesmio.blocks.decorative.devices.EntitySensor;
 import ru.tesmio.blocks.decorative.devices.Turnstile;
@@ -88,7 +89,7 @@ public class RegBlocks {
             CONCRETE_SLAB_BEIGE2, CONCRETE_SLAB_RED, CONCRETE_SLAB_YELLOW, CONCRETE_SLAB_WHITE, CONCRETE_SLAB_ORANGE;
 
     public static RegistryObject<Block> CONCRETE_FENCE, CONCRETE_FENCE_HIGH, CONCRETE_FENCE_BASE, ELECTRO_FENCE, ELECTRO_FENCE_TUMBLER, ELECTRO_FENCE_DOUBLE;
-    public static RegistryObject<Block> MOTION_SENSOR,TURNSTILE;
+    public static RegistryObject<Block> MOTION_SENSOR,TURNSTILE, REDSTONE_WIRE;
     public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE;
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
     protected static VoxelShape BOX = Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 16D, 16.0D);
@@ -100,26 +101,17 @@ public class RegBlocks {
 
     public static void init() {
         //redstone devices
-     //   REDSTONE_WIRE = registerOnlyCustomBlock("innerdeco/redstonewire/redstone_wire", () -> new RedstoneWire(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        CHEMLAB_TABLE = registerBlockWithModel("innerdeco/chemlab_table", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
-        CHEMLAB_TABLE_CASE = registerBlockWithModel("innerdeco/chemlab_table_up", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE = registerBlockWithModel("innerdeco/biolab_table", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE_CASE = registerBlockWithModel("innerdeco/biolab_table_up", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE2 = registerBlockWithModel("innerdeco/biolab_table2", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE3 = registerBlockWithModel("innerdeco/biolab_table3", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE4 = registerBlockWithModel("innerdeco/biolab_table4", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
+        REDSTONE_WIRE = registerBlockWithModel("innerdeco/devices/redstone_wire", () -> new BlockRedstoneWire(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
+        CHEMLAB_TABLE = registerBlockWithModel("innerdeco/chemlab_table", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        CHEMLAB_TABLE_CASE = registerBlockWithModel("innerdeco/chemlab_table_up", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE = registerBlockWithModel("innerdeco/biolab_table", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE_CASE = registerBlockWithModel("innerdeco/biolab_table_up", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE2 = registerBlockWithModel("innerdeco/biolab_table2", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE3 = registerBlockWithModel("innerdeco/biolab_table3", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE4 = registerBlockWithModel("innerdeco/biolab_table4", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
         //other devices
-        MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_OUTER_DECO);
-        TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {
-        }, Core.ItemGroups.TAB_INNER_DECO);
+        MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_OUTER_DECO);
+        TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
         //fence
         CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
         CONCRETE_FENCE_HIGH = registerOnlyCustomBlock("outerdeco/fences/concrete_fence_high", () -> new ConcreteFenceHigh(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);

@@ -1,0 +1,12 @@
+{
+  "motion_sensor": {
+    "subtitle": "motion_sensor",
+    "replace": "true",
+    "sounds": [
+      {
+        "name": "soviet:motion_sensor",
+        "stream": true
+      }
+    ]
+  }
+}

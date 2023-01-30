@@ -44,7 +44,7 @@ public class Core {
         RegBlocks.register(eventBus);
         RegContainers.CONTAINER_TYPES.register(eventBus);
         RegTileEntitys.TILE_ENTITY_TYPES.register(eventBus);
-
+        RegSounds.SOUNDS.register(eventBus);
 
     }
 

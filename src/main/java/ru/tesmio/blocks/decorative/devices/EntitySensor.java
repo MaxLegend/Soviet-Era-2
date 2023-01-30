@@ -5,6 +5,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.IntegerProperty;
@@ -21,6 +24,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegSounds;
 
 import java.util.Random;
 
@@ -139,6 +143,11 @@ public abstract class EntitySensor extends BlockSideCustomModel {
     {
         if(w.isBlockPowered(p)) {
             this.onUpdate(s, w, p);
+            if(s.get(POWERED)) {
+
+                // w.playSound(p.getX(),p.getY(),p.getZ(), RegSounds.SOUND_MOTION_SENSOR.get(), SoundCategory.BLOCKS, 0.1f, 1f, true);
+                w.playSound(null, p, RegSounds.SOUND_MOTION_SENSOR.get(), SoundCategory.BLOCKS, 0.04f, 1f);
+            }
         }
     }
 
@@ -161,6 +170,10 @@ public abstract class EntitySensor extends BlockSideCustomModel {
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
    //     if(!s.get(POWERED)) w.setBlockState(p, s.with(POWERED, true));
 
+    }
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
+        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
     }
     public void updateState(BlockState s, World w, BlockPos p) {
             BlockState s2 = s.getBlockState();
@@ -185,7 +198,7 @@ public abstract class EntitySensor extends BlockSideCustomModel {
         double range = 2D * Math.pow(2D, as.get(RANGE));
         AxisAlignedBB east = CUBE_BOX.offset(p).grow(range,0,0).offset(range, 0,0);
         AxisAlignedBB west = CUBE_BOX.offset(p).grow(range,0,0).offset(-range, 0,0);
-        AxisAlignedBB north = CUBE_BOX.offset(p).grow(0,0,range).offset(range, 0,range);
+        AxisAlignedBB north = CUBE_BOX.offset(p).grow(0,0,range).offset(0, 0,range);
         AxisAlignedBB south = CUBE_BOX.offset(p).grow(0,0,range).offset(0, 0,-range);
         double range2 = range*range;
         Vector3d center = new Vector3d(p.getX() + 0.5D, p.getY() + 0.5D, p.getZ() + 0.5D);
@@ -193,7 +206,7 @@ public abstract class EntitySensor extends BlockSideCustomModel {
             boolean areEntitiesNear = false;
                 switch (as.get(FACING)) {
                     case NORTH:
-                        areEntitiesNear = w.getEntitiesWithinAABB(this.entityClass, north).stream().anyMatch(entity -> entity.getDistanceSq(center) < range2);
+                        areEntitiesNear = w.getEntitiesWithinAABB(this.entityClass, south).stream().anyMatch(entity -> entity.getDistanceSq(center) < range2);
                         break;
                     case WEST:
                         areEntitiesNear = w.getEntitiesWithinAABB(this.entityClass, west).stream().anyMatch(entity -> entity.getDistanceSq(center) < range2);
@@ -202,14 +215,16 @@ public abstract class EntitySensor extends BlockSideCustomModel {
                         areEntitiesNear = w.getEntitiesWithinAABB(this.entityClass, east).stream().anyMatch(entity -> entity.getDistanceSq(center) < range2);
                         break;
                     case SOUTH:
-                        areEntitiesNear = w.getEntitiesWithinAABB(this.entityClass, south).stream().anyMatch(entity -> entity.getDistanceSq(center) < range2);
+                        areEntitiesNear = w.getEntitiesWithinAABB(this.entityClass, north).stream().anyMatch(entity -> entity.getDistanceSq(center) < range2);
                         break;
                 }
             if (areEntitiesNear != as.get(POWERED))
             {
+
                 w.setBlockState(p, as.with(POWERED, areEntitiesNear), 3);
             }
             }
+
                     w.getPendingBlockTicks().scheduleTick(p, this, 4);
             }
 
