@@ -398,6 +398,7 @@ d9e7e78701e86d47765dfade6158a1750804c7a2 assets/soviet/models/item/innerdeco/che
 ae40ba3d652c4e5316cdc025f0bd7de195dfb673 assets/soviet/models/item/innerdeco/control_panel/cp_down.json
 8e203fdb6b697559e103319b1ec4d500a6c07465 assets/soviet/models/item/innerdeco/control_panel/cp_up.json
 737f9e5525b190d7a2c902970191b5c34e221de7 assets/soviet/models/item/innerdeco/devices/motion_sensor.json
+716c2da54e6a8db5cf44144d11aa7b0d91a1a52a assets/soviet/models/item/innerdeco/devices/redstone_wire.json
 01ee002f310e4e1551e25f61b089c5a32ead2555 assets/soviet/models/item/innerdeco/devices/turnstile_off.json
 880f4537c2ee4fc02d545df074ad8bf32f2c9006 assets/soviet/models/item/innerdeco/handhold/balcony_handhold.json
 2bd823fcb783296b41a0426fcc7331a66970da03 assets/soviet/models/item/innerdeco/handhold/rusty_handhold.json
@@ -411,6 +412,9 @@ f991d1ad566de6defae5783cf3d9dbe301bb31e5 assets/soviet/models/item/innerdeco/lam
 64be0e07a2aab0e0a713ef43f02d6fa4514c62b8 assets/soviet/models/item/innerdeco/rusty_bars.json
 11bf1b2f42189f448c942d5b2f21153f052d0d6a assets/soviet/models/item/innerdeco/tubing_horizontal.json
 93628bd20e1da2228dae0f45f38ca56fccecd9d8 assets/soviet/models/item/innerdeco/tubing_vertical.json
+20adb47757099a49a71bb24aa1bcd2c6ce88d3d7 assets/soviet/models/item/innerdeco/windows/alum_frame.json
+bd528022b04821873d2a92a32ac181a951007508 assets/soviet/models/item/innerdeco/windows/alum_frame_empty.json
+90c10d0263337829c23dfd43e3170ad13d79b74b assets/soviet/models/item/innerdeco/windows/alum_window.json
 b5a20cc0d566ad3e79dcb0882661b7ff1f3f4c3c assets/soviet/models/item/lead_dust.json
 37daf5373c8c1ba257261be9c8ecac354e351888 assets/soviet/models/item/lead_ingot.json
 aade9807a2f8ac745fbfe162020af286be203a7a assets/soviet/models/item/leadceramic_dust.json

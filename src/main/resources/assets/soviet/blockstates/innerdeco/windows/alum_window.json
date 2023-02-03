@@ -1,0 +1,207 @@
+{
+    "multipart": [
+        {   "when": { "facing": "north", "up": "false", "down": "false", "left": "false", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window","y": 180 }
+        },
+        {   "when": { "facing": "south", "up": "false", "down": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "up": "false", "down": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "up": "false", "down": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window","y": 90,"uvlock": true }
+        },     
+	{   "when": { "facing": "north", "up": "true", "down": "false", "left": "false", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down","y": 180 }
+        },
+        {   "when": { "facing": "south", "up": "true", "down": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "up": "true", "down": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "up": "true", "down": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down","y": 90,"uvlock": true }
+        },     
+	{   "when": { "facing": "north", "down": "true", "up": "false", "left": "false", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "false", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up","y": 90,"uvlock": true }
+        },     
+	{   "when": { "facing": "north", "down": "true", "up": "true", "left": "false", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "true", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "true", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "true", "left": "false", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double","y": 90,"uvlock": true }
+        },     
+	{   "when": { "facing": "north", "down": "false", "up": "true", "left": "true", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_left","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "false", "up": "true", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_right","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "false", "up": "true", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_left","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "false", "up": "true", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_right","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "true", "up": "false", "left": "true", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_right","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "false", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_left","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "false", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_right","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "false", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_left","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "true", "up": "false", "left": "false", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_left","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "false", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_right","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "false", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_left","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "false", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_right","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "true", "up": "false", "left": "true", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_center","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "false", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_center","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "false", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_center","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "false", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_up_center","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "false", "up": "true", "left": "true", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_center","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "false", "up": "true", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_center","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "false", "up": "true", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_center","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "false", "up": "true", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_center","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "false", "up": "true", "left": "false", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_right","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "false", "up": "true", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_left","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "false", "up": "true", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_right","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "false", "up": "true", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_down_left","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "true", "up": "true", "left": "false", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "true", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_right","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "true", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "true", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_right","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "true", "up": "true", "left": "true", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_right","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "true", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "true", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_right","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "true", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "true", "up": "true", "left": "true", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left_right","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "true", "up": "true", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left_right","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "true", "up": "true", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left_right","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "true", "up": "true", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_double_left_right","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "false", "up": "false", "left": "true", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_center","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "false", "up": "false", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_center","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "false", "up": "false", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_center","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "false", "up": "false", "left": "true", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_center","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "false", "up": "false", "left": "false", "right": "true" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_left","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "false", "up": "false", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_right","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "false", "up": "false", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_left","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "false", "up": "false", "left": "false", "right": "true"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_right","y": 90,"uvlock": true }
+        }
+,     
+	{   "when": { "facing": "north", "down": "false", "up": "false", "left": "true", "right": "false" },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_right","y": 180 }
+        },
+        {   "when": { "facing": "south", "down": "false", "up": "false", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_left","y": 0, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "down": "false", "up": "false", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_right","y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "west", "down": "false", "up": "false", "left": "true", "right": "false"  },
+            "apply": { "model": "soviet:block/innerdeco/windows/alum_window_def_left","y": 90,"uvlock": true }
+        }
+    ]
+}

@@ -101,6 +101,8 @@ public class Core {
             RenderTypeLookup.setRenderLayer(RegBlocks.MOTION_SENSOR.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.BIOLAB_TABLE_CASE.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.CHEMLAB_TABLE_CASE.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_FRAMES.get(), RenderType.getTranslucent());
+            RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_WINDOW.get(), RenderType.getCutout());
         });
     }
 

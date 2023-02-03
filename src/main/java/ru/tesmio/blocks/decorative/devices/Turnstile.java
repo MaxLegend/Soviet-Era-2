@@ -47,18 +47,18 @@ public class Turnstile extends BlockSideCustomModel {
                     //opened part
                     Block.makeCuboidShape(0.65D, 11D, 7.65D, 16D, 12.8D, 8.37D)),
             VoxelShapes.or(
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 0D, 4D, 5D, 1D, 12D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 0D, 6D, 3D, 10D, 10D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 10D, 4D, 4D, 13D, 12D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 13D, 5D, 6D, 16D, 11D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 4D, 5D, 1D, 12D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 6D, 3D, 10D, 10D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 10D, 4D, 4D, 13D, 12D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 13D, 5D, 6D, 16D, 11D)),
                     //opened part
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(4D, 1.8D, 7.65D, 5.8D, 12.8D, 8.37D))),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(4D, 1.8D, 7.65D, 5.8D, 12.8D, 8.37D))),
             VoxelShapes.or(
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 0D, 4D, 5D, 1D, 12D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 0D, 6D, 3D, 10D, 10D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 10D, 4D, 4D, 13D, 12D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 13D, 5D, 6D, 16D, 11D)),
-                    VoxelShapeUtil.shapeRotССW90(Block.makeCuboidShape(0D, 11D, 7.65D, 15.25D, 12.8D, 8.37D))),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 4D, 5D, 1D, 12D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 6D, 3D, 10D, 10D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 10D, 4D, 4D, 13D, 12D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 13D, 5D, 6D, 16D, 11D)),
+                    VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 11D, 7.65D, 15.25D, 12.8D, 8.37D))),
             VoxelShapes.or(Block.makeCuboidShape(4D, 0D, 0D, 12D, 1D, 5D),
                     Block.makeCuboidShape(6D, 0D, 0D, 10D, 10D, 3D),
                     Block.makeCuboidShape(4D, 10D, 0D, 12D, 13D, 4D),

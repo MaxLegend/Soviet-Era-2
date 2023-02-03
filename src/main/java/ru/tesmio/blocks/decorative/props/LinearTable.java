@@ -39,7 +39,7 @@ public class LinearTable extends BlockSideCustomModel {
             switch (state.get(FACING)) {
                 case EAST:
                 case WEST:
-                    return VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0,0,1,16,16,15));
+                    return VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0,0,1,16,16,15));
                 case NORTH:
                 case SOUTH:
                     return Block.makeCuboidShape(0,0,1,16,16,15);
@@ -50,36 +50,36 @@ public class LinearTable extends BlockSideCustomModel {
             switch (state.get(FACING)) {
                 case EAST:
                     if(state.get(STATES) == EnumState.RIGHT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotСW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.LEFT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                     }
                 case WEST:
                     if(state.get(STATES) == EnumState.LEFT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                        VoxelShapeUtil.shapeRotСW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                        VoxelShapeUtil.shapeRotCW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.RIGHT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                        VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                        VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.CENTER) {
                         return VoxelShapes.or(
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                                        VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)));
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
+                                        VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)));
                     }
                      return VoxelShapes.or(
-                             VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                             VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                             VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)),
-                             VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                             VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
+                             VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                             VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)),
+                             VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                 case NORTH:
                     if(state.get(STATES) == EnumState.RIGHT) {
                         return VoxelShapes.or(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D),
@@ -117,36 +117,36 @@ public class LinearTable extends BlockSideCustomModel {
             switch (state.get(FACING)) {
                 case EAST:
                     if(state.get(STATES) == EnumState.RIGHT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotСW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.LEFT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                     }
                 case WEST:
                     if(state.get(STATES) == EnumState.LEFT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotСW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.RIGHT) {
-                        return VoxelShapes.or(VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                        return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.CENTER) {
                         return VoxelShapes.or(
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)));
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)));
                     }
                     return VoxelShapes.or(
-                            VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
-                            VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                            VoxelShapeUtil.shapeRotСW90( Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)),
-                            VoxelShapeUtil.shapeRotСW90(Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D)),
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                            VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)),
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                 case NORTH:
                     if(state.get(STATES) == EnumState.RIGHT) {
                         return VoxelShapes.or(Block.makeCuboidShape(0.5D,4D,0.5D,15.5D,15,15.5D),
