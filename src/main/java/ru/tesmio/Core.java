@@ -103,6 +103,7 @@ public class Core {
             RenderTypeLookup.setRenderLayer(RegBlocks.CHEMLAB_TABLE_CASE.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_FRAMES.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_WINDOW.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_WINDOW_EMPTY.get(), RenderType.getCutout());
         });
     }
 

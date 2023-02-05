@@ -29,4 +29,7 @@ public class VoxelShapeUtil {
         new_maxZ = 1 - vs.getBoundingBox().maxZ;
         return VoxelShapes.create(new_minX, vs.getBoundingBox().minY, new_minZ, new_maxX, vs.getBoundingBox().maxY, new_maxZ);
         }
+    public static VoxelShape shapeMirror(VoxelShape vs) {
+        return shapeRot180(vs);
+    }
 }

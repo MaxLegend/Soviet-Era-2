@@ -16,9 +16,17 @@ import ru.tesmio.blocks.baseblock.BlockSideConnectUpDown;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.utils.VoxelShapeUtil;
 
+/*
+Добавить партиклы при разбитии
+ */
 public class AlumFrame extends BlockSideConnectUpDown {
     final VoxelShape BOX = Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 2.5D);
-
+    final VoxelShape EMPTY_BOXES[] = new VoxelShape[] {
+            Block.makeCuboidShape(0D, 0D, 0D, 16D, 0.5D, 2.5D),
+            Block.makeCuboidShape(0D, 0D, 0D, 0.5D, 16D, 2.5D),
+            Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 2.5D),
+            Block.makeCuboidShape(0D, 15.5D, 0D, 16D, 16D, 2.5D)
+    };
     public AlumFrame(Properties properties) {
         super(properties);
     }
@@ -32,42 +40,39 @@ public class AlumFrame extends BlockSideConnectUpDown {
         }
     }
     public VoxelShape getShape(BlockState s, IBlockReader w, BlockPos p, ISelectionContext context) {
-       switch (s.get(FACING)) {
-           case SOUTH:
-               if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
-                   return VoxelShapes.or(Block.makeCuboidShape(0D, 0D, 0D, 16D, 0.5D, 2.5D),
-                           Block.makeCuboidShape(0D, 0D, 0D, 0.5D, 16D, 2.5D),
-                           Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 2.5D),
-                           Block.makeCuboidShape(0D, 15.5D, 0D, 16D, 16D, 2.5D));
-               }
-               return BOX;
-           case NORTH:
-               if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
-                   return VoxelShapes.or(VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 0D, 0D, 16D, 0.5D, 2.5D)),
-                           VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 0D, 0D, 0.5D, 16D, 2.5D)),
-                           VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 2.5D)),
-                           VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 15.5D, 0D, 16D, 16D, 2.5D)));
-               }
-               return VoxelShapeUtil.shapeRot180(BOX);
-           case EAST:
-               if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
-                   return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 0D, 0D, 16D, 0.5D, 2.5D)),
-                           VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 0D, 0D, 0.5D, 16D, 2.5D)),
-                           VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 2.5D)),
-                           VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 15.5D, 0D, 16D, 16D, 2.5D)));
-               }
-               return VoxelShapeUtil.shapeRotCW90(BOX);
-           case WEST:
-               if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
-                   return VoxelShapes.or(
-                           VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 0D, 16D, 0.5D, 2.5D)),
-                           VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 0D, 0.5D, 16D, 2.5D)),
-                           VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 2.5D)),
-                           VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 15.5D, 0D, 16D, 16D, 2.5D)));
-               }
-               return VoxelShapeUtil.shapeRotCCW90(BOX);
-       }
-       return VoxelShapes.fullCube();
+        switch (s.get(FACING)) {
+            case SOUTH:
+                if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
+                    return VoxelShapes.or(EMPTY_BOXES[0],EMPTY_BOXES[1],EMPTY_BOXES[2],EMPTY_BOXES[3]);
+                }
+                return BOX;
+            case NORTH:
+                if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
+                    return VoxelShapes.or(VoxelShapeUtil.shapeRot180(EMPTY_BOXES[0]),
+                            VoxelShapeUtil.shapeRot180(EMPTY_BOXES[1]),
+                            VoxelShapeUtil.shapeRot180( EMPTY_BOXES[2]),
+                            VoxelShapeUtil.shapeRot180( EMPTY_BOXES[3]));
+                }
+                return VoxelShapeUtil.shapeRot180(BOX);
+            case EAST:
+                if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
+                    return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(EMPTY_BOXES[0]),
+                            VoxelShapeUtil.shapeRotCW90(EMPTY_BOXES[1]),
+                            VoxelShapeUtil.shapeRotCW90(EMPTY_BOXES[2]),
+                            VoxelShapeUtil.shapeRotCW90(EMPTY_BOXES[3]));
+                }
+                return VoxelShapeUtil.shapeRotCW90(BOX);
+            case WEST:
+                if(s.getBlock() == RegBlocks.ALUM_FRAMES_EMPTY.get()) {
+                    return VoxelShapes.or(
+                            VoxelShapeUtil.shapeRotCCW90(EMPTY_BOXES[0]),
+                            VoxelShapeUtil.shapeRotCCW90(EMPTY_BOXES[1]),
+                            VoxelShapeUtil.shapeRotCCW90(EMPTY_BOXES[2]),
+                            VoxelShapeUtil.shapeRotCCW90(EMPTY_BOXES[3]));
+                }
+                return VoxelShapeUtil.shapeRotCCW90(BOX);
+        }
+        return VoxelShapes.fullCube();
     }
 
 }
