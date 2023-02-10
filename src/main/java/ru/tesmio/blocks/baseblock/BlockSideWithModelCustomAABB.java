@@ -10,8 +10,8 @@ public class BlockSideWithModelCustomAABB extends BlockSideCustomModel {
 
     public final VoxelShape BOXES[];
     public final boolean isOne;
-    public BlockSideWithModelCustomAABB(Properties properties, VoxelShape[] boxes, boolean isOne) {
-        super(properties);
+    public BlockSideWithModelCustomAABB(Properties properties, VoxelShape[] boxes, boolean isOne, float shadingInside) {
+        super(properties,shadingInside);
         this.BOXES = boxes;
         this.isOne = isOne;
     }

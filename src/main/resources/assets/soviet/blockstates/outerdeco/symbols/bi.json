@@ -1,0 +1,9 @@
+
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/outerdeco/symbols/bi", "y": 270},
+        "facing=west":  { "model": "soviet:block/outerdeco/symbols/bi", "y": 90},
+        "facing=south": { "model": "soviet:block/outerdeco/symbols/bi", "y": 0 },
+        "facing=north": { "model": "soviet:block/outerdeco/symbols/bi", "y": 180 }
+    }
+}

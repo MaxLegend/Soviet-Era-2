@@ -55,7 +55,7 @@ public abstract class EntitySensor extends BlockSideCustomModel {
             Block.makeCuboidShape(12.96D, 4.8D, 3.68D, 16D, 12D, 12.16D)
     };
     public EntitySensor(Properties properties) {
-        super(properties);
+        super(properties, 1F);
 
         this.setDefaultState(this.getDefaultState().with(POWERED, false).with(RANGE, 0).with(DOWN, false).with(UP, false));
     }

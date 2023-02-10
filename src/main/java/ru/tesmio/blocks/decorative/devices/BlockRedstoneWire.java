@@ -28,8 +28,8 @@ public class BlockRedstoneWire extends BlockCornerCustomModel {
             Block.makeCuboidShape(0D, 0D, 13D, 16D, 16D, 16D)};
     public static final IntegerProperty POWER = BlockStateProperties.POWER_0_15;
     private boolean canProvidePower = true;
-    public BlockRedstoneWire(Properties properties) {
-        super(properties);
+    public BlockRedstoneWire(Properties properties, float shadingInside) {
+        super(properties, shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(POWER, 0).with(FACING, Direction.NORTH).with(ENUM_CONNECT, EnumConnent.NOT_CONNECT));
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

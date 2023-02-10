@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 public class BlockSideCustomModelLeveler extends BlockSideCustomModel {
     public static final BooleanProperty POWERED = BooleanProperty.create("powered");
 
-    public BlockSideCustomModelLeveler(Properties properties) {
-        super(properties);
+    public BlockSideCustomModelLeveler(Properties properties, float shadingInside) {
+        super(properties, shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(POWERED, Boolean.valueOf(false)));
     }
 

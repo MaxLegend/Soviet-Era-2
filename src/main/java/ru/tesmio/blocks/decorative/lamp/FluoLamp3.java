@@ -39,7 +39,7 @@ public class FluoLamp3 extends BlockRotatedAxisCustomModel {
             Block.makeCuboidShape(12.8D, 5.5D, 0D, 16D, 10.5D, 16D),
             Block.makeCuboidShape(0D, 5.5D, 0D, 3.2D, 10.5D, 16D)};
     public FluoLamp3(Properties builder) {
-        super(builder);
+        super(builder, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false));
     }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
@@ -48,7 +48,7 @@ public class FluoLamp3 extends BlockRotatedAxisCustomModel {
 
         if(activeItemRight.getItem() == RegItems.PULLER.get()) {
             worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP3.get().getDefaultState().with(BrokenFluoLamp3.FACING, state.get(FACING)));
-            activeItemRight.damageItem(1, playerEntity, (player) -> player.sendBreakAnimation(handIn));
+            if(!playerEntity.isCreative())activeItemRight.damageItem(1, playerEntity, (player) -> player.sendBreakAnimation(handIn));
             state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 1));
             return ActionResultType.SUCCESS;
         }

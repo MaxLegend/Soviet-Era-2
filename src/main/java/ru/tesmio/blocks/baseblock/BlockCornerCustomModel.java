@@ -15,10 +15,9 @@ import net.minecraft.world.World;
 
 public class BlockCornerCustomModel extends BlockSideCustomModel {
     public static final EnumProperty<EnumConnent> ENUM_CONNECT = EnumProperty.create("corner", EnumConnent.class);
-    public BlockCornerCustomModel(Properties properties) {
-        super(properties);
+    public BlockCornerCustomModel(Properties properties, float shadingInside) {
+        super(properties, shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(ENUM_CONNECT, EnumConnent.NOT_CONNECT));
-
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING,ENUM_CONNECT,WATERLOGGED);

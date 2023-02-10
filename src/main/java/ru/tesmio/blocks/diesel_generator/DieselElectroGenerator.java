@@ -35,7 +35,7 @@ public class DieselElectroGenerator extends BlockSideCustomModel {
             Block.makeCuboidShape(11D, 0D, 2D, 5D, 6.0D, 10D),
             Block.makeCuboidShape(11D, 1D, 0D, 5D, 5.0D, 16D));
     public DieselElectroGenerator(Properties properties) {
-        super(properties);
+        super(properties, 1F);
     }
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

@@ -90,7 +90,7 @@ public class DieselGenerator extends BlockCustomModel {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
     public DieselGenerator(Properties properties, VoxelShape s) {
-        super(properties, s);
+        super(properties, s, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(BlockStateProperties.POWERED, Boolean.valueOf(false)).with(WATERLOGGED, false));
     }
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {

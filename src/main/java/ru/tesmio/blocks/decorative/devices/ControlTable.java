@@ -43,7 +43,7 @@ public class ControlTable extends BlockSideCustomModel implements IWaterLoggable
     final VoxelShape LOWER = Block.makeCuboidShape(0D, 0D, 0D, 16D, 15.5D, 16D);
     public static final IntegerProperty VARIANT = IntegerProperty.create("var",0,2);
     public ControlTable(Properties properties) {
-        super(properties);
+        super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(VARIANT, Integer.valueOf(0)).with(WATERLOGGED, Boolean.valueOf(false)));
     }
     @Override

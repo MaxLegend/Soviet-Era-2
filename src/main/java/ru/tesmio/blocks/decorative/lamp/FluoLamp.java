@@ -45,7 +45,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
             Block.makeCuboidShape(14D, 5D, 0D, 16D, 11D, 16D),
             Block.makeCuboidShape(0D, 5D, 0D, 2D, 11D, 16D)};
     public FluoLamp(Properties builder) {
-        super(builder);
+        super(builder, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false).with(CLOSED, true));
     }
     public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
@@ -62,7 +62,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
         }
         if(activeItemRight.getItem() == RegItems.PULLER.get()) {
             worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP.get().getDefaultState().with(BrokenFluoLamp.FACING, state.get(FACING)));
-            activeItemRight.damageItem(2, playerEntity, (player) -> player.sendBreakAnimation(handIn));
+            if(!playerEntity.isCreative())activeItemRight.damageItem(2, playerEntity, (player) -> player.sendBreakAnimation(handIn));
             state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 2));
             return ActionResultType.SUCCESS;
         }

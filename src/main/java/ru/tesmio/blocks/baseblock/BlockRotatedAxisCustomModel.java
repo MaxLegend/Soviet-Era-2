@@ -19,17 +19,13 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
-    public BlockRotatedAxisCustomModel(Properties builder) {
+    private float shadingInside;
+    public BlockRotatedAxisCustomModel(Properties builder, float shadingInside) {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
-
+    this.shadingInside = shadingInside;
 
     }
-
-
-
-
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
         for(Direction direction : context.getNearestLookingDirections()) {
@@ -52,7 +48,7 @@ public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
     }
     @OnlyIn(Dist.CLIENT)
     public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return 1.0F;
+        return this.shadingInside;
     }
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
         return true;

@@ -23,7 +23,7 @@ public class DieselTank extends BlockSideCustomModel {
             Block.makeCuboidShape(12D, 0D, 1D, 4D, 12.0D, 15D),
             Block.makeCuboidShape(11D, 0D, 0D, 5D, 11.0D, 16D));
     public DieselTank(Properties properties) {
-        super(properties);
+        super(properties, 1F);
     }
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

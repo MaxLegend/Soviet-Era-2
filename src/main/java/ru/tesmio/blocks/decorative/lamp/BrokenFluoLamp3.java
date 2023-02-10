@@ -29,7 +29,7 @@ public class BrokenFluoLamp3 extends BlockRotatedAxisCustomModel {
             Block.makeCuboidShape(0D, 5.5D, 0D, 3.2D, 10.5D, 16D)};
 
     public BrokenFluoLamp3(AbstractBlock.Properties builder) {
-        super(builder);
+        super(builder, 1F);
     }
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -41,13 +41,13 @@ public class BrokenFluoLamp3 extends BlockRotatedAxisCustomModel {
         if(activeItemRight == RegItems.FLUOLAMP.get()) {
             if(player.getHeldItemMainhand().getCount() >= 1) {
                 worldIn.setBlockState(pos, RegBlocks.FLUORESCENT_LAMP3.get().getDefaultState().with(FluoLamp.FACING, state.get(FACING)));
-                player.getHeldItemMainhand().shrink(1);
+                if(!player.isCreative()) player.getHeldItemMainhand().shrink(1);
                 return ActionResultType.SUCCESS;
             }
         } if(activeItemLeft == RegItems.FLUOLAMP.get()) {
             if(player.getHeldItemOffhand().getCount() >= 1) {
                 worldIn.setBlockState(pos, RegBlocks.FLUORESCENT_LAMP3.get().getDefaultState().with(FluoLamp.FACING, state.get(FACING)));
-                player.getHeldItemOffhand().shrink(1);
+                if(!player.isCreative()) player.getHeldItemOffhand().shrink(1);
                 return ActionResultType.SUCCESS;
             }
         }

@@ -68,6 +68,12 @@ public class Core {
                 return new ItemStack(RegBlocks.CRUSHER.get());
             }
         };
+        public static final ItemGroup TAB_SYMBOLS = new ItemGroup("soviet_symbols") {
+            @Override
+            public ItemStack createIcon() {
+                return new ItemStack(RegBlocks.ex_po.get());
+            }
+        };
         public static final ItemGroup TAB_OUTER_DECO = new ItemGroup("soviet_outer_deco") {
             @Override
             public ItemStack createIcon() {
@@ -104,6 +110,14 @@ public class Core {
             RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_FRAMES.get(), RenderType.getTranslucent());
             RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_WINDOW.get(), RenderType.getCutout());
             RenderTypeLookup.setRenderLayer(RegBlocks.ALUM_WINDOW_EMPTY.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.MODERN_WINDOW_EMPTY.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.MODERN_WINDOW.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.MODERN_WINDOW_LEAF_EMPTY.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.MODERN_WINDOW_LEAF.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_WINDOW_EMPTY.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_WINDOW.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_WINDOW_LEAF_EMPTY.get(), RenderType.getCutout());
+            RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_WINDOW_LEAF.get(), RenderType.getCutout());
         });
     }
 

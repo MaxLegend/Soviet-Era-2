@@ -1,5 +1,6 @@
 package ru.tesmio.utils;
 
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 
@@ -29,6 +30,18 @@ public class VoxelShapeUtil {
         new_maxZ = 1 - vs.getBoundingBox().maxZ;
         return VoxelShapes.create(new_minX, vs.getBoundingBox().minY, new_minZ, new_maxX, vs.getBoundingBox().maxY, new_maxZ);
         }
+    public static VoxelShape shapeRotComplex180(VoxelShape vs) {
+        //прототип поворачивалки комплексных шейпов. не работает
+        double new_minX, new_minZ, new_maxX, new_maxZ;
+        for (AxisAlignedBB aabb : vs.toBoundingBoxList()) {
+            new_minX = 1 - aabb.minX;
+            new_minZ = 1 - aabb.minZ;
+            new_maxX = 1 - aabb.maxX;
+            new_maxZ = 1 - aabb.maxZ;
+            return VoxelShapes.create(new_minX, vs.getBoundingBox().minY, new_minZ, new_maxX, vs.getBoundingBox().maxY, new_maxZ);
+        }
+        return vs;
+    }
     public static VoxelShape shapeMirror(VoxelShape vs) {
         return shapeRot180(vs);
     }

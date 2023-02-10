@@ -3,10 +3,16 @@ package ru.tesmio.blocks.decorative.windows;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
@@ -18,7 +24,7 @@ import ru.tesmio.utils.VoxelShapeUtil;
 
 import java.util.HashMap;
 import java.util.Map;
-//добавить фичу с вставкой\выниманием окон с помощью спецпредмета
+
 public class AlumWindow extends BlockSideConnectUDLR {
     final VoxelShape BOX = Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 3.04D);
 
@@ -32,7 +38,7 @@ public class AlumWindow extends BlockSideConnectUDLR {
     };
     Map<String, VoxelShape> sm = new HashMap<>();
     public AlumWindow(Properties properties) {
-        super(properties);
+        super(properties, 1F);
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
         if(e instanceof ProjectileEntity) {
@@ -43,6 +49,19 @@ public class AlumWindow extends BlockSideConnectUDLR {
                         .with(PANE_LEFT, s2.get(PANE_LEFT)).with(PANE_RIGHT, s2.get(PANE_RIGHT)));
             }
         }
+    }
+    @Override
+    public ActionResultType onBlockActivated(BlockState s, World w, BlockPos p, PlayerEntity pl, Hand hand, BlockRayTraceResult hit) {
+        Item is = pl.getHeldItem(hand).getItem();
+        if(is == Items.GLASS_PANE) {
+            if(s.getBlock() == RegBlocks.ALUM_WINDOW_EMPTY.get()) {
+                w.setBlockState(p, RegBlocks.ALUM_WINDOW.get().getDefaultState().with(PANE_DOWN, s.get(PANE_DOWN)).with(FACING, s.get(FACING))
+                        .with(PANE_UP, s.get(PANE_UP)).with(PANE_LEFT, s.get(PANE_LEFT)).with(PANE_RIGHT, s.get(PANE_RIGHT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                if(!pl.isCreative()) pl.getHeldItem(hand).shrink(1);
+                return ActionResultType.SUCCESS;
+            }
+        }
+        return ActionResultType.FAIL;
     }
     public void putMapVoxelShape() {
         sm.put("bridge", EMPTY_BOXES[0]);
@@ -67,6 +86,7 @@ public class AlumWindow extends BlockSideConnectUDLR {
                     }
                     if (isL && isU && isD) {
                         return VoxelShapeUtil.shapeRot180(sm.get("left"));
+
                     }
                     if (isR && isU && isD) {
                         return sm.get("right");

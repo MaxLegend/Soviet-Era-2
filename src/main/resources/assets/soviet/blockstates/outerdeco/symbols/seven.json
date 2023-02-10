@@ -1,0 +1,9 @@
+
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/outerdeco/symbols/seven", "y": 270},
+        "facing=west":  { "model": "soviet:block/outerdeco/symbols/seven", "y": 90},
+        "facing=south": { "model": "soviet:block/outerdeco/symbols/seven", "y": 0 },
+        "facing=north": { "model": "soviet:block/outerdeco/symbols/seven", "y": 180 }
+    }
+}

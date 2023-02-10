@@ -11,20 +11,25 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class BlockCustomModel extends  Block {
     protected static VoxelShape SHAPE;
+    private float shadingInside;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    public BlockCustomModel(Properties properties, VoxelShape s) {
+    public BlockCustomModel(Properties properties, VoxelShape s, float shadingInside) {
         super(properties);
         this.SHAPE = s;
+        this.shadingInside = shadingInside;
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.valueOf(false)));
-
     }
-
-
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
+    }
+    @OnlyIn(Dist.CLIENT)
+    public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return this.shadingInside;
     }
     @Override
     public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {

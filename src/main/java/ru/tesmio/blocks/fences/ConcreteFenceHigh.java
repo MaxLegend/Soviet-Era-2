@@ -26,7 +26,7 @@ public class ConcreteFenceHigh extends BlockSideCustomModel {
 
     public static final EnumProperty<EnumPart> PART = EnumProperty.create("part", EnumPart.class);
     public ConcreteFenceHigh(Properties properties) {
-        super(properties);
+        super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(PART, EnumPart.DOWN));
 
     }

@@ -29,7 +29,7 @@ public class ElectroFence extends BlockSideCustomModel {
     public static final BooleanProperty RIGHT = BooleanProperty.create("right");
     public static final BooleanProperty RIGHT_BACK = BooleanProperty.create("right_back");
     public ElectroFence(Properties properties) {
-        super(properties);
+        super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(LEFT_BACK, false)
                 .with(RIGHT_BACK, false).with(LEFT, false).with(RIGHT, false).with(POWERED, false));
     }

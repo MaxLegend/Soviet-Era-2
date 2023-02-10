@@ -13,8 +13,8 @@ public class ThinHandhold extends RustyHandhold {
             Block.makeCuboidShape(14D, 0D, 0D, 16D, 16D, 16D),
             Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 2D),
             Block.makeCuboidShape(0D, 0D, 14D, 16D, 16D, 16D)};
-    public ThinHandhold(Properties properties) {
-        super(properties);
+    public ThinHandhold(Properties properties, float shadingInside) {
+        super(properties, shadingInside);
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 

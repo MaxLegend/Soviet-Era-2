@@ -15,8 +15,8 @@ public class RustyHandhold extends BlockCornerCustomModel {
               Block.makeCuboidShape(13D, 0D, 0D, 16D, 16D, 16D),
               Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 3D),
               Block.makeCuboidShape(0D, 0D, 13D, 16D, 16D, 16D)};
-    public RustyHandhold(Properties properties) {
-        super(properties);
+    public RustyHandhold(Properties properties, float shadingInside) {
+        super(properties, shadingInside);
    }
 
 

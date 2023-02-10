@@ -13,10 +13,11 @@ import java.util.List;
 
 public class BlockRotatedAxisCustomModelInfo extends BlockRotatedAxisCustomModel{
     String info;
-    public BlockRotatedAxisCustomModelInfo(Properties builder, String info) {
-        super(builder);
+    public BlockRotatedAxisCustomModelInfo(Properties builder, String info, float sI) {
+        super(builder, sI);
         this.info = info;
     }
+
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         tooltip.add(new TranslationTextComponent(info));

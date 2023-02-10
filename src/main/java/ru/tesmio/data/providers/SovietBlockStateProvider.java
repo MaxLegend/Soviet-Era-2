@@ -9,7 +9,10 @@ import net.minecraft.state.properties.SlabType;
 import net.minecraft.state.properties.StairsShape;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.generators.*;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
 import ru.tesmio.Core;
@@ -50,6 +53,8 @@ public class SovietBlockStateProvider extends BlockStateProvider {
                 .texture("bottom", bottom)
                 .texture("top", top);
     }
+
+
     public void builderSlabs() {
         for (RegistryObject<Block> b2 : RegBlocks.BLOCKS.getEntries()) {
             if (b2.get() instanceof BaseSlab) {

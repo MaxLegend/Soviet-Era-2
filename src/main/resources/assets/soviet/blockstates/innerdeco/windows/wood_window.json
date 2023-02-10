@@ -1,0 +1,20 @@
+{
+    "variants": {
+   	"facing=east,var=not":  { "model": "soviet:block/innerdeco/windows/wood_window", "y": 270},
+        "facing=west,var=not":  { "model": "soviet:block/innerdeco/windows/wood_window", "y": 90},
+        "facing=south,var=not": { "model": "soviet:block/innerdeco/windows/wood_window", "y": 0 },
+        "facing=north,var=not": { "model": "soviet:block/innerdeco/windows/wood_window", "y": 180 },
+        "facing=east,var=up":  { "model": "soviet:block/innerdeco/windows/wood_window_up", "y": 270},
+        "facing=west,var=up":  { "model": "soviet:block/innerdeco/windows/wood_window_up", "y": 90},
+        "facing=south,var=up": { "model": "soviet:block/innerdeco/windows/wood_window_up", "y": 0 },
+        "facing=north,var=up": { "model": "soviet:block/innerdeco/windows/wood_window_up", "y": 180 },
+        "facing=east,var=down":  { "model": "soviet:block/innerdeco/windows/wood_window_down", "y": 270},
+        "facing=west,var=down":  { "model": "soviet:block/innerdeco/windows/wood_window_down", "y": 90},
+        "facing=south,var=down": { "model": "soviet:block/innerdeco/windows/wood_window_down", "y": 0 },
+        "facing=north,var=down": { "model": "soviet:block/innerdeco/windows/wood_window_down", "y": 180 },
+        "facing=east,var=center":  { "model": "soviet:block/innerdeco/windows/wood_window_double", "y": 270},
+        "facing=west,var=center":  { "model": "soviet:block/innerdeco/windows/wood_window_double", "y": 90},
+        "facing=south,var=center": { "model": "soviet:block/innerdeco/windows/wood_window_double", "y": 0 },
+        "facing=north,var=center": { "model": "soviet:block/innerdeco/windows/wood_window_double", "y": 180 }
+    }
+}
