@@ -5,7 +5,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.data.providers.SovietBlockStateProvider;
 import ru.tesmio.data.providers.SovietItemModelProvider;
 import ru.tesmio.data.providers.SovietLootProvider;

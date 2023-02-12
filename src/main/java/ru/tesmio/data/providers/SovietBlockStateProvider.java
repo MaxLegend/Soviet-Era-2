@@ -15,7 +15,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.blocks.decorative.slabs.BaseSlab;
 import ru.tesmio.blocks.decorative.stairs.BaseStairs;
 import ru.tesmio.reg.RegBlocks;

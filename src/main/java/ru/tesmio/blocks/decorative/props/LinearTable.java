@@ -52,12 +52,12 @@ public class LinearTable extends BlockSideCustomModel {
                     if(state.get(STATES) == EnumState.RIGHT) {
                         return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
                                 VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotCW90(   Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,0D,0.5D,1.5D,15,15.5D)));
                     }
                     if(state.get(STATES) == EnumState.LEFT) {
                         return VoxelShapes.or(VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0.5D,12D,0.5D,15.5D,15,15.5D)),
-                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
-                                VoxelShapeUtil.shapeRotCW90( Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D,15,0D,16D,16,16D)),
+                                VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(14.5D,0D,0.5D,15.5D,15,15.5D)));
                     }
                 case WEST:
                     if(state.get(STATES) == EnumState.LEFT) {
@@ -244,7 +244,7 @@ public class LinearTable extends BlockSideCustomModel {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, STATES, WATERLOGGED);
     }
-    public static enum EnumState implements IStringSerializable
+    public enum EnumState implements IStringSerializable
     {
         DEF("def"),
         LEFT("left"),
@@ -253,7 +253,7 @@ public class LinearTable extends BlockSideCustomModel {
 
         private final String name;
 
-        private EnumState(String name)
+        EnumState(String name)
         {
             this.name = name;
         }

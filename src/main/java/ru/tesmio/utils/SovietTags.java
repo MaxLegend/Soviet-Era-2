@@ -6,7 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 
 public class SovietTags {
 

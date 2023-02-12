@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.items.*;
 
 import java.util.function.Supplier;

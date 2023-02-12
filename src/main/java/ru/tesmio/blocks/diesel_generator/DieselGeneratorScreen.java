@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 
 public class DieselGeneratorScreen extends ContainerScreen<DieselGeneratorContainer> {
 

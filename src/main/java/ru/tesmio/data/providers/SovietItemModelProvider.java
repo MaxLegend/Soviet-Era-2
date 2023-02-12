@@ -7,7 +7,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 

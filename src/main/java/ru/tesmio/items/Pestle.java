@@ -4,7 +4,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 
 import javax.annotation.Nonnull;
 import java.util.Random;

@@ -3,7 +3,8 @@
 	"parent": "block/cube_all",
 	"textures": {
 		"9": "soviet:block/concrete/concrete_white",
-		"14": "soviet:block/structural/dark_metal_2"
+		"14": "soviet:block/structural/dark_metal_2",
+	"particle": "soviet:block/structural/dark_metal_2"
 	},
 	"elements": [
 		{

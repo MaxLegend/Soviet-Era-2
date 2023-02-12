@@ -3,7 +3,7 @@ package ru.tesmio.data.providers;
 import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 
 public class SovietBlockTagsProvider extends BlockTagsProvider {
     public SovietBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {

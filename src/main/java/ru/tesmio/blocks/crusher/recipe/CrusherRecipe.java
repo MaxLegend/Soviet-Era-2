@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.recipes.OneByOneRecipe;
 import ru.tesmio.reg.RegRecipeSerializers;
 

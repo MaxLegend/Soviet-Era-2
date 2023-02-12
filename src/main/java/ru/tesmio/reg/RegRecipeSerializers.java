@@ -8,7 +8,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.blocks.affinage_factory.recipe.AffinageRecipe;
 import ru.tesmio.blocks.crusher.recipe.CrusherRecipe;
 import ru.tesmio.recipes.IOneByOneRecipe;

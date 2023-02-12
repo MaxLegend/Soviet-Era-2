@@ -20,7 +20,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.energy.SEEnergyStorage;
 import ru.tesmio.reg.RegTileEntitys;
 

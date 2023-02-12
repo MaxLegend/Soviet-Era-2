@@ -8,7 +8,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.reg.RegItems;
 
 import java.util.function.Consumer;

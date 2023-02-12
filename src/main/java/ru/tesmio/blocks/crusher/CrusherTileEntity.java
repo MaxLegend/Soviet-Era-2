@@ -31,7 +31,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.wrapper.RecipeWrapper;
-import ru.tesmio.Core;
+import ru.tesmio.core.Core;
 import ru.tesmio.blocks.crusher.recipe.CrusherRecipe;
 import ru.tesmio.reg.RegRecipeSerializers;
 import ru.tesmio.reg.RegTileEntitys;
