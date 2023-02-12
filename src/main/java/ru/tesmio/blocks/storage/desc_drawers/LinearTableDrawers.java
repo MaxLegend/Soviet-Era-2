@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.blocks.decorative.props.LinearTable;
-import ru.tesmio.blocks.storage.TileEntityStorage;
+import ru.tesmio.blocks.storage.base.TileEntityStorage;
 import ru.tesmio.reg.RegTileEntitys;
 
 public class LinearTableDrawers extends LinearTable {

@@ -1,4 +1,4 @@
-package ru.tesmio.blocks.storage;
+package ru.tesmio.blocks.storage.base;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerInventory;
@@ -12,21 +12,19 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import ru.tesmio.core.Core;
-import ru.tesmio.reg.RegTileEntitys;
+import ru.tesmio.reg.RegContainers;
 
 public class TileEntityStorage extends LockableLootTileEntity {
 
     public TileEntityType<?> type;
-    public static int slots = 16;
+    public int slots;
 
-    protected NonNullList<ItemStack> items = NonNullList.withSize(slots, ItemStack.EMPTY);
+    protected NonNullList<ItemStack> inventory;
 
     protected TileEntityStorage(TileEntityType<?> typeIn) {
         super(typeIn);
-    }
+        this.inventory = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
 
-    public TileEntityStorage() {
-        this(RegTileEntitys.DRAWERS_STORAGE_TE.get());
     }
 
     @Override
@@ -36,40 +34,39 @@ public class TileEntityStorage extends LockableLootTileEntity {
 
     @Override
     protected NonNullList<ItemStack> getItems() {
-        return this.items;
+        return this.inventory;
     }
 
     @Override
     protected void setItems(NonNullList<ItemStack> itemsIn) {
-        this.items = itemsIn;
+        this.inventory = itemsIn;
     }
 
     @Override
     protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container." + Core.MODID + ".chemlab_table");
+        return new TranslationTextComponent("container." + Core.MODID + ".table");
     }
 
     @Override
     protected Container createMenu(int id, PlayerInventory player) {
-        return new ContainerStorage(id, player, this);
+        return new ContainerStorage(id, player, this, RegContainers.STORAGE_CONT.get());
     }
 
     @Override
     public CompoundNBT write(CompoundNBT compound) {
         super.write(compound);
         if(!this.checkLootAndWrite(compound)) {
-            ItemStackHelper.saveAllItems(compound, this.items);
+            ItemStackHelper.saveAllItems(compound, this.inventory);
         }
-
         return compound;
     }
 
     @Override
     public void read(BlockState state, CompoundNBT nbt) {
         super.read(state, nbt);
-        this.items = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
+        this.inventory = NonNullList.withSize(getSizeInventory(), ItemStack.EMPTY);
         if (!this.checkLootAndRead(nbt)) {
-            ItemStackHelper.loadAllItems(nbt, this.items);
+            ItemStackHelper.loadAllItems(nbt, this.inventory);
         }
     }
 }

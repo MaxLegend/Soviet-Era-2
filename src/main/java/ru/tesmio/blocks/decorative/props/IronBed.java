@@ -35,25 +35,26 @@ public class IronBed extends BlockBed {
             case NORTH:
                 if(state.get(PART) == BedPart.HEAD) {
                     return VoxelShapes.or(
-                            VoxelShapeUtil.shapeRotCW90( VoxelShapeUtil.shapeRot180(SHAPES[0])),
-                            VoxelShapeUtil.shapeRotCW90( VoxelShapeUtil.shapeRot180(SHAPES[1])),
-                            VoxelShapeUtil.shapeRotCW90(VoxelShapeUtil.shapeRot180(SHAPES[2])));
+                            VoxelShapeUtil.shapeRotCCW90(SHAPES[0]),
+                            VoxelShapeUtil.shapeRotCCW90(SHAPES[1]),
+                            VoxelShapeUtil.shapeRotCCW90(SHAPES[2]));
                 }
                 return VoxelShapes.or(
-                        VoxelShapeUtil.shapeRotCW90(SHAPES[0]),
-                        VoxelShapeUtil.shapeRotCW90(SHAPES[1]),
-                        VoxelShapeUtil.shapeRotCW90(SHAPES[2]));
+                        VoxelShapeUtil.shapeRotCW90( VoxelShapeUtil.shapeRot180(SHAPES[0])),
+                        VoxelShapeUtil.shapeRotCW90( VoxelShapeUtil.shapeRot180(SHAPES[1])),
+                        VoxelShapeUtil.shapeRotCW90(VoxelShapeUtil.shapeRot180(SHAPES[2])));
             case SOUTH:
                 if(state.get(PART) == BedPart.FOOT) {
                     return VoxelShapes.or(
-                            VoxelShapeUtil.shapeRotCW90( VoxelShapeUtil.shapeRot180(SHAPES[0])),
-                            VoxelShapeUtil.shapeRotCW90( VoxelShapeUtil.shapeRot180(SHAPES[1])),
-                            VoxelShapeUtil.shapeRotCW90(VoxelShapeUtil.shapeRot180(SHAPES[2])));
+                            VoxelShapeUtil.shapeRotCW90(SHAPES[0]),
+                            VoxelShapeUtil.shapeRotCW90(SHAPES[1]),
+                            VoxelShapeUtil.shapeRotCW90(SHAPES[2]));
+
                 }
                 return VoxelShapes.or(
-                        VoxelShapeUtil.shapeRotCW90(SHAPES[0]),
-                        VoxelShapeUtil.shapeRotCW90(SHAPES[1]),
-                        VoxelShapeUtil.shapeRotCW90(SHAPES[2]));
+                        VoxelShapeUtil.shapeRotCCW90(VoxelShapeUtil.shapeRot180(SHAPES[0])),
+                        VoxelShapeUtil.shapeRotCCW90(VoxelShapeUtil.shapeRot180(SHAPES[1])),
+                        VoxelShapeUtil.shapeRotCCW90(VoxelShapeUtil.shapeRot180(SHAPES[2])));
             case WEST:
                 if(state.get(PART) == BedPart.FOOT) {
                     return VoxelShapes.or(

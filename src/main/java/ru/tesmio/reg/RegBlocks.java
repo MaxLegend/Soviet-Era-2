@@ -27,6 +27,7 @@ import ru.tesmio.blocks.decorative.devices.Turnstile;
 import ru.tesmio.blocks.decorative.lamp.*;
 import ru.tesmio.blocks.decorative.props.*;
 import ru.tesmio.blocks.decorative.props.chairs.PurpleChair;
+import ru.tesmio.blocks.storage.safe.BlockSafe;
 import ru.tesmio.blocks.decorative.props.tables.PurpleTable;
 import ru.tesmio.blocks.decorative.slabs.BaseSlab;
 import ru.tesmio.blocks.decorative.stairs.BaseStairs;
@@ -97,7 +98,7 @@ public class RegBlocks {
     public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE, PURPLE_TABLE, PURPLE_CHAIR;
     public static RegistryObject<Block> ALUM_FRAMES, ALUM_FRAMES_EMPTY, ALUM_WINDOW, ALUM_WINDOW_EMPTY, MODERN_WINDOW, MODERN_WINDOW_EMPTY, MODERN_WINDOW_LEAF, MODERN_WINDOW_LEAF_EMPTY
             , WOOD_WINDOW, WOOD_WINDOW_EMPTY, WOOD_WINDOW_LEAF, WOOD_WINDOW_LEAF_EMPTY;
-    public static RegistryObject<Block> IRON_BED, ex_po;
+    public static RegistryObject<Block> IRON_BED, ex_po, SAFE;
 
 
    // public static Map<String, RegistryObject<Block>> SYMBOLS = new HashMap<>();
@@ -113,7 +114,9 @@ public class RegBlocks {
    public static void init() {
        Symbols.addSymbols();
        Symbols.addSymbolsName();
-        ex_po = registerBlockWithModel("outerdeco/symbols/ex_po", () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
+       SAFE = registerBlockWithModel("innerdeco/furniture/safe", () -> new BlockSafe(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
+
+       ex_po = registerBlockWithModel("outerdeco/symbols/ex_po", () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
 
        for (int iter = 0; iter < Symbols.SYMBOLS_NAME.size(); iter++) {
            registerBlockWithModel("outerdeco/symbols/" + Symbols.SYMBOLS_NAME.get(iter), () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);

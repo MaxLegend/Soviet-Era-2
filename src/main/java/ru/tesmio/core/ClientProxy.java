@@ -7,7 +7,8 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import ru.tesmio.blocks.affinage_factory.AffinageScreen;
 import ru.tesmio.blocks.crusher.CrusherScreen;
 import ru.tesmio.blocks.diesel_generator.DieselGeneratorScreen;
-import ru.tesmio.blocks.storage.GuiStorage;
+import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersScreen;
+import ru.tesmio.blocks.storage.safe.ScreenSafe;
 import ru.tesmio.entity.renderer.EntitySittableBlockRender;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegContainers;
@@ -50,7 +51,8 @@ public class ClientProxy {
         ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);
         ScreenManager.registerFactory(RegContainers.AFFINAGE_CONT.get(), AffinageScreen::new);
         ScreenManager.registerFactory(RegContainers.CRUSHER_CONT.get(), CrusherScreen::new);
-        ScreenManager.registerFactory(RegContainers.STORAGE_CONT.get(), GuiStorage::new);
+        ScreenManager.registerFactory(RegContainers.STORAGE_CONT.get(), LinearTableDrawersScreen::new);
+        ScreenManager.registerFactory(RegContainers.SAFE_CONT.get(), ScreenSafe::new);
     }
     private static void registerTileEntityRenderers() {
 
