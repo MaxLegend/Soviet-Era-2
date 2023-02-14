@@ -35,7 +35,7 @@ public class RegItems {
 
     public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static RegistryObject<Item> LEADCERAMIC_TILE;
-    public static RegistryObject<Item> KEY_DOOR;
+    public static RegistryObject<Item> KEY_DOOR, WRENCH;
     public static RegistryObject<Item> VARIANT_ITEM;
 
     public static RegistryObject<Item> AUTOMATIC_RIFLE_5_45, AUTOMATIC_RIFLE_7_62, AMMO_7_62, AMMO_5_45;
@@ -56,6 +56,7 @@ public class RegItems {
         PULLER = registerItem("puller", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.puller"));
 
         KEY_DOOR = registerItem2("key_door", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "key.key_door"));
+        WRENCH = registerItem("wrench", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "wrench.info"));
 
         PLATOL_INGOT = registerItem("platol_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         PLATOL_DUST = registerItem("platol_dust", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "platol.platol_dust"));

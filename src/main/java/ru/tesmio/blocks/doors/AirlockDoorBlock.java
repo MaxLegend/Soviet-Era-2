@@ -19,7 +19,10 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
     public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
@@ -103,7 +106,13 @@ public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(OPEN, Boolean.valueOf(false)).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.valueOf(false)).with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, Boolean.valueOf(false)).with(LOCKED, true));
     }
-
+    public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
+        return true;
+    }
+    @OnlyIn(Dist.CLIENT)
+    public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return 0.8F;
+    }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {{
         boolean isLocked = state.get(LOCKED);
         if(!isLocked) {
@@ -146,8 +155,6 @@ public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
         boolean isOpen = state.get(OPEN);
         boolean isHingeRight = state.get(HINGE) == DoorHingeSide.RIGHT;
         boolean isHingeLeft = state.get(HINGE) == DoorHingeSide.LEFT;
-
-
             switch (direction) {
                 case EAST:
                 default:

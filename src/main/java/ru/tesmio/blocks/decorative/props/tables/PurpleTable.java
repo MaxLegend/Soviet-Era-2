@@ -28,7 +28,6 @@ public class PurpleTable extends LinearTable {
     public PurpleTable(Properties properties) {
         super(properties);
     }
-    //сделать шейпы с поворотами
     public void putMapVoxelShape() {
         SHAPE_MAP.put("top", SHAPES[0]);
         SHAPE_MAP.put("right_side", SHAPES[1]);
