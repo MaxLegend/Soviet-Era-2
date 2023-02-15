@@ -1,0 +1,17 @@
+
+{
+    "variants": {
+        "facing=east,part=down":  { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2_down", "y": 270},
+        "facing=west,part=down":  { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2_down", "y": 90},
+        "facing=south,part=down": { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2_down", "y": 0 },
+        "facing=north,part=down": { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2_down", "y": 180 },
+        "facing=east,part=mid":  { "model": "soviet:block/outerdeco/streetdeco/street_lightpost_mid", "y": 270},
+        "facing=west,part=mid":  { "model": "soviet:block/outerdeco/streetdeco/street_lightpost_mid", "y": 90},
+        "facing=south,part=mid": { "model": "soviet:block/outerdeco/streetdeco/street_lightpost_mid", "y": 0 },
+        "facing=north,part=mid": { "model": "soviet:block/outerdeco/streetdeco/street_lightpost_mid", "y": 180 },
+        "facing=east,part=up":  { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2", "y": 270},
+        "facing=west,part=up":  { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2", "y": 90},
+        "facing=south,part=up": { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2", "y": 0 },
+        "facing=north,part=up": { "model": "soviet:block/outerdeco/streetdeco/street_lightpost2", "y": 180 }
+    }
+}

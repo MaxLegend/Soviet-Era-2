@@ -18,13 +18,11 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
-
-import java.util.Random;
 
 public class FluoLamp2 extends BlockRotatedAxisCustomModel {
 
@@ -149,55 +147,31 @@ public class FluoLamp2 extends BlockRotatedAxisCustomModel {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, LIT_VALUE, WATERLOGGED);
     }
-    public void neighborChanged(BlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
-        if (!worldIn.isRemote) {
-
-            for(Direction facing : Direction.values()) {
-
-                int powerLight = worldIn.getRedstonePower(pos.offset(facing), facing);
-
+    @Override
+    public BlockState updatePostPlacement(BlockState s, Direction f, BlockState bs, IWorld w, BlockPos p, BlockPos facingPos) {
+        return updateState((World)w,p,s);
+    }
+    public BlockState updateState(World w, BlockPos p, BlockState s) {
+        if (w.isBlockPowered(p)) {
+            for (Direction facing : Direction.values()) {
+                int powerLight = w.getRedstonePower(p.offset(facing), facing);
                 if (powerLight <= 4 && powerLight > 0) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 1), 2);
+                    return s.with(LIT_VALUE, 1);
                 }
                 if (powerLight <= 8 && powerLight > 4) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 2), 2);
+                    return s.with(LIT_VALUE, 2);
                 }
                 if (powerLight <= 12 && powerLight > 8) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 3), 2);
+                    return s.with(LIT_VALUE, 3);
                 }
-                if(powerLight > 12) {
-                    worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 4), 2);
+                if (powerLight > 12) {
+                    return s.with(LIT_VALUE, 4);
                 }
             }
         }
-
+        return s.with(LIT_VALUE, 0);
     }
-    public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        if (worldIn.isBlockPowered(pos)) {
-            for (Direction facing : Direction.values()) {
-                int powerLight = worldIn.getRedstonePower(pos.offset(facing), facing);
-                worldIn.getPendingBlockTicks().scheduleTick(pos, this, 4);
-                if (powerLight <= 4 && powerLight > 0) {
 
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 1), 2);
-                }
-                if (powerLight <= 8 && powerLight > 4) {
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 2), 2);
-                }
-                if (powerLight <= 12 && powerLight > 8) {
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 3), 2);
-                }
-                if (powerLight > 12) {
-                    worldIn.setBlockState(pos, state.with(LIT_VALUE, 4), 2);
-                }
 
-            }
-
-        } else {   worldIn.setBlockState(pos, state.with(LIT_VALUE, 0), 2); }
-    }
 }
 

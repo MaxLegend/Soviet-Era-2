@@ -412,6 +412,8 @@ a0ec0f26a5c476f1c67941f91f4c8d08628b7054 assets/soviet/models/item/innerdeco/lam
 50f7897fea87cb0cddae3dc184c29e540dc0b693 assets/soviet/models/item/innerdeco/lamp/fluo_lamp.json
 28d70d53b203f5547b8ae8bc1a5c0cc4679d909b assets/soviet/models/item/innerdeco/lamp/fluo_lamp2.json
 f991d1ad566de6defae5783cf3d9dbe301bb31e5 assets/soviet/models/item/innerdeco/lamp/fluo_lamp3.json
+160ab1ccf9e0914ffffe8797f1857d22d0926b37 assets/soviet/models/item/innerdeco/lamp/inc_lamp.json
+59657158289050b9b2ca4aab94c7574c427b3f7b assets/soviet/models/item/innerdeco/lamp/red_lamp.json
 64be0e07a2aab0e0a713ef43f02d6fa4514c62b8 assets/soviet/models/item/innerdeco/rusty_bars.json
 11bf1b2f42189f448c942d5b2f21153f052d0d6a assets/soviet/models/item/innerdeco/tubing_horizontal.json
 93628bd20e1da2228dae0f45f38ca56fccecd9d8 assets/soviet/models/item/innerdeco/tubing_vertical.json
@@ -449,10 +451,14 @@ f02a6b920e6ef2702ff5c6433581c919f49097ed assets/soviet/models/item/mech/diesel_g
 4e9ca372c3186f8c6048dc18c779dedcf52cb1df assets/soviet/models/item/mosaictile/tile_mosaic_1.json
 8184ecb3944c31cdc6faa99a4b1b9d972edca521 assets/soviet/models/item/mosaictile/tile_mosaic_2.json
 d90674569d975912ed628c31b320b7513131f6c2 assets/soviet/models/item/netherite_dust.json
+f1a51ad57aa001859a79eaac89020aeae6c349dc assets/soviet/models/item/outerdeco/factory_window.json
+c989f043d3c3265cbb61d5d91eeeddaac8513ce4 assets/soviet/models/item/outerdeco/factory_window_empty.json
 8d48a796ed6e2fd44a5bb411cb18d0e770141393 assets/soviet/models/item/outerdeco/fences/concrete_fence_base.json
 8a9971e1de02b19b3329f5d35c42e66b386a0825 assets/soviet/models/item/outerdeco/fences/electro_fence.json
 c309a2ef937d781a99216ba154687b268b960f7b assets/soviet/models/item/outerdeco/fences/electro_fence_double.json
 5a39528cf81b53b5d22e866b7545be9fb15134d7 assets/soviet/models/item/outerdeco/fences/electro_fence_tumbler.json
+afec8deecfd2fb803717a19ffebaa35fc456d084 assets/soviet/models/item/outerdeco/streetdeco/street_lightpost.json
+000f257c4aaa3ffad5912e488db06dec8269e8b5 assets/soviet/models/item/outerdeco/streetdeco/street_lightpost2.json
 4844839d34931101b6cee99c2fe2a50ca65158c6 assets/soviet/models/item/outerdeco/symbols/a.json
 63606d334571a2828fed57b874faecb2aa521f53 assets/soviet/models/item/outerdeco/symbols/b.json
 0ee7d3b524c0010fea4a90cd338ea22110ea5597 assets/soviet/models/item/outerdeco/symbols/bi.json

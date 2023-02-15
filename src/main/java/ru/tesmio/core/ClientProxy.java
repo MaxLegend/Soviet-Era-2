@@ -47,6 +47,9 @@ public class ClientProxy {
         RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_WINDOW_LEAF_EMPTY.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_WINDOW_LEAF.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(RegBlocks.WOOD_DOOR_2.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(RegBlocks.INC_LAMP.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(RegBlocks.RED_LAMP.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(RegBlocks.FACTORY_WINDOW.get(), RenderType.getTranslucent());
     }
     private static void registerScreenFactories() {
         ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);

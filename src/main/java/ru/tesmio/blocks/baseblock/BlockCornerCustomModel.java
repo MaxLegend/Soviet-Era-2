@@ -30,7 +30,6 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
         BlockState thisBS = this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite())
                 .with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
         return thisBS.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT);
-
     }
     @Override
     public BlockState updatePostPlacement(BlockState s, Direction f, BlockState bs, IWorld w, BlockPos p, BlockPos facingPos) {
@@ -44,7 +43,7 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
             BlockState northPos = w.getBlockState(p.north());
             BlockState eastPos = w.getBlockState(p.east());
             BlockState westPos = w.getBlockState(p.west());
-            w.getPendingBlockTicks().scheduleTick(p, this, 4);
+        //    w.getPendingBlockTicks().scheduleTick(p, this, 4);
             switch(s.get(FACING)) {
                 case SOUTH:
                     if (southPos.getBlock() instanceof BlockCornerCustomModel) {

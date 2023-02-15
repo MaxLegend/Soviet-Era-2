@@ -1,56 +1,37 @@
-package ru.tesmio.blocks.decorative.lamp;
+package ru.tesmio.blocks.baseblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
+import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.util.ActionResultType;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
-import ru.tesmio.reg.RegBlocks;
-import ru.tesmio.reg.RegItems;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class FluoLamp3 extends BlockRotatedAxisCustomModel {
-
+public class BlockRotatedLamp extends BlockForFacing {
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final IntegerProperty LIT_VALUE = IntegerProperty.create("lit_power", 0, 4);
-
-    final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(16D, 0D, 10.5D, 0D, 3.2D, 5.5D),
-            Block.makeCuboidShape(10.5D, 0D, 16D, 5.5D, 3.2D, 0D),
-            Block.makeCuboidShape(10.5D, 16D, 16D, 5.5D, 12.8D, 0D),
-            Block.makeCuboidShape(16D, 16D, 10.5D, 0D, 12.8D, 5.5D),
-            Block.makeCuboidShape(0D, 5.5D, 0D, 16D, 10.5D, 3.2D),
-            Block.makeCuboidShape(0D, 5D, 12.8D, 16D, 10.5D, 16D),
-            Block.makeCuboidShape(12.8D, 5.5D, 0D, 16D, 10.5D, 16D),
-            Block.makeCuboidShape(0D, 5.5D, 0D, 3.2D, 10.5D, 16D)};
-    public FluoLamp3(Properties builder) {
-        super(builder, 1F);
+    public BlockRotatedLamp(Properties properties) {
+        super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false));
     }
-    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
-        ItemStack activeItemRight = playerEntity.getHeldItemMainhand();
-        ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();
-
-        if(activeItemRight.getItem() == RegItems.PULLER.get()) {
-            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP3.get().getDefaultState().with(BrokenFluoLamp3.FACING, state.get(FACING)));
-            if(!playerEntity.isCreative())activeItemRight.damageItem(1, playerEntity, (player) -> player.sendBreakAnimation(handIn));
-            state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 1));
-            return ActionResultType.SUCCESS;
-        }
-        return ActionResultType.FAIL;
+    public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return this.getShape(state, worldIn, pos, null);
+    }
+    @OnlyIn(Dist.CLIENT)
+    public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
+        return 1F;
     }
     public BlockState getStateForPlacement(BlockItemUseContext c) {
         FluidState fluidstate = c.getWorld().getFluidState(c.getPos());
@@ -101,31 +82,6 @@ public class FluoLamp3 extends BlockRotatedAxisCustomModel {
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return this.getShape(state, worldIn, pos, context);
     }
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-
-        switch (state.get(FACING)) {
-            case UP_X:
-                return BOXS[3];
-            case UP_Z:
-                return BOXS[2];
-            case DOWN_X:
-                return BOXS[0];
-            case DOWN_Z:
-                return BOXS[1];
-            case NORTH:
-                return BOXS[4];
-            case SOUTH:
-                return BOXS[5];
-            case WEST:
-                return BOXS[7];
-            case EAST:
-                return BOXS[6];
-
-
-        }
-        return VoxelShapes.fullCube();
-    }
-
     @Override
     public int  getLightValue(BlockState s, IBlockReader br, BlockPos pos) {
         switch (s.get(LIT_VALUE)) {
