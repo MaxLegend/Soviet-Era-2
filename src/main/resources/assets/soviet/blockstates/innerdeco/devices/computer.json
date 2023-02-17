@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "enable=false,facing=east":  { "model": "soviet:block/innerdeco/devices/computer", "y": 90},
+        "enable=false,facing=west":  { "model": "soviet:block/innerdeco/devices/computer", "y": 270},
+        "enable=false,facing=south": { "model": "soviet:block/innerdeco/devices/computer", "y": 180 },
+        "enable=false,facing=north": { "model": "soviet:block/innerdeco/devices/computer", "y": 0 },
+        "enable=true,facing=east":  { "model": "soviet:block/innerdeco/devices/computer_enb", "y": 90},
+        "enable=true,facing=west":  { "model": "soviet:block/innerdeco/devices/computer_enb", "y": 270},
+        "enable=true,facing=south": { "model": "soviet:block/innerdeco/devices/computer_enb", "y": 180 },
+        "enable=true,facing=north": { "model": "soviet:block/innerdeco/devices/computer_enb", "y": 0 }
+    }
+}
+

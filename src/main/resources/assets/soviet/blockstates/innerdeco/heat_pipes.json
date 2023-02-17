@@ -1,0 +1,28 @@
+{
+    "multipart": [
+        {
+            "when": { "axis": "z" },
+            "apply": { "model": "soviet:block/innerdeco/pipes/heat_pipes" }
+        },
+        {
+            "when": { "axis": "x" },
+            "apply": { "model": "soviet:block/innerdeco/pipes/heat_pipes", "y": 90 }
+        },
+        {
+            "when": { "axis": "x", "front": "true" },
+            "apply": { "model": "soviet:block/innerdeco/pipes/heat_pipes_side", "y": 270 }
+        },
+        {
+            "when": { "axis": "x", "back": "true" },
+            "apply": { "model": "soviet:block/innerdeco/pipes/heat_pipes_side", "y": 90 }
+        },
+        {
+            "when": { "axis": "z", "front": "true" },
+            "apply": { "model": "soviet:block/innerdeco/pipes/heat_pipes_side", "y": 180 }
+        },
+        {
+            "when": { "axis": "z", "back": "true" },
+            "apply": { "model": "soviet:block/innerdeco/pipes/heat_pipes_side", "y": 0 }
+        }
+    ]
+}

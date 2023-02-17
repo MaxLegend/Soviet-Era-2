@@ -397,8 +397,11 @@ eaaae77e1e6ec0c08aaa101baf9c711efc841719 assets/soviet/models/item/innerdeco/che
 d9e7e78701e86d47765dfade6158a1750804c7a2 assets/soviet/models/item/innerdeco/chemlab_table_up.json
 ae40ba3d652c4e5316cdc025f0bd7de195dfb673 assets/soviet/models/item/innerdeco/control_panel/cp_down.json
 8e203fdb6b697559e103319b1ec4d500a6c07465 assets/soviet/models/item/innerdeco/control_panel/cp_up.json
+d6832dc92a931aeb903b24517d26b2b31d6d5171 assets/soviet/models/item/innerdeco/devices/computer.json
 737f9e5525b190d7a2c902970191b5c34e221de7 assets/soviet/models/item/innerdeco/devices/motion_sensor.json
 716c2da54e6a8db5cf44144d11aa7b0d91a1a52a assets/soviet/models/item/innerdeco/devices/redstone_wire.json
+0b9f627a2699dac69e568ba893d06e9394e9bd26 assets/soviet/models/item/innerdeco/devices/spec_monitor.json
+e15193f1206ed63e3a63acb031cae9920816ac2c assets/soviet/models/item/innerdeco/devices/sys_block.json
 01ee002f310e4e1551e25f61b089c5a32ead2555 assets/soviet/models/item/innerdeco/devices/turnstile_off.json
 5039fe75be83f054a114e9d16b73a4b0b633fc97 assets/soviet/models/item/innerdeco/furniture/purple_chair.json
 23149639f2b9fe583f53364efea6fecf632e57cd assets/soviet/models/item/innerdeco/furniture/purple_table.json
@@ -406,6 +409,8 @@ ab77c6cfc8d93a0aa186a7c07221d7a17333abe4 assets/soviet/models/item/innerdeco/fur
 880f4537c2ee4fc02d545df074ad8bf32f2c9006 assets/soviet/models/item/innerdeco/handhold/balcony_handhold.json
 2bd823fcb783296b41a0426fcc7331a66970da03 assets/soviet/models/item/innerdeco/handhold/rusty_handhold.json
 5cc92b9c9e03d3a58c264f9bfd6f409d77f0ca74 assets/soviet/models/item/innerdeco/handhold/street_handhold.json
+f0162a2a2e8fb2070f12162b9b20439c87f85e5a assets/soviet/models/item/innerdeco/heat_pipes.json
+e8905ee8ffa93689e930ba90a63df4ceea44c7d6 assets/soviet/models/item/innerdeco/heat_pipes_corner.json
 a66a135bc276a7470cdb6559d6342fe62433f566 assets/soviet/models/item/innerdeco/lamp/broken_fluo_lamp.json
 18abb50a81c328f5cd4991c72f2a0f808e2f7913 assets/soviet/models/item/innerdeco/lamp/broken_fluo_lamp2.json
 a0ec0f26a5c476f1c67941f91f4c8d08628b7054 assets/soviet/models/item/innerdeco/lamp/broken_fluo_lamp3.json

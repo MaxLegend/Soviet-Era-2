@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/innerdeco/pipes/heat_pipes_corner", "y": 270},
+        "facing=west":  { "model": "soviet:block/innerdeco/pipes/heat_pipes_corner", "y": 90},
+        "facing=south": { "model": "soviet:block/innerdeco/pipes/heat_pipes_corner", "y": 0 },
+        "facing=north": { "model": "soviet:block/innerdeco/pipes/heat_pipes_corner", "y": 180 }
+ }
+}

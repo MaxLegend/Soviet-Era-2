@@ -24,6 +24,10 @@ public class BlockCustomModel extends  Block {
         this.shadingInside = shadingInside;
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.valueOf(false)));
     }
+    public BlockCustomModel(Properties properties) {
+        super(properties);
+        this.shadingInside = 1F;
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
@@ -34,8 +38,8 @@ public class BlockCustomModel extends  Block {
     @Override
     public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         if(!worldIn.isRemote() && worldIn.getBlockState(pos).isAir()) {
-                state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
 
+                state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
         }
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

@@ -67,7 +67,32 @@ public class FactoryWindow extends BlockSideCustomModel {
         }
         //настроить шейпы для разбитого окна
         if(s.getBlock() == RegBlocks.FACTORY_WINDOW_EMPTY.get()) {
-
+            switch (s.get(FACING)) {
+                case SOUTH:
+                    return VoxelShapes.or(
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 0D, 0D, 2D, 0.5D, 16D)),
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 15.5D, 0D, 2D, 16D, 16D)),
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 0D, 0D, 2D, 16D, 0.5D)),
+                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(0D, 0D, 15.5D, 2D, 16D, 16D)));
+                case WEST:
+                    return VoxelShapes.or(
+                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 0D, 0D, 2D, 0.5D, 16D)),
+                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 15.5D, 0D, 2D, 16D, 16D)),
+                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 0D, 0D, 2D, 16D, 0.5D)),
+                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(0D, 0D, 15.5D, 2D, 16D, 16D)));
+                case NORTH:
+                    return VoxelShapes.or(
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 0D, 2D, 0.5D, 16D))),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 15.5D, 0D, 2D, 16D, 16D))),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 0D, 2D, 16D, 0.5D))),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(0D, 0D, 15.5D, 2D, 16D, 16D))));
+                case EAST:
+                    return VoxelShapes.or(
+                            Block.makeCuboidShape(0D, 0D, 0D, 2D, 0.5D, 16D),
+                            Block.makeCuboidShape(0D, 15.5D, 0D, 2D, 16D, 16D),
+                            Block.makeCuboidShape(0D, 0D, 0D, 2D, 16D, 0.5D),
+                            Block.makeCuboidShape(0D, 0D, 15.5D, 2D, 16D, 16D));
+            }
         }
     return VoxelShapes.fullCube();
     }

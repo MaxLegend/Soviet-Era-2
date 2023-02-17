@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "aluminum",
-		"1": "copper",
-		"2": "d_dark_metal",
-		"3": "monitor_disable",
-		"particle": "aluminum"
+		"0": "soviet:block/structural/aluminum",
+		"1": "soviet:block/structural/copper",
+		"2": "soviet:block/structural/d_dark_metal",
+		"3": "soviet:block/mech/monitor_disable",
+		"particle": "soviet:block/structural/aluminum"
 	},
 	"elements": [
 		{

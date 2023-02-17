@@ -20,10 +20,7 @@ import ru.tesmio.blocks.circuits.*;
 import ru.tesmio.blocks.const_panel.PanelBlockCorner;
 import ru.tesmio.blocks.const_panel.PanelBlockSide;
 import ru.tesmio.blocks.crusher.BlockCrusher;
-import ru.tesmio.blocks.decorative.devices.BlockRedstoneWire;
-import ru.tesmio.blocks.decorative.devices.ControlTable;
-import ru.tesmio.blocks.decorative.devices.EntitySensor;
-import ru.tesmio.blocks.decorative.devices.Turnstile;
+import ru.tesmio.blocks.decorative.devices.*;
 import ru.tesmio.blocks.decorative.lamp.*;
 import ru.tesmio.blocks.decorative.props.*;
 import ru.tesmio.blocks.decorative.props.chairs.PurpleChair;
@@ -86,7 +83,7 @@ public class RegBlocks {
     public static RegistryObject<Block> AIRLOCK_DOOR,ALUMINIUM_DOOR,RAILING_DOOR,RUSTY_IRON_DOOR, RUSTY_BARS, AIRLOCK_DOOR_CONTROLLER, CONTAINMENT_DOOR, WOOD_DOOR_1, WOOD_DOOR_2;
     public static RegistryObject<Block> ACCELERATOR_CALC_BLOCK, ACCELERATOR_STAND, ACCELERATOR, ACCELERATOR_RINGS_END, ACCELERATOR_RINGS,
             ACCELERATOR_RINGS_CORNER_LEFT, ACCELERATOR_RINGS_CORNER_RIGHT;
-    public static RegistryObject<Block> RUSTY_HANDHOLD, STREET_FENCE, BALCONY_HANDHOLD;
+    public static RegistryObject<Block> RUSTY_HANDHOLD, STREET_FENCE, BALCONY_HANDHOLD, HEAT_PIPES,HEAT_PIPES_CORNER;
     public static RegistryObject<Block> COPPER_CIRCUIT, COPPER_CIRCUIT_EMPTY, SILVER_CIRCUIT,SILVER_CIRCUIT_EMPTY, GOLD_CIRCUIT,GOLD_CIRCUIT_EMPTY, DIAMOND_CIRCUIT, DIAMOND_CIRCUIT_EMPTY,NETHERITE_CIRCUIT, NETHERITE_CIRCUIT_EMPTY,PLATINUM_CIRCUIT, PLATINUM_CIRCUIT_EMPTY , PLATE_GOLDEN_JACKS, PLATE_GOLDEN_JACKS_EMPTY, PLATE_PLATINUM_JACKS, PLATE_PLATINUM_JACKS_EMPTY;
 
     public static RegistryObject<Block> CONCRETE_STAIRS_GRAY, CONCRETE_STAIRS_GREEN, CONCRETE_STAIRS_BLUE, CONCRETE_STAIRS_BEIGE,
@@ -102,26 +99,26 @@ public class RegBlocks {
     public static RegistryObject<Block> IRON_BED, ex_po, SAFE;
 
 
-   // public static Map<String, RegistryObject<Block>> SYMBOLS = new HashMap<>();
-
-
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
     protected static VoxelShape BOX = Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 16D, 16.0D);
     protected static VoxelShape BOX_CONCRETE_FENCE_BASE[] = new VoxelShape[] {VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 6D, 16.0D),
             Block.makeCuboidShape(1.0D, 6.0D, 1D, 15.0D, 12D, 15.0D),
             Block.makeCuboidShape(2.0D, 12.0D, 2D, 14.0D, 16D, 14.0D))};
     protected static VoxelShape SHAPE_CIRCUIT2 = Block.makeCuboidShape(0.0D, 0.0D, 3.0D, 16.0D, 0.25D, 13.0D);
-//доделать двери. Для железной глухой двери переделать модель
+
+    public static RegistryObject<Block> SYS_BLOCK, COMPUTER, SPEC_MONITOR, TELEVISOR;
+
    public static void init() {
-       Symbols.addSymbols();
-       Symbols.addSymbolsName();
-       SAFE = registerBlockWithModel("innerdeco/furniture/safe", () -> new BlockSafe(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        Symbols.addSymbols();
+        Symbols.addSymbolsName();
+        SAFE = registerBlockWithModel("innerdeco/furniture/safe", () -> new BlockSafe(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
-       ex_po = registerBlockWithModel("outerdeco/symbols/ex_po", () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
+        ex_po = registerBlockWithModel("outerdeco/symbols/ex_po", () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
 
-       for (int iter = 0; iter < Symbols.SYMBOLS_NAME.size(); iter++) {
+        for (int iter = 0; iter < Symbols.SYMBOLS_NAME.size(); iter++) {
            registerBlockWithModel("outerdeco/symbols/" + Symbols.SYMBOLS_NAME.get(iter), () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
-       }
+        }
+
         IRON_BED = registerOnlyCustomBlock("innerdeco/iron_bed", () -> new IronBed(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
         WOOD_WINDOW = registerBlockWithModel("innerdeco/windows/wood_window", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
@@ -154,6 +151,11 @@ public class RegBlocks {
         //other devices
         MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_OUTER_DECO);
         TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
+        COMPUTER = registerBlockWithModel("innerdeco/devices/computer", () -> new Computer(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SPEC_MONITOR = registerBlockWithModel("innerdeco/devices/spec_monitor", () -> new SpecMonitor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SYS_BLOCK = registerBlockWithModel("innerdeco/devices/sys_block", () -> new SystemBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
+
+
         //fence
         CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
         CONCRETE_FENCE_HIGH = registerOnlyCustomBlock("outerdeco/fences/concrete_fence_high", () -> new ConcreteFenceHigh(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
@@ -167,8 +169,7 @@ public class RegBlocks {
 
        //post
         STREET_LIGHTPOST = registerBlockWithModel("outerdeco/streetdeco/street_lightpost", () -> new StreetLightpost(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
-       STREET_LIGHTPOST2 = registerBlockWithModel("outerdeco/streetdeco/street_lightpost2", () -> new StreetLightpost(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
-
+        STREET_LIGHTPOST2 = registerBlockWithModel("outerdeco/streetdeco/street_lightpost2", () -> new StreetLightpost(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
         //lamp
         RED_LAMP = registerBlockWithModel("innerdeco/lamp/red_lamp", () -> new IncLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
@@ -225,6 +226,8 @@ public class RegBlocks {
         RUSTY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/rusty_handhold", () -> new RustyHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         BALCONY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/balcony_handhold", () -> new ThinHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         STREET_FENCE = registerBlockWithModel("innerdeco/handhold/street_handhold", () -> new ThinHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        HEAT_PIPES = registerBlockWithModel("innerdeco/heat_pipes", () -> new HeatPipes(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
+        HEAT_PIPES_CORNER = registerBlockWithModel("innerdeco/heat_pipes_corner", () -> new HeatPipesCorner(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //mech
         CRUSHER = registerBlockWithModel("mech/crusher", () -> new BlockCrusher(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);

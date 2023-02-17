@@ -35,7 +35,9 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
     public BlockState updatePostPlacement(BlockState s, Direction f, BlockState bs, IWorld w, BlockPos p, BlockPos facingPos) {
         return updateState(w,p,s);
     }
-
+    public Block validBlock() {
+        return this;
+    }
     public BlockState updateState(IWorld w, BlockPos p, BlockState s) {
         if (!w.isRemote()) {
             BlockState state = w.getBlockState(p);
@@ -46,7 +48,7 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
         //    w.getPendingBlockTicks().scheduleTick(p, this, 4);
             switch(s.get(FACING)) {
                 case SOUTH:
-                    if (southPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (southPos.getBlock() == validBlock()) {
                         if (southPos.get(FACING) == Direction.EAST)  return state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT);
                         if (southPos.get(FACING) == Direction.WEST) return state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT);
                     } else {
@@ -54,7 +56,7 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
                     }
                     break;
                 case WEST:
-                    if (westPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (westPos.getBlock() == validBlock()) {
                         if (westPos.get(ENUM_CONNECT) == EnumConnent.NOT_CONNECT) {
                             if (westPos.get(FACING) == Direction.NORTH) return state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT);
                             if (westPos.get(FACING) == Direction.SOUTH) return state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT);
@@ -64,7 +66,7 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
                     }
                     break;
                 case EAST:
-                    if (eastPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (eastPos.getBlock() == validBlock()) {
                         if (eastPos.get(FACING) == Direction.NORTH)  return state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT);
                         if (eastPos.get(FACING) == Direction.SOUTH) return state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT);
                     } else {
@@ -72,7 +74,7 @@ public class BlockCornerCustomModel extends BlockSideCustomModel {
                     }
                     break;
                 case NORTH:
-                    if (northPos.getBlock() instanceof BlockCornerCustomModel) {
+                    if (northPos.getBlock() == validBlock()) {
                         if (northPos.get(FACING) == Direction.WEST)  return state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT);
                         if (northPos.get(FACING) == Direction.EAST) return state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT);
                     } else {
