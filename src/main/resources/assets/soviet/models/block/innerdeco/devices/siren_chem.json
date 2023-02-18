@@ -1,11 +1,10 @@
 {
 	"credit": "Made special for SovietLab",
-	"parent": "block/cube_all",
 	"textures": {
 		"0": "soviet:block/structural/rusty_ralling",
 		"1": "soviet:block/structural/d_dark_metal",
 		"2": "soviet:block/structural/dark_metal",
-		"3": "soviet:block/mech/bio",
+		"3": "soviet:block/mech/chem",
 		"particle": "soviet:block/structural/rusty_ralling"
 	},
 	"elements": [

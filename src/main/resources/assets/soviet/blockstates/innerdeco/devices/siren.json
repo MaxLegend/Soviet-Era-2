@@ -1,0 +1,22 @@
+{
+    "variants": {
+	"facing=west,type=bio":  { "model": "soviet:block/innerdeco/devices/siren", "x": 90, "y": 90},
+ 	"facing=up,type=bio":  { "model": "soviet:block/innerdeco/devices/siren", "x": 180},
+        "facing=east,type=bio":  { "model": "soviet:block/innerdeco/devices/siren", "x": 90, "y": 270},
+        "facing=down,type=bio":  { "model": "soviet:block/innerdeco/devices/siren", "y": 270},
+        "facing=south,type=bio": { "model": "soviet:block/innerdeco/devices/siren", "y": 0, "x": 90 },
+        "facing=north,type=bio": { "model": "soviet:block/innerdeco/devices/siren", "y": 0, "x": 270  },
+      "facing=west,type=rad":  { "model": "soviet:block/innerdeco/devices/siren_rad", "x": 90, "y": 90},
+      "facing=up,type=rad":  { "model": "soviet:block/innerdeco/devices/siren_rad", "x": 180},
+      "facing=east,type=rad":  { "model": "soviet:block/innerdeco/devices/siren_rad", "x": 90, "y": 270},
+      "facing=down,type=rad":  { "model": "soviet:block/innerdeco/devices/siren_rad", "y": 270},
+      "facing=south,type=rad": { "model": "soviet:block/innerdeco/devices/siren_rad", "y": 0, "x": 90 },
+      "facing=north,type=rad": { "model": "soviet:block/innerdeco/devices/siren_rad", "y": 0, "x": 270  },
+      "facing=west,type=chem":  { "model": "soviet:block/innerdeco/devices/siren_chem", "x": 90, "y": 90},
+      "facing=up,type=chem":  { "model": "soviet:block/innerdeco/devices/siren_chem", "x": 180},
+      "facing=east,type=chem":  { "model": "soviet:block/innerdeco/devices/siren_chem", "x": 90, "y": 270},
+      "facing=down,type=chem":  { "model": "soviet:block/innerdeco/devices/siren_chem", "y": 270},
+      "facing=south,type=chem": { "model": "soviet:block/innerdeco/devices/siren_chem", "y": 0, "x": 90 },
+      "facing=north,type=chem": { "model": "soviet:block/innerdeco/devices/siren_chem", "y": 0, "x": 270  }
+    }
+}

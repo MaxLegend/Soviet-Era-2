@@ -111,7 +111,7 @@ public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
     }
     @OnlyIn(Dist.CLIENT)
     public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return 0.8F;
+        return 1F;
     }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {{
         boolean isLocked = state.get(LOCKED);

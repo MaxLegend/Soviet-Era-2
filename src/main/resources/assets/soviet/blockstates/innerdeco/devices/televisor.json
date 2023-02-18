@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/innerdeco/devices/televisor", "y": 90},
+        "facing=west":  { "model": "soviet:block/innerdeco/devices/televisor", "y": 270},
+        "facing=south": { "model": "soviet:block/innerdeco/devices/televisor", "y": 180 },
+        "facing=north": { "model": "soviet:block/innerdeco/devices/televisor", "y": 0 }
+    }
+}
+

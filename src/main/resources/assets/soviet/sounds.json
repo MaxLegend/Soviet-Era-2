@@ -8,5 +8,32 @@
         "stream": true
       }
     ]
+  },
+  "rad_alarm": {
+    "subtitle": "rad_alarm",
+    "sounds": [
+      {
+        "name": "soviet:rad_alarm",
+        "stream": true
+      }
+    ]
+  },
+  "chem_alarm": {
+    "subtitle": "chem_alarm",
+    "sounds": [
+      {
+        "name": "soviet:chem_alarm",
+        "stream": true
+      }
+    ]
+  },
+  "bio_alarm": {
+    "subtitle": "bio_alarm",
+    "sounds": [
+      {
+        "name": "soviet:bio_alarm",
+	"stream": true
+      }
+    ]
   }
 }

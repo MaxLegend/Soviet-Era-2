@@ -17,7 +17,17 @@ import ru.tesmio.utils.VoxelShapeUtil;
 
 public class Computer extends BlockSideCustomModel {
 
-    final VoxelShape BOX = Block.makeCuboidShape(0,0,0,16,16,16);
+    final VoxelShape BOXS[] = new VoxelShape[] {
+            Block.makeCuboidShape(2,3,1,15,15,15),
+            Block.makeCuboidShape(2,1,2,3,16,14),
+            Block.makeCuboidShape(4,15,3,15,16,13),
+            Block.makeCuboidShape(4,2,3,15,3,13),
+            Block.makeCuboidShape(4,0,4,12,1,12),
+            Block.makeCuboidShape(2,4,0,14,14,2),
+            Block.makeCuboidShape(2,4,14,14,14,16),
+            Block.makeCuboidShape(4,3,4,16,15,12),
+            Block.makeCuboidShape(4,4,2,16,14,14)
+    };
     public static final BooleanProperty ENABLE = BooleanProperty.create("enable");
     public Computer(Properties properties, float shadingInside) {
         super(properties, shadingInside);
@@ -55,51 +65,51 @@ public class Computer extends BlockSideCustomModel {
             switch (state.get(FACING)) {
                 case WEST:
                     return VoxelShapes.or(
-                            Block.makeCuboidShape(2,3,1,15,15,15),
-                            Block.makeCuboidShape(2,1,2,3,16,14),
-                            Block.makeCuboidShape(4,15,3,15,16,13),
-                            Block.makeCuboidShape(4,2,3,15,3,13),
-                            Block.makeCuboidShape(4,0,4,12,1,12),
-                            Block.makeCuboidShape(2,4,0,14,14,2),
-                            Block.makeCuboidShape(2,4,14,14,14,16),
-                            Block.makeCuboidShape(4,3,4,16,15,12),
-                            Block.makeCuboidShape(4,4,2,16,14,14)
+                            BOXS[0],
+                            BOXS[1],
+                            BOXS[2],
+                            BOXS[3],
+                            BOXS[4],
+                            BOXS[5],
+                            BOXS[6],
+                            BOXS[7],
+                            BOXS[8]
                     );
                 case EAST:
                     return VoxelShapes.or(
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(2,3,1,15,15,15)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(2,1,2,3,16,14)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(4,15,3,15,16,13)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(4,2,3,15,3,13)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(4,0,4,12,1,12)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(2,4,0,14,14,2)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(2,4,14,14,14,16)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(4,3,4,16,15,12)),
-                            VoxelShapeUtil.shapeRot180(Block.makeCuboidShape(4,4,2,16,14,14))
+                            VoxelShapeUtil.shapeRot180(BOXS[0]),
+                            VoxelShapeUtil.shapeRot180(BOXS[1]),
+                            VoxelShapeUtil.shapeRot180(BOXS[2]),
+                            VoxelShapeUtil.shapeRot180(BOXS[3]),
+                            VoxelShapeUtil.shapeRot180(BOXS[4]),
+                            VoxelShapeUtil.shapeRot180(BOXS[5]),
+                            VoxelShapeUtil.shapeRot180(BOXS[6]),
+                            VoxelShapeUtil.shapeRot180(BOXS[7]),
+                            VoxelShapeUtil.shapeRot180(BOXS[8])
                     );
                 case NORTH:
                     return VoxelShapes.or(
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(2,3,1,15,15,15)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(2,1,2,3,16,14)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(4,15,3,15,16,13)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(4,2,3,15,3,13)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(4,0,4,12,1,12)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(2,4,0,14,14,2)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(2,4,14,14,14,16)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(4,3,4,16,15,12)),
-                            VoxelShapeUtil.shapeRotCW90(Block.makeCuboidShape(4,4,2,16,14,14))
+                            VoxelShapeUtil.shapeRotCW90(BOXS[0]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[1]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[2]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[3]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[4]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[5]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[6]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[7]),
+                            VoxelShapeUtil.shapeRotCW90(BOXS[8])
                     );
                 case SOUTH:
                     return VoxelShapes.or(
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(2,3,1,15,15,15))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(2,1,2,3,16,14))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(4,15,3,15,16,13))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(4,2,3,15,3,13))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(4,0,4,12,1,12))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(2,4,0,14,14,2))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(2,4,14,14,14,16))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(4,3,4,16,15,12))),
-                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(Block.makeCuboidShape(4,4,2,16,14,14)))
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[0])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[1])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[2])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[3])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[4])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[5])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[6])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[7])),
+                            VoxelShapeUtil.shapeRot180(VoxelShapeUtil.shapeRotCCW90(BOXS[8]))
                     );
             }
             return VoxelShapes.fullCube();

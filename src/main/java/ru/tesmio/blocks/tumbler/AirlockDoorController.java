@@ -21,7 +21,7 @@ public class AirlockDoorController extends BlockSideCustomModel {
     public static EnumProperty<EnumStatus> STATUS = EnumProperty.create("status", EnumStatus.class);
     public static BooleanProperty OPENED = BooleanProperty.create("opened");
     public AirlockDoorController(Properties properties) {
-        super(properties, 0.5F);
+        super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(STATUS, EnumStatus.DISABLED).with(OPENED, false));
     }
     public ActionResultType onBlockActivated(BlockState s, World w, BlockPos p, PlayerEntity pl, Hand h, BlockRayTraceResult hit) {
