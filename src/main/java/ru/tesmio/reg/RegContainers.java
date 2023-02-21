@@ -11,6 +11,7 @@ import ru.tesmio.blocks.affinage_factory.AffinageContainer;
 import ru.tesmio.blocks.crusher.CrusherContainer;
 import ru.tesmio.blocks.diesel_generator.DieselGeneratorContainer;
 import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersContainer;
+import ru.tesmio.blocks.storage.dsp_tump.DspTumbContainer;
 import ru.tesmio.blocks.storage.safe.ContainerSafe;
 import ru.tesmio.core.Core;
 
@@ -25,6 +26,8 @@ public class RegContainers {
 
     public static final RegistryObject<ContainerType<ContainerSafe>> SAFE_CONT = CONTAINER_TYPES
             .register("safe_cont", () -> IForgeContainerType.create(ContainerSafe::new));
+    public static final RegistryObject<ContainerType<DspTumbContainer>> DSP_TUMB_CONT = CONTAINER_TYPES
+            .register("dsp_tumb_cont", () -> IForgeContainerType.create(DspTumbContainer::new));
     public static final RegistryObject<ContainerType<DieselGeneratorContainer>> DIESEL_CONTAINER = CONTAINER_TYPES.register("diesel_container", () -> IForgeContainerType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         World world = inv.player.getEntityWorld();

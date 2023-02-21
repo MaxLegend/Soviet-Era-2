@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/innerdeco/furniture/dsp_tumb", "y": 270},
+        "facing=west":  { "model": "soviet:block/innerdeco/furniture/dsp_tumb", "y": 90},
+        "facing=south": { "model": "soviet:block/innerdeco/furniture/dsp_tumb", "y": 0 },
+        "facing=north": { "model": "soviet:block/innerdeco/furniture/dsp_tumb", "y": 180 }
+ }
+}

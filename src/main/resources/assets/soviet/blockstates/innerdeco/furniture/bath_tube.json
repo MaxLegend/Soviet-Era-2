@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=east,part=foot":  { "model": "soviet:block/innerdeco/furniture/bath_tube_left", "y": 270},
+        "facing=west,part=foot":  { "model": "soviet:block/innerdeco/furniture/bath_tube_left", "y": 90},
+        "facing=south,part=foot": { "model": "soviet:block/innerdeco/furniture/bath_tube_left", "y": 0 },
+        "facing=north,part=foot": { "model": "soviet:block/innerdeco/furniture/bath_tube_left", "y": 180 },
+        "facing=east,part=head":  { "model": "soviet:block/innerdeco/furniture/bath_tube_right", "y": 270},
+        "facing=west,part=head":  { "model": "soviet:block/innerdeco/furniture/bath_tube_right", "y": 90},
+        "facing=south,part=head": { "model": "soviet:block/innerdeco/furniture/bath_tube_right", "y": 0 },
+        "facing=north,part=head": { "model": "soviet:block/innerdeco/furniture/bath_tube_right", "y": 180 }
+    }
+}
