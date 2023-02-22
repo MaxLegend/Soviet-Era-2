@@ -1,0 +1,34 @@
+{
+	"credit": "Autor Tesmio special for SovietEra 2023",
+	"textures": {
+		"1": "soviet:block/mech/keyboard",
+		"2": "soviet:block/mech/display3",
+		"particle": "soviet:block/mech/dark_gray_lamp"
+	},
+	"elements": [
+		{
+			"from": [6, 0, 6],
+			"to": [10, 0.5, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 0.5], "texture": "#1"},
+				"east": {"uv": [0, 0, 2, 0.5], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 0.5], "texture": "#1"},
+				"west": {"uv": [0, 0, 2, 0.5], "texture": "#1"},
+				"up": {"uv": [2, 8, 4, 10], "texture": "#1"},
+				"down": {"uv": [5, 8, 7, 10], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6.5, 0.5, 6.5],
+			"to": [9.5, 0.75, 9.5],
+			"faces": {
+				"north": {"uv": [5, 9, 6, 9.75], "texture": "#2"},
+				"east": {"uv": [5, 9, 6, 9.75], "texture": "#2"},
+				"south": {"uv": [9, 7, 10, 7.75], "texture": "#2"},
+				"west": {"uv": [4, 7, 5, 7.75], "texture": "#2"},
+				"up": {"uv": [4, 8, 5, 9], "texture": "#2"},
+				"down": {"uv": [4, 7, 5, 8], "texture": "#2"}
+			}
+		}
+	]
+}

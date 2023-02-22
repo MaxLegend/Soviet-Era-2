@@ -1,0 +1,33 @@
+{
+    "variants": {
+        "enable=false,facing=east":  { "model": "soviet:block/innerdeco/devices/infotable", "y": 90},
+        "enable=false,facing=west":  { "model": "soviet:block/innerdeco/devices/infotable", "y": 270},
+        "enable=false,facing=south": { "model": "soviet:block/innerdeco/devices/infotable", "y": 180 },
+        "enable=false,facing=north": { "model": "soviet:block/innerdeco/devices/infotable", "y": 0 },
+        "enable=true,facing=east,type=1":  { "model": "soviet:block/innerdeco/devices/infotable_1", "y": 90},
+        "enable=true,facing=west,type=1":  { "model": "soviet:block/innerdeco/devices/infotable_1", "y": 270},
+        "enable=true,facing=south,type=1": { "model": "soviet:block/innerdeco/devices/infotable_1", "y": 180 },
+        "enable=true,facing=north,type=1": { "model": "soviet:block/innerdeco/devices/infotable_1", "y": 0 },
+        "enable=true,facing=east,type=2":  { "model": "soviet:block/innerdeco/devices/infotable_2", "y": 90},
+        "enable=true,facing=west,type=2":  { "model": "soviet:block/innerdeco/devices/infotable_2", "y": 270},
+        "enable=true,facing=south,type=2": { "model": "soviet:block/innerdeco/devices/infotable_2", "y": 180 },
+        "enable=true,facing=north,type=2": { "model": "soviet:block/innerdeco/devices/infotable_2", "y": 0 },
+        "enable=true,facing=east,type=3":  { "model": "soviet:block/innerdeco/devices/infotable_3", "y": 90},
+        "enable=true,facing=west,type=3":  { "model": "soviet:block/innerdeco/devices/infotable_3", "y": 270},
+        "enable=true,facing=south,type=3": { "model": "soviet:block/innerdeco/devices/infotable_3", "y": 180 },
+        "enable=true,facing=north,type=3": { "model": "soviet:block/innerdeco/devices/infotable_3", "y": 0 },
+        "enable=true,facing=east,type=4":  { "model": "soviet:block/innerdeco/devices/infotable_4", "y": 90},
+        "enable=true,facing=west,type=4":  { "model": "soviet:block/innerdeco/devices/infotable_4", "y": 270},
+        "enable=true,facing=south,type=4": { "model": "soviet:block/innerdeco/devices/infotable_4", "y": 180 },
+        "enable=true,facing=north,type=4": { "model": "soviet:block/innerdeco/devices/infotable_4", "y": 0 },
+        "enable=true,facing=east,type=5":  { "model": "soviet:block/innerdeco/devices/infotable_5", "y": 90},
+        "enable=true,facing=west,type=5":  { "model": "soviet:block/innerdeco/devices/infotable_5", "y": 270},
+        "enable=true,facing=south,type=5": { "model": "soviet:block/innerdeco/devices/infotable_5", "y": 180 },
+        "enable=true,facing=north,type=5": { "model": "soviet:block/innerdeco/devices/infotable_5", "y": 0 },
+        "enable=true,facing=east,type=6":  { "model": "soviet:block/innerdeco/devices/infotable_6", "y": 90},
+        "enable=true,facing=west,type=6":  { "model": "soviet:block/innerdeco/devices/infotable_6", "y": 270},
+        "enable=true,facing=south,type=6": { "model": "soviet:block/innerdeco/devices/infotable_6", "y": 180 },
+        "enable=true,facing=north,type=6": { "model": "soviet:block/innerdeco/devices/infotable_6", "y": 0 }
+    }
+}
+

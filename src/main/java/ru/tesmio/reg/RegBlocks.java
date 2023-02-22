@@ -41,6 +41,7 @@ import ru.tesmio.blocks.fences.ElectroFence;
 import ru.tesmio.blocks.fences.ElectroFenceDouble;
 import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawers;
 import ru.tesmio.blocks.storage.dsp_tump.DspTumbBlock;
+import ru.tesmio.blocks.storage.kitchen_table.KitchenTable;
 import ru.tesmio.blocks.storage.safe.BlockSafe;
 import ru.tesmio.blocks.tumbler.AirlockDoorController;
 import ru.tesmio.blocks.tumbler.ElectroFenceTumbler;
@@ -83,7 +84,7 @@ public class RegBlocks {
     public static RegistryObject<Block> STREET_LIGHTPOST, STREET_LIGHTPOST2;
     public static RegistryObject<Block> AIRLOCK_DOOR,ALUMINIUM_DOOR,RAILING_DOOR,RUSTY_IRON_DOOR, RUSTY_BARS, AIRLOCK_DOOR_CONTROLLER, CONTAINMENT_DOOR, WOOD_DOOR_1, WOOD_DOOR_2;
     public static RegistryObject<Block> ACCELERATOR_CALC_BLOCK, ACCELERATOR_STAND, ACCELERATOR, ACCELERATOR_RINGS_END, ACCELERATOR_RINGS,
-            ACCELERATOR_RINGS_CORNER_LEFT, ACCELERATOR_RINGS_CORNER_RIGHT;
+            ACCELERATOR_RINGS_CORNER_LEFT, ACCELERATOR_RINGS_CORNER_RIGHT, INFO_TABLE, SMALL_BUTTON;
     public static RegistryObject<Block> RUSTY_HANDHOLD, STREET_FENCE, BALCONY_HANDHOLD, HEAT_PIPES,HEAT_PIPES_CORNER;
     public static RegistryObject<Block> COPPER_CIRCUIT, COPPER_CIRCUIT_EMPTY, SILVER_CIRCUIT,SILVER_CIRCUIT_EMPTY, GOLD_CIRCUIT,GOLD_CIRCUIT_EMPTY, DIAMOND_CIRCUIT, DIAMOND_CIRCUIT_EMPTY,NETHERITE_CIRCUIT, NETHERITE_CIRCUIT_EMPTY,PLATINUM_CIRCUIT, PLATINUM_CIRCUIT_EMPTY , PLATE_GOLDEN_JACKS, PLATE_GOLDEN_JACKS_EMPTY, PLATE_PLATINUM_JACKS, PLATE_PLATINUM_JACKS_EMPTY;
 
@@ -97,7 +98,7 @@ public class RegBlocks {
     public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE, PURPLE_TABLE, PURPLE_CHAIR;
     public static RegistryObject<Block> ALUM_FRAMES, ALUM_FRAMES_EMPTY, ALUM_WINDOW, ALUM_WINDOW_EMPTY, MODERN_WINDOW, MODERN_WINDOW_EMPTY, MODERN_WINDOW_LEAF, MODERN_WINDOW_LEAF_EMPTY
             , WOOD_WINDOW, WOOD_WINDOW_EMPTY, WOOD_WINDOW_LEAF, WOOD_WINDOW_LEAF_EMPTY, FACTORY_WINDOW, FACTORY_WINDOW_EMPTY;
-    public static RegistryObject<Block> IRON_BED, ex_po, SAFE, DSP_TUMB, BATH_TUBE, KITCHEN_SINK, ELECTRO_STOVE,KITCHEN_TABLE, SMALL_SINK, TOILET;
+    public static RegistryObject<Block> IRON_BED, ex_po, SAFE, DSP_TUMB, BATH_TUBE, KITCHEN_SINK, ELECTRO_STOVE,KITCHEN_TABLE, SMALL_SINK, TOILET,SINK;
 
 
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
@@ -235,9 +236,13 @@ public class RegBlocks {
         HEAT_PIPES_CORNER = registerBlockWithModel("innerdeco/heat_pipes_corner", () -> new HeatPipesCorner(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         KITCHEN_SINK = registerBlockWithModel("innerdeco/furniture/kitchen_sink", () -> new KitchenBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         ELECTRO_STOVE = registerBlockWithModel("innerdeco/furniture/electric_stove", () -> new KitchenBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        KITCHEN_TABLE= registerBlockWithModel("innerdeco/furniture/kitchen_table", () -> new KitchenBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        KITCHEN_TABLE= registerBlockWithModel("innerdeco/furniture/kitchen_table", () -> new KitchenTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SINK = registerBlockWithModel("innerdeco/furniture/sink", () -> new Sink(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         SMALL_SINK = registerBlockWithModel("innerdeco/furniture/small_sink", () -> new SmallSink(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         TOILET = registerBlockWithModel("innerdeco/furniture/toilet", () -> new Toilet(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+
+        INFO_TABLE = registerBlockWithModel("innerdeco/devices/infotable", () -> new InfoTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
+        SMALL_BUTTON = registerBlockWithModel("innerdeco/devices/small_button", () -> new SmallButton(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
 
         //mech
         CRUSHER = registerBlockWithModel("mech/crusher", () -> new BlockCrusher(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);

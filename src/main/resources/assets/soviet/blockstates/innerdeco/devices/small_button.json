@@ -1,0 +1,16 @@
+{
+    "variants": {
+	"facing=west,enable=false":  { "model": "soviet:block/innerdeco/devices/small_button", "x": 90, "y": 90},
+ 	"facing=up,enable=false":  { "model": "soviet:block/innerdeco/devices/small_button", "x": 180},
+        "facing=east,enable=false":  { "model": "soviet:block/innerdeco/devices/small_button", "x": 90, "y": 270},
+        "facing=down,enable=false":  { "model": "soviet:block/innerdeco/devices/small_button", "y": 270},
+        "facing=south,enable=false": { "model": "soviet:block/innerdeco/devices/small_button", "y": 0, "x": 90 },
+        "facing=north,enable=false": { "model": "soviet:block/innerdeco/devices/small_button", "y": 0, "x": 270  },
+      "facing=west,enable=true":  { "model": "soviet:block/innerdeco/devices/small_button_enb", "x": 90, "y": 90},
+      "facing=up,enable=true":  { "model": "soviet:block/innerdeco/devices/small_button_enb", "x": 180},
+      "facing=east,enable=true":  { "model": "soviet:block/innerdeco/devices/small_button_enb", "x": 90, "y": 270},
+      "facing=down,enable=true":  { "model": "soviet:block/innerdeco/devices/small_button_enb", "y": 270},
+      "facing=south,enable=true": { "model": "soviet:block/innerdeco/devices/small_button_enb", "y": 0, "x": 90 },
+      "facing=north,enable=true": { "model": "soviet:block/innerdeco/devices/small_button_enb", "y": 0, "x": 270  }
+    }
+}

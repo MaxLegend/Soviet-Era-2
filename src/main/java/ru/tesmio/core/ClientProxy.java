@@ -9,6 +9,7 @@ import ru.tesmio.blocks.crusher.CrusherScreen;
 import ru.tesmio.blocks.diesel_generator.DieselGeneratorScreen;
 import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersScreen;
 import ru.tesmio.blocks.storage.dsp_tump.DspTumbScreen;
+import ru.tesmio.blocks.storage.kitchen_table.KitchenTableScreen;
 import ru.tesmio.blocks.storage.safe.ScreenSafe;
 import ru.tesmio.entity.renderer.EntitySittableBlockRender;
 import ru.tesmio.reg.RegBlocks;
@@ -52,6 +53,7 @@ public class ClientProxy {
         RenderTypeLookup.setRenderLayer(RegBlocks.RED_LAMP.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(RegBlocks.FACTORY_WINDOW.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(RegBlocks.SIREN.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(RegBlocks.INFO_TABLE.get(), RenderType.getCutout());
     }
     private static void registerScreenFactories() {
         ScreenManager.registerFactory(RegContainers.DIESEL_CONTAINER.get(), DieselGeneratorScreen::new);
@@ -60,6 +62,7 @@ public class ClientProxy {
         ScreenManager.registerFactory(RegContainers.STORAGE_CONT.get(), LinearTableDrawersScreen::new);
         ScreenManager.registerFactory(RegContainers.SAFE_CONT.get(), ScreenSafe::new);
         ScreenManager.registerFactory(RegContainers.DSP_TUMB_CONT.get(), DspTumbScreen::new);
+        ScreenManager.registerFactory(RegContainers.KITCHEN_TABLE_CONT.get(), KitchenTableScreen::new);
     }
     private static void registerTileEntityRenderers() {
 
