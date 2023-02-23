@@ -407,6 +407,7 @@ a9829d2ea14baced6f301fad3b2cc69f6ec996f5 assets/soviet/models/item/innerdeco/dev
 e15193f1206ed63e3a63acb031cae9920816ac2c assets/soviet/models/item/innerdeco/devices/sys_block.json
 8e8d44f43899f54f4b6cde938d6a2ff4c76557a5 assets/soviet/models/item/innerdeco/devices/televisor.json
 01ee002f310e4e1551e25f61b089c5a32ead2555 assets/soviet/models/item/innerdeco/devices/turnstile_off.json
+a318865ebcae5266bdf32cc7567df3b54ffc9942 assets/soviet/models/item/innerdeco/furniture/dsp_chair.json
 af9383646356b04f9dbf9319d1ed6edb6172cf97 assets/soviet/models/item/innerdeco/furniture/dsp_tumb.json
 d8c1739a9e925f203e9eac5737dcd1fd6b1a9a90 assets/soviet/models/item/innerdeco/furniture/electric_stove.json
 b49835b8af52f493eaf0e2b0b936fcf36e0b6258 assets/soviet/models/item/innerdeco/furniture/kitchen_sink.json
@@ -430,6 +431,8 @@ a0ec0f26a5c476f1c67941f91f4c8d08628b7054 assets/soviet/models/item/innerdeco/lam
 f991d1ad566de6defae5783cf3d9dbe301bb31e5 assets/soviet/models/item/innerdeco/lamp/fluo_lamp3.json
 160ab1ccf9e0914ffffe8797f1857d22d0926b37 assets/soviet/models/item/innerdeco/lamp/inc_lamp.json
 59657158289050b9b2ca4aab94c7574c427b3f7b assets/soviet/models/item/innerdeco/lamp/red_lamp.json
+1ac162aaa599abe63e56ae86bd551ce597cca83b assets/soviet/models/item/innerdeco/pipes/home_pipes.json
+8faff84bddf5c48cb6229eb42725891e5c37ef5a assets/soviet/models/item/innerdeco/pipes/home_pipes_battery.json
 64be0e07a2aab0e0a713ef43f02d6fa4514c62b8 assets/soviet/models/item/innerdeco/rusty_bars.json
 11bf1b2f42189f448c942d5b2f21153f052d0d6a assets/soviet/models/item/innerdeco/tubing_horizontal.json
 93628bd20e1da2228dae0f45f38ca56fccecd9d8 assets/soviet/models/item/innerdeco/tubing_vertical.json
@@ -473,6 +476,8 @@ c989f043d3c3265cbb61d5d91eeeddaac8513ce4 assets/soviet/models/item/outerdeco/fac
 8a9971e1de02b19b3329f5d35c42e66b386a0825 assets/soviet/models/item/outerdeco/fences/electro_fence.json
 c309a2ef937d781a99216ba154687b268b960f7b assets/soviet/models/item/outerdeco/fences/electro_fence_double.json
 5a39528cf81b53b5d22e866b7545be9fb15134d7 assets/soviet/models/item/outerdeco/fences/electro_fence_tumbler.json
+c9918908b19cce3b00d01e260f58a124bfdba36b assets/soviet/models/item/outerdeco/streetdeco/barb_wire.json
+5b048a50feb2070840c824fcf20f140172a055b5 assets/soviet/models/item/outerdeco/streetdeco/spiral_barb_wire.json
 afec8deecfd2fb803717a19ffebaa35fc456d084 assets/soviet/models/item/outerdeco/streetdeco/street_lightpost.json
 000f257c4aaa3ffad5912e488db06dec8269e8b5 assets/soviet/models/item/outerdeco/streetdeco/street_lightpost2.json
 4844839d34931101b6cee99c2fe2a50ca65158c6 assets/soviet/models/item/outerdeco/symbols/a.json

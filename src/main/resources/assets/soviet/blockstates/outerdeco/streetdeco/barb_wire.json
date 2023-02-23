@@ -1,0 +1,17 @@
+{
+    "multipart": [
+        {   "apply": { "model": "soviet:block/outerdeco/streetdeco/barb_wire" }},
+        {   "when": { "north": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/barb_wire_s", "y": 180, "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/barb_wire_s", "y": 270, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/barb_wire_s", "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/barb_wire_s", "y": 90, "uvlock": true }
+        }
+    ]
+}

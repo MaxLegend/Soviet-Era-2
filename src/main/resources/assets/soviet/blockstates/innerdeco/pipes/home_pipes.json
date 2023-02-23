@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "corner=right,facing=west":  { "model": "soviet:block/innerdeco/pipes/home_pipes_left", "y": 0},
+ 	"corner=left,facing=west":  { "model": "soviet:block/innerdeco/pipes/home_pipes_right", "y": 180},
+        "corner=right,facing=east":  { "model": "soviet:block/innerdeco/pipes/home_pipes_left", "y": 180},
+	"corner=left,facing=east":  { "model": "soviet:block/innerdeco/pipes/home_pipes_right", "y": 0},
+        "corner=right,facing=north": { "model": "soviet:block/innerdeco/pipes/home_pipes_left", "y": 90 },
+ 	"corner=left,facing=north": { "model": "soviet:block/innerdeco/pipes/home_pipes_right", "y": 270 },
+        "corner=left,facing=south": { "model": "soviet:block/innerdeco/pipes/home_pipes_right", "y": 90 },
+	"corner=right,facing=south": { "model": "soviet:block/innerdeco/pipes/home_pipes_left", "y": 270 },
+        "corner=not,facing=west":  { "model": "soviet:block/innerdeco/pipes/home_pipes", "y": 270},
+        "corner=not,facing=east":  { "model": "soviet:block/innerdeco/pipes/home_pipes", "y": 90},
+        "corner=not,facing=north": { "model": "soviet:block/innerdeco/pipes/home_pipes", "y": 0 },
+        "corner=not,facing=south": { "model": "soviet:block/innerdeco/pipes/home_pipes", "y": 180 }
+ }
+}

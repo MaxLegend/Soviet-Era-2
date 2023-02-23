@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/outerdeco/streetdeco/spiral_barb_wire", "y": 270},
+        "facing=west":  { "model": "soviet:block/outerdeco/streetdeco/spiral_barb_wire", "y": 90},
+        "facing=south": { "model": "soviet:block/outerdeco/streetdeco/spiral_barb_wire", "y": 0 },
+        "facing=north": { "model": "soviet:block/outerdeco/streetdeco/spiral_barb_wire", "y": 180 }
+ }
+}
