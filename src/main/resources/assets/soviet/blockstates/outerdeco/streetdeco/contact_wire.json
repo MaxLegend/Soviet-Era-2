@@ -1,0 +1,57 @@
+{
+    "multipart": [
+
+        {   "when": { "facing": "north" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire", "y": 180, "uvlock": true }
+        },
+        {   "when": { "facing": "east" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire", "y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "south" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire", "uvlock": true }
+        },
+        {   "when": { "facing": "west" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire", "y": 90, "uvlock": true }
+        },
+
+
+        {   "when": { "facing": "north", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_r", "y": 180, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_r", "y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "south", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_r", "uvlock": true }
+        },
+        {   "when": { "facing": "west", "left": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_r", "y": 90, "uvlock": true }
+        },
+
+        {   "when": { "facing": "north", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_l", "y": 180, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_l", "y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "south", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_l", "uvlock": true }
+        },
+        {   "when": { "facing": "west", "right": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_l", "y": 90, "uvlock": true }
+        },
+
+        {   "when": { "facing": "north", "fulcrum": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_fulcrum", "y": 180, "uvlock": true }
+        },
+        {   "when": { "facing": "east", "fulcrum": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_fulcrum", "y": 270, "uvlock": true }
+        },
+        {   "when": { "facing": "south", "fulcrum": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_fulcrum", "uvlock": true }
+        },
+        {   "when": { "facing": "west", "fulcrum": "true" },
+            "apply": { "model": "soviet:block/outerdeco/streetdeco/contact_wire_fulcrum", "y": 90, "uvlock": true }
+        }
+    ]
+}

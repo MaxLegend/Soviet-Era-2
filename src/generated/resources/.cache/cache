@@ -407,6 +407,7 @@ a9829d2ea14baced6f301fad3b2cc69f6ec996f5 assets/soviet/models/item/innerdeco/dev
 e15193f1206ed63e3a63acb031cae9920816ac2c assets/soviet/models/item/innerdeco/devices/sys_block.json
 8e8d44f43899f54f4b6cde938d6a2ff4c76557a5 assets/soviet/models/item/innerdeco/devices/televisor.json
 01ee002f310e4e1551e25f61b089c5a32ead2555 assets/soviet/models/item/innerdeco/devices/turnstile_off.json
+8b3b872e85687755b61439fff2a12bc26e6bde56 assets/soviet/models/item/innerdeco/floor_grid.json
 a318865ebcae5266bdf32cc7567df3b54ffc9942 assets/soviet/models/item/innerdeco/furniture/dsp_chair.json
 af9383646356b04f9dbf9319d1ed6edb6172cf97 assets/soviet/models/item/innerdeco/furniture/dsp_tumb.json
 d8c1739a9e925f203e9eac5737dcd1fd6b1a9a90 assets/soviet/models/item/innerdeco/furniture/electric_stove.json
@@ -473,10 +474,13 @@ d90674569d975912ed628c31b320b7513131f6c2 assets/soviet/models/item/netherite_dus
 f1a51ad57aa001859a79eaac89020aeae6c349dc assets/soviet/models/item/outerdeco/factory_window.json
 c989f043d3c3265cbb61d5d91eeeddaac8513ce4 assets/soviet/models/item/outerdeco/factory_window_empty.json
 8d48a796ed6e2fd44a5bb411cb18d0e770141393 assets/soviet/models/item/outerdeco/fences/concrete_fence_base.json
+46623b7ef83663f4bd8a12095516b618a7ac9195 assets/soviet/models/item/outerdeco/fences/concrete_wall.json
 8a9971e1de02b19b3329f5d35c42e66b386a0825 assets/soviet/models/item/outerdeco/fences/electro_fence.json
 c309a2ef937d781a99216ba154687b268b960f7b assets/soviet/models/item/outerdeco/fences/electro_fence_double.json
 5a39528cf81b53b5d22e866b7545be9fb15134d7 assets/soviet/models/item/outerdeco/fences/electro_fence_tumbler.json
 c9918908b19cce3b00d01e260f58a124bfdba36b assets/soviet/models/item/outerdeco/streetdeco/barb_wire.json
+61b25b51853a0034f8b065cbf0e4f5e91c05aaac assets/soviet/models/item/outerdeco/streetdeco/contact_wire_inner.json
+b41458c5d9dc4879e5bce13b80e08d9fafefd632 assets/soviet/models/item/outerdeco/streetdeco/contact_wire_outer.json
 5b048a50feb2070840c824fcf20f140172a055b5 assets/soviet/models/item/outerdeco/streetdeco/spiral_barb_wire.json
 afec8deecfd2fb803717a19ffebaa35fc456d084 assets/soviet/models/item/outerdeco/streetdeco/street_lightpost.json
 000f257c4aaa3ffad5912e488db06dec8269e8b5 assets/soviet/models/item/outerdeco/streetdeco/street_lightpost2.json

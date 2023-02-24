@@ -36,10 +36,7 @@ import ru.tesmio.blocks.diesel_generator.DieselElectroGenerator;
 import ru.tesmio.blocks.diesel_generator.DieselGenerator;
 import ru.tesmio.blocks.diesel_generator.DieselTank;
 import ru.tesmio.blocks.doors.*;
-import ru.tesmio.blocks.fences.ConcreteFence;
-import ru.tesmio.blocks.fences.ConcreteFenceHigh;
-import ru.tesmio.blocks.fences.ElectroFence;
-import ru.tesmio.blocks.fences.ElectroFenceDouble;
+import ru.tesmio.blocks.fences.*;
 import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawers;
 import ru.tesmio.blocks.storage.dsp_tump.DspTumbBlock;
 import ru.tesmio.blocks.storage.kitchen_table.KitchenTable;
@@ -94,12 +91,12 @@ public class RegBlocks {
     public static RegistryObject<Block> CONCRETE_SLAB_GRAY, CONCRETE_SLAB_GREEN, CONCRETE_SLAB_BLUE, CONCRETE_SLAB_BEIGE,
             CONCRETE_SLAB_BEIGE2, CONCRETE_SLAB_RED, CONCRETE_SLAB_YELLOW, CONCRETE_SLAB_WHITE, CONCRETE_SLAB_ORANGE;
 
-    public static RegistryObject<Block> CONCRETE_FENCE, CONCRETE_FENCE_HIGH, CONCRETE_FENCE_BASE, ELECTRO_FENCE, ELECTRO_FENCE_TUMBLER, ELECTRO_FENCE_DOUBLE, SPIRAL_BARB_WIRE;
+    public static RegistryObject<Block> CONCRETE_FENCE, CONCRETE_FENCE_HIGH, CONCRETE_FENCE_BASE, FLOOR_GRID, CONCRETE_WALL, CONTACT_WIRE, ELECTRO_FENCE, ELECTRO_FENCE_TUMBLER, ELECTRO_FENCE_DOUBLE, SPIRAL_BARB_WIRE;
     public static RegistryObject<Block> MOTION_SENSOR,TURNSTILE, REDSTONE_WIRE;
     public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE, PURPLE_TABLE, PURPLE_CHAIR;
     public static RegistryObject<Block> ALUM_FRAMES, ALUM_FRAMES_EMPTY, ALUM_WINDOW, ALUM_WINDOW_EMPTY, MODERN_WINDOW, MODERN_WINDOW_EMPTY, MODERN_WINDOW_LEAF, MODERN_WINDOW_LEAF_EMPTY
             , WOOD_WINDOW, WOOD_WINDOW_EMPTY, WOOD_WINDOW_LEAF, WOOD_WINDOW_LEAF_EMPTY, FACTORY_WINDOW, FACTORY_WINDOW_EMPTY;
-    public static RegistryObject<Block> IRON_BED, ex_po, SAFE, DSP_TUMB, BATH_TUBE, KITCHEN_SINK, ELECTRO_STOVE,KITCHEN_TABLE, SMALL_SINK, TOILET, SINK, BARB_WIRE;
+    public static RegistryObject<Block> IRON_BED, ex_po, SAFE, DSP_TUMB, BATH_TUBE, KITCHEN_SINK, ELECTRO_STOVE,KITCHEN_TABLE, SMALL_SINK, TOILET, SINK, BARB_WIRE,CONTACT_WIRE_OUTER,CONTACT_WIRE_INNER;
 
 
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
@@ -170,8 +167,11 @@ public class RegBlocks {
         ELECTRO_FENCE = registerBlockWithModel("outerdeco/fences/electro_fence", () -> new ElectroFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
         ELECTRO_FENCE_TUMBLER = registerBlockWithModel("outerdeco/fences/electro_fence_tumbler", () -> new ElectroFenceTumbler(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
         ELECTRO_FENCE_DOUBLE = registerBlockWithModel("outerdeco/fences/electro_fence_double", () -> new ElectroFenceDouble(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
+        CONTACT_WIRE = registerOnlyCustomBlock("outerdeco/streetdeco/contact_wire", () -> new ContactWire(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CONCRETE_WALL = registerBlockWithModel("outerdeco/fences/concrete_wall", () -> new ConcreteWall(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        FLOOR_GRID = registerBlockWithModel("innerdeco/floor_grid", () -> new FloorGrid(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
-        FACTORY_WINDOW = registerBlockWithModel("outerdeco/factory_window", () -> new FactoryWindow(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), 1F),Core.ItemGroups.TAB_OUTER_DECO);
+       FACTORY_WINDOW = registerBlockWithModel("outerdeco/factory_window", () -> new FactoryWindow(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), 1F),Core.ItemGroups.TAB_OUTER_DECO);
         FACTORY_WINDOW_EMPTY = registerBlockWithModel("outerdeco/factory_window_empty", () -> new FactoryWindow(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), 1F),Core.ItemGroups.TAB_OUTER_DECO);
 
        //post
@@ -249,6 +249,8 @@ public class RegBlocks {
         FRIDGE = registerOnlyCustomBlock("innerdeco/furniture/fridge", () -> new Fridge(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         HOME_PIPES = registerBlockWithModel("innerdeco/pipes/home_pipes", () -> new HomePipes(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
        HOME_PIPES_BATTERY = registerBlockWithModel("innerdeco/pipes/home_pipes_battery", () -> new HomePipesBattery(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+       CONTACT_WIRE_INNER = registerBlockWithModel("outerdeco/streetdeco/contact_wire_inner", () -> new ContactWireAngle(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL),1F), Core.ItemGroups.TAB_OUTER_DECO);
+       CONTACT_WIRE_OUTER = registerBlockWithModel("outerdeco/streetdeco/contact_wire_outer", () -> new ContactWireAngle(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL),1F), Core.ItemGroups.TAB_OUTER_DECO);
 
        //mech
         CRUSHER = registerBlockWithModel("mech/crusher", () -> new BlockCrusher(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
