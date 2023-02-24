@@ -424,6 +424,8 @@ d084a36d95349e1c2b1e371a91d37d10db99d657 assets/soviet/models/item/innerdeco/fur
 5cc92b9c9e03d3a58c264f9bfd6f409d77f0ca74 assets/soviet/models/item/innerdeco/handhold/street_handhold.json
 f0162a2a2e8fb2070f12162b9b20439c87f85e5a assets/soviet/models/item/innerdeco/heat_pipes.json
 e8905ee8ffa93689e930ba90a63df4ceea44c7d6 assets/soviet/models/item/innerdeco/heat_pipes_corner.json
+7c47f82ef43860d4e9eb02914b6c43935f7b2080 assets/soviet/models/item/innerdeco/ladder_1.json
+cd8be1c4f88483a245a40b5ba1559d65737d3d0e assets/soviet/models/item/innerdeco/ladder_2.json
 a66a135bc276a7470cdb6559d6342fe62433f566 assets/soviet/models/item/innerdeco/lamp/broken_fluo_lamp.json
 18abb50a81c328f5cd4991c72f2a0f808e2f7913 assets/soviet/models/item/innerdeco/lamp/broken_fluo_lamp2.json
 a0ec0f26a5c476f1c67941f91f4c8d08628b7054 assets/soviet/models/item/innerdeco/lamp/broken_fluo_lamp3.json
@@ -432,8 +434,11 @@ a0ec0f26a5c476f1c67941f91f4c8d08628b7054 assets/soviet/models/item/innerdeco/lam
 f991d1ad566de6defae5783cf3d9dbe301bb31e5 assets/soviet/models/item/innerdeco/lamp/fluo_lamp3.json
 160ab1ccf9e0914ffffe8797f1857d22d0926b37 assets/soviet/models/item/innerdeco/lamp/inc_lamp.json
 59657158289050b9b2ca4aab94c7574c427b3f7b assets/soviet/models/item/innerdeco/lamp/red_lamp.json
+bbc20281a21e329a49508d13ca5554dfe5cb9107 assets/soviet/models/item/innerdeco/lamp/street_lamp.json
 1ac162aaa599abe63e56ae86bd551ce597cca83b assets/soviet/models/item/innerdeco/pipes/home_pipes.json
 8faff84bddf5c48cb6229eb42725891e5c37ef5a assets/soviet/models/item/innerdeco/pipes/home_pipes_battery.json
+9f8e9f4e8d6b86c6ffba089c7253d92964d7049f assets/soviet/models/item/innerdeco/pipes/ventpipe.json
+d9222e9ab658324ef00be368a8f20b841036a191 assets/soviet/models/item/innerdeco/pipes/ventpipe_base.json
 64be0e07a2aab0e0a713ef43f02d6fa4514c62b8 assets/soviet/models/item/innerdeco/rusty_bars.json
 11bf1b2f42189f448c942d5b2f21153f052d0d6a assets/soviet/models/item/innerdeco/tubing_horizontal.json
 93628bd20e1da2228dae0f45f38ca56fccecd9d8 assets/soviet/models/item/innerdeco/tubing_vertical.json
