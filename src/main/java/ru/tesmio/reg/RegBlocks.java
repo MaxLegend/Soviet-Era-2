@@ -100,7 +100,7 @@ public class RegBlocks {
             , WOOD_WINDOW, WOOD_WINDOW_EMPTY, WOOD_WINDOW_LEAF, WOOD_WINDOW_LEAF_EMPTY, FACTORY_WINDOW, FACTORY_WINDOW_EMPTY;
     public static RegistryObject<Block> IRON_BED, ex_po, SAFE, DSP_TUMB, BATH_TUBE, KITCHEN_SINK, ELECTRO_STOVE,KITCHEN_TABLE, SMALL_SINK, TOILET, SINK, BARB_WIRE,CONTACT_WIRE_OUTER,CONTACT_WIRE_INNER;
 
-
+    public static RegistryObject<Block> DRY_CAB,MAGNET_MIXER, MIXER, LAB_STOVE;
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
     protected static VoxelShape BOX = Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 16D, 16.0D);
     protected static VoxelShape BOX_CONCRETE_FENCE_BASE[] = new VoxelShape[] {VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 6D, 16.0D),
@@ -164,6 +164,10 @@ public class RegBlocks {
         ELECTRICAL_PANEL = registerBlockWithModel("innerdeco/devices/electrical_panel", () -> new ElectricalPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         GAS_STOVE = registerBlockWithModel("innerdeco/furniture/gas_stove", () -> new GasStove(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
+        LAB_STOVE = registerBlockWithModel("innerdeco/devices/lab_stove", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        DRY_CAB = registerBlockWithModel("innerdeco/devices/dry_cab", () -> new DryCab(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        MIXER = registerBlockWithModel("innerdeco/devices/mixer", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        MAGNET_MIXER = registerBlockWithModel("innerdeco/devices/magnet_mixer", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //fence
         CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
