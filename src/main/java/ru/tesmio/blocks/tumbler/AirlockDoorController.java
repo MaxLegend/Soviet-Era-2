@@ -11,6 +11,8 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
@@ -23,6 +25,10 @@ public class AirlockDoorController extends BlockSideCustomModel {
     public AirlockDoorController(Properties properties) {
         super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(STATUS, EnumStatus.DISABLED).with(OPENED, false));
+    }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
     }
     public ActionResultType onBlockActivated(BlockState s, World w, BlockPos p, PlayerEntity pl, Hand h, BlockRayTraceResult hit) {
         if(s.get(STATUS) == EnumStatus.POWERED) {

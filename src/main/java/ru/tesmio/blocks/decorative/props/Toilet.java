@@ -25,6 +25,10 @@ public class Toilet extends SittableBlock {
     {
         return EntitySittableBlock.create(world, pos, 0.1, playerEntity);
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         switch (state.get(FACING)) {
             case WEST:

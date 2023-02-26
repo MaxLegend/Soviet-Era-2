@@ -132,7 +132,10 @@ public class Turnstile extends BlockSideCustomModel {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, STATUS, HINGE, WATERLOGGED);
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public EnumHinge getHinge(BlockItemUseContext c) {
         BlockPos p = c.getPos();
         Direction d = c.getPlacementHorizontalFacing();

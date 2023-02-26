@@ -18,6 +18,7 @@ public class HomePipes extends BlockCornerCustomModel {
     public HomePipes(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }
+
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape BOXS[] = new VoxelShape[] {
                 Block.makeCuboidShape(0D, 0D, 0D, 3D, 16D, 16D),

@@ -28,7 +28,10 @@ public class ContactWireAngle extends BlockSideCustomModel {
     }
 
 
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return Block.makeCuboidShape(0,11,0,16,12,16);
     }

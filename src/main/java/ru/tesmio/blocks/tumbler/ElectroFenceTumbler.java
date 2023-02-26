@@ -32,6 +32,10 @@ public class ElectroFenceTumbler extends BlockSideCustomModelLeveler {
         }
         return defShape;
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         if(side == blockState.get(FACING)) {
             return blockState.get(POWERED) ? 15 : 0;

@@ -27,7 +27,10 @@ public class BlockLadder extends BlockSideCustomModel {
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         return true;
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     @Override
     public boolean isLadder(BlockState state, IWorldReader world, BlockPos pos, LivingEntity entity) {
         return true;

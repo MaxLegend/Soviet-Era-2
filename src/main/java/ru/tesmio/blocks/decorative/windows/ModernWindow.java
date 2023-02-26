@@ -56,6 +56,10 @@ public class ModernWindow extends BlockSideConnectUpDown {
     public ModernWindow(Properties properties) {
         super(properties, 1F);
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
         if(e instanceof ProjectileEntity) {
             BlockState s2 = w.getBlockState(p);

@@ -22,7 +22,10 @@ public class SpiralBarbWire extends BlockSideCustomModel {
         e.attackEntityFrom(DamageSource.CACTUS, 3);
         e.setMotionMultiplier(s, new Vector3d(0.25D, (double) 0.05F, 0.25D));
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape BOX = Block.makeCuboidShape(2, 0, 0, 14, 11, 16);
         switch (state.get(FACING)) {

@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/cube_all",
 	"textures": {
 		"0": "soviet:block/concrete/concrete_white",
 		"1": "soviet:block/structural/d_blue_metal",

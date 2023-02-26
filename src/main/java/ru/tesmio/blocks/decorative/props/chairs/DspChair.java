@@ -25,6 +25,10 @@ public class DspChair extends SittableBlock {
     {
         return EntitySittableBlock.create(world, pos, 0.2, playerEntity);
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape[] BOXS = new VoxelShape[]{
                 Block.makeCuboidShape(2,8,2,14,9,14),

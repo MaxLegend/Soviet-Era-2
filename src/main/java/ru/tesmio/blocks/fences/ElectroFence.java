@@ -33,6 +33,10 @@ public class ElectroFence extends BlockSideCustomModel {
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(LEFT_BACK, false)
                 .with(RIGHT_BACK, false).with(LEFT, false).with(RIGHT, false).with(POWERED, false));
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         if(state.get(POWERED)) {
             entityIn.attackEntityFrom(DamageSource.CACTUS, 5.0F);

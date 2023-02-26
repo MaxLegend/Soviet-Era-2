@@ -27,5 +27,9 @@ public class PurpleChair extends SittableBlock {
         }
         return VoxelShapes.fullCube();
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
 
 }

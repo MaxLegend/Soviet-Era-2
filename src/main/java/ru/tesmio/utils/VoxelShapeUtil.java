@@ -33,6 +33,7 @@ public class VoxelShapeUtil {
     public static VoxelShape shapeRotComplex180(VoxelShape vs) {
         //прототип поворачивалки комплексных шейпов. не работает
         double new_minX, new_minZ, new_maxX, new_maxZ;
+
         for (AxisAlignedBB aabb : vs.toBoundingBoxList()) {
             new_minX = 1 - aabb.minX;
             new_minZ = 1 - aabb.minZ;

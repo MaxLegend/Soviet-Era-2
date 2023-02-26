@@ -36,6 +36,10 @@ public class AlumWindow extends BlockSideConnectUDLR {
             Block.makeCuboidShape(0D, 15D, 0D, 16D, 16D, 3.04D), //down
             Block.makeCuboidShape(0D, 6.75D, 0.75D, 16D, 8.75D, 2.29D)
     };
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     Map<String, VoxelShape> sm = new HashMap<>();
     public AlumWindow(Properties properties) {
         super(properties, 1F);

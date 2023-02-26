@@ -15,6 +15,10 @@ public class KitchenBlock extends BlockSideCustomModel {
     public KitchenBlock(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape BOX0 = Block.makeCuboidShape(0,0,0,16,16,13);
         VoxelShape BOX = Block.makeCuboidShape(0,15,0,16,16,13);

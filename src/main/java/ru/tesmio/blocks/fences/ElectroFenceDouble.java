@@ -28,6 +28,7 @@ public class ElectroFenceDouble extends BlockSideConnect {
         this.collisionShapes = this.makeShapes(1.5F, 2.1F, 16, 0.0F, 16);
         this.shapes = this.makeShapes(1.5F, 2.1F, 16, 0.0F, 15);
     }
+
     public void tick(BlockState s, ServerWorld w, BlockPos p, Random rand) {
         if (w.isBlockPowered(p)) {
             w.getPendingBlockTicks().scheduleTick(p, this, 4);

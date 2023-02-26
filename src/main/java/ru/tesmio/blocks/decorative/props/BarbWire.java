@@ -47,6 +47,7 @@ public class BarbWire extends BlockCustomModel {
           //  state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(this, 1));
         }
     }
+
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
         return !state.get(WATERLOGGED);
     }

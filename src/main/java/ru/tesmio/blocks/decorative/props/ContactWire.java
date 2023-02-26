@@ -56,7 +56,10 @@ public class ContactWire extends BlockSideCustomModel {
 
         return 0;
     }
-
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
         if(!w.isRemote()) {
             if (e instanceof LivingEntity) {

@@ -20,6 +20,10 @@ public class KitchenTable extends BlockStorage {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return RegTileEntitys.KITCHEN_TABLE_TE.get().create();
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
 

@@ -52,6 +52,10 @@ public class StreetLightpost extends BlockSideCustomModel {
 
         return updateState((World) w,p,s);
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public BlockState updateState(World w, BlockPos p, BlockState s) {
         if (!w.isRemote()) {
             BlockState ts = w.getBlockState(p);

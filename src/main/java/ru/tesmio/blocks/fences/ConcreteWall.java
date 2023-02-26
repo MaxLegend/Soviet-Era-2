@@ -17,6 +17,10 @@ public class ConcreteWall extends BlockSideCustomModel {
     public ConcreteWall(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(0D, 0D, 6D, 16D, 16D, 10D),
                 Block.makeCuboidShape(0D, 0D, 6D, 16D, 16D, 10D),

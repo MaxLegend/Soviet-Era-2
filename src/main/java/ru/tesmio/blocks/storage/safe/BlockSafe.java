@@ -21,6 +21,10 @@ public class BlockSafe extends BlockStorage {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return RegTileEntitys.SAFE_TE.get().create();
     }
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         switch (state.get(FACING)) {
             case NORTH:

@@ -33,6 +33,10 @@ public class AlumFrame extends BlockSideConnectUpDown {
             Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 2.5D),
             Block.makeCuboidShape(0D, 15.5D, 0D, 16D, 16D, 2.5D)
     };
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return this.getShape(state, worldIn, pos, context);
+    }
     public AlumFrame(Properties properties) {
         super(properties, 1F);
     }
