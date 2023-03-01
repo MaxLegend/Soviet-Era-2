@@ -1,0 +1,10 @@
+{
+    "variants": {
+	"facing=west":  { "model": "soviet:block/innerdeco/circle_filter", "x": 90, "y": 90},
+ 	"facing=up":  { "model": "soviet:block/innerdeco/circle_filter", "x": 180},
+        "facing=east":  { "model": "soviet:block/innerdeco/circle_filter", "x": 90, "y": 270},
+        "facing=down":  { "model": "soviet:block/innerdeco/circle_filter", "y": 270},
+        "facing=south": { "model": "soviet:block/innerdeco/circle_filter", "y": 0, "x": 90 },
+        "facing=north": { "model": "soviet:block/innerdeco/circle_filter", "y": 0, "x": 270  }
+    }
+}

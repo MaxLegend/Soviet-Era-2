@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "axis=x,part=def":  { "model": "soviet:block/innerdeco/bio_stillage", "y": 90},
+        "axis=x,part=down":  { "model": "soviet:block/innerdeco/bio_stillage_down", "y": 90},
+        "axis=x,part=mid":  { "model": "soviet:block/innerdeco/bio_stillage_middle", "y": 90},
+        "axis=x,part=up":  { "model": "soviet:block/innerdeco/bio_stillage_up", "y": 90},
+        "axis=z,part=def":  { "model": "soviet:block/innerdeco/bio_stillage"},
+        "axis=z,part=down":  { "model": "soviet:block/innerdeco/bio_stillage_down"},
+        "axis=z,part=mid":  { "model": "soviet:block/innerdeco/bio_stillage_middle"},
+        "axis=z,part=up":  { "model": "soviet:block/innerdeco/bio_stillage_up"}
+ }
+}

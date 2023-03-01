@@ -28,13 +28,13 @@ public class BlockSafe extends BlockStorage {
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         switch (state.get(FACING)) {
             case NORTH:
-                return BOX;
-            case WEST:
-                return VoxelShapeUtil.shapeRotCW90(BOX);
-            case SOUTH:
                 return VoxelShapeUtil.shapeRot180(BOX);
-            case EAST:
+            case WEST:
                 return VoxelShapeUtil.shapeRotCCW90(BOX);
+            case SOUTH:
+                return BOX;
+            case EAST:
+                return VoxelShapeUtil.shapeRotCW90(BOX);
         }
         return VoxelShapes.fullCube();
     }

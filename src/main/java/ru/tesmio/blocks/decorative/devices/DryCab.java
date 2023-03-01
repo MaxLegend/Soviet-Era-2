@@ -63,7 +63,7 @@ public class DryCab extends BlockSideCustomModel {
                         VoxelShapeUtil.shapeRotCW90(SHPS[0]),
                         VoxelShapeUtil.shapeRotCW90(SHPS[1]),
                         VoxelShapeUtil.shapeRotCW90(SHPS[2]),
-                        VoxelShapeUtil.shapeRotCW90( SHPS[3]),
+                        VoxelShapeUtil.shapeRotCW90(SHPS[3]),
                         VoxelShapeUtil.shapeRotCW90(SHPS[4]),
                         VoxelShapeUtil.shapeRotCW90(SHPS[5]),
                         VoxelShapeUtil.shapeRotCW90(SHPS[6]),

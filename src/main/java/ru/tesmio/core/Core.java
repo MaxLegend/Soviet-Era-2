@@ -37,7 +37,7 @@ public class Core {
         public static final ItemGroup TAB_MAIN = new ItemGroup("soviet_main") {
             @Override
             public ItemStack createIcon() {
-                return new ItemStack(RegBlocks.CONCRETE_BLUE.get());
+                return new ItemStack(RegBlocks.CONCRETE_GRAY.get());
             }
         };
         public static final ItemGroup TAB_ITEMS = new ItemGroup("soviet_items") {
@@ -49,7 +49,7 @@ public class Core {
         public static final ItemGroup TAB_INNER_DECO = new ItemGroup("soviet_inner_deco") {
             @Override
             public ItemStack createIcon() {
-                return new ItemStack(RegBlocks.CRUSHER.get());
+                return new ItemStack(RegBlocks.SAFE.get());
             }
         };
         public static final ItemGroup TAB_SYMBOLS = new ItemGroup("soviet_symbols") {
@@ -62,7 +62,7 @@ public class Core {
             @Override
             public ItemStack createIcon() {
                 //temporary icon
-                return new ItemStack(RegBlocks.DIESEL_TANK.get());
+                return new ItemStack(RegBlocks.CONCRETE_FENCE_BASE.get());
             }
         };
 

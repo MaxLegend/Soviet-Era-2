@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=east,half=lower":  { "model": "soviet:block/innerdeco/dress_cabin_down", "y": 270},
+        "facing=west,half=lower":  { "model": "soviet:block/innerdeco/dress_cabin_down", "y": 90},
+        "facing=south,half=lower": { "model": "soviet:block/innerdeco/dress_cabin_down", "y": 0 },
+        "facing=north,half=lower": { "model": "soviet:block/innerdeco/dress_cabin_down", "y": 180 },
+        "facing=east,half=upper":  { "model": "soviet:block/innerdeco/dress_cabin_up", "y": 270},
+        "facing=west,half=upper":  { "model": "soviet:block/innerdeco/dress_cabin_up", "y": 90},
+        "facing=south,half=upper": { "model": "soviet:block/innerdeco/dress_cabin_up", "y": 0 },
+        "facing=north,half=upper": { "model": "soviet:block/innerdeco/dress_cabin_up", "y": 180 }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "part=def":  { "model": "soviet:block/innerdeco/chain"},
+        "part=down":  { "model": "soviet:block/innerdeco/chain_down"},
+        "part=mid":  { "model": "soviet:block/innerdeco/chain_mid"},
+        "part=up":  { "model": "soviet:block/innerdeco/chain_up"}
+ }
+}

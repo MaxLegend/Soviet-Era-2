@@ -99,7 +99,7 @@ public class BlockRotatedAxis extends Block {
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING);
     }
-    public static enum EnumOrientation implements IStringSerializable
+    public enum EnumOrientation implements IStringSerializable
     {
         DOWN_X( "down_x", Direction.DOWN),
         EAST("east", Direction.EAST),

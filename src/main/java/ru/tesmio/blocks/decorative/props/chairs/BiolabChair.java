@@ -16,8 +16,8 @@ import ru.tesmio.blocks.baseblock.SittableBlock;
 import ru.tesmio.entity.EntitySittableBlock;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class DspChair extends SittableBlock {
-    public DspChair(Properties properties, float shadingInside) {
+public class BiolabChair extends SittableBlock {
+    public BiolabChair(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }
     @Override
@@ -30,8 +30,8 @@ public class DspChair extends SittableBlock {
         return this.getShape(state, worldIn, pos, context);
     }
     VoxelShape[] BOXS = new VoxelShape[]{
-            Block.makeCuboidShape(2,8,2,14,9,14),
-            Block.makeCuboidShape(3,0,3,13,8,13)
+            Block.makeCuboidShape(3,7.75,3,13,8.5,13),
+            Block.makeCuboidShape(4,0,4,12,8,12)
     };
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
@@ -46,7 +46,8 @@ public class DspChair extends SittableBlock {
                 return VoxelShapes.or(VoxelShapeUtil.shapeRotCCW90(BOXS[0]),VoxelShapeUtil.shapeRotCCW90(BOXS[1]));
         }
 
-    return VoxelShapes.fullCube();
+        return VoxelShapes.fullCube();
     }
 
 }
+
