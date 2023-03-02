@@ -1,0 +1,6 @@
+{
+  "parent": "soviet:block/outerdeco/streetdeco/windproof_beton",
+  "textures": {
+    "0": "soviet:block/concrete/concrete_white"
+  }
+}

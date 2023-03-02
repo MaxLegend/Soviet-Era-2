@@ -96,7 +96,6 @@ public class DressCabin extends BlockSideCustomModel {
         }
         if (state.get(HALF) == Fridge.EnumPart.UPPER) {
             switch (state.get(FACING)) {
-
                 case SOUTH:
                 case NORTH:
                     return VoxelShapes.or(BOXS[1],BOXS[2]);

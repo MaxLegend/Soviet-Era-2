@@ -15,9 +15,10 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.fml.RegistryObject;
-import ru.tesmio.core.Core;
+import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.blocks.decorative.slabs.BaseSlab;
 import ru.tesmio.blocks.decorative.stairs.BaseStairs;
+import ru.tesmio.core.Core;
 import ru.tesmio.reg.RegBlocks;
 
 public class SovietBlockStateProvider extends BlockStateProvider {
@@ -25,12 +26,30 @@ public class SovietBlockStateProvider extends BlockStateProvider {
         super(gen, Core.MODID, exFileHelper);
     }
 
+
     @Override
     protected void registerStatesAndModels() {
 
         variantBuilderAll();
         builderSlabs();
         builderStairs();
+        windProofModelBuilder();
+    }
+
+    public void windProofModelBuilder() {
+
+        for(RegistryObject<Block> block : RegBlocks.BLOCKS_CUSTOM_MODELS_COLORED.getEntries()) {
+        String name = block.get().getRegistryName().toString();
+        String loc2 = name.replaceAll(name, "block/concrete/concrete" + name.substring(43));
+            getVariantBuilder(block.get())
+                    .forAllStatesExcept(state -> {
+                        Direction dir = state.get(BlockSideCustomModel.FACING);
+                        return ConfiguredModel.builder()
+                                .modelFile(builderForParent("block/" + name.substring(7), "soviet:block/outerdeco/streetdeco/windproof_beton", modLoc(loc2), "0"))
+                                .rotationY(dir.getAxis().isVertical() ? 0 : (((int) dir.getHorizontalAngle())) % 360)
+                                .build();
+                    }, BlockSideCustomModel.WATERLOGGED);
+        }
     }
 
     public ModelBuilder<BlockModelBuilder> builder(String name, ResourceLocation rs) {
@@ -46,7 +65,10 @@ public class SovietBlockStateProvider extends BlockStateProvider {
         }
     }
 
-
+    public ModelBuilder<BlockModelBuilder> builderForParent(String name, String parent, ResourceLocation color, String textureKey) {
+        return models().withExistingParent(name, parent)
+                .texture(textureKey, color);
+    }
     public ModelBuilder<BlockModelBuilder> builder3TexturesModel(String name, String parent, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
         return models().withExistingParent(name, parent)
                 .texture("side", side)

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "soviet:block/outerdeco/streetdeco/windproof_beton_blue",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "soviet:block/outerdeco/streetdeco/windproof_beton_blue"
+    },
+    "facing=west": {
+      "model": "soviet:block/outerdeco/streetdeco/windproof_beton_blue",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "soviet:block/outerdeco/streetdeco/windproof_beton_blue",
+      "y": 270
+    }
+  }
+}

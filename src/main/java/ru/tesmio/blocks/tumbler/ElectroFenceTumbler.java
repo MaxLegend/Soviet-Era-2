@@ -16,7 +16,7 @@ public class ElectroFenceTumbler extends BlockSideCustomModelLeveler {
     final VoxelShape defShape3 = Block.makeCuboidShape(2D, 0D, 0D, 16D, 16D, 16D);
     final VoxelShape defShape4 = Block.makeCuboidShape(0D, 0D, 0D, 14D, 16D, 16D);
     public ElectroFenceTumbler(Properties properties) {
-        super(properties, 0.5F);
+        super(properties, 1F);
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
      switch (state.get(FACING)) {

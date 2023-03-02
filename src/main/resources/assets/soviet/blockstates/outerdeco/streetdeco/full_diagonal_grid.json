@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=up_x": { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 0, "y": 180},
+        "facing=up_z": { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 0, "y": 90 },
+        "facing=down_x": { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 180, "y": 0  },
+        "facing=down_z": { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 180, "y": 90 },
+        "facing=east": { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 90, "y": 90 },
+        "facing=west": { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 90, "y": 270 },
+        "facing=south" : { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 90, "y": 180 },
+        "facing=north" : { "model": "soviet:block/outerdeco/streetdeco/full_diagonal_grid", "x": 90 }
+    }
+}
