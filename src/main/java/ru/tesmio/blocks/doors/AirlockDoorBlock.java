@@ -4,11 +4,14 @@ import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoorHingeSide;
 import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -23,6 +26,8 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
 
 public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
     public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
@@ -105,6 +110,11 @@ public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
     public AirlockDoorBlock(Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(OPEN, Boolean.valueOf(false)).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.valueOf(false)).with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, Boolean.valueOf(false)).with(LOCKED, true));
+    }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
     }
     public boolean isValidPosition(BlockState state, IWorldReader worldIn, BlockPos pos) {
         return true;

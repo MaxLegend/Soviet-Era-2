@@ -5,7 +5,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.properties.Half;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -16,6 +19,8 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import javax.annotation.Nullable;
 
 public class ContainmentTrapdoor extends TrapDoorBlock {
     protected static final VoxelShape EAST_OPEN_AABB = VoxelShapes.create(0.0D, 0.0D, 0.0D, 0.1875D, 1.0D, 1.0D);
@@ -37,6 +42,11 @@ public class ContainmentTrapdoor extends TrapDoorBlock {
     @Override
     public boolean isLadder(BlockState state, net.minecraft.world.IWorldReader world, BlockPos pos, net.minecraft.entity.LivingEntity entity) {
         return true;
+    }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape SHP,SHP2;

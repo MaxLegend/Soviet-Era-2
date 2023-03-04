@@ -1,8 +1,7 @@
 package ru.tesmio.blocks.baseblock;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -18,6 +17,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class BlockSideCustomModel extends  BlockSide implements IWaterLoggable {
@@ -28,6 +28,10 @@ public class BlockSideCustomModel extends  BlockSide implements IWaterLoggable {
         super(properties);
         this.shadingInside = shadingInside;
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
+    }
+    public BlockSideCustomModel(float shadingInside) {
+        super(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL));
+        this.shadingInside = shadingInside;
     }
 
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {

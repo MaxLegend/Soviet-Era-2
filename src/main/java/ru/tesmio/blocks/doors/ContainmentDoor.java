@@ -4,8 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.properties.DoorHingeSide;
 import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -19,6 +22,7 @@ import net.minecraft.world.World;
 import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,6 +58,11 @@ public class ContainmentDoor extends LockedDoor implements IWaterLoggable {
         SHAPE_MAP.put("open_door_right_upper", SHAPES[6]);
         SHAPE_MAP.put("open_door_left_lower", SHAPES[7]);
         SHAPE_MAP.put("open_door_left_upper", SHAPES[8]);
+    }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
     }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand h, BlockRayTraceResult hit) {
         {

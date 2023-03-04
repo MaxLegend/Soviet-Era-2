@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +24,8 @@ import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
+import javax.annotation.Nullable;
+
 public class PlateGoldenJack extends Block {
     protected static VoxelShape SHAPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -31,13 +35,11 @@ public class PlateGoldenJack extends Block {
         this.SHAPE = shape;
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.FALSE));
     }
-    @Override
-    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-        if(worldIn.getBlockState(pos).isAir()) {
 
-                state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), 1));
-
-        }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), 1));
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
@@ -45,7 +47,6 @@ public class PlateGoldenJack extends Block {
 
     @Override
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-
         if(player.getHeldItemMainhand().getItem() == RegItems.WIRE_CUTTERS.get()) {
             if (worldIn instanceof ServerWorld) {
                 player.getHeldItemMainhand().getItem().damageItem(player.getHeldItemMainhand(), 14, player, (entity) -> {

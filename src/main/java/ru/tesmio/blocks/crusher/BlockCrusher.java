@@ -16,6 +16,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +28,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.reg.RegTileEntitys;
+
+import javax.annotation.Nullable;
 
 public class BlockCrusher extends Block {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -115,7 +118,11 @@ public class BlockCrusher extends Block {
         }
         return ActionResultType.SUCCESS;
     }
-
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
+    }
     @Override
     public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         TileEntity tile = worldIn.getTileEntity(pos);

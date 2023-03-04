@@ -1,18 +1,27 @@
 package ru.tesmio.blocks.decorative.devices;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraftforge.common.ToolType;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.reg.RegBlocks;
 
 public class PhysDevices extends BlockSideCustomModel {
-    public PhysDevices(Properties properties, float shadingInside) {
-        super(properties, shadingInside);
+    public PhysDevices(float shadingInside) {
+        super(AbstractBlock.Properties.create(Material.IRON)
+                .setRequiresTool()
+                .hardnessAndResistance(1f,4f)
+                .notSolid()
+                .harvestTool(ToolType.PICKAXE)
+                .sound(SoundType.METAL), shadingInside);
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());

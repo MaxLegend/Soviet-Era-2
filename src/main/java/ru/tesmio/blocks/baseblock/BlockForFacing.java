@@ -2,12 +2,20 @@ package ru.tesmio.blocks.baseblock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.Rotation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class BlockForFacing extends Block {
     public static final EnumProperty<EnumOrientation> FACING = EnumProperty.create("facing", EnumOrientation.class);
@@ -15,6 +23,11 @@ public class BlockForFacing extends Block {
     public BlockForFacing(Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH));
+    }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         for(Direction direction : context.getNearestLookingDirections()) {

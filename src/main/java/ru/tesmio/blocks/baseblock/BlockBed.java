@@ -38,6 +38,9 @@ public class BlockBed extends BedBlock  {
         super(DyeColor.BLACK, properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(PART, BedPart.FOOT).with(OCCUPIED, Boolean.valueOf(false)).with(WATERLOGGED, Boolean.valueOf(false)));
     }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        spawnDrops(state, worldIn, pos, te, player, stack);
+    }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(HORIZONTAL_FACING, PART, OCCUPIED, WATERLOGGED);
     }

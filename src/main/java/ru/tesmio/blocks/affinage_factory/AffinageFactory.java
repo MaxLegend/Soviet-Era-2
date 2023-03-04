@@ -16,6 +16,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -27,6 +28,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.reg.RegTileEntitys;
+
+import javax.annotation.Nullable;
 
 public class AffinageFactory extends Block {
     private static final VoxelShape NORTH_AABB = VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 5.0D, 9.0D, 10.0D, 14.0D),
@@ -78,7 +81,11 @@ public class AffinageFactory extends Block {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return RegTileEntitys.AFFINAGE_TE.get().create();
     }
-
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
+    }
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         super.fillStateContainer(builder);

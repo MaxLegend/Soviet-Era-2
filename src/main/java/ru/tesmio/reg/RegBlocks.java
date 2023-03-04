@@ -16,6 +16,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.blocks.affinage_factory.AffinageFactory;
 import ru.tesmio.blocks.baseblock.*;
+import ru.tesmio.blocks.baseblock.subtype.*;
 import ru.tesmio.blocks.circuits.*;
 import ru.tesmio.blocks.const_panel.PanelBlockCorner;
 import ru.tesmio.blocks.const_panel.PanelBlockSide;
@@ -194,8 +195,8 @@ public class RegBlocks {
         CONCRETE_WALL = registerBlockWithModel("outerdeco/fences/concrete_wall", () -> new ConcreteWall(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
         FLOOR_GRID = registerBlockWithModel("innerdeco/floor_grid", () -> new FloorGrid(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
-        FACTORY_WINDOW = registerBlockWithModel("outerdeco/factory_window", () -> new FactoryWindow(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), 1F),Core.ItemGroups.TAB_OUTER_DECO);
-        FACTORY_WINDOW_EMPTY = registerBlockWithModel("outerdeco/factory_window_empty", () -> new FactoryWindow(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), 1F),Core.ItemGroups.TAB_OUTER_DECO);
+        FACTORY_WINDOW = registerBlockWithModel("outerdeco/factory_window", () -> new FactoryWindow( 1F),Core.ItemGroups.TAB_OUTER_DECO);
+        FACTORY_WINDOW_EMPTY = registerBlockWithModel("outerdeco/factory_window_empty", () -> new FactoryWindow( 1F),Core.ItemGroups.TAB_OUTER_DECO);
 
         //post
         STREET_LIGHTPOST = registerBlockWithModel("outerdeco/streetdeco/street_lightpost", () -> new StreetLightpost(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
@@ -248,15 +249,15 @@ public class RegBlocks {
         PLATINUM_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
 
         //inner deco
-        TUBING_HORIZONTAL = registerBlockWithModel("innerdeco/tubing_horizontal", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 0.6F), Core.ItemGroups.TAB_INNER_DECO);
-        TUBING_VERTICAL = registerBlockWithModel("innerdeco/tubing_vertical", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 0.6F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR_RINGS = registerBlockWithModel("innerdeco/accelerator/accl_rings", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR_RINGS_CORNER_LEFT = registerBlockWithModel("innerdeco/accelerator/accl_rings_corner_left", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR_RINGS_CORNER_RIGHT = registerBlockWithModel("innerdeco/accelerator/accl_rings_corner_right", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR_STAND = registerBlockWithModel("innerdeco/accelerator/accelerator_stand", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR = registerBlockWithModel("innerdeco/accelerator/accelerator", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 0.6F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR_CALC_BLOCK = registerBlockWithModel("innerdeco/accelerator/accl_calc_block", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 0.6F), Core.ItemGroups.TAB_INNER_DECO);
-        ACCELERATOR_RINGS_END = registerBlockWithModel("innerdeco/accelerator/accl_rings_end", () -> new BlockSideCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        TUBING_HORIZONTAL = registerBlockWithModel("innerdeco/tubing_horizontal", () -> new BlockRotatedAxisCustomModel(0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        TUBING_VERTICAL = registerBlockWithModel("innerdeco/tubing_vertical", () -> new BlockRotatedAxisCustomModel(0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR_RINGS = registerBlockWithModel("innerdeco/accelerator/accl_rings", () -> new BlockSideCustomModel( 1F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR_RINGS_CORNER_LEFT = registerBlockWithModel("innerdeco/accelerator/accl_rings_corner_left", () -> new BlockSideCustomModel( 1F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR_RINGS_CORNER_RIGHT = registerBlockWithModel("innerdeco/accelerator/accl_rings_corner_right", () -> new BlockSideCustomModel( 1F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR_STAND = registerBlockWithModel("innerdeco/accelerator/accelerator_stand", () -> new BlockSideCustomModel( 1F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR = registerBlockWithModel("innerdeco/accelerator/accelerator", () -> new BlockSideCustomModel( 0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR_CALC_BLOCK = registerBlockWithModel("innerdeco/accelerator/accl_calc_block", () -> new BlockSideCustomModel( 0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        ACCELERATOR_RINGS_END = registerBlockWithModel("innerdeco/accelerator/accl_rings_end", () -> new BlockSideCustomModel( 0.6F), Core.ItemGroups.TAB_INNER_DECO);
         CONTROL_PANEL_UP = registerBlockWithModel("innerdeco/control_panel/cp_up", () -> new ControlTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
         CONTROL_PANEL_DOWN = registerBlockWithModel("innerdeco/control_panel/cp_down", () -> new ControlTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
         RUSTY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/rusty_handhold", () -> new RustyHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
@@ -292,21 +293,21 @@ public class RegBlocks {
         FULL_DIAGONAL_GRID_INVERT = registerBlockWithModel("outerdeco/streetdeco/full_diagonal_grid_invert", () -> new WindowGrid(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1), Core.ItemGroups.TAB_INNER_DECO);
 
         //phys devices
-        EM_METER = registerBlockWithModel("innerdeco/devices/phys/em_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        A_METER = registerBlockWithModel("innerdeco/devices/phys/a_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        P_METER = registerBlockWithModel("innerdeco/devices/phys/p_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        OM_METER = registerBlockWithModel("innerdeco/devices/phys/om_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        V_METER = registerBlockWithModel("innerdeco/devices/phys/v_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        W_METER = registerBlockWithModel("innerdeco/devices/phys/w_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        K_METER = registerBlockWithModel("innerdeco/devices/phys/k_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        M_METER = registerBlockWithModel("innerdeco/devices/phys/m_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        FREQUE_METER = registerBlockWithModel("innerdeco/devices/phys/freque_meter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ASSIGNER_BLOCK = registerBlockWithModel("innerdeco/devices/phys/assigner_block", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        OSCILLOSCOPE = registerBlockWithModel("innerdeco/devices/phys/oscilloscope", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        CONTROLLER = registerBlockWithModel("innerdeco/devices/phys/controller", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        GEIGER_STATIC = registerBlockWithModel("innerdeco/devices/phys/geiger_static", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        FREQUE_ANALISATOR = registerBlockWithModel("innerdeco/devices/phys/freque_analisator", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        AUTOWRITER = registerBlockWithModel("innerdeco/devices/phys/autowriter", () -> new PhysDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        EM_METER = registerBlockWithModel("innerdeco/devices/phys/em_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        A_METER = registerBlockWithModel("innerdeco/devices/phys/a_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        P_METER = registerBlockWithModel("innerdeco/devices/phys/p_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        OM_METER = registerBlockWithModel("innerdeco/devices/phys/om_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        V_METER = registerBlockWithModel("innerdeco/devices/phys/v_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        W_METER = registerBlockWithModel("innerdeco/devices/phys/w_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        K_METER = registerBlockWithModel("innerdeco/devices/phys/k_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        M_METER = registerBlockWithModel("innerdeco/devices/phys/m_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        FREQUE_METER = registerBlockWithModel("innerdeco/devices/phys/freque_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        ASSIGNER_BLOCK = registerBlockWithModel("innerdeco/devices/phys/assigner_block", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        OSCILLOSCOPE = registerBlockWithModel("innerdeco/devices/phys/oscilloscope", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        CONTROLLER = registerBlockWithModel("innerdeco/devices/phys/controller", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        GEIGER_STATIC = registerBlockWithModel("innerdeco/devices/phys/geiger_static", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        FREQUE_ANALISATOR = registerBlockWithModel("innerdeco/devices/phys/freque_analisator", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        AUTOWRITER = registerBlockWithModel("innerdeco/devices/phys/autowriter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
 
        //mech
         CRUSHER = registerBlockWithModel("mech/crusher", () -> new BlockCrusher(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
@@ -316,20 +317,20 @@ public class RegBlocks {
         DIESEL_E_GENERATOR = registerBlockWithModel("mech/diesel_electro_generator", () -> new DieselElectroGenerator(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
         //trim_stone
-        TRIM_TILE_1 = registerBlock("structural/trim_tile_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_TILE_1_BR = registerBlock("structural/trim_tile_1_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_1 = registerBlock("structural/trim_stone_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_2 = registerBlock("structural/trim_stone_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_3 = registerBlock("structural/trim_stone_3", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_4 = registerBlock("structural/trim_stone_4", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        PARQUET_BLOCK = registerBlock("structural/parquet_block", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_TILE_RED = registerBlock("structural/trim_tile_red", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_TILE_BLUE = registerBlock("structural/trim_tile_blue", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_PLATE = registerBlock("structural/concrete_plate", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        CONTAINMENT_BLOCK = registerBlock("structural/containment_block", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_METAL_1 = registerBlock("structural/trim_metal_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TRIM_METAL_2 = registerBlock("structural/trim_metal_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        LEADCERAMIC_TILE = registerBlock("structural/leadceramic_tile", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
+        TRIM_TILE_1 = registerBlock("structural/trim_tile_1", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
+        TRIM_TILE_1_BR = registerBlock("structural/trim_tile_1_br", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_1 = registerBlock("structural/trim_stone_1", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_2 = registerBlock("structural/trim_stone_2", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_3 = registerBlock("structural/trim_stone_3", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_4 = registerBlock("structural/trim_stone_4", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        PARQUET_BLOCK = registerBlock("structural/parquet_block", () -> new WoodBlock(),Core.ItemGroups.TAB_MAIN);
+        TRIM_TILE_RED = registerBlock("structural/trim_tile_red", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
+        TRIM_TILE_BLUE = registerBlock("structural/trim_tile_blue", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_PLATE = registerBlock("structural/concrete_plate", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        CONTAINMENT_BLOCK = registerBlock("structural/containment_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
+        TRIM_METAL_1 = registerBlock("structural/trim_metal_1", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
+        TRIM_METAL_2 = registerBlock("structural/trim_metal_2", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
+        LEADCERAMIC_TILE = registerBlock("structural/leadceramic_tile", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
 
 
        //windproof
@@ -344,19 +345,19 @@ public class RegBlocks {
        WINDPROOF_BETON_WHITE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_white", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.white"), Core.ItemGroups.TAB_MAIN);
 
        //ceramic_glass
-        CERAMIC_GLASS_BLUE = registerBlock("structural/ceramic_glass_blue", () -> new Block(AbstractBlock.Properties.create(Material.GLASS).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).notSolid()),Core.ItemGroups.TAB_MAIN);
-        CERAMIC_GLASS_GREEN = registerBlock("structural/ceramic_glass_green", () -> new Block(AbstractBlock.Properties.create(Material.GLASS).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).notSolid()),Core.ItemGroups.TAB_MAIN);
-        CERAMIC_GLASS_BROWN = registerBlock("structural/ceramic_glass_brown", () -> new Block(AbstractBlock.Properties.create(Material.GLASS).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.PICKAXE).sound(SoundType.GLASS).notSolid()),Core.ItemGroups.TAB_MAIN);
+        CERAMIC_GLASS_BLUE = registerBlock("structural/ceramic_glass_blue", () -> new GlassBlock(),Core.ItemGroups.TAB_MAIN);
+        CERAMIC_GLASS_GREEN = registerBlock("structural/ceramic_glass_green", () -> new GlassBlock(),Core.ItemGroups.TAB_MAIN);
+        CERAMIC_GLASS_BROWN = registerBlock("structural/ceramic_glass_brown", () -> new GlassBlock(),Core.ItemGroups.TAB_MAIN);
 
         //linos
-        LINO_1 = registerBlock("lino/lino1", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_2 = registerBlock("lino/lino2", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_3 = registerBlock("lino/lino3", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_4 = registerBlock("lino/lino4", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_5 = registerBlock("lino/lino5", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_6 = registerBlock("lino/lino6", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_7 = registerBlock("lino/lino7", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
-        LINO_8 = registerBlock("lino/lino8", () -> new Block(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,2f).harvestTool(ToolType.AXE).sound(SoundType.CLOTH)),Core.ItemGroups.TAB_MAIN);
+        LINO_1 = registerBlock("lino/lino1", () -> new LinoBlock(), Core.ItemGroups.TAB_MAIN);
+        LINO_2 = registerBlock("lino/lino2", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+        LINO_3 = registerBlock("lino/lino3", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+        LINO_4 = registerBlock("lino/lino4", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+        LINO_5 = registerBlock("lino/lino5", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+        LINO_6 = registerBlock("lino/lino6", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+        LINO_7 = registerBlock("lino/lino7", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+        LINO_8 = registerBlock("lino/lino8", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
         //concrete_railing
         CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.orange", 0.5F), Core.ItemGroups.TAB_MAIN);
         CONCRETE_RAILING_WHITE = registerBlockWithModel("structural/concrete_railing_white", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.white", 0.5F), Core.ItemGroups.TAB_MAIN);
@@ -373,136 +374,136 @@ public class RegBlocks {
         IRON_BEAM = registerBlockWithModel("structural/iron_beam", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_MAIN);
         IRON_BEAM_THIN = registerBlockWithModel("structural/iron_beam_thin", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_MAIN);
         //concrete
-        CONCRETE_ORANGE = registerBlock("concrete/concrete_orange", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.orange"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BLUE = registerBlock("concrete/concrete_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.blue"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RED = registerBlock("concrete/concrete_red", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.red"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_YELLOW = registerBlock("concrete/concrete_yellow", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.yellow"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_WHITE = registerBlock("concrete/concrete_white", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.white"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BEIGE = registerBlock("concrete/concrete_beige", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.beige"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_GREEN = registerBlock("concrete/concrete_green", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.green"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_GRAY = registerBlock("concrete/concrete_gray", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.gray"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BEIGE2 = registerBlock("concrete/concrete_beige2", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.beige2"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BLUE_BR = registerBlock("concrete/concrete_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.blue"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_ORANGE_BR = registerBlock("concrete/concrete_orange_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.orange"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RED_BR = registerBlock("concrete/concrete_red_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.red"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_YELLOW_BR = registerBlock("concrete/concrete_yellow_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.yellow"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_WHITE_BR = registerBlock("concrete/concrete_white_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.white"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BEIGE_BR = registerBlock("concrete/concrete_beige_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.beige"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_GREEN_BR = registerBlock("concrete/concrete_green_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.green"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_GRAY_BR = registerBlock("concrete/concrete_gray_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.gray"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BEIGE2_BR = registerBlock("concrete/concrete_beige2_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f), "info.beige2"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_ORANGE = registerBlock("concrete/concrete_orange", () -> new FerroconcreteBlock("info.orange"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BLUE = registerBlock("concrete/concrete_blue", () -> new FerroconcreteBlock("info.blue"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RED = registerBlock("concrete/concrete_red", () -> new FerroconcreteBlock( "info.red"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_YELLOW = registerBlock("concrete/concrete_yellow", () -> new FerroconcreteBlock( "info.yellow"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_WHITE = registerBlock("concrete/concrete_white", () -> new FerroconcreteBlock( "info.white"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BEIGE = registerBlock("concrete/concrete_beige", () -> new FerroconcreteBlock( "info.beige"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_GREEN = registerBlock("concrete/concrete_green", () -> new FerroconcreteBlock( "info.green"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_GRAY = registerBlock("concrete/concrete_gray", () -> new FerroconcreteBlock( "info.gray"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BEIGE2 = registerBlock("concrete/concrete_beige2", () -> new FerroconcreteBlock( "info.beige2"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BLUE_BR = registerBlock("concrete/concrete_blue_br", () -> new FerroconcreteBlock("info.blue"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_ORANGE_BR = registerBlock("concrete/concrete_orange_br", () -> new FerroconcreteBlock("info.orange"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RED_BR = registerBlock("concrete/concrete_red_br", () -> new FerroconcreteBlock("info.red"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_YELLOW_BR = registerBlock("concrete/concrete_yellow_br", () -> new FerroconcreteBlock( "info.yellow"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_WHITE_BR = registerBlock("concrete/concrete_white_br", () -> new FerroconcreteBlock( "info.white"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BEIGE_BR = registerBlock("concrete/concrete_beige_br", () -> new FerroconcreteBlock( "info.beige"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_GREEN_BR = registerBlock("concrete/concrete_green_br", () -> new FerroconcreteBlock( "info.green"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_GRAY_BR = registerBlock("concrete/concrete_gray_br", () -> new FerroconcreteBlock( "info.gray"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BEIGE2_BR = registerBlock("concrete/concrete_beige2_br", () -> new FerroconcreteBlock("info.beige2"),Core.ItemGroups.TAB_MAIN);
         //stairs
-        CONCRETE_STAIRS_GRAY = registerBlock("stairs/concrete_gray_stairs", () -> new BaseStairs(CONCRETE_GRAY.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.gray"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_GREEN = registerBlock("stairs/concrete_green_stairs", () -> new BaseStairs(CONCRETE_GREEN.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.green"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_BLUE = registerBlock("stairs/concrete_blue_stairs", () -> new BaseStairs(CONCRETE_BLUE.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.blue"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_BEIGE = registerBlock("stairs/concrete_beige_stairs", () -> new BaseStairs(CONCRETE_BEIGE.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.beige"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_BEIGE2 = registerBlock("stairs/concrete_beige2_stairs", () -> new BaseStairs(CONCRETE_BEIGE2.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.beige2"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_RED = registerBlock("stairs/concrete_red_stairs", () -> new BaseStairs(CONCRETE_RED.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.red"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_ORANGE = registerBlock("stairs/concrete_orange_stairs", () -> new BaseStairs(CONCRETE_ORANGE.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.orange"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_YELLOW = registerBlock("stairs/concrete_yellow_stairs", () -> new BaseStairs(CONCRETE_YELLOW.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.yellow"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_STAIRS_WHITE = registerBlock("stairs/concrete_white_stairs", () -> new BaseStairs(CONCRETE_WHITE.get().getDefaultState(), AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.white"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_GRAY = registerBlock("stairs/concrete_gray_stairs", () -> new BaseStairs(CONCRETE_GRAY.get().getDefaultState(), "info.gray"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_GREEN = registerBlock("stairs/concrete_green_stairs", () -> new BaseStairs(CONCRETE_GREEN.get().getDefaultState(),  "info.green"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_BLUE = registerBlock("stairs/concrete_blue_stairs", () -> new BaseStairs(CONCRETE_BLUE.get().getDefaultState(), "info.blue"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_BEIGE = registerBlock("stairs/concrete_beige_stairs", () -> new BaseStairs(CONCRETE_BEIGE.get().getDefaultState(),  "info.beige"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_BEIGE2 = registerBlock("stairs/concrete_beige2_stairs", () -> new BaseStairs(CONCRETE_BEIGE2.get().getDefaultState(),  "info.beige2"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_RED = registerBlock("stairs/concrete_red_stairs", () -> new BaseStairs(CONCRETE_RED.get().getDefaultState(),  "info.red"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_ORANGE = registerBlock("stairs/concrete_orange_stairs", () -> new BaseStairs(CONCRETE_ORANGE.get().getDefaultState(),  "info.orange"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_YELLOW = registerBlock("stairs/concrete_yellow_stairs", () -> new BaseStairs(CONCRETE_YELLOW.get().getDefaultState(),  "info.yellow"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_STAIRS_WHITE = registerBlock("stairs/concrete_white_stairs", () -> new BaseStairs(CONCRETE_WHITE.get().getDefaultState(), "info.white"),Core.ItemGroups.TAB_MAIN);
         //slabs
-        CONCRETE_SLAB_GRAY = registerBlock("slabs/concrete_gray_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.gray"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_GREEN = registerBlock("slabs/concrete_green_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.green"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_BLUE = registerBlock("slabs/concrete_blue_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.blue"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_BEIGE = registerBlock("slabs/concrete_beige_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.beige"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_BEIGE2 = registerBlock("slabs/concrete_beige2_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.beige2"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_RED = registerBlock("slabs/concrete_red_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.red"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_ORANGE = registerBlock("slabs/concrete_orange_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.orange"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_YELLOW = registerBlock("slabs/concrete_yellow_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.yellow"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_SLAB_WHITE = registerBlock("slabs/concrete_white_slab", () -> new BaseSlab(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.white"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_GRAY = registerBlock("slabs/concrete_gray_slab", () -> new BaseSlab( "info.gray"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_GREEN = registerBlock("slabs/concrete_green_slab", () -> new BaseSlab( "info.green"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_BLUE = registerBlock("slabs/concrete_blue_slab", () -> new BaseSlab("info.blue"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_BEIGE = registerBlock("slabs/concrete_beige_slab", () -> new BaseSlab("info.beige"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_BEIGE2 = registerBlock("slabs/concrete_beige2_slab", () -> new BaseSlab("info.beige2"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_RED = registerBlock("slabs/concrete_red_slab", () -> new BaseSlab("info.red"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_ORANGE = registerBlock("slabs/concrete_orange_slab", () -> new BaseSlab("info.orange"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_YELLOW = registerBlock("slabs/concrete_yellow_slab", () -> new BaseSlab("info.yellow"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_SLAB_WHITE = registerBlock("slabs/concrete_white_slab", () -> new BaseSlab("info.white"),Core.ItemGroups.TAB_MAIN);
 
         //panels
-        PANEL_CONCRETE_CORNER = registerNDBlock("structural/panel_concrete_corner", () -> new PanelBlockCorner(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)), Core.ItemGroups.TAB_MAIN);
-        PANEL_CONCRETE_SIDE = registerNDBlock("structural/panel_concrete_side", () -> new PanelBlockSide(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)), Core.ItemGroups.TAB_MAIN);
-        PANEL_CONCRETE = registerBlock("structural/panel_concrete", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)),Core.ItemGroups.TAB_MAIN);
-        PANEL_CONCRETE_YELLOW_CORNER = registerNDBlock("structural/panel_concrete_yellow_corner", () -> new PanelBlockCorner(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)), Core.ItemGroups.TAB_MAIN);
-        PANEL_CONCRETE_YELLOW_SIDE = registerNDBlock("structural/panel_concrete_yellow_side", () -> new PanelBlockSide(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)), Core.ItemGroups.TAB_MAIN);
-        PANEL_CONCRETE_YELLOW = registerBlock("structural/panel_concrete_yellow", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)),Core.ItemGroups.TAB_MAIN);
-        PANEL_TILE_CORNER = registerNDBlock("structural/panel_tile_corner", () -> new PanelBlockCorner(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)), Core.ItemGroups.TAB_MAIN);
-        PANEL_TILE_SIDE = registerNDBlock("structural/panel_tile_side", () -> new PanelBlockSide(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)), Core.ItemGroups.TAB_MAIN);
-        PANEL_TILE = registerBlock("structural/panel_tile", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(2.5f,8f)),Core.ItemGroups.TAB_MAIN);
+        PANEL_CONCRETE_CORNER = registerNDBlock("structural/panel_concrete_corner", () -> new PanelBlockCorner(), Core.ItemGroups.TAB_MAIN);
+        PANEL_CONCRETE_SIDE = registerNDBlock("structural/panel_concrete_side", () -> new PanelBlockSide(), Core.ItemGroups.TAB_MAIN);
+        PANEL_CONCRETE = registerBlock("structural/panel_concrete", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
+        PANEL_CONCRETE_YELLOW_CORNER = registerNDBlock("structural/panel_concrete_yellow_corner", () -> new PanelBlockCorner(), Core.ItemGroups.TAB_MAIN);
+        PANEL_CONCRETE_YELLOW_SIDE = registerNDBlock("structural/panel_concrete_yellow_side", () -> new PanelBlockSide(), Core.ItemGroups.TAB_MAIN);
+        PANEL_CONCRETE_YELLOW = registerBlock("structural/panel_concrete_yellow", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
+        PANEL_TILE_CORNER = registerNDBlock("structural/panel_tile_corner", () -> new PanelBlockCorner(), Core.ItemGroups.TAB_MAIN);
+        PANEL_TILE_SIDE = registerNDBlock("structural/panel_tile_side", () -> new PanelBlockSide(), Core.ItemGroups.TAB_MAIN);
+        PANEL_TILE = registerBlock("structural/panel_tile", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
 
         //horizontal_tiles
-        HORIZ_TILE_BLUE = registerBlock("horiztile/horiz_tile_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_blue"),Core.ItemGroups.TAB_MAIN);
-        HORIZ_TILE_BLUE_BR = registerBlock("horiztile/horiz_tile_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_blue_br"),Core.ItemGroups.TAB_MAIN);
-        HORIZ_TILE_WHITE = registerBlock("horiztile/horiz_tile_white", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_white"),Core.ItemGroups.TAB_MAIN);
-        HORIZ_TILE_WHITE_BR = registerBlock("horiztile/horiz_tile_white_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_white_br"),Core.ItemGroups.TAB_MAIN);
-        HORIZ_TILE_DARK_BLUE = registerBlock("horiztile/horiz_tile_dark_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_dark_blue"),Core.ItemGroups.TAB_MAIN);
-        HORIZ_TILE_DARK_BLUE_BR = registerBlock("horiztile/horiz_tile_dark_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.horiz_tile_dark_blue_br"),Core.ItemGroups.TAB_MAIN);
+        HORIZ_TILE_BLUE = registerBlock("horiztile/horiz_tile_blue", () -> new TilledBlock( "info.horiz_tile_blue"),Core.ItemGroups.TAB_MAIN);
+        HORIZ_TILE_BLUE_BR = registerBlock("horiztile/horiz_tile_blue_br", () -> new TilledBlock( "info.horiz_tile_blue_br"),Core.ItemGroups.TAB_MAIN);
+        HORIZ_TILE_WHITE = registerBlock("horiztile/horiz_tile_white", () -> new TilledBlock( "info.horiz_tile_white"),Core.ItemGroups.TAB_MAIN);
+        HORIZ_TILE_WHITE_BR = registerBlock("horiztile/horiz_tile_white_br", () -> new TilledBlock( "info.horiz_tile_white_br"),Core.ItemGroups.TAB_MAIN);
+        HORIZ_TILE_DARK_BLUE = registerBlock("horiztile/horiz_tile_dark_blue", () -> new TilledBlock( "info.horiz_tile_dark_blue"),Core.ItemGroups.TAB_MAIN);
+        HORIZ_TILE_DARK_BLUE_BR = registerBlock("horiztile/horiz_tile_dark_blue_br", () -> new TilledBlock( "info.horiz_tile_dark_blue_br"),Core.ItemGroups.TAB_MAIN);
 
         //small_tiles
-        SMALL_TILE_BLUE = registerBlock("smalltile/small_tile_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_blue"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_BLUE_BR = registerBlock("smalltile/small_tile_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_blue_br"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_WHITE = registerBlock("smalltile/small_tile_white", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_white"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_WHITE_BR = registerBlock("smalltile/small_tile_white_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_white_br"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_RED = registerBlock("smalltile/small_tile_red", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_red"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_RED_BR = registerBlock("smalltile/small_tile_red_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_red_br"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_YELLOW = registerBlock("smalltile/small_tile_yellow", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_yellow"),Core.ItemGroups.TAB_MAIN);
-        SMALL_TILE_YELLOW_BR = registerBlock("smalltile/small_tile_yellow_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.small_tile_yellow_br"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_BLUE = registerBlock("smalltile/small_tile_blue", () -> new TilledBlock( "info.small_tile_blue"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_BLUE_BR = registerBlock("smalltile/small_tile_blue_br", () -> new TilledBlock( "info.small_tile_blue_br"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_WHITE = registerBlock("smalltile/small_tile_white", () -> new TilledBlock( "info.small_tile_white"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_WHITE_BR = registerBlock("smalltile/small_tile_white_br", () -> new TilledBlock( "info.small_tile_white_br"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_RED = registerBlock("smalltile/small_tile_red", () -> new TilledBlock( "info.small_tile_red"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_RED_BR = registerBlock("smalltile/small_tile_red_br", () -> new TilledBlock( "info.small_tile_red_br"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_YELLOW = registerBlock("smalltile/small_tile_yellow", () -> new TilledBlock( "info.small_tile_yellow"),Core.ItemGroups.TAB_MAIN);
+        SMALL_TILE_YELLOW_BR = registerBlock("smalltile/small_tile_yellow_br", () -> new TilledBlock( "info.small_tile_yellow_br"),Core.ItemGroups.TAB_MAIN);
 
         //mosaic_tile
-        TILE_MOSAIC_1 = registerBlock("mosaictile/tile_mosaic_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        TILE_MOSAIC_2 = registerBlock("mosaictile/tile_mosaic_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
+        TILE_MOSAIC_1 = registerBlock("mosaictile/tile_mosaic_1", () -> new TilledBlock("info.mosaic_tile1"),Core.ItemGroups.TAB_MAIN);
+        TILE_MOSAIC_2 = registerBlock("mosaictile/tile_mosaic_2", () -> new TilledBlock("info.mosaic_tile2"),Core.ItemGroups.TAB_MAIN);
 
         //quad_tiles
-        TILE_QUAD_GRAY = registerBlock("quadtile/tile_quad_gray", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_gray"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_WHITE = registerBlock("quadtile/tile_quad_white", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_white"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_BLUE = registerBlock("quadtile/tile_quad_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_blue"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_1_BR = registerBlock("quadtile/tile_quad_1_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_1_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_2_BR = registerBlock("quadtile/tile_quad_2_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_2_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_1 = registerBlock("quadtile/tile_quad_1", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_1"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_2 = registerBlock("quadtile/tile_quad_2", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_2"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_4 = registerBlock("quadtile/tile_quad_4", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_4"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_5 = registerBlock("quadtile/tile_quad_5", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_5"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_3 = registerBlock("quadtile/tile_quad_3", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_3"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_3_BR = registerBlock("quadtile/tile_quad_3_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_3_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_5_BR = registerBlock("quadtile/tile_quad_5_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_5_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_5_BRf = registerBlock("quadtile/tile_quad_5_brf", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_5_brf"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_CONCRETE = registerBlock("quadtile/tile_quad_concrete", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_concrete"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_BLUE_BR = registerBlock("quadtile/tile_quad_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_blue_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_QUAD_WHITE_BR = registerBlock("quadtile/tile_quad_white_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.quadtile_white_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_GRAY = registerBlock("quadtile/tile_quad_gray", () -> new TilledBlock( "info.quadtile_gray"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_WHITE = registerBlock("quadtile/tile_quad_white", () -> new TilledBlock( "info.quadtile_white"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_BLUE = registerBlock("quadtile/tile_quad_blue", () -> new TilledBlock( "info.quadtile_blue"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_1_BR = registerBlock("quadtile/tile_quad_1_br", () -> new TilledBlock( "info.quadtile_1_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_2_BR = registerBlock("quadtile/tile_quad_2_br", () -> new TilledBlock( "info.quadtile_2_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_1 = registerBlock("quadtile/tile_quad_1", () -> new TilledBlock( "info.quadtile_1"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_2 = registerBlock("quadtile/tile_quad_2", () -> new TilledBlock( "info.quadtile_2"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_4 = registerBlock("quadtile/tile_quad_4", () -> new TilledBlock( "info.quadtile_4"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_5 = registerBlock("quadtile/tile_quad_5", () -> new TilledBlock( "info.quadtile_5"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_3 = registerBlock("quadtile/tile_quad_3", () -> new TilledBlock( "info.quadtile_3"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_3_BR = registerBlock("quadtile/tile_quad_3_br", () -> new TilledBlock( "info.quadtile_3_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_5_BR = registerBlock("quadtile/tile_quad_5_br", () -> new TilledBlock( "info.quadtile_5_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_5_BRf = registerBlock("quadtile/tile_quad_5_brf", () -> new TilledBlock( "info.quadtile_5_brf"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_CONCRETE = registerBlock("quadtile/tile_quad_concrete", () -> new TilledBlock( "info.quadtile_concrete"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_BLUE_BR = registerBlock("quadtile/tile_quad_blue_br", () -> new TilledBlock( "info.quadtile_blue_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_WHITE_BR = registerBlock("quadtile/tile_quad_white_br", () -> new TilledBlock( "info.quadtile_white_br"),Core.ItemGroups.TAB_MAIN);
 
         //rest_tiles
-        TILE_REST_DARK_BLUE = registerBlock("resttile/tile_rest_dark_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_dark_blue"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_DARK_BLUE_BR = registerBlock("resttile/tile_rest_dark_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_dark_blue_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_BLUE = registerBlock("resttile/tile_rest_blue", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_blue"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_BLUE_BR = registerBlock("resttile/tile_rest_blue_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_blue_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_BLACK = registerBlock("resttile/tile_rest_black", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_black"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_BLACK_BR = registerBlock("resttile/tile_rest_black_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_black_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_BROWN = registerBlock("resttile/tile_rest_brown", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_brown"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_BROWN_BR = registerBlock("resttile/tile_rest_brown_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_brown_br"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_WHITE = registerBlock("resttile/tile_rest_white", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_white"),Core.ItemGroups.TAB_MAIN);
-        TILE_REST_WHITE_BR = registerBlock("resttile/tile_rest_white_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_rest_white_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_DARK_BLUE = registerBlock("resttile/tile_rest_dark_blue", () -> new TilledBlock( "info.tile_rest_dark_blue"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_DARK_BLUE_BR = registerBlock("resttile/tile_rest_dark_blue_br", () -> new TilledBlock( "info.tile_rest_dark_blue_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_BLUE = registerBlock("resttile/tile_rest_blue", () -> new TilledBlock( "info.tile_rest_blue"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_BLUE_BR = registerBlock("resttile/tile_rest_blue_br", () -> new TilledBlock( "info.tile_rest_blue_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_BLACK = registerBlock("resttile/tile_rest_black", () -> new TilledBlock( "info.tile_rest_black"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_BLACK_BR = registerBlock("resttile/tile_rest_black_br", () -> new TilledBlock( "info.tile_rest_black_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_BROWN = registerBlock("resttile/tile_rest_brown", () -> new TilledBlock( "info.tile_rest_brown"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_BROWN_BR = registerBlock("resttile/tile_rest_brown_br", () -> new TilledBlock( "info.tile_rest_brown_br"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_WHITE = registerBlock("resttile/tile_rest_white", () -> new TilledBlock( "info.tile_rest_white"),Core.ItemGroups.TAB_MAIN);
+        TILE_REST_WHITE_BR = registerBlock("resttile/tile_rest_white_br", () -> new TilledBlock( "info.tile_rest_white_br"),Core.ItemGroups.TAB_MAIN);
 
         //reg tiles
-        REGULAR_BROWN_TILE = registerBlock("regtile/tile_reg_brown", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_reg_brown"),Core.ItemGroups.TAB_MAIN);
-        REGULAR_BROWN_TILE_BR = registerBlock("regtile/tile_reg_brown_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_reg_brown_br"),Core.ItemGroups.TAB_MAIN);
-        REGULAR_LIL_TILE = registerBlock("regtile/tile_reg_lil", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_reg_lil"),Core.ItemGroups.TAB_MAIN);
-        REGULAR_LIL_TILE_BR = registerBlock("regtile/tile_reg_lil_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_reg_lil_br"),Core.ItemGroups.TAB_MAIN);
-        REGULAR_AM_TILE = registerBlock("regtile/tile_reg_am", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_reg_am"),Core.ItemGroups.TAB_MAIN);
-        REGULAR_AM_TILE_BR = registerBlock("regtile/tile_reg_am_br", () -> new BlockInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f), "info.tile_reg_am_br"),Core.ItemGroups.TAB_MAIN);
+        REGULAR_BROWN_TILE = registerBlock("regtile/tile_reg_brown", () -> new TilledBlock( "info.tile_reg_brown"),Core.ItemGroups.TAB_MAIN);
+        REGULAR_BROWN_TILE_BR = registerBlock("regtile/tile_reg_brown_br", () -> new TilledBlock( "info.tile_reg_brown_br"),Core.ItemGroups.TAB_MAIN);
+        REGULAR_LIL_TILE = registerBlock("regtile/tile_reg_lil", () -> new TilledBlock( "info.tile_reg_lil"),Core.ItemGroups.TAB_MAIN);
+        REGULAR_LIL_TILE_BR = registerBlock("regtile/tile_reg_lil_br", () -> new TilledBlock( "info.tile_reg_lil_br"),Core.ItemGroups.TAB_MAIN);
+        REGULAR_AM_TILE = registerBlock("regtile/tile_reg_am", () -> new TilledBlock( "info.tile_reg_am"),Core.ItemGroups.TAB_MAIN);
+        REGULAR_AM_TILE_BR = registerBlock("regtile/tile_reg_am_br", () -> new TilledBlock( "info.tile_reg_am_br"),Core.ItemGroups.TAB_MAIN);
 
         //bricks
-        RED_BRICKS_BR = registerBlock("brick/red_bricks_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        RED_BRICKS = registerBlock("brick/red_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        SHORT_BRICKS = registerBlock("brick/short_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        BRICKS_BR = registerBlock("brick/soviet_bricks_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        BRICKS = registerBlock("brick/soviet_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        BRICKS_WITH_WHITE = registerBlock("brick/soviet_bricks_with_white", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        WALL_BRICKS = registerBlock("brick/light_bricks2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        LIGHT_BRICKS = registerBlock("brick/light_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        WALL_BRICKS_BR = registerBlock("brick/light_bricks2_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        LIGHT_BRICKS_BR = registerBlock("brick/light_bricks_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        YELLOW_BRICKS_1_BR = registerBlock("brick/yellow_bricks_1_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        YELLOW_BRICKS_1 = registerBlock("brick/yellow_bricks_1", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        YELLOW_BRICKS_2_BR = registerBlock("brick/yellow_bricks_2_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        YELLOW_BRICKS_2 = registerBlock("brick/yellow_bricks_2", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        YELLOW_BRICKS_3_BR = registerBlock("brick/yellow_bricks_3_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        YELLOW_BRICKS_3 = registerBlock("brick/yellow_bricks_3", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        WHITE_BRICKS = registerBlock("brick/white_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        WHITE_BRICKS_BR = registerBlock("brick/white_bricks_br", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
-        SMALL_BRICKS = registerBlock("brick/small_bricks", () -> new Block(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f)),Core.ItemGroups.TAB_MAIN);
+        RED_BRICKS_BR = registerBlock("brick/red_bricks_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        RED_BRICKS = registerBlock("brick/red_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        SHORT_BRICKS = registerBlock("brick/short_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        BRICKS_BR = registerBlock("brick/soviet_bricks_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        BRICKS = registerBlock("brick/soviet_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        BRICKS_WITH_WHITE = registerBlock("brick/soviet_bricks_with_white", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        WALL_BRICKS = registerBlock("brick/light_bricks2", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        LIGHT_BRICKS = registerBlock("brick/light_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        WALL_BRICKS_BR = registerBlock("brick/light_bricks2_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        LIGHT_BRICKS_BR = registerBlock("brick/light_bricks_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        YELLOW_BRICKS_1_BR = registerBlock("brick/yellow_bricks_1_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        YELLOW_BRICKS_1 = registerBlock("brick/yellow_bricks_1", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        YELLOW_BRICKS_2_BR = registerBlock("brick/yellow_bricks_2_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        YELLOW_BRICKS_2 = registerBlock("brick/yellow_bricks_2", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        YELLOW_BRICKS_3_BR = registerBlock("brick/yellow_bricks_3_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        YELLOW_BRICKS_3 = registerBlock("brick/yellow_bricks_3", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        WHITE_BRICKS = registerBlock("brick/white_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        WHITE_BRICKS_BR = registerBlock("brick/white_bricks_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
+        SMALL_BRICKS = registerBlock("brick/small_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
 
     }
     public static void register(IEventBus eventBus) {

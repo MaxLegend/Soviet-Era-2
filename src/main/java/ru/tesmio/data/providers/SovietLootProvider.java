@@ -12,6 +12,26 @@ public class SovietLootProvider extends BaseLootProvider {
 
     @Override
     protected void addTables() {
+        //slabs
+        lootTables.put(RegBlocks.CONCRETE_SLAB_GRAY.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_GREEN.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_RED.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_BLUE.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_BEIGE.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_BEIGE2.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_YELLOW.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_WHITE.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_SLAB_ORANGE.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
+        //stairs
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_GRAY.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_GREEN.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_RED.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_BLUE.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_BEIGE.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_BEIGE2.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_YELLOW.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_WHITE.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.CONCRETE_STAIRS_ORANGE.get(), standartItemBlockBuilder("stairs", RegItems.ARMATURES.get(),1));
         //concrete railing
         lootTables.put(RegBlocks.CONCRETE_RAILING_GRAY.get(), standartItemBlockBuilder("structural/concrete_railing_gray", RegItems.ARMATURES.get(),1));
         lootTables.put(RegBlocks.CONCRETE_RAILING_WHITE.get(), standartItemBlockBuilder("structural/concrete_railing_white", RegItems.ARMATURES.get(),1));
@@ -32,24 +52,24 @@ public class SovietLootProvider extends BaseLootProvider {
         lootTables.put(RegBlocks.LINO_7.get(), standartItemBlockBuilder("lino/lino7", RegItems.LINO.get(),3));
         lootTables.put(RegBlocks.LINO_8.get(), standartItemBlockBuilder("lino/lino8", RegItems.LINO.get(),3));
         //concrete
-            lootTables.put(RegBlocks.CONCRETE_ORANGE.get(), standartItemBlockBuilder("concrete/concrete_orange", RegItems.ARMATURES.get(),1));
-            lootTables.put(RegBlocks.CONCRETE_ORANGE_BR.get(), standartItemBlockBuilder("concrete/concrete_orange_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_BLUE.get(), standartItemBlockBuilder("concrete/concrete_blue", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_BLUE_BR.get(), standartItemBlockBuilder("concrete/concrete_blue_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_RED.get(), standartItemBlockBuilder("concrete/concrete_red", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_RED_BR.get(), standartItemBlockBuilder("concrete/concrete_red_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_WHITE.get(), standartItemBlockBuilder("concrete/concrete_white", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_WHITE_BR.get(), standartItemBlockBuilder("concrete/concrete_white_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_GREEN.get(), standartItemBlockBuilder("concrete/concrete_green", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_GREEN_BR.get(), standartItemBlockBuilder("concrete/concrete_green_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_YELLOW.get(), standartItemBlockBuilder("concrete/concrete_yellow", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_YELLOW_BR.get(), standartItemBlockBuilder("concrete/concrete_yellow_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_BEIGE.get(), standartItemBlockBuilder("concrete/concrete_beige", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_BEIGE_BR.get(), standartItemBlockBuilder("concrete/concrete_beige_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_BEIGE2.get(), standartItemBlockBuilder("concrete/concrete_beige2", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_BEIGE2_BR.get(), standartItemBlockBuilder("concrete/concrete_beige2_br", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_GRAY.get(), standartItemBlockBuilder("concrete/concrete_gray", RegItems.ARMATURES.get(),1));
-        lootTables.put(RegBlocks.CONCRETE_GRAY_BR.get(), standartItemBlockBuilder("concrete/concrete_gray_br", RegItems.ARMATURES.get(),1 ));
+            lootTables.put(RegBlocks.CONCRETE_ORANGE.get(), standartItemBlockBuilder("concrete/concrete_orange", RegItems.ARMATURES.get(),2));
+            lootTables.put(RegBlocks.CONCRETE_ORANGE_BR.get(), standartItemBlockBuilder("concrete/concrete_orange_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_BLUE.get(), standartItemBlockBuilder("concrete/concrete_blue", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_BLUE_BR.get(), standartItemBlockBuilder("concrete/concrete_blue_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_RED.get(), standartItemBlockBuilder("concrete/concrete_red", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_RED_BR.get(), standartItemBlockBuilder("concrete/concrete_red_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_WHITE.get(), standartItemBlockBuilder("concrete/concrete_white", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_WHITE_BR.get(), standartItemBlockBuilder("concrete/concrete_white_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_GREEN.get(), standartItemBlockBuilder("concrete/concrete_green", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_GREEN_BR.get(), standartItemBlockBuilder("concrete/concrete_green_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_YELLOW.get(), standartItemBlockBuilder("concrete/concrete_yellow", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_YELLOW_BR.get(), standartItemBlockBuilder("concrete/concrete_yellow_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_BEIGE.get(), standartItemBlockBuilder("concrete/concrete_beige", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_BEIGE_BR.get(), standartItemBlockBuilder("concrete/concrete_beige_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_BEIGE2.get(), standartItemBlockBuilder("concrete/concrete_beige2", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_BEIGE2_BR.get(), standartItemBlockBuilder("concrete/concrete_beige2_br", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_GRAY.get(), standartItemBlockBuilder("concrete/concrete_gray", RegItems.ARMATURES.get(),2));
+        lootTables.put(RegBlocks.CONCRETE_GRAY_BR.get(), standartItemBlockBuilder("concrete/concrete_gray_br", RegItems.ARMATURES.get(),2 ));
         //panels
         lootTables.put(RegBlocks.PANEL_CONCRETE_CORNER.get(), standartItemBlockBuilder("structural/panel_concrete_corner", RegItems.ARMATURES.get(),1));
         lootTables.put(RegBlocks.PANEL_CONCRETE_SIDE.get(), standartItemBlockBuilder("structural/panel_concrete_side", RegItems.ARMATURES.get(),1));

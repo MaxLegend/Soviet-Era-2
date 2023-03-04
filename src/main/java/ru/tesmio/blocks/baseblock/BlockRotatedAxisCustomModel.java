@@ -1,7 +1,10 @@
 package ru.tesmio.blocks.baseblock;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -16,15 +19,24 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ToolType;
 
 public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private float shadingInside;
-    public BlockRotatedAxisCustomModel(Properties builder, float shadingInside) {
-        super(builder);
+    public BlockRotatedAxisCustomModel(float shadingInside) {
+        super(AbstractBlock.Properties.create(Material.IRON)
+                .setRequiresTool()
+                .hardnessAndResistance(1f,4f)
+                .notSolid().harvestTool(ToolType.PICKAXE)
+                .sound(SoundType.METAL));
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
     this.shadingInside = shadingInside;
 
+    }
+    public BlockRotatedAxisCustomModel(Properties p, float shadingInside) {
+        super(p);
+        this.shadingInside = shadingInside;
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());

@@ -1,7 +1,10 @@
 package ru.tesmio.blocks.decorative.windows;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -18,13 +21,18 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ToolType;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class FactoryWindow extends BlockSideCustomModel {
-    public FactoryWindow(Properties properties, float shadingInside) {
-        super(properties, shadingInside);
+    public FactoryWindow(float shadingInside) {
+        super(AbstractBlock.Properties.create(Material.WOOL)
+                .setRequiresTool()
+                .hardnessAndResistance(1f,2f)
+                .harvestTool(ToolType.AXE)
+                .sound(SoundType.CLOTH), shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {

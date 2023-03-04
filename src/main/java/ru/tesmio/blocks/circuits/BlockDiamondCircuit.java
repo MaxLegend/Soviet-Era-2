@@ -10,6 +10,8 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -22,6 +24,8 @@ import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
+import javax.annotation.Nullable;
+
 public class BlockDiamondCircuit extends Block {
     protected static VoxelShape SHAPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -31,12 +35,11 @@ public class BlockDiamondCircuit extends Block {
         this.SHAPE = shape;
         this.setDefaultState(this.stateContainer.getBaseState().with(DISSECTION, 0).with(WATERLOGGED, Boolean.FALSE));
     }
-    @Override
-    public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-        if(worldIn.getBlockState(pos).isAir()) {
-            if (state.get(DISSECTION) == 0) {
-                state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), 1));
-            }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        if (state.get(DISSECTION) == 0) {
+            state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), 1));
         }
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

@@ -5,11 +5,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.stats.Stats;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -24,6 +27,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import ru.tesmio.reg.RegItems;
+
+import javax.annotation.Nullable;
 
 public class LockedDoor extends DoorBlock implements IWaterLoggable {
     public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
@@ -62,6 +67,11 @@ public class LockedDoor extends DoorBlock implements IWaterLoggable {
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(HALF, FACING, OPEN, HINGE, POWERED, LOCKED, WATERLOGGED);
+    }
+    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
+        player.addStat(Stats.BLOCK_MINED.get(this));
+        player.addExhaustion(0.005F);
+        spawnDrops(state, worldIn, pos, te, player, stack);
     }
     @OnlyIn(Dist.CLIENT)
     public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
