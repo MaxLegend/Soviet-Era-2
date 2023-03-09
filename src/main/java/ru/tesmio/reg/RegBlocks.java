@@ -47,6 +47,7 @@ import ru.tesmio.blocks.tumbler.AirlockDoorController;
 import ru.tesmio.blocks.tumbler.ElectroFenceTumbler;
 import ru.tesmio.core.Core;
 
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class RegBlocks {
@@ -117,67 +118,72 @@ public class RegBlocks {
    public static void init() {
         Symbols.addSymbols();
         Symbols.addSymbolsName();
-        SAFE = registerBlockWithModel("innerdeco/furniture/safe", () -> new BlockSafe(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        DSP_TUMB = registerBlockWithModel("innerdeco/furniture/dsp_tumb", () -> new DspTumbBlock(AbstractBlock.Properties.create(Material.WOOD).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
-        ex_po = registerBlockWithModel("outerdeco/symbols/ex_po", () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
-
+        ex_po = registerBlockWithModel("outerdeco/symbols/ex_po", () -> new SymbolBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_SYMBOLS);
         for (int iter = 0; iter < Symbols.SYMBOLS_NAME.size(); iter++) {
-           registerBlockWithModel("outerdeco/symbols/" + Symbols.SYMBOLS_NAME.get(iter), () -> new SymbolBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F), Core.ItemGroups.TAB_SYMBOLS);
+           registerBlockWithModel("outerdeco/symbols/" + Symbols.SYMBOLS_NAME.get(iter), () -> new SymbolBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_SYMBOLS);
         }
+        IRON_BED = registerOnlyCustomBlock("innerdeco/furniture/iron_bed", () -> new IronBed(getP(Material.IRON, 1.1f,2.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        BATH_TUBE = registerOnlyCustomBlock("innerdeco/furniture/bath_tube", () -> new BathTube(getP(Material.ROCK, 0.8f,0.5f, ToolType.PICKAXE, 1, SoundType.GLASS, false, true)), Core.ItemGroups.TAB_INNER_DECO);
 
-        IRON_BED = registerOnlyCustomBlock("innerdeco/furniture/iron_bed", () -> new IronBed(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        BATH_TUBE = registerOnlyCustomBlock("innerdeco/furniture/bath_tube", () -> new BathTube(AbstractBlock.Properties.create(Material.CORAL).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
+        //windows
+        AbstractBlock.Properties WINDOW_PROPERTIES = getP(Material.IRON, 0.6f,1.6f,ToolType.PICKAXE, 0, SoundType.GLASS, true, true);
+        AbstractBlock.Properties WINDOW_PROPERTIES_WOOD = getP(Material.WOOD, 0.6f,1.6f,ToolType.AXE, 0, SoundType.GLASS, true, true);
+        WOOD_WINDOW = registerBlockWithModel("innerdeco/windows/wood_window", () -> new ModernWindow(WINDOW_PROPERTIES_WOOD), Core.ItemGroups.TAB_INNER_DECO);
+        WOOD_WINDOW_EMPTY = registerBlockWithModel("innerdeco/windows/wood_window_empty", () -> new ModernWindow(WINDOW_PROPERTIES_WOOD), Core.ItemGroups.TAB_INNER_DECO);
+        WOOD_WINDOW_LEAF = registerBlockWithModel("innerdeco/windows/wood_window_leaf", () -> new ModernWindow(WINDOW_PROPERTIES_WOOD), Core.ItemGroups.TAB_INNER_DECO);
+        WOOD_WINDOW_LEAF_EMPTY = registerBlockWithModel("innerdeco/windows/wood_window_leaf_empty", () -> new ModernWindow(WINDOW_PROPERTIES_WOOD), Core.ItemGroups.TAB_INNER_DECO);
+        MODERN_WINDOW = registerBlockWithModel("innerdeco/windows/modern_window", () -> new ModernWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        MODERN_WINDOW_EMPTY = registerBlockWithModel("innerdeco/windows/modern_window_empty", () -> new ModernWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        MODERN_WINDOW_LEAF = registerBlockWithModel("innerdeco/windows/modern_window_leaf", () -> new ModernWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        MODERN_WINDOW_LEAF_EMPTY = registerBlockWithModel("innerdeco/windows/modern_window_leaf_empty", () -> new ModernWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
 
-        WOOD_WINDOW = registerBlockWithModel("innerdeco/windows/wood_window", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        WOOD_WINDOW_EMPTY = registerBlockWithModel("innerdeco/windows/wood_window_empty", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        WOOD_WINDOW_LEAF = registerBlockWithModel("innerdeco/windows/wood_window_leaf", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        WOOD_WINDOW_LEAF_EMPTY = registerBlockWithModel("innerdeco/windows/wood_window_leaf_empty", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
-        MODERN_WINDOW = registerBlockWithModel("innerdeco/windows/modern_window", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        MODERN_WINDOW_EMPTY = registerBlockWithModel("innerdeco/windows/modern_window_empty", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        MODERN_WINDOW_LEAF = registerBlockWithModel("innerdeco/windows/modern_window_leaf", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        MODERN_WINDOW_LEAF_EMPTY = registerBlockWithModel("innerdeco/windows/modern_window_leaf_empty", () -> new ModernWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
-        ALUM_WINDOW = registerBlockWithModel("innerdeco/windows/alum_window", () -> new AlumWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        ALUM_WINDOW_EMPTY = registerBlockWithModel("innerdeco/windows/alum_window_empty", () -> new AlumWindow(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
+        ALUM_WINDOW = registerBlockWithModel("innerdeco/windows/alum_window", () -> new AlumWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        ALUM_WINDOW_EMPTY = registerBlockWithModel("innerdeco/windows/alum_window_empty", () -> new AlumWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
 
-        ALUM_FRAMES_EMPTY = registerBlockWithModel("innerdeco/windows/alum_frame_empty", () -> new AlumFrame(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        ALUM_FRAMES = registerBlockWithModel("innerdeco/windows/alum_frame", () -> new AlumFrame(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
+        ALUM_FRAMES_EMPTY = registerBlockWithModel("innerdeco/windows/alum_frame_empty", () -> new AlumFrame(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        ALUM_FRAMES = registerBlockWithModel("innerdeco/windows/alum_frame", () -> new AlumFrame(WINDOW_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
         //redstone devices
-        REDSTONE_WIRE = registerBlockWithModel("innerdeco/devices/redstone_wire", () -> new BlockRedstoneWire(AbstractBlock.Properties.create(Material.WOOL).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        PURPLE_TABLE = registerBlockWithModel("innerdeco/furniture/purple_table", () -> new PurpleTable(AbstractBlock.Properties.create(Material.WOOD).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        PURPLE_CHAIR = registerBlockWithModel("innerdeco/furniture/purple_chair", () -> new PurpleChair(AbstractBlock.Properties.create(Material.WOOD).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 0.5F) {}, Core.ItemGroups.TAB_INNER_DECO);
-        SLATE = registerBlockWithModel("innerdeco/slate", () -> new SlateBlock(AbstractBlock.Properties.create(Material.WOOD).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        BIO_STILLAGE = registerBlockWithModel("innerdeco/bio_stillage", () -> new BioStillage(AbstractBlock.Properties.create(Material.WOOD).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        CHAIN = registerBlockWithModel("innerdeco/chain", () -> new Chain(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        LEAD_WALL = registerBlockWithModel("innerdeco/lead_wall", () -> new LeadWall(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F) {}, Core.ItemGroups.TAB_INNER_DECO);
-        THIN_LEAD_WALL = registerBlockWithModel("innerdeco/thin_lead_wall", () -> new LeadWall(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid(), 1F) {}, Core.ItemGroups.TAB_INNER_DECO);
+        REDSTONE_WIRE = registerBlockWithModel("innerdeco/devices/redstone_wire", () -> new BlockRedstoneWire(getP(Material.WOOL, 0.8f,1.1f,null, 0, SoundType.CLOTH, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SLATE = registerBlockWithModel("innerdeco/slate", () -> new SlateBlock(getP(Material.ROCK, 0.8f,1.1f,ToolType.PICKAXE, 0, SoundType.STONE, true, true)) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIO_STILLAGE = registerBlockWithModel("innerdeco/bio_stillage", () -> new BioStillage(getP(Material.WOOD, 0.9f,1.1f,ToolType.AXE, 0, SoundType.GLASS, true, true)) {}, Core.ItemGroups.TAB_INNER_DECO);
+        CHAIN = registerBlockWithModel("innerdeco/chain", () -> new Chain(getP(Material.IRON, 0.3f,0.4f,ToolType.PICKAXE, 0, SoundType.METAL, false, true)) {}, Core.ItemGroups.TAB_INNER_DECO);
+        LEAD_WALL = registerBlockWithModel("innerdeco/lead_wall", () -> new LeadWall(getP(Material.IRON, 2.8f,8.6f,ToolType.PICKAXE, 2, SoundType.STONE, true, true), 1F) {}, Core.ItemGroups.TAB_INNER_DECO);
+        THIN_LEAD_WALL = registerBlockWithModel("innerdeco/thin_lead_wall", () -> new LeadWall(getP(Material.IRON, 1.6f,6.6f,ToolType.PICKAXE, 2, SoundType.STONE, true, true), 1F) {}, Core.ItemGroups.TAB_INNER_DECO);
 
-        CHEMLAB_TABLE = registerBlockWithModel("innerdeco/chemlab_table", () -> new LinearTableDrawers(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        CHEMLAB_TABLE_CASE = registerBlockWithModel("innerdeco/chemlab_table_up", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE = registerBlockWithModel("innerdeco/biolab_table", () -> new LinearTableDrawers(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE_CASE = registerBlockWithModel("innerdeco/biolab_table_up", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE2 = registerBlockWithModel("innerdeco/biolab_table2", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE3 = registerBlockWithModel("innerdeco/biolab_table3", () -> new LinearTable(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_TABLE4 = registerBlockWithModel("innerdeco/biolab_table4", () -> new LinearTableDrawers(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        //other devices
-        MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_OUTER_DECO);
-        TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f, 4f).notSolid()) {}, Core.ItemGroups.TAB_INNER_DECO);
-        COMPUTER = registerBlockWithModel("innerdeco/devices/computer", () -> new Computer(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        SPEC_MONITOR = registerBlockWithModel("innerdeco/devices/spec_monitor", () -> new SpecMonitor(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        SMALL_COMPUTER = registerBlockWithModel("innerdeco/devices/small_computer", () -> new SmallComputer(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        SYS_BLOCK = registerBlockWithModel("innerdeco/devices/sys_block", () -> new SystemBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        SIREN = registerBlockWithModel("innerdeco/devices/siren", () -> new Siren(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        TELEVISOR = registerBlockWithModel("innerdeco/devices/televisor", () -> new Televisor(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ELECTRICAL_PANEL = registerBlockWithModel("innerdeco/devices/electrical_panel", () -> new ElectricalPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        GAS_STOVE = registerBlockWithModel("innerdeco/furniture/gas_stove", () -> new GasStove(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        CRYOCAPSULE = registerBlockWithModel("innerdeco/cryocapsule", () -> new Cryocapsule(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        BIOLAB_CHAIR = registerBlockWithModel("innerdeco/biolab_chair", () -> new BiolabChair(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        AUTOCLAVE = registerBlockWithModel("innerdeco/autoclave", () -> new Autoclave(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        COLD_BATTERY = registerBlockWithModel("innerdeco/radiator", () -> new ColdBattery(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        BIO_TUMBLER = registerBlockWithModel("innerdeco/furniture/bio_tumbler", () -> new PowerTumbler(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        BIO_POWER_SOCKET = registerBlockWithModel("innerdeco/furniture/bio_power_socket", () -> new PowerSocket(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        //furniture
+        AbstractBlock.Properties FURNITURE_PROPERTIES = getP(Material.WOOD, 1f,1.2f,ToolType.AXE, 0, SoundType.WOOD, true, true);
+        AbstractBlock.Properties CLOTH_PROPERTIES = getP(Material.WOOL, 0.9f,0.8f,null, 0, SoundType.CLOTH, false, true);
+        CHEMLAB_TABLE = registerBlockWithModel("innerdeco/chemlab_table", () -> new LinearTableDrawers(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        CHEMLAB_TABLE_CASE = registerBlockWithModel("innerdeco/chemlab_table_up", () -> new LinearTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE = registerBlockWithModel("innerdeco/biolab_table", () -> new LinearTableDrawers(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE_CASE = registerBlockWithModel("innerdeco/biolab_table_up", () -> new LinearTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE2 = registerBlockWithModel("innerdeco/biolab_table2", () -> new LinearTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE3 = registerBlockWithModel("innerdeco/biolab_table3", () -> new LinearTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_TABLE4 = registerBlockWithModel("innerdeco/biolab_table4", () -> new LinearTableDrawers(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        PURPLE_TABLE = registerBlockWithModel("innerdeco/furniture/purple_table", () -> new PurpleTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
+        PURPLE_CHAIR = registerBlockWithModel("innerdeco/furniture/purple_chair", () -> new PurpleChair(CLOTH_PROPERTIES, 0.5F) {}, Core.ItemGroups.TAB_INNER_DECO);
+
+       //other devices
+        AbstractBlock.Properties DEVICES_PROPERTIES = getP(Material.IRON, 0.7f,1f,null, 0, SoundType.METAL, false, true);
+        MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(DEVICES_PROPERTIES) {}, Core.ItemGroups.TAB_OUTER_DECO);
+        TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(getP(Material.IRON, 1.0f,1.6f,null, 0, SoundType.METAL, false, true)) {}, Core.ItemGroups.TAB_INNER_DECO);
+        COMPUTER = registerBlockWithModel("innerdeco/devices/computer", () -> new Computer(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SPEC_MONITOR = registerBlockWithModel("innerdeco/devices/spec_monitor", () -> new SpecMonitor(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SMALL_COMPUTER = registerBlockWithModel("innerdeco/devices/small_computer", () -> new SmallComputer(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SYS_BLOCK = registerBlockWithModel("innerdeco/devices/sys_block", () -> new SystemBlock(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SIREN = registerBlockWithModel("innerdeco/devices/siren", () -> new Siren(DEVICES_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        TELEVISOR = registerBlockWithModel("innerdeco/devices/televisor", () -> new Televisor(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
+        ELECTRICAL_PANEL = registerBlockWithModel("innerdeco/devices/electrical_panel", () -> new ElectricalPanel(getP(Material.IRON, 0.9f,1.1f,null, 0, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        GAS_STOVE = registerBlockWithModel("innerdeco/furniture/gas_stove", () -> new GasStove(getP(Material.IRON, 1.0f,1.6f,ToolType.PICKAXE, 0, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        CRYOCAPSULE = registerBlockWithModel("innerdeco/cryocapsule", () -> new Cryocapsule(getP(Material.IRON, 1.0f,1.6f,ToolType.PICKAXE, 0, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        BIOLAB_CHAIR = registerBlockWithModel("innerdeco/biolab_chair", () -> new BiolabChair(getP(Material.WOOD, 0.6f,1.6f,ToolType.AXE, 0, SoundType.WOOD, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        AUTOCLAVE = registerBlockWithModel("innerdeco/autoclave", () -> new Autoclave(getP(Material.IRON, 1.0f,1.6f,ToolType.PICKAXE, 0, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        COLD_BATTERY = registerBlockWithModel("innerdeco/radiator", () -> new ColdBattery(getP(Material.IRON, 0.5f,1.1f,ToolType.PICKAXE, 0, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        BIO_TUMBLER = registerBlockWithModel("innerdeco/furniture/bio_tumbler", () -> new PowerTumbler(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
+        BIO_POWER_SOCKET = registerBlockWithModel("innerdeco/furniture/bio_power_socket", () -> new PowerSocket(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         LAB_STOVE = registerBlockWithModel("innerdeco/devices/lab_stove", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         DRY_CAB = registerBlockWithModel("innerdeco/devices/dry_cab", () -> new DryCab(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
@@ -185,68 +191,72 @@ public class RegBlocks {
         MAGNET_MIXER = registerBlockWithModel("innerdeco/devices/magnet_mixer", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //fence
-        CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
-        CONCRETE_FENCE_HIGH = registerOnlyCustomBlock("outerdeco/fences/concrete_fence_high", () -> new ConcreteFenceHigh(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
-        CONCRETE_FENCE_BASE = registerBlockWithModel("outerdeco/fences/concrete_fence_base", () -> new BlockSideWithModelCustomAABB(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), BOX_CONCRETE_FENCE_BASE, true, 0.8F), Core.ItemGroups.TAB_OUTER_DECO);
-        ELECTRO_FENCE = registerBlockWithModel("outerdeco/fences/electro_fence", () -> new ElectroFence(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
-        ELECTRO_FENCE_TUMBLER = registerBlockWithModel("outerdeco/fences/electro_fence_tumbler", () -> new ElectroFenceTumbler(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
-        ELECTRO_FENCE_DOUBLE = registerBlockWithModel("outerdeco/fences/electro_fence_double", () -> new ElectroFenceDouble(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_OUTER_DECO);
-        CONTACT_WIRE = registerOnlyCustomBlock("outerdeco/streetdeco/contact_wire", () -> new ContactWire(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
-        CONCRETE_WALL = registerBlockWithModel("outerdeco/fences/concrete_wall", () -> new ConcreteWall(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
-        FLOOR_GRID = registerBlockWithModel("innerdeco/floor_grid", () -> new FloorGrid(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(getP(Material.ROCK, 1.1f,1.3f, ToolType.PICKAXE, 1, SoundType.STONE, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CONCRETE_FENCE_HIGH = registerOnlyCustomBlock("outerdeco/fences/concrete_fence_high", () -> new ConcreteFenceHigh(getP(Material.ROCK, 1.1f,1.3f, ToolType.PICKAXE, 1, SoundType.STONE, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CONCRETE_FENCE_BASE = registerBlockWithModel("outerdeco/fences/concrete_fence_base", () -> new BlockSideWithModelCustomAABB(getP(Material.ROCK, 1.1f,2.5f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), BOX_CONCRETE_FENCE_BASE, true, 0.8F), Core.ItemGroups.TAB_OUTER_DECO);
+        ELECTRO_FENCE = registerBlockWithModel("outerdeco/fences/electro_fence", () -> new ElectroFence(getP(Material.IRON, 0.6f,0.7f,ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        ELECTRO_FENCE_TUMBLER = registerBlockWithModel("outerdeco/fences/electro_fence_tumbler", () -> new ElectroFenceTumbler(getP(Material.IRON, 1f,1.2f,ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        ELECTRO_FENCE_DOUBLE = registerBlockWithModel("outerdeco/fences/electro_fence_double", () -> new ElectroFenceDouble(getP(Material.IRON, 0.84f,1.2f,ToolType.PICKAXE, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CONTACT_WIRE = registerOnlyCustomBlock("outerdeco/streetdeco/contact_wire", () -> new ContactWire(getP(Material.IRON, 0.5f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CONTACT_WIRE_INNER = registerBlockWithModel("outerdeco/streetdeco/contact_wire_inner", () -> new ContactWireAngle(getP(Material.IRON, 0.5f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true),1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CONTACT_WIRE_OUTER = registerBlockWithModel("outerdeco/streetdeco/contact_wire_outer", () -> new ContactWireAngle(getP(Material.IRON, 0.5f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true),1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CONCRETE_WALL = registerBlockWithModel("outerdeco/fences/concrete_wall", () -> new ConcreteWall(getP(Material.ROCK, 1.1f,1.3f, ToolType.PICKAXE, 1, SoundType.STONE, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        FLOOR_GRID = registerBlockWithModel("innerdeco/floor_grid", () -> new FloorGrid(getP(Material.IRON, 0.78f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
         FACTORY_WINDOW = registerBlockWithModel("outerdeco/factory_window", () -> new FactoryWindow( 1F),Core.ItemGroups.TAB_OUTER_DECO);
         FACTORY_WINDOW_EMPTY = registerBlockWithModel("outerdeco/factory_window_empty", () -> new FactoryWindow( 1F),Core.ItemGroups.TAB_OUTER_DECO);
 
         //post
-        STREET_LIGHTPOST = registerBlockWithModel("outerdeco/streetdeco/street_lightpost", () -> new StreetLightpost(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
-        STREET_LIGHTPOST2 = registerBlockWithModel("outerdeco/streetdeco/street_lightpost2", () -> new StreetLightpost(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        STREET_LIGHTPOST = registerBlockWithModel("outerdeco/streetdeco/street_lightpost", () -> new StreetLightpost(getP(Material.IRON, 0.7f,0.9f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        STREET_LIGHTPOST2 = registerBlockWithModel("outerdeco/streetdeco/street_lightpost2", () -> new StreetLightpost(getP(Material.IRON, 0.7f,0.9f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+
 
         //lamp
-        RED_LAMP = registerBlockWithModel("innerdeco/lamp/red_lamp", () -> new IncLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        INC_LAMP = registerBlockWithModel("innerdeco/lamp/inc_lamp", () -> new IncLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        FLUORESCENT_LAMP = registerBlockWithModel("innerdeco/lamp/fluo_lamp", () -> new FluoLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        BROKEN_FLUORESCENT_LAMP = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp", () -> new BrokenFluoLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        FLUORESCENT_LAMP2 = registerBlockWithModel("innerdeco/lamp/fluo_lamp2", () -> new FluoLamp2(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        BROKEN_FLUORESCENT_LAMP2 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp2", () -> new BrokenFluoLamp2(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/fluo_lamp3", () -> new FluoLamp3(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        BROKEN_FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp3", () -> new BrokenFluoLamp3(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
-        STREET_LAMP = registerBlockWithModel("innerdeco/lamp/street_lamp", () -> new StreetLamp(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        AbstractBlock.Properties LAMP_PROPERTIES = getP(Material.GLASS, 0.4f,0.5f, null, 1, SoundType.GLASS, true, true);
+        RED_LAMP = registerBlockWithModel("innerdeco/lamp/red_lamp", () -> new IncLamp(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        INC_LAMP = registerBlockWithModel("innerdeco/lamp/inc_lamp", () -> new IncLamp(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        FLUORESCENT_LAMP = registerBlockWithModel("innerdeco/lamp/fluo_lamp", () -> new FluoLamp(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        BROKEN_FLUORESCENT_LAMP = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp", () -> new BrokenFluoLamp(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        FLUORESCENT_LAMP2 = registerBlockWithModel("innerdeco/lamp/fluo_lamp2", () -> new FluoLamp2(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        BROKEN_FLUORESCENT_LAMP2 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp2", () -> new BrokenFluoLamp2(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/fluo_lamp3", () -> new FluoLamp3(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        BROKEN_FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp3", () -> new BrokenFluoLamp3(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
+        STREET_LAMP = registerBlockWithModel("innerdeco/lamp/street_lamp", () -> new StreetLamp(LAMP_PROPERTIES, 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
         //doors
-        WOOD_DOOR_2 = registerOnlyCustomBlock("innerdeco/wood_door_2", () -> new WoodDoor(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        WOOD_DOOR_1 = registerOnlyCustomBlock("innerdeco/wood_door_1", () -> new WoodDoor(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        AIRLOCK_DOOR_CONTROLLER = registerBlockWithModel("innerdeco/airlock_door_controller", () -> new AirlockDoorController(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        AIRLOCK_DOOR = registerOnlyCustomBlock("innerdeco/airlock_door", () -> new AirlockDoorBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        CONTAINMENT_DOOR = registerOnlyCustomBlock("innerdeco/containment_door", () -> new ContainmentDoor(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        RUSTY_IRON_DOOR = registerOnlyCustomBlock("innerdeco/rusty_iron_door", () -> new RustyIronDoor(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        ALUMINIUM_DOOR = registerOnlyCustomBlock("innerdeco/aluminium_door", () -> new AluminiumDoorBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        RAILING_DOOR = registerOnlyCustomBlock("innerdeco/railing_door", () -> new RailingDoorBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        RUSTY_BARS = registerBlockWithModel("innerdeco/rusty_bars", () -> new RustyBars(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        LADDER_1 = registerBlockWithModel("innerdeco/ladder_1", () -> new BlockLadder(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        LADDER_2 = registerBlockWithModel("innerdeco/ladder_2", () -> new BlockLadder(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        CONTAINMENT_TRAPDOOR = registerOnlyCustomBlock("innerdeco/containment_trapdoor", () -> new ContainmentTrapdoor(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        VENT_PIPE = registerBlockWithModel("innerdeco/pipes/ventpipe", () -> new VentPipe(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        VENT_PIPE_BASE = registerBlockWithModel("innerdeco/pipes/ventpipe_base", () -> new VentPipeBase(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
+        WOOD_DOOR_2 = registerOnlyCustomBlock("innerdeco/wood_door_2", () -> new WoodDoor(getP(Material.WOOD, 0.7f,0.9f, ToolType.AXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        WOOD_DOOR_1 = registerOnlyCustomBlock("innerdeco/wood_door_1", () -> new WoodDoor(getP(Material.WOOD, 0.7f,0.9f, ToolType.AXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        AIRLOCK_DOOR_CONTROLLER = registerBlockWithModel("innerdeco/airlock_door_controller", () -> new AirlockDoorController(getP(Material.IRON, 0.9f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        AIRLOCK_DOOR = registerOnlyCustomBlock("innerdeco/airlock_door", () -> new AirlockDoorBlock(getP(Material.IRON, 0.7f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CONTAINMENT_DOOR = registerOnlyCustomBlock("innerdeco/containment_door", () -> new ContainmentDoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        RUSTY_IRON_DOOR = registerOnlyCustomBlock("innerdeco/rusty_iron_door", () -> new RustyIronDoor(getP(Material.IRON, 1.0f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        ALUMINIUM_DOOR = registerOnlyCustomBlock("innerdeco/aluminium_door", () -> new AluminiumDoorBlock(getP(Material.IRON, 0.8f,0.6f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        RAILING_DOOR = registerOnlyCustomBlock("innerdeco/railing_door", () -> new RailingDoorBlock(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        RUSTY_BARS = registerBlockWithModel("innerdeco/rusty_bars", () -> new RustyBars(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        LADDER_1 = registerBlockWithModel("innerdeco/ladder_1", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        LADDER_2 = registerBlockWithModel("innerdeco/ladder_2", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CONTAINMENT_TRAPDOOR = registerOnlyCustomBlock("innerdeco/containment_trapdoor", () -> new ContainmentTrapdoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        VENT_PIPE = registerBlockWithModel("innerdeco/pipes/ventpipe", () -> new VentPipe(getP(Material.IRON, 0.5f,0.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        VENT_PIPE_BASE = registerBlockWithModel("innerdeco/pipes/ventpipe_base", () -> new VentPipeBase(getP(Material.IRON, 1.5f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
 
         //circuits
-        PLATE_GOLDEN_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack", () -> new PlateGoldenJack(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
-        PLATE_GOLDEN_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2, 1F), Core.ItemGroups.TAB_ITEMS);
-        PLATE_PLATINUM_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack", () -> new PlatePlatinumJack(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
-        PLATE_PLATINUM_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack_empty", () -> new BlockCopperCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
+        PLATE_GOLDEN_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack", () -> new PlateGoldenJack(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
+        PLATE_GOLDEN_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2, 1F), Core.ItemGroups.TAB_ITEMS);
+        PLATE_PLATINUM_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack", () -> new PlatePlatinumJack(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
+        PLATE_PLATINUM_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack_empty", () -> new BlockCopperCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
 
-        COPPER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/copper_plate", () -> new BlockCopperCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        COPPER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/copper_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        SILVER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/silver_plate", () -> new BlockSilverCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        SILVER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/silver_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        GOLD_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/gold_plate", () -> new BlockGoldCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        GOLD_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/gold_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        DIAMOND_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate", () -> new BlockDiamondCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        DIAMOND_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        NETHERITE_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate", () -> new BlockNetheriteCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        NETHERITE_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        PLATINUM_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate", () -> new BlockPlatinumCircuit(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        PLATINUM_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate_empty", () -> new BlockCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(0.1f,0.1f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        COPPER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/copper_plate", () -> new BlockCopperCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        COPPER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/copper_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        SILVER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/silver_plate", () -> new BlockSilverCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        SILVER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/silver_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        GOLD_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/gold_plate", () -> new BlockGoldCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        GOLD_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/gold_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        DIAMOND_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate", () -> new BlockDiamondCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        DIAMOND_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        NETHERITE_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate", () -> new BlockNetheriteCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        NETHERITE_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        PLATINUM_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate", () -> new BlockPlatinumCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        PLATINUM_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
 
         //inner deco
         TUBING_HORIZONTAL = registerBlockWithModel("innerdeco/tubing_horizontal", () -> new BlockRotatedAxisCustomModel(0.6F), Core.ItemGroups.TAB_INNER_DECO);
@@ -258,39 +268,39 @@ public class RegBlocks {
         ACCELERATOR = registerBlockWithModel("innerdeco/accelerator/accelerator", () -> new BlockSideCustomModel( 0.6F), Core.ItemGroups.TAB_INNER_DECO);
         ACCELERATOR_CALC_BLOCK = registerBlockWithModel("innerdeco/accelerator/accl_calc_block", () -> new BlockSideCustomModel( 0.6F), Core.ItemGroups.TAB_INNER_DECO);
         ACCELERATOR_RINGS_END = registerBlockWithModel("innerdeco/accelerator/accl_rings_end", () -> new BlockSideCustomModel( 0.6F), Core.ItemGroups.TAB_INNER_DECO);
-        CONTROL_PANEL_UP = registerBlockWithModel("innerdeco/control_panel/cp_up", () -> new ControlTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        CONTROL_PANEL_DOWN = registerBlockWithModel("innerdeco/control_panel/cp_down", () -> new ControlTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        RUSTY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/rusty_handhold", () -> new RustyHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        BALCONY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/balcony_handhold", () -> new ThinHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        STREET_FENCE = registerBlockWithModel("innerdeco/handhold/street_handhold", () -> new ThinHandhold(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        HEAT_PIPES = registerBlockWithModel("innerdeco/heat_pipes", () -> new HeatPipes(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        HEAT_PIPES_CORNER = registerBlockWithModel("innerdeco/heat_pipes_corner", () -> new HeatPipesCorner(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        LAB_SINK = registerBlockWithModel("innerdeco/lab_sink", () -> new LabSink(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        KITCHEN_SINK = registerBlockWithModel("innerdeco/furniture/kitchen_sink", () -> new KitchenBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        ELECTRO_STOVE = registerBlockWithModel("innerdeco/furniture/electric_stove", () -> new KitchenBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        KITCHEN_TABLE= registerBlockWithModel("innerdeco/furniture/kitchen_table", () -> new KitchenTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        SINK = registerBlockWithModel("innerdeco/furniture/sink", () -> new Sink(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        SMALL_SINK = registerBlockWithModel("innerdeco/furniture/small_sink", () -> new SmallSink(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        TOILET = registerBlockWithModel("innerdeco/furniture/toilet", () -> new Toilet(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        BARB_WIRE = registerBlockWithModel("outerdeco/streetdeco/barb_wire", () -> new BarbWire(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_OUTER_DECO);
-        SPIRAL_BARB_WIRE = registerBlockWithModel("outerdeco/streetdeco/spiral_barb_wire", () -> new SpiralBarbWire(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_OUTER_DECO);
-        DSP_CHAIR = registerBlockWithModel("innerdeco/furniture/dsp_chair", () -> new DspChair(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        INFO_TABLE = registerBlockWithModel("innerdeco/devices/infotable", () -> new InfoTable(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        SMALL_BUTTON = registerBlockWithModel("innerdeco/devices/small_button", () -> new SmallButton(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        FRIDGE = registerOnlyCustomBlock("innerdeco/furniture/fridge", () -> new Fridge(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        DRESS_CABIN = registerOnlyCustomBlock("innerdeco/dress_cabin", () -> new DressCabin(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        HOME_PIPES = registerBlockWithModel("innerdeco/pipes/home_pipes", () -> new HomePipes(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        HOME_PIPES_BATTERY = registerBlockWithModel("innerdeco/pipes/home_pipes_battery", () -> new HomePipesBattery(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
-        CONTACT_WIRE_INNER = registerBlockWithModel("outerdeco/streetdeco/contact_wire_inner", () -> new ContactWireAngle(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL),1F), Core.ItemGroups.TAB_OUTER_DECO);
-        CONTACT_WIRE_OUTER = registerBlockWithModel("outerdeco/streetdeco/contact_wire_outer", () -> new ContactWireAngle(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL),1F), Core.ItemGroups.TAB_OUTER_DECO);
-        CIRCLE_FILTER = registerBlockWithModel("innerdeco/circle_filter", () -> new VentFilter(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
-        REST_FILTER = registerBlockWithModel("innerdeco/rest_filter", () -> new VentFilterRest(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
+        CONTROL_PANEL_UP = registerBlockWithModel("innerdeco/control_panel/cp_up", () -> new ControlTable(getP(Material.IRON, 1.3f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CONTROL_PANEL_DOWN = registerBlockWithModel("innerdeco/control_panel/cp_down", () -> new ControlTable(getP(Material.IRON, 1.3f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        RUSTY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/rusty_handhold", () -> new RustyHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        BALCONY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/balcony_handhold", () -> new ThinHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        STREET_FENCE = registerBlockWithModel("innerdeco/handhold/street_handhold", () -> new ThinHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        HEAT_PIPES = registerBlockWithModel("innerdeco/heat_pipes", () -> new HeatPipes(getP(Material.IRON, 1.2f,2.5f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        HEAT_PIPES_CORNER = registerBlockWithModel("innerdeco/heat_pipes_corner", () -> new HeatPipesCorner(getP(Material.IRON, 1.2f,2.5f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        LAB_SINK = registerBlockWithModel("innerdeco/lab_sink", () -> new LabSink(getP(Material.IRON, 0.8f,1.5f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        KITCHEN_SINK = registerBlockWithModel("innerdeco/furniture/kitchen_sink", () -> new KitchenBlock(getP(Material.IRON, 0.8f,1.5f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        ELECTRO_STOVE = registerBlockWithModel("innerdeco/furniture/electric_stove", () -> new KitchenBlock(getP(Material.IRON, 1.1f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        KITCHEN_TABLE= registerBlockWithModel("innerdeco/furniture/kitchen_table", () -> new KitchenTable(getP(Material.WOOD, 1f,1.2f,ToolType.AXE, 1, SoundType.WOOD, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SINK = registerBlockWithModel("innerdeco/furniture/sink", () -> new Sink(getP(Material.ROCK, 0.9f,0.5f, ToolType.PICKAXE, 1, SoundType.GLASS, false, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SMALL_SINK = registerBlockWithModel("innerdeco/furniture/small_sink", () -> new SmallSink(getP(Material.ROCK, 0.8f,0.5f, ToolType.PICKAXE, 1, SoundType.GLASS, false, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        TOILET = registerBlockWithModel("innerdeco/furniture/toilet", () -> new Toilet(getP(Material.ROCK, 0.8f,0.5f, ToolType.PICKAXE, 1, SoundType.GLASS, false, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        BARB_WIRE = registerBlockWithModel("outerdeco/streetdeco/barb_wire", () -> new BarbWire(getP(Material.IRON, 0.65f,1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        SPIRAL_BARB_WIRE = registerBlockWithModel("outerdeco/streetdeco/spiral_barb_wire", () -> new SpiralBarbWire(getP(Material.IRON, 0.9f,2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        DSP_CHAIR = registerBlockWithModel("innerdeco/furniture/dsp_chair", () -> new DspChair(getP(Material.WOOD, 0.7f,0.8f,ToolType.AXE, 1, SoundType.WOOD, false, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        SAFE = registerBlockWithModel("innerdeco/furniture/safe", () -> new BlockSafe(getP(Material.IRON, 9.65f,43f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        DSP_TUMB = registerBlockWithModel("innerdeco/furniture/dsp_tumb", () -> new DspTumbBlock(getP(Material.WOOD, 1f,1.2f,ToolType.AXE, 1, SoundType.WOOD, false, true)), Core.ItemGroups.TAB_INNER_DECO);
+        INFO_TABLE = registerBlockWithModel("innerdeco/devices/infotable", () -> new InfoTable(getP(Material.IRON, 0.6f,1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        SMALL_BUTTON = registerBlockWithModel("innerdeco/devices/small_button", () -> new SmallButton(getP(Material.IRON, 0.2f,0.3f,ToolType.PICKAXE, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_INNER_DECO);
+        FRIDGE = registerOnlyCustomBlock("innerdeco/furniture/fridge", () -> new Fridge(getP(Material.IRON, 1.0f,2f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        DRESS_CABIN = registerOnlyCustomBlock("innerdeco/dress_cabin", () -> new DressCabin(getP(Material.WOOD, 0.9f,1f,ToolType.AXE, 1, SoundType.CLOTH, false, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        HOME_PIPES = registerBlockWithModel("innerdeco/pipes/home_pipes", () -> new HomePipes(getP(Material.IRON, 1f,2f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        HOME_PIPES_BATTERY = registerBlockWithModel("innerdeco/pipes/home_pipes_battery", () -> new HomePipesBattery(getP(Material.IRON, 2f,4f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        CIRCLE_FILTER = registerBlockWithModel("innerdeco/circle_filter", () -> new VentFilter(getP(Material.IRON, 0.6f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true)), Core.ItemGroups.TAB_INNER_DECO);
+        REST_FILTER = registerBlockWithModel("innerdeco/rest_filter", () -> new VentFilterRest(getP(Material.IRON, 0.6f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true)), Core.ItemGroups.TAB_INNER_DECO);
 
         //outerdeco
-       HALF_CIRCLE_GRID = registerBlockWithModel("outerdeco/streetdeco/half_circle_grid", () -> new WindowGrid(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1), Core.ItemGroups.TAB_INNER_DECO);
-        DIAGONAL_GRID = registerBlockWithModel("outerdeco/streetdeco/diagonal_grid", () -> new WindowGrid(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1), Core.ItemGroups.TAB_INNER_DECO);
-        FULL_DIAGONAL_GRID = registerBlockWithModel("outerdeco/streetdeco/full_diagonal_grid", () -> new WindowGrid(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1), Core.ItemGroups.TAB_INNER_DECO);
-        FULL_DIAGONAL_GRID_INVERT = registerBlockWithModel("outerdeco/streetdeco/full_diagonal_grid_invert", () -> new WindowGrid(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1), Core.ItemGroups.TAB_INNER_DECO);
+        HALF_CIRCLE_GRID = registerBlockWithModel("outerdeco/streetdeco/half_circle_grid", () -> new WindowGrid(getP(Material.IRON, 1.6f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_INNER_DECO);
+        DIAGONAL_GRID = registerBlockWithModel("outerdeco/streetdeco/diagonal_grid", () -> new WindowGrid(getP(Material.IRON, 1.6f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_INNER_DECO);
+        FULL_DIAGONAL_GRID = registerBlockWithModel("outerdeco/streetdeco/full_diagonal_grid", () -> new WindowGrid(getP(Material.IRON, 1.4f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_INNER_DECO);
+        FULL_DIAGONAL_GRID_INVERT = registerBlockWithModel("outerdeco/streetdeco/full_diagonal_grid_invert", () -> new WindowGrid(getP(Material.IRON, 1.4f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_INNER_DECO);
 
         //phys devices
         EM_METER = registerBlockWithModel("innerdeco/devices/phys/em_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
@@ -316,33 +326,36 @@ public class RegBlocks {
         DIESEL_TANK = registerBlockWithModel("mech/diesel_tank", () -> new DieselTank(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
         DIESEL_E_GENERATOR = registerBlockWithModel("mech/diesel_electro_generator", () -> new DieselElectroGenerator(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
 
+
+        AbstractBlock.Properties TRIM_STONE_PROPERTIES = getP(Material.ROCK, 5.5f,15f,ToolType.PICKAXE, 2, SoundType.STONE, true, true);
         //trim_stone
         TRIM_TILE_1 = registerBlock("structural/trim_tile_1", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_TILE_1_BR = registerBlock("structural/trim_tile_1_br", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_1 = registerBlock("structural/trim_stone_1", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_2 = registerBlock("structural/trim_stone_2", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_3 = registerBlock("structural/trim_stone_3", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
-        TRIM_STONE_4 = registerBlock("structural/trim_stone_4", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_1 = registerBlock("structural/trim_stone_1", () -> new BaseBlock(TRIM_STONE_PROPERTIES),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_2 = registerBlock("structural/trim_stone_2", () -> new BaseBlock(TRIM_STONE_PROPERTIES),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_3 = registerBlock("structural/trim_stone_3", () -> new BaseBlock(TRIM_STONE_PROPERTIES),Core.ItemGroups.TAB_MAIN);
+        TRIM_STONE_4 = registerBlock("structural/trim_stone_4", () -> new BaseBlock(TRIM_STONE_PROPERTIES),Core.ItemGroups.TAB_MAIN);
         PARQUET_BLOCK = registerBlock("structural/parquet_block", () -> new WoodBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_TILE_RED = registerBlock("structural/trim_tile_red", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_TILE_BLUE = registerBlock("structural/trim_tile_blue", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_PLATE = registerBlock("structural/concrete_plate", () -> new BaseBlock(AbstractBlock.Properties.create(Material.ROCK)),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_PLATE = registerBlock("structural/concrete_plate", () -> new BaseBlock(TRIM_STONE_PROPERTIES),Core.ItemGroups.TAB_MAIN);
         CONTAINMENT_BLOCK = registerBlock("structural/containment_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_METAL_1 = registerBlock("structural/trim_metal_1", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_METAL_2 = registerBlock("structural/trim_metal_2", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
         LEADCERAMIC_TILE = registerBlock("structural/leadceramic_tile", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
 
 
-       //windproof
-       WINDPROOF_BETON_GRAY = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_gray", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.gray"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_RED = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_red", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.red"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_GREEN = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_green", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.green"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_ORANGE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_orange", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.orange"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_BLUE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_blue", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.blue"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_YELLOW = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_yellow", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.yellow"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_BEIGE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_beige", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.beige"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_BEIGE2 = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_beige2", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.beige2"), Core.ItemGroups.TAB_MAIN);
-       WINDPROOF_BETON_WHITE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_white", () -> new WindProofPanel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.STONE), 1, "info.white"), Core.ItemGroups.TAB_MAIN);
+        AbstractBlock.Properties WINDPROOF_PROPERTIES = getP(Material.ROCK, 2,1,ToolType.PICKAXE, 2, SoundType.STONE, true, true);
+        //windproof
+        WINDPROOF_BETON_GRAY = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_gray", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.gray"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_RED = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_red", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.red"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_GREEN = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_green", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.green"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_ORANGE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_orange", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.orange"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_BLUE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_blue", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.blue"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_YELLOW = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_yellow", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.yellow"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_BEIGE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_beige", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.beige"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_BEIGE2 = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_beige2", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.beige2"), Core.ItemGroups.TAB_MAIN);
+        WINDPROOF_BETON_WHITE = registerBlockWithModelColored("outerdeco/streetdeco/windproof_beton_white", () -> new WindProofPanel(WINDPROOF_PROPERTIES, 1, "info.white"), Core.ItemGroups.TAB_MAIN);
 
        //ceramic_glass
         CERAMIC_GLASS_BLUE = registerBlock("structural/ceramic_glass_blue", () -> new GlassBlock(),Core.ItemGroups.TAB_MAIN);
@@ -358,16 +371,18 @@ public class RegBlocks {
         LINO_6 = registerBlock("lino/lino6", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
         LINO_7 = registerBlock("lino/lino7", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
         LINO_8 = registerBlock("lino/lino8", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
+
+        AbstractBlock.Properties CONCRETE_RAILING_PROPERTIES = getP(Material.ROCK, 2,1,ToolType.PICKAXE, 2, SoundType.STONE, true, true);
         //concrete_railing
-        CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.orange", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_WHITE = registerBlockWithModel("structural/concrete_railing_white", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.white", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_GRAY = registerBlockWithModel("structural/concrete_railing_gray", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.gray", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_GREEN = registerBlockWithModel("structural/concrete_railing_green", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.green", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_RED = registerBlockWithModel("structural/concrete_railing_red", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.red", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_BLUE = registerBlockWithModel("structural/concrete_railing_blue", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.blue", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_BEIGE = registerBlockWithModel("structural/concrete_railing_beige", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.beige", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_BEIGE2 = registerBlockWithModel("structural/concrete_railing_beige2", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.beige2", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_YELLOW = registerBlockWithModel("structural/concrete_railing_yellow", () -> new BlockRotatedAxisCustomModelInfo(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(1f,4f).notSolid(), "info.yellow", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.orange", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_WHITE = registerBlockWithModel("structural/concrete_railing_white", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.white", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_GRAY = registerBlockWithModel("structural/concrete_railing_gray", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.gray", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_GREEN = registerBlockWithModel("structural/concrete_railing_green", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.green", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_RED = registerBlockWithModel("structural/concrete_railing_red", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.red", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_BLUE = registerBlockWithModel("structural/concrete_railing_blue", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.blue", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_BEIGE = registerBlockWithModel("structural/concrete_railing_beige", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.beige", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_BEIGE2 = registerBlockWithModel("structural/concrete_railing_beige2", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.beige2", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_YELLOW = registerBlockWithModel("structural/concrete_railing_yellow", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.yellow", 0.5F), Core.ItemGroups.TAB_MAIN);
 
         //beams
         IRON_BEAM_CONCRETE = registerBlockWithModel("structural/iron_beam_concrete", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_MAIN);
@@ -505,6 +520,17 @@ public class RegBlocks {
         WHITE_BRICKS_BR = registerBlock("brick/white_bricks_br", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
         SMALL_BRICKS = registerBlock("brick/small_bricks", () -> new BrickBlock(),Core.ItemGroups.TAB_MAIN);
 
+    }
+
+    public static AbstractBlock.Properties getP(Material mat, float hd, float rs, @Nullable ToolType ht, int hl, SoundType st, boolean reqTool, boolean notSolid) {
+        AbstractBlock.Properties BASE = AbstractBlock.Properties.create(mat).hardnessAndResistance(hd,rs).harvestTool(ht).harvestLevel(hl).sound(st);
+       if(reqTool) {
+           BASE = BASE.setRequiresTool();
+       }
+       if(notSolid) {
+           BASE = BASE.notSolid();
+       }
+        return BASE;
     }
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

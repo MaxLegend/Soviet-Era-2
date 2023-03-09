@@ -34,6 +34,9 @@ public class BlockInfo extends BaseBlock {
     }
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(info == null) {
+            return;
+        }
         tooltip.add(new TranslationTextComponent(info));
     }
 }

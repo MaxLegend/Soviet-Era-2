@@ -29,13 +29,15 @@ public class RegItems {
     public static final RegistryObject<Item> MORTAR = ITEMS.register("mortar", () -> new Mortar());
     public static final RegistryObject<Item> PESTLE = ITEMS.register("pestle", () -> new Pestle());
     public static final RegistryObject<Item> SIEVE = ITEMS.register("sieve", () -> new DamagebleItem());
+
+
     public static final RegistryObject<Item> LEAD_DUST = ITEMS.register("lead_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static final RegistryObject<Item> SMALL_LEAD_DUST = ITEMS.register("small_lead_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static final RegistryObject<Item> LEADCERAMIC_DUST = ITEMS.register("leadceramic_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
 
     public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static RegistryObject<Item> LEADCERAMIC_TILE;
-    public static RegistryObject<Item> KEY_DOOR, WRENCH;
+    public static RegistryObject<Item> KEY_DOOR, WRENCH, REDSTONE_GRINDER;
     public static RegistryObject<Item> VARIANT_ITEM;
 
     public static RegistryObject<Item> AUTOMATIC_RIFLE_5_45, AUTOMATIC_RIFLE_7_62, AMMO_7_62, AMMO_5_45;
@@ -57,6 +59,8 @@ public class RegItems {
 
         KEY_DOOR = registerItem2("key_door", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "key.key_door"));
         WRENCH = registerItem("wrench", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "wrench.info"));
+        REDSTONE_GRINDER = registerItem("redstone_grinder", () -> new RedstoneGrinder());
+
 
         PLATOL_INGOT = registerItem("platol_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         PLATOL_DUST = registerItem("platol_dust", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "platol.platol_dust"));

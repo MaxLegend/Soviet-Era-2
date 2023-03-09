@@ -21,6 +21,7 @@ public class Core {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         //   resMgr.addReloadListener(AssetPreLoader.INSTANCE);
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
         MinecraftForge.EVENT_BUS.register(this);
         RegItems.register(eventBus);
         RegRecipeSerializers.RECIPE_SERIALIZERS.register(eventBus);
@@ -32,6 +33,7 @@ public class Core {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
     }
+
 
     public static class ItemGroups {
         public static final ItemGroup TAB_MAIN = new ItemGroup("soviet_main") {

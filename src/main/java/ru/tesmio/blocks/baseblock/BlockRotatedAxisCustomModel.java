@@ -25,10 +25,10 @@ public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private float shadingInside;
     public BlockRotatedAxisCustomModel(float shadingInside) {
-        super(AbstractBlock.Properties.create(Material.IRON)
+        super(AbstractBlock.Properties.create(Material.ANVIL)
                 .setRequiresTool()
-                .hardnessAndResistance(1f,4f)
-                .notSolid().harvestTool(ToolType.PICKAXE)
+                .hardnessAndResistance(7f,4f)
+                .notSolid().harvestTool(ToolType.AXE)
                 .sound(SoundType.METAL));
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
     this.shadingInside = shadingInside;
