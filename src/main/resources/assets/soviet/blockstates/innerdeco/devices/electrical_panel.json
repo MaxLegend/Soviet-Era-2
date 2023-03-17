@@ -1,8 +1,12 @@
 {
     "variants": {
-        "facing=east":  { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 270},
-        "facing=west":  { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 90},
-        "facing=south": { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 0 },
-        "facing=north": { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 180 }
+        "facing=east,open=false":  { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 270},
+        "facing=west,open=false":  { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 90},
+        "facing=south,open=false": { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 0 },
+        "facing=north,open=false": { "model": "soviet:block/innerdeco/devices/electrical_panel", "y": 180 },
+        "facing=east,open=true":  { "model": "soviet:block/innerdeco/devices/electrical_panel_open", "y": 270},
+        "facing=west,open=true":  { "model": "soviet:block/innerdeco/devices/electrical_panel_open", "y": 90},
+        "facing=south,open=true": { "model": "soviet:block/innerdeco/devices/electrical_panel_open", "y": 0 },
+        "facing=north,open=true": { "model": "soviet:block/innerdeco/devices/electrical_panel_open", "y": 180 }
  }
 }

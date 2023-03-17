@@ -86,8 +86,7 @@ public class BlockRedstoneWire extends BlockCornerCustomModel {
                 BlockPos blockpos = pos.offset(direction);
                 BlockState blockstate = world.getBlockState(blockpos);
                 j = Math.max(j, this.getPower(blockstate));
-                BlockPos blockpos1 = pos.up();
-                if (blockstate.isNormalCube(world, blockpos) && !world.getBlockState(blockpos1).isNormalCube(world, blockpos1)) {
+                if (blockstate.isNormalCube(world, blockpos)) {
                     j = Math.max(j, this.getPower(world.getBlockState(blockpos.up())));
                 } else if (!blockstate.isNormalCube(world, blockpos)) {
                     j = Math.max(j, this.getPower(world.getBlockState(blockpos.down())));
@@ -151,7 +150,7 @@ public class BlockRedstoneWire extends BlockCornerCustomModel {
     }
 
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
-        if (this.canProvidePower && side != Direction.DOWN) {
+        if (this.canProvidePower) {
             int i = blockState.get(POWER);
             if (i == 0) {
                 return 0;

@@ -53,7 +53,6 @@ import java.util.function.Supplier;
 public class RegBlocks {
     public static final DeferredRegister<Block> ONLY_CUSTOM_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
-    public static final DeferredRegister<Block> BLOCKS_SYMBOL = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
     public static final DeferredRegister<Block> NOT_DEFAULT_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
     public static final DeferredRegister<Block> BLOCKS_CUSTOM_MODELS = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
     public static final DeferredRegister<Block> BLOCKS_CUSTOM_MODELS_COLORED = DeferredRegister.create(ForgeRegistries.BLOCKS, Core.MODID);
@@ -115,7 +114,7 @@ public class RegBlocks {
 
     public static RegistryObject<Block> SYS_BLOCK, COMPUTER, SPEC_MONITOR, TELEVISOR, SIREN, SMALL_COMPUTER, ELECTRICAL_PANEL, CRYOCAPSULE, AUTOCLAVE, BIOLAB_CHAIR, GAS_STOVE;
 
-   public static void init() {
+    public static void init() {
         Symbols.addSymbols();
         Symbols.addSymbolsName();
 

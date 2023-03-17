@@ -40,13 +40,13 @@ public class BrokenFluoLamp3 extends BlockRotatedAxisCustomModel {
         Item activeItemLeft = player.getHeldItemOffhand().getItem();
         if(activeItemRight == RegItems.FLUOLAMP.get()) {
             if(player.getHeldItemMainhand().getCount() >= 1) {
-                worldIn.setBlockState(pos, RegBlocks.FLUORESCENT_LAMP3.get().getDefaultState().with(FluoLamp.FACING, state.get(FACING)));
+                worldIn.setBlockState(pos, RegBlocks.FLUORESCENT_LAMP3.get().getDefaultState().with(FluoLamp.FACING, state.get(FACING)).with(FluoLamp.WATERLOGGED, state.get(WATERLOGGED)));
                 if(!player.isCreative()) player.getHeldItemMainhand().shrink(1);
                 return ActionResultType.SUCCESS;
             }
         } if(activeItemLeft == RegItems.FLUOLAMP.get()) {
             if(player.getHeldItemOffhand().getCount() >= 1) {
-                worldIn.setBlockState(pos, RegBlocks.FLUORESCENT_LAMP3.get().getDefaultState().with(FluoLamp.FACING, state.get(FACING)));
+                worldIn.setBlockState(pos, RegBlocks.FLUORESCENT_LAMP3.get().getDefaultState().with(FluoLamp.FACING, state.get(FACING)).with(FluoLamp.WATERLOGGED, state.get(WATERLOGGED)));
                 if(!player.isCreative()) player.getHeldItemOffhand().shrink(1);
                 return ActionResultType.SUCCESS;
             }

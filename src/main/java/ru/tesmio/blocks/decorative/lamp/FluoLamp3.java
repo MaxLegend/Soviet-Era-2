@@ -45,7 +45,7 @@ public class FluoLamp3 extends BlockRotatedAxisCustomModel {
         ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();
 
         if(activeItemRight.getItem() == RegItems.PULLER.get()) {
-            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP3.get().getDefaultState().with(BrokenFluoLamp3.FACING, state.get(FACING)));
+            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP3.get().getDefaultState().with(BrokenFluoLamp3.FACING, state.get(FACING)).with(FluoLamp.WATERLOGGED, state.get(WATERLOGGED)));
             if(!playerEntity.isCreative())activeItemRight.damageItem(1, playerEntity, (player) -> player.sendBreakAnimation(handIn));
             state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 1));
             return ActionResultType.SUCCESS;

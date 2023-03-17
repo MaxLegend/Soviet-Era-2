@@ -38,11 +38,11 @@ public class OneByOneRecipeSerializer<T extends OneByOneRecipe> extends ForgeReg
 
     @Override
     public T read(ResourceLocation recipeId, PacketBuffer buffer) {
-        ItemStack output = buffer.readItemStack();
         Ingredient input = Ingredient.read(buffer);
         int countInput = buffer.readInt();
         int countOutput = buffer.readInt();
         boolean oneByOne = buffer.readBoolean();
+        ItemStack output = buffer.readItemStack();
         return factory.create(recipeId, input, output, countInput, countOutput, oneByOne);
     }
 

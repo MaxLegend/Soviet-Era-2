@@ -80,7 +80,9 @@ public class VentPipe extends BlockCustomModel {
         boolean flag2 = connector == RegBlocks.BIOLAB_TABLE_CASE.get();
         boolean flag3 = connector == RegBlocks.CHEMLAB_TABLE_CASE.get();
         boolean flag4 = connector == RegBlocks.VENT_PIPE_BASE.get();
-        return flag1 || flag2 || flag3|| flag4;
+        boolean flag5 = connector == RegBlocks.CIRCLE_FILTER.get();
+        boolean flag6 = connector == RegBlocks.REST_FILTER.get();
+        return flag1 || flag2 || flag3|| flag4 || flag5|| flag6;
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(DEFAULT, NORTH, EAST, WEST, SOUTH, UP, DOWN, WATERLOGGED);

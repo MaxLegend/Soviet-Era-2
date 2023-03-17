@@ -22,7 +22,7 @@ public class BlockSideConnectUpDown extends BlockSideCustomModel {
         return updateState(w,p,s);
     }
     public EnumVariant getConnect(BlockState s, BlockPos p, IWorld w) {
-        EnumVariant var = EnumVariant.DEFAULT;;
+        EnumVariant var = EnumVariant.DEFAULT;
 
         if(w.getBlockState(p.up()).getBlock() instanceof BlockSideConnectUpDown) {
             if(w.getBlockState(p.up()).get(FACING) == s.get(FACING)) {

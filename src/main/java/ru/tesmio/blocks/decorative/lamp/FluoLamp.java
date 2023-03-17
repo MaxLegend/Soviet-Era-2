@@ -24,6 +24,7 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
@@ -60,7 +61,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
             return ActionResultType.SUCCESS;
         }
         if(activeItemRight.getItem() == RegItems.PULLER.get()) {
-            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP.get().getDefaultState().with(BrokenFluoLamp.FACING, state.get(FACING)));
+            worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP.get().getDefaultState().with(BrokenFluoLamp.FACING, state.get(FACING)).with(FluoLamp.WATERLOGGED, state.get(WATERLOGGED)));
             if(!playerEntity.isCreative())activeItemRight.damageItem(2, playerEntity, (player) -> player.sendBreakAnimation(handIn));
             state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegItems.FLUOLAMP.get(), 2));
             return ActionResultType.SUCCESS;
@@ -167,7 +168,9 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
     }
     @Override
     public BlockState updatePostPlacement(BlockState s, Direction f, BlockState bs, IWorld w, BlockPos p, BlockPos facingPos) {
-        return updateState((World)w,p,s);
+        if(w instanceof WorldGenRegion) return s;
+        return updateState((World) w, p, s);
+
     }
     public BlockState updateState(World w, BlockPos p, BlockState s) {
         if (w.isBlockPowered(p)) {

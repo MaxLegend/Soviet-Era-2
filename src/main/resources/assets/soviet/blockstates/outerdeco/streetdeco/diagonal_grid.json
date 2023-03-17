@@ -1,12 +1,16 @@
 {
     "variants": {
-        "facing=up_x": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 0, "y": 180},
-        "facing=up_z": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 0, "y": 90 },
-        "facing=down_x": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 180, "y": 0  },
-        "facing=down_z": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 180, "y": 90 },
-        "facing=east": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90, "y": 90 },
-        "facing=west": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90, "y": 270 },
-        "facing=south" : { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90, "y": 180 },
-        "facing=north" : { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90 }
+        "facing=up_w": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 270, "y": 270 },
+        "facing=up_n": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 270 },
+        "facing=up_e": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 270, "y": 90 },
+        "facing=up_s": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 270, "y": 180},
+        "facing=down_w": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90, "y": 270 },
+        "facing=down_n": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90 },
+        "facing=down_e": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90, "y": 90 },
+        "facing=down_s": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "x": 90, "y": 180},
+        "facing=east": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "y": 90  },
+        "facing=west": { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "y": 270 },
+        "facing=south" : { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid", "y": 180 },
+        "facing=north" : { "model": "soviet:block/outerdeco/streetdeco/diagonal_grid" }
     }
 }

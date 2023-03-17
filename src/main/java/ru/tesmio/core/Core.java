@@ -30,6 +30,7 @@ public class Core {
         RegContainers.CONTAINER_TYPES.register(eventBus);
         RegTileEntitys.TILE_ENTITY_TYPES.register(eventBus);
         RegSounds.SOUNDS.register(eventBus);
+        RegStructures.register(eventBus);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
     }
@@ -71,7 +72,7 @@ public class Core {
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {
-
+        RegStructures.setupStructures();
     }
 
     private void onClientSetup(FMLClientSetupEvent event) {
@@ -82,7 +83,10 @@ public class Core {
     private void processIMC(final InterModProcessEvent event) {}
     private void onDataSetup(GatherDataEvent event) {}
     @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {}
+    public void onServerStarting(FMLServerStartingEvent event) {
+
+    }
+
 //    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 //    public static class RegistryEvents {
 //        @SubscribeEvent
