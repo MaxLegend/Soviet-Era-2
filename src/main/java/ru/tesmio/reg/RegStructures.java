@@ -27,7 +27,7 @@ public class RegStructures {
 /* это изменяет начальное значение структуры, так что никакие две структуры не всегда появляются друг над другом.
 Сделайте это большим и уникальным. */
     public static void setupStructures() {
-        setupMapSpacingAndLand(PROCEDURAL_LABORATORY.get(), new StructureSeparationSettings(10,5, 1234567890),
+        setupMapSpacingAndLand(PROCEDURAL_LABORATORY.get(), new StructureSeparationSettings(15,5, 1234567890),
                 true);
     }
     /*
