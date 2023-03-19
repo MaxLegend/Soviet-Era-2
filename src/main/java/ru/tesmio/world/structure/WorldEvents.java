@@ -58,8 +58,8 @@ public class WorldEvents {
             // Adding our Structure to the Map
             Map<Structure<?>, StructureSeparationSettings> tempMap =
                     new HashMap<>(serverWorld.getChunkProvider().generator.func_235957_b_().func_236195_a_());
-            tempMap.putIfAbsent(RegStructures.UG_LAB_CORRIDOR_1.get(),
-                    DimensionStructuresSettings.field_236191_b_.get(RegStructures.UG_LAB_CORRIDOR_1.get()));
+            tempMap.putIfAbsent(RegStructures.PROCEDURAL_LABORATORY.get(),
+                    DimensionStructuresSettings.field_236191_b_.get(RegStructures.PROCEDURAL_LABORATORY.get()));
             serverWorld.getChunkProvider().generator.func_235957_b_().field_236193_d_ = tempMap;
         }
     }

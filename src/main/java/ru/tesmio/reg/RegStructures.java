@@ -20,14 +20,14 @@ public class RegStructures {
     public static final DeferredRegister<Structure<?>> STRUCTURES =
             DeferredRegister.create(ForgeRegistries.STRUCTURE_FEATURES, Core.MODID);
 
-    public static final RegistryObject<Structure<NoFeatureConfig>> UG_LAB_CORRIDOR_1 = STRUCTURES.register("ug_lab1", UndergroundLabsStructure::new);
+    public static final RegistryObject<Structure<NoFeatureConfig>> PROCEDURAL_LABORATORY = STRUCTURES.register("proc_lab", UndergroundLabsStructure::new);
 
     /* среднее расстояние между блоками между попытками возрождения */
     /* минимальное расстояние между блоками между попытками возрождения. ДОЛЖНО БЫТЬ МЕНЬШЕ УКАЗАННОГО ВЫШЕ ЗНАЧЕНИЯ*/
 /* это изменяет начальное значение структуры, так что никакие две структуры не всегда появляются друг над другом.
 Сделайте это большим и уникальным. */
     public static void setupStructures() {
-        setupMapSpacingAndLand(UG_LAB_CORRIDOR_1.get(), new StructureSeparationSettings(10,5, 1234567890),
+        setupMapSpacingAndLand(PROCEDURAL_LABORATORY.get(), new StructureSeparationSettings(10,5, 1234567890),
                 true);
     }
     /*

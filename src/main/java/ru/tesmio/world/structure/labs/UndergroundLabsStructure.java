@@ -1,6 +1,5 @@
 package ru.tesmio.world.structure.labs;
 
-import net.minecraft.util.Rotation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -11,7 +10,6 @@ import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
-import net.minecraft.world.gen.feature.structure.IglooPieces;
 import net.minecraft.world.gen.feature.structure.Structure;
 import net.minecraft.world.gen.feature.structure.StructureStart;
 import net.minecraft.world.gen.feature.template.TemplateManager;
@@ -47,8 +45,7 @@ public class UndergroundLabsStructure extends Structure<NoFeatureConfig> {
             int x = chunkX * 16;
             int z = chunkZ * 16;
             BlockPos blockpos = new BlockPos(x, 90, z);
-            Rotation rotation = Rotation.randomRotation(this.rand);
-            UndergroundLabsPieces.addPieces(tm, blockpos, rotation, this.components, this.rand);
+            UndergroundLabsPieces.addPieces(tm, blockpos, this.components);
             this.recalculateStructureSize();
         }
     }

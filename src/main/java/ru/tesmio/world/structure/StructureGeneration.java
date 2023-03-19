@@ -21,7 +21,7 @@ public class StructureGeneration {
       //  if(types.contains(BiomeDictionary.Type.PLAINS)) {
             List<Supplier<StructureFeature<?, ?>>> structures = event.getGeneration().getStructures();
 
-            structures.add(() -> RegStructures.UG_LAB_CORRIDOR_1.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
+            structures.add(() -> RegStructures.PROCEDURAL_LABORATORY.get().withConfiguration(IFeatureConfig.NO_FEATURE_CONFIG));
      //   }
     }
 }
