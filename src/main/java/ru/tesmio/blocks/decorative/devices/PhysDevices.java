@@ -37,7 +37,10 @@ public class PhysDevices extends BlockSideCustomModel {
                 Block.makeCuboidShape(0,0,0,16,6,14),
                 Block.makeCuboidShape(3,0,0,13,6,12),
                 Block.makeCuboidShape(2,1,2.5,14,16,14),
-                Block.makeCuboidShape(0,0,0,16,16,5)
+                Block.makeCuboidShape(0,0,0,16,16,5),
+                Block.makeCuboidShape(1, 0, 3.5, 15, 8, 11.5),
+                Block.makeCuboidShape(0, 0, 0, 16, 7, 14.5),
+                Block.makeCuboidShape(0, 0, 0, 16, 16, 14.5)
         };
         boolean slimDevices = s.getBlock() == RegBlocks.EM_METER.get() || s.getBlock() == RegBlocks.OM_METER.get() || s.getBlock() == RegBlocks.FREQUE_METER.get()|| s.getBlock() == RegBlocks.M_METER.get();
         boolean normalDevices = s.getBlock() == RegBlocks.A_METER.get() || s.getBlock() == RegBlocks.P_METER.get() || s.getBlock() == RegBlocks.W_METER.get()|| s.getBlock() == RegBlocks.V_METER.get()|| s.getBlock() == RegBlocks.K_METER.get();
@@ -65,6 +68,15 @@ public class PhysDevices extends BlockSideCustomModel {
         }
         if(s.getBlock() == RegBlocks.GEIGER_STATIC.get()) {
             return SHP[7];
+        }
+        if(s.getBlock() == RegBlocks.STANDART_SIGNAL_GEN.get()) {
+            return SHP[8];
+        }
+        if(s.getBlock() == RegBlocks.PULT3.get()) {
+            return SHP[9];
+        }
+        if(s.getBlock() == RegBlocks.PULT2.get() || s.getBlock() == RegBlocks.PULT1.get()|| s.getBlock() == RegBlocks.PULT.get()) {
+            return SHP[10];
         }
         return VoxelShapes.fullCube();
     }

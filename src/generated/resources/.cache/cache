@@ -433,6 +433,10 @@ d6832dc92a931aeb903b24517d26b2b31d6d5171 assets/soviet/models/item/innerdeco/dev
 16cd8648ad139a5ddaebb1a88692c211b84e5058 assets/soviet/models/item/innerdeco/devices/phys/assigner_block.json
 532dad456b1789e1114808850bcdaaec188fb42e assets/soviet/models/item/innerdeco/devices/phys/autowriter.json
 58257f7540051c673d74c2153b0781cb27f214ac assets/soviet/models/item/innerdeco/devices/phys/controller.json
+d28c3cad7fee31fac2011e764a7a88c13771d2b7 assets/soviet/models/item/innerdeco/devices/phys/coulometric_integrator.json
+07d2ca4dd68c85e665380c93a20165b0d0453911 assets/soviet/models/item/innerdeco/devices/phys/coulometric_integrator2.json
+629dd122916baba906b020111310b3783d53796f assets/soviet/models/item/innerdeco/devices/phys/e_converter.json
+4e2a8bb62ce980d0fb3a55e733d7596125ee93a6 assets/soviet/models/item/innerdeco/devices/phys/e_tester.json
 0b3b245554ef0c41541f9db80c7b7b93050070b2 assets/soviet/models/item/innerdeco/devices/phys/em_meter.json
 7cac60e9088c0858ca1bafbdae4aba19274aecce assets/soviet/models/item/innerdeco/devices/phys/freque_analisator.json
 02d980da298c0bd9ea03316d651cc70916167422 assets/soviet/models/item/innerdeco/devices/phys/freque_meter.json
@@ -442,8 +446,15 @@ c4ef3d742b8f64eb92fc1cc384bf9bd2d01ba5fa assets/soviet/models/item/innerdeco/dev
 1f8871bc5adbf4c4f7beacba9b112f9d8e388b2b assets/soviet/models/item/innerdeco/devices/phys/om_meter.json
 f639125b4aec20181b973f40c9898484702271ab assets/soviet/models/item/innerdeco/devices/phys/oscilloscope.json
 8cdfa9d4fb945d64e9b9efdf99b6d8db6c21371c assets/soviet/models/item/innerdeco/devices/phys/p_meter.json
+2183bb638483e90fff6257a10b087c004df37823 assets/soviet/models/item/innerdeco/devices/phys/sound_power_amplifier.json
+cf446daa99ad2695e6864f8ed2f2419c9b8e38cf assets/soviet/models/item/innerdeco/devices/phys/standart_signal_gen.json
 394fad52d0797685edd90a10464d51cfc1e19148 assets/soviet/models/item/innerdeco/devices/phys/v_meter.json
 9d165acf13858153aeac75fcc8571b918385d7f2 assets/soviet/models/item/innerdeco/devices/phys/w_meter.json
+e2a94d465b90d3408969f7d8c7a320923ff2bc35 assets/soviet/models/item/innerdeco/devices/phys/wavemeter.json
+66e3c6c05ecc5fcda8c9f58efd20595363602c2b assets/soviet/models/item/innerdeco/devices/pult.json
+cd88ee51869eb8d55e3397b97c9926678ad77d9d assets/soviet/models/item/innerdeco/devices/pult1.json
+db8012b6153b61b8198891260e09c26cf70dce3b assets/soviet/models/item/innerdeco/devices/pult2.json
+d85d334d8d9539196f6ec0f5ce95c8baf76541f5 assets/soviet/models/item/innerdeco/devices/pult3.json
 716c2da54e6a8db5cf44144d11aa7b0d91a1a52a assets/soviet/models/item/innerdeco/devices/redstone_wire.json
 a9829d2ea14baced6f301fad3b2cc69f6ec996f5 assets/soviet/models/item/innerdeco/devices/siren.json
 48d2e1289d8174056c1d2fd22f830fa052a15b36 assets/soviet/models/item/innerdeco/devices/small_button.json
@@ -452,6 +463,7 @@ a9829d2ea14baced6f301fad3b2cc69f6ec996f5 assets/soviet/models/item/innerdeco/dev
 e15193f1206ed63e3a63acb031cae9920816ac2c assets/soviet/models/item/innerdeco/devices/sys_block.json
 8e8d44f43899f54f4b6cde938d6a2ff4c76557a5 assets/soviet/models/item/innerdeco/devices/televisor.json
 01ee002f310e4e1551e25f61b089c5a32ead2555 assets/soviet/models/item/innerdeco/devices/turnstile_off.json
+0fbefa518e6aca8ae249af67884619603abe16cb assets/soviet/models/item/innerdeco/devices/welding_machine.json
 8b3b872e85687755b61439fff2a12bc26e6bde56 assets/soviet/models/item/innerdeco/floor_grid.json
 63c42a898eb58f209e3f12ab561041e48a75bf69 assets/soviet/models/item/innerdeco/furniture/bio_power_socket.json
 1ee371435dd03c482e7154a1de9f9a0f2c4cc2a2 assets/soviet/models/item/innerdeco/furniture/bio_tumbler.json
@@ -530,6 +542,7 @@ f02a6b920e6ef2702ff5c6433581c919f49097ed assets/soviet/models/item/mech/diesel_g
 4e9ca372c3186f8c6048dc18c779dedcf52cb1df assets/soviet/models/item/mosaictile/tile_mosaic_1.json
 8184ecb3944c31cdc6faa99a4b1b9d972edca521 assets/soviet/models/item/mosaictile/tile_mosaic_2.json
 d90674569d975912ed628c31b320b7513131f6c2 assets/soviet/models/item/netherite_dust.json
+68b81c140f7089c3b8026dec5f972b2d7240152e assets/soviet/models/item/outerdeco/block_moss.json
 f1a51ad57aa001859a79eaac89020aeae6c349dc assets/soviet/models/item/outerdeco/factory_window.json
 c989f043d3c3265cbb61d5d91eeeddaac8513ce4 assets/soviet/models/item/outerdeco/factory_window_empty.json
 8d48a796ed6e2fd44a5bb411cb18d0e770141393 assets/soviet/models/item/outerdeco/fences/concrete_fence_base.json

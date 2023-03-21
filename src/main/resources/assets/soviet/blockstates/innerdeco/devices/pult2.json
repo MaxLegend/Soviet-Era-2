@@ -1,0 +1,9 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/innerdeco/devices/pult2", "y": 270},
+        "facing=west":  { "model": "soviet:block/innerdeco/devices/pult2", "y": 90},
+        "facing=south": { "model": "soviet:block/innerdeco/devices/pult2", "y": 0 },
+        "facing=north": { "model": "soviet:block/innerdeco/devices/pult2", "y": 180 }
+    }
+}
+

@@ -28,11 +28,11 @@ import ru.tesmio.utils.VoxelShapeUtil;
 
 public class FactoryWindow extends BlockSideCustomModel {
     public FactoryWindow(float shadingInside) {
-        super(AbstractBlock.Properties.create(Material.WOOL)
+        super(AbstractBlock.Properties.create(Material.GLASS)
                 .setRequiresTool()
                 .hardnessAndResistance(1f,2f)
-                .harvestTool(ToolType.AXE)
-                .sound(SoundType.CLOTH), shadingInside);
+                .harvestTool(ToolType.PICKAXE)
+                .sound(SoundType.GLASS), shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
