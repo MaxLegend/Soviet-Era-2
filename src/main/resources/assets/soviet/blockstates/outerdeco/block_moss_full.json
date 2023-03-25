@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=up_w": { "model": "soviet:block/outerdeco/block_moss_full", "x": 270, "y": 270 },
+        "facing=up_n": { "model": "soviet:block/outerdeco/block_moss_full", "x": 270 },
+        "facing=up_e": { "model": "soviet:block/outerdeco/block_moss_full", "x": 270, "y": 90 },
+        "facing=up_s": { "model": "soviet:block/outerdeco/block_moss_full", "x": 270, "y": 180},
+        "facing=down_w": { "model": "soviet:block/outerdeco/block_moss_full", "x": 90, "y": 270 },
+        "facing=down_n": { "model": "soviet:block/outerdeco/block_moss_full", "x": 90 },
+        "facing=down_e": { "model": "soviet:block/outerdeco/block_moss_full", "x": 90, "y": 90 },
+        "facing=down_s": { "model": "soviet:block/outerdeco/block_moss_full", "x": 90, "y": 180},
+        "facing=east": { "model": "soviet:block/outerdeco/block_moss_full", "y": 90  },
+        "facing=west": { "model": "soviet:block/outerdeco/block_moss_full", "y": 270 },
+        "facing=south" : { "model": "soviet:block/outerdeco/block_moss_full", "y": 180 },
+        "facing=north" : { "model": "soviet:block/outerdeco/block_moss_full" }
+    }
+}
