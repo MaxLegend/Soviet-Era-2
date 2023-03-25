@@ -19,6 +19,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 
 public class InfoTable extends BlockSideCustomModel {
@@ -54,6 +55,7 @@ public class InfoTable extends BlockSideCustomModel {
         if (stateIn.get(WATERLOGGED)) {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
+        if(worldIn instanceof WorldGenRegion) return stateIn;
         return updateState((World) worldIn, currentPos,stateIn);
     }
     public BlockState updateState(World w, BlockPos p, BlockState s) {

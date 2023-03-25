@@ -47,6 +47,12 @@ public class AirlockDoorController extends BlockSideCustomModel {
 
         return ActionResultType.FAIL;
     }
+
+    @Override
+    public VoxelShape getFacingShape(BlockState s) {
+        return Block.makeCuboidShape(0,0,2,16,16,14);
+    }
+
     public int getStrongPower(BlockState state, IBlockReader br, BlockPos p, Direction s) {
         if(state.get(STATUS) == EnumStatus.POWERED) {
             return 15;

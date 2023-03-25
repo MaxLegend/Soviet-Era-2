@@ -16,6 +16,7 @@ import ru.tesmio.utils.VoxelShapeUtil;
 
 public class WindowGrid extends BlockRotatedAllSideCM {
     public WindowGrid(Properties builder, float shadingInside) {
+
         super(builder, shadingInside);
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

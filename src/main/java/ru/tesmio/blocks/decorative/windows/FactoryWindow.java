@@ -6,8 +6,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
@@ -36,11 +37,13 @@ public class FactoryWindow extends BlockSideCustomModel {
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
-        if(e instanceof ProjectileEntity) {
-            BlockState s2 = w.getBlockState(p);
-            if(s2.getBlock() == RegBlocks.FACTORY_WINDOW.get()) {
-                w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                w.setBlockState(p, RegBlocks.FACTORY_WINDOW_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(WATERLOGGED, s.get(WATERLOGGED)));
+        if(!(e instanceof LivingEntity)) {
+            if(!(e instanceof ItemEntity)) {
+                BlockState s2 = w.getBlockState(p);
+                if (s2.getBlock() == RegBlocks.FACTORY_WINDOW.get()) {
+                    w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    w.setBlockState(p, RegBlocks.FACTORY_WINDOW_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                }
             }
         }
     }

@@ -31,148 +31,61 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Tesmio
  */
 public class UndergroundLabsPieces {
+    private static final ResourceLocation stairsTop = new ResourceLocation("soviet:proc_lab/fragment_stairs_top");
+    private static final ResourceLocation stairsMid = new ResourceLocation("soviet:proc_lab/fragment_stairs_mid");
+    private static final ResourceLocation stairsDown = new ResourceLocation("soviet:proc_lab/fragment_stairs_down");
     private static final ResourceLocation tripleFragment = new ResourceLocation("soviet:proc_lab/fragment_triple");
     private static final ResourceLocation tripleFragmentMirrored = new ResourceLocation("soviet:proc_lab/fragment_triple_mir");
     private static final ResourceLocation quadFragment = new ResourceLocation("soviet:proc_lab/fragment_quad");
     private static final ResourceLocation cornerFragment = new ResourceLocation("soviet:proc_lab/fragment_corner");
     private static final ResourceLocation cornerFragmentMirrored = new ResourceLocation("soviet:proc_lab/fragment_corner_mir");
-    private static final ResourceLocation linearFragment = new ResourceLocation("soviet:proc_lab/fragment_linear");
-    private static final ResourceLocation linearFragmentWithBattery = new ResourceLocation("soviet:proc_lab/fragment_linear_bat");
+    private static final ResourceLocation linearFragment1 = new ResourceLocation("soviet:proc_lab/fragment_linear1");
     private static final ResourceLocation linearFragment2 = new ResourceLocation("soviet:proc_lab/fragment_linear2");
     private static final ResourceLocation linearFragment3 = new ResourceLocation("soviet:proc_lab/fragment_linear3");
+    private static final ResourceLocation linearFragment4 = new ResourceLocation("soviet:proc_lab/fragment_linear4");
 
     static IStructurePieceType UG_LABS_PIECES = IStructurePieceType.register(UndergroundLabsPieces.Piece::new, "soviet:proc_lab");
-//    private static final Map<ResourceLocation, BlockPos> POOL = ImmutableMap.of(
-//            linearFragment, BlockPos.ZERO,
-//            linearFragmentWithBattery, BlockPos.ZERO,
-//            linearFragmentWithLamp1, BlockPos.ZERO,
-//            linearFragmentWithLamp2, BlockPos.ZERO
-//            );
+
     private static final Map<ResourceLocation, BlockPos> POOL = new HashMap<>();
 
     public static void putValueInMap() {
-        POOL.put(linearFragment, BlockPos.ZERO);
+        POOL.put(linearFragment1, BlockPos.ZERO);
         POOL.put(tripleFragment, BlockPos.ZERO);
         POOL.put(tripleFragmentMirrored, BlockPos.ZERO);
         POOL.put(quadFragment, BlockPos.ZERO);
         POOL.put(cornerFragment, BlockPos.ZERO);
         POOL.put(cornerFragmentMirrored, BlockPos.ZERO);
-        POOL.put(linearFragmentWithBattery, BlockPos.ZERO);
         POOL.put(linearFragment2, BlockPos.ZERO);
         POOL.put(linearFragment3, BlockPos.ZERO);
+        POOL.put(linearFragment4, BlockPos.ZERO);
+        POOL.put(stairsMid, BlockPos.ZERO);
+        POOL.put(stairsTop, BlockPos.ZERO);
+        POOL.put(stairsDown, BlockPos.ZERO);
     }
     static int lenthFragment = 5;
+    public static void addPieces(TemplateManager tm, BlockPos bPos, List<StructurePiece> listPieces) {
+        finalBuildCorridors(tm, bPos, listPieces);
+        finalBuildStairs(tm, bPos, listPieces);
+    }
+    public static void finalBuildStairs(TemplateManager tm, BlockPos bPos, List<StructurePiece> listPieces) {
+        listPieces.add(new UndergroundLabsPieces.Piece(tm, stairsDown, bPos, Rotation.NONE,Mirror.NONE, 8,0,4));
+        UndergroundLabsPieces.Piece lf = (UndergroundLabsPieces.Piece) listPieces.get(listPieces.size() - 1);
+        listPieces.add(new UndergroundLabsPieces.Piece(tm, stairsMid, bPos, Rotation.NONE,Mirror.NONE, 8,0,4));
+        listPieces.add(new UndergroundLabsPieces.Piece(tm, stairsTop, bPos, Rotation.NONE,Mirror.NONE, 8,0,-1));
 
-    /**
-     * Method of generating straight corridors.
-     * @param tm Template Manager
-     * @param p Position Template
-     * @param l List of pieces
-     * @param ax Corridor generation axis
-     * @param dirCorrection Sets the direction of the corridor. May be 1 or -1
-     */
-    public static int genCorridor(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction.Axis ax, int dirCorrection, int yCorrection, int xCorrection, int zCorrection) {
-        ThreadLocalRandom tr = ThreadLocalRandom.current();
-        int randLin = tr.nextInt(6,14);
-        int randRare = tr.nextInt(50);
-
-        int finishPZ = 0;
-        int finishPX = 0;
-        if(ax == Direction.Axis.Z) {
-            for (int pZ = 4; pZ < randLin * lenthFragment; pZ += lenthFragment) {
-                l.add(new UndergroundLabsPieces.Piece(tm, linearFragment, p, Rotation.NONE, Mirror.NONE, xCorrection, yCorrection, zCorrection + pZ * dirCorrection));
-
-                if (pZ == randRare) {
-                    l.add(new UndergroundLabsPieces.Piece(tm, linearFragmentWithBattery, p, Rotation.NONE, Mirror.NONE, xCorrection, yCorrection,  zCorrection +pZ * dirCorrection));
-                }
-                if (pZ == randRare) {
-                    l.add(new UndergroundLabsPieces.Piece(tm, linearFragment2, p, Rotation.NONE, Mirror.NONE, xCorrection, yCorrection,  zCorrection +pZ * dirCorrection));
-                }
-                if (pZ == randRare) {
-                    l.add(new UndergroundLabsPieces.Piece(tm, linearFragment3, p, Rotation.NONE, Mirror.NONE, xCorrection, yCorrection,  zCorrection +pZ * dirCorrection));
-
-                }
-
-                finishPZ = zCorrection + pZ * dirCorrection;
-
-            }
-            return finishPZ;
-        }
-        if(ax == Direction.Axis.X) {
-            for (int pX = 4; pX < randLin * lenthFragment; pX += lenthFragment) {
-                l.add(new UndergroundLabsPieces.Piece(tm, linearFragment, p, Rotation.CLOCKWISE_90, Mirror.NONE, xCorrection + 4 + pX * dirCorrection, yCorrection, zCorrection));
-                if (pX == randRare) {
-                    l.add(new UndergroundLabsPieces.Piece(tm, linearFragmentWithBattery, p, Rotation.CLOCKWISE_90, Mirror.NONE, xCorrection + 4 + pX * dirCorrection, yCorrection, zCorrection));
-
-                }
-                if (pX == randRare) {
-                    l.add(new UndergroundLabsPieces.Piece(tm, linearFragment2, p, Rotation.CLOCKWISE_90, Mirror.NONE, xCorrection + 4 + pX * dirCorrection, yCorrection, zCorrection));
-
-                }
-                if (pX == randRare) {
-                    l.add(new UndergroundLabsPieces.Piece(tm, linearFragment3, p, Rotation.CLOCKWISE_90, Mirror.NONE, xCorrection + 4 + pX * dirCorrection, yCorrection, zCorrection));
-
-                }
-                finishPX = xCorrection + 4 + pX * dirCorrection;
-
-            }
-
-            return finishPX;
-
-        }
-        return 0;
     }
 
-    public static void genQuadNode(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction d, int finishValue) {
-        if(d == Direction.SOUTH) {
-            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.CLOCKWISE_180, Mirror.NONE, 4, 0, 9 + finishValue));
-        }
-        if(d == Direction.NORTH) {
-            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.NONE, Mirror.NONE, 0, 0,  finishValue));
-        }
-        if(d == Direction.WEST) {
 
-            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.NONE, Mirror.NONE, finishValue, 0,  0));
-        }
-        if(d == Direction.EAST) {
-            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.NONE, Mirror.NONE, finishValue, 0,  0));
-        }
-    }
-    public static void genTripleNode(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction d, int finishValue, Rotation rot, int zCorrection, int xCorrection) {
-        if(d == Direction.SOUTH) {
-            l.add(new UndergroundLabsPieces.Piece(tm, tripleFragment, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
-        }
-        if(d == Direction.NORTH) {
-            l.add(new UndergroundLabsPieces.Piece(tm, tripleFragment, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
-        }
-        if(d == Direction.WEST) {
-            l.add(new UndergroundLabsPieces.Piece(tm, tripleFragmentMirrored, p, rot, Mirror.NONE, 4 + xCorrection + finishValue, 0,  zCorrection));
-        }
-    }
-    public static void genCornerNode(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction d, int finishValue, Rotation rot, int zCorrection, int xCorrection) {
-        if(d == Direction.SOUTH) {
-            l.add(new UndergroundLabsPieces.Piece(tm, cornerFragment, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
-        }
-        if(d == Direction.NORTH) {
-            l.add(new UndergroundLabsPieces.Piece(tm, cornerFragmentMirrored, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
-        }
-        if(d == Direction.WEST) {
-            l.add(new UndergroundLabsPieces.Piece(tm, cornerFragment, p, rot, Mirror.NONE, 4 + finishValue + xCorrection, 0, 9 + zCorrection));
-        }
-    }
-
-    public static void finalBuild(TemplateManager tm, BlockPos bPos, List<StructurePiece> listPieces) {
+    public static void finalBuildCorridors(TemplateManager tm, BlockPos bPos, List<StructurePiece> listPieces) {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
         //init node
         listPieces.add(new UndergroundLabsPieces.Piece(tm, quadFragment, bPos, Rotation.NONE,Mirror.NONE, 0,0,0));
         //gen south wing labs
         {
-
             genCorridor(tm, bPos, listPieces, Direction.Axis.Z, 1,0,0,0);
             int finishV = genCorridor(tm, bPos, listPieces, Direction.Axis.Z, 1,0,0,0);
             int randomNode = tr.nextInt(0,3);
             if(randomNode == 0) {
-
                 genQuadNode(tm, bPos, listPieces, Direction.SOUTH, finishV);
                 UndergroundLabsPieces.Piece lf = (UndergroundLabsPieces.Piece) listPieces.get(listPieces.size() - 1);
                 {
@@ -287,22 +200,100 @@ public class UndergroundLabsPieces {
 
 
 
+    /**
+     * Method of generating straight corridors.
+     * @param tm Template Manager
+     * @param p Position Template
+     * @param l List of pieces
+     * @param ax Corridor generation axis
+     * @param dirCorrection Sets the direction of the corridor. May be 1 or -1
+     */
+    public static int genCorridor(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction.Axis ax, int dirCorrection, int yCorrection, int xCorrection, int zCorrection) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        int randLin = tr.nextInt(6,14);
+        int randRare = tr.nextInt(4);
+        ResourceLocation linear[] = new ResourceLocation[] {
+                linearFragment1,
+                linearFragment2,
+                linearFragment3,
+                linearFragment4
+        };
+        int finishPZ = 0;
+        int finishPX = 0;
+        if(ax == Direction.Axis.Z) {
+            for (int pZ = 4; pZ < randLin * lenthFragment; pZ += lenthFragment) {
+                l.add(new UndergroundLabsPieces.Piece(tm, linear[tr.nextInt(4)], p, Rotation.NONE, Mirror.NONE, xCorrection, yCorrection, zCorrection + pZ * dirCorrection));
+                finishPZ = zCorrection + pZ * dirCorrection;
 
+            }
+            return finishPZ;
+        }
+        if(ax == Direction.Axis.X) {
+            for (int pX = 4; pX < randLin * lenthFragment; pX += lenthFragment) {
+                l.add(new UndergroundLabsPieces.Piece(tm, linear[tr.nextInt(4)], p, Rotation.CLOCKWISE_90, Mirror.NONE, xCorrection + 4 + pX * dirCorrection, yCorrection, zCorrection));
+                finishPX = xCorrection + 4 + pX * dirCorrection;
 
-    public static void addPieces(TemplateManager tm, BlockPos bPos, List<StructurePiece> listPieces) {
-        finalBuild(tm, bPos, listPieces);
+            }
+
+            return finishPX;
+
+        }
+        return 0;
     }
+
+    public static void genQuadNode(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction d, int finishValue) {
+        if(d == Direction.SOUTH) {
+            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.CLOCKWISE_180, Mirror.NONE, 4, 0, 9 + finishValue));
+        }
+        if(d == Direction.NORTH) {
+            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.NONE, Mirror.NONE, 0, 0,  finishValue));
+        }
+        if(d == Direction.WEST) {
+
+            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.NONE, Mirror.NONE, finishValue, 0,  0));
+        }
+        if(d == Direction.EAST) {
+            l.add(new UndergroundLabsPieces.Piece(tm, quadFragment, p, Rotation.NONE, Mirror.NONE, finishValue, 0,  0));
+        }
+    }
+    public static void genTripleNode(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction d, int finishValue, Rotation rot, int zCorrection, int xCorrection) {
+        if(d == Direction.SOUTH) {
+            l.add(new UndergroundLabsPieces.Piece(tm, tripleFragment, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
+        }
+        if(d == Direction.NORTH) {
+            l.add(new UndergroundLabsPieces.Piece(tm, tripleFragment, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
+        }
+        if(d == Direction.WEST) {
+            l.add(new UndergroundLabsPieces.Piece(tm, tripleFragmentMirrored, p, rot, Mirror.NONE, 4 + xCorrection + finishValue, 0,  zCorrection));
+        }
+    }
+    public static void genCornerNode(TemplateManager tm, BlockPos p, List<StructurePiece> l, Direction d, int finishValue, Rotation rot, int zCorrection, int xCorrection) {
+        if(d == Direction.SOUTH) {
+            l.add(new UndergroundLabsPieces.Piece(tm, cornerFragment, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
+        }
+        if(d == Direction.NORTH) {
+            l.add(new UndergroundLabsPieces.Piece(tm, cornerFragmentMirrored, p, rot, Mirror.NONE, 4 + xCorrection, 0, 9 + finishValue + zCorrection));
+        }
+        if(d == Direction.WEST) {
+            l.add(new UndergroundLabsPieces.Piece(tm, cornerFragment, p, rot, Mirror.NONE, 4 + finishValue + xCorrection, 0, 9 + zCorrection));
+        }
+    }
+
+
 
     public static class Piece extends TemplateStructurePiece {
         private final ResourceLocation location;
         private final Rotation rot;
         private final Mirror mir;
+
         private int xCorrection,yCorrection,zCorrection;
+
         public Piece(TemplateManager tm, ResourceLocation rs, BlockPos bp, Rotation rot, Mirror mir, int xCorrection, int yCorrection, int zCorrection) {
             super(UG_LABS_PIECES, 0);
             putValueInMap();
             this.location = rs;
             this.rot = rot;
+
             this.mir = mir;
             BlockPos blockpos = POOL.get(rs);
             this.templatePosition = bp.add(blockpos.getX() + xCorrection, blockpos.getY() + yCorrection, blockpos.getZ() + zCorrection);
@@ -311,6 +302,7 @@ public class UndergroundLabsPieces {
             this.yCorrection = yCorrection;
             this.tempMngSetup(tm);
         }
+
 
         public Piece(TemplateManager tm, CompoundNBT nbt) {
             super(UG_LABS_PIECES, nbt);
@@ -334,8 +326,8 @@ public class UndergroundLabsPieces {
         public BlockPos getTemplatePosition() {
             return templatePosition;
         }
-        private void tempMngSetup(TemplateManager p_207614_1_) {
-            Template template = p_207614_1_.getTemplateDefaulted(this.location);
+        private void tempMngSetup(TemplateManager tm) {
+            Template template = tm.getTemplateDefaulted(this.location);
             PlacementSettings placementsettings = (
                     new PlacementSettings())
                     .setRotation(this.rot)
@@ -361,10 +353,32 @@ public class UndergroundLabsPieces {
             if(blockpos == null) return false;
             BlockPos blockpos1 = this.templatePosition.add(
             Template.transformedBlockPos(ps, new BlockPos(blockpos.getX(), 0, blockpos.getZ())));
-            int i = sr.getHeight(Heightmap.Type.MOTION_BLOCKING, blockpos1.getX(), blockpos1.getZ());
-            BlockPos blockpos2 = this.templatePosition;
-            this.templatePosition = this.templatePosition.add(0, 0, 0);
-            boolean flag = super.func_230383_a_(sr, sm, cg, r, mbb, cp, bp);
+            int i = sr.getHeight(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
+            BlockPos blockpos2;
+
+       //     ThreadLocalRandom tr = ThreadLocalRandom.current();
+          //  int rH = tr.nextInt(45,35);
+            blockpos2 = this.templatePosition;
+       //     this.templatePosition = this.templatePosition.add(0, -74, 0);
+            //мне нужна высота от сгенерировавшего куска до поверхности земли.
+        //    System.out.println(location);
+            boolean flag = false;
+
+            if(this.location == stairsMid) {
+
+                for (int y2 = 0; y2 < i - 22; y2 += 4) {
+                    this.templatePosition = new BlockPos(this.templatePosition.getX(), 21, this.templatePosition.getZ());
+                    this.templatePosition = this.templatePosition.add(0, y2, 0);
+                    flag = super.func_230383_a_(sr, sm, cg, r, mbb, cp, bp);
+
+                }
+            } else if(this.location == stairsTop) {
+                this.templatePosition = this.templatePosition.add(0, i-92, 0);
+                flag = super.func_230383_a_(sr, sm, cg, r, mbb, cp, bp);
+            } else {
+                this.templatePosition = this.templatePosition.add(0, -74, 0);
+                flag = super.func_230383_a_(sr, sm, cg, r, mbb, cp, bp);
+            }
             this.templatePosition = blockpos2;
             return flag;
         }

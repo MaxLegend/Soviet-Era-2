@@ -3,8 +3,9 @@ package ru.tesmio.blocks.decorative.windows;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
@@ -41,11 +42,13 @@ public class AlumFrame extends BlockSideConnectUpDown {
         super(properties, 1F);
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
-        if(e instanceof ProjectileEntity) {
-            BlockState s2 = w.getBlockState(p);
-            if(s2.getBlock() == RegBlocks.ALUM_FRAMES.get()) {
-                w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                w.setBlockState(p, RegBlocks.ALUM_FRAMES_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+        if(!(e instanceof LivingEntity)) {
+            if(!(e instanceof ItemEntity)) {
+                BlockState s2 = w.getBlockState(p);
+                if (s2.getBlock() == RegBlocks.ALUM_FRAMES.get()) {
+                    w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    w.setBlockState(p, RegBlocks.ALUM_FRAMES_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                }
             }
         }
     }

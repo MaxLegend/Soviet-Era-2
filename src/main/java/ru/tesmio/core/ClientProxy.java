@@ -55,6 +55,7 @@ public class ClientProxy {
         RenderTypeLookup.setRenderLayer(RegBlocks.SIREN.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(RegBlocks.INFO_TABLE.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(RegBlocks.BLOCK_MOSS.get(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(RegBlocks.BLOCK_MOULD.get(), RenderType.getCutout());
         RenderTypeLookup.setRenderLayer(RegBlocks.ELECTRICAL_PANEL.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(RegBlocks.BIO_STILLAGE.get(), RenderType.getTranslucent());
     }

@@ -115,7 +115,7 @@ public class RegBlocks {
     public static RegistryObject<Block> SYS_BLOCK, COMPUTER, SPEC_MONITOR, TELEVISOR, SIREN, SMALL_COMPUTER, ELECTRICAL_PANEL, CRYOCAPSULE, AUTOCLAVE, BIOLAB_CHAIR, GAS_STOVE;
     public static RegistryObject<Block> STANDART_SIGNAL_GEN, PULT, PULT1, PULT2, PULT3, E_CONVERTER, E_TESTER, SOUND_POWER_AMPLIFIER, COULOMETRIC_INTEGRATOR,WAVEMETER,COULOMETRIC_INTEGRATOR2, WELDING_MACHINE;
 
-    public static RegistryObject<Block> BLOCK_MOSS;
+    public static RegistryObject<Block> BLOCK_MOULD,BLOCK_MOSS_FULL,BLOCK_MOSS;
     public static void init() {
         Symbols.addSymbols();
         Symbols.addSymbolsName();
@@ -140,6 +140,8 @@ public class RegBlocks {
         MODERN_WINDOW_LEAF_EMPTY = registerBlockWithModel("innerdeco/windows/modern_window_leaf_empty", () -> new ModernWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_OUTER_DECO);
 
         BLOCK_MOSS = registerBlockWithModel("outerdeco/block_moss", () -> new BlockMoss(), Core.ItemGroups.TAB_OUTER_DECO);
+        BLOCK_MOSS_FULL = registerBlockWithModel("outerdeco/block_moss_full", () -> new BlockMoss(), Core.ItemGroups.TAB_OUTER_DECO);
+        BLOCK_MOULD = registerBlockWithModel("outerdeco/block_mould", () -> new BlockMoss(), Core.ItemGroups.TAB_OUTER_DECO);
 
 
         ALUM_WINDOW = registerBlockWithModel("innerdeco/windows/alum_window", () -> new AlumWindow(WINDOW_PROPERTIES), Core.ItemGroups.TAB_OUTER_DECO);
@@ -168,7 +170,7 @@ public class RegBlocks {
         PURPLE_TABLE = registerBlockWithModel("innerdeco/furniture/purple_table", () -> new PurpleTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
         PURPLE_CHAIR = registerBlockWithModel("innerdeco/furniture/purple_chair", () -> new PurpleChair(CLOTH_PROPERTIES, 0.5F) {}, Core.ItemGroups.TAB_INNER_DECO);
 
-       //other devices
+        //other devices
         AbstractBlock.Properties DEVICES_PROPERTIES = getP(Material.IRON, 0.7f,1f,null, 0, SoundType.METAL, false, true);
         MOTION_SENSOR = registerBlockWithModel("innerdeco/devices/motion_sensor", () -> new EntitySensor(DEVICES_PROPERTIES) {}, Core.ItemGroups.TAB_OUTER_DECO);
         TURNSTILE = registerBlockWithModel("innerdeco/devices/turnstile_off", () -> new Turnstile(getP(Material.IRON, 1.0f,1.6f,null, 0, SoundType.METAL, false, true)) {}, Core.ItemGroups.TAB_INNER_DECO);

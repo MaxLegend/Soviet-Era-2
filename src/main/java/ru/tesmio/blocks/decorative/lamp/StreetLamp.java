@@ -16,6 +16,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -31,6 +32,7 @@ public class StreetLamp extends BlockSideCustomModel {
     }
     @Override
     public BlockState updatePostPlacement(BlockState s, Direction f, BlockState bs, IWorld w, BlockPos p, BlockPos facingPos) {
+        if(w instanceof WorldGenRegion) return s;
         return updateState((World) w,p,s);
     }
     public BlockState updateState(World w, BlockPos p, BlockState s) {

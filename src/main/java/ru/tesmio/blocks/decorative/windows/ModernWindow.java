@@ -3,8 +3,9 @@ package ru.tesmio.blocks.decorative.windows;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResultType;
@@ -61,23 +62,25 @@ public class ModernWindow extends BlockSideConnectUpDown {
         return this.getShape(state, worldIn, pos, context);
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
-        if(e instanceof ProjectileEntity) {
-            BlockState s2 = w.getBlockState(p);
-            if(s2.getBlock() == RegBlocks.MODERN_WINDOW.get()) {
-                w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                w.setBlockState(p, RegBlocks.MODERN_WINDOW_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
-            }
-            if(s2.getBlock() == RegBlocks.MODERN_WINDOW_LEAF.get()) {
-                w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                w.setBlockState(p, RegBlocks.MODERN_WINDOW_LEAF_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
-            }
-            if(s2.getBlock() == RegBlocks.WOOD_WINDOW.get()) {
-                w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                w.setBlockState(p, RegBlocks.WOOD_WINDOW_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
-            }
-            if(s2.getBlock() == RegBlocks.WOOD_WINDOW_LEAF.get()) {
-                w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                w.setBlockState(p, RegBlocks.WOOD_WINDOW_LEAF_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+        if(!(e instanceof LivingEntity)) {
+            if(!(e instanceof ItemEntity)) {
+                BlockState s2 = w.getBlockState(p);
+                if (s2.getBlock() == RegBlocks.MODERN_WINDOW.get()) {
+                    w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    w.setBlockState(p, RegBlocks.MODERN_WINDOW_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                }
+                if (s2.getBlock() == RegBlocks.MODERN_WINDOW_LEAF.get()) {
+                    w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    w.setBlockState(p, RegBlocks.MODERN_WINDOW_LEAF_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                }
+                if (s2.getBlock() == RegBlocks.WOOD_WINDOW.get()) {
+                    w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    w.setBlockState(p, RegBlocks.WOOD_WINDOW_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                }
+                if (s2.getBlock() == RegBlocks.WOOD_WINDOW_LEAF.get()) {
+                    w.playSound(null, p, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    w.setBlockState(p, RegBlocks.WOOD_WINDOW_LEAF_EMPTY.get().getDefaultState().with(FACING, s2.get(FACING)).with(ENUM_VARIANT, s2.get(ENUM_VARIANT)).with(WATERLOGGED, s.get(WATERLOGGED)));
+                }
             }
         }
     }
