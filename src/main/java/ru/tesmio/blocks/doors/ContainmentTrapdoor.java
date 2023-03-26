@@ -11,6 +11,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -18,6 +19,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 import javax.annotation.Nullable;
@@ -33,7 +35,8 @@ public class ContainmentTrapdoor extends TrapDoorBlock {
         super(properties);
     }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-            state = state.cycleValue(OPEN);
+             worldIn.playSound(null, pos, RegSounds.SOUND_CONTAINMENT_DOOR.get(), SoundCategory.BLOCKS, 0.30f, 1f);
+             state = state.cycleValue(OPEN);
             worldIn.setBlockState(pos, state, 2);
             if (state.get(WATERLOGGED)) worldIn.getPendingFluidTicks().scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
             return ActionResultType.SUCCESS;

@@ -8,11 +8,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.blocks.affinage_factory.AffinageTileEntity;
 import ru.tesmio.blocks.crusher.CrusherTileEntity;
+import ru.tesmio.blocks.decorative.props.stillage.StillageTileEntity;
+import ru.tesmio.blocks.diesel_generator.TileDieselGenerator;
+import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersTE;
 import ru.tesmio.blocks.storage.dsp_tump.DspTumbTE;
 import ru.tesmio.blocks.storage.kitchen_table.KitchenTableTE;
 import ru.tesmio.blocks.storage.safe.TileEntitySafe;
-import ru.tesmio.blocks.diesel_generator.TileDieselGenerator;
-import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersTE;
 import ru.tesmio.core.Core;
 
 import java.util.function.Supplier;
@@ -38,6 +39,11 @@ public class RegTileEntitys {
     public static final RegistryObject<TileEntityType<KitchenTableTE>> KITCHEN_TABLE_TE =
             TILE_ENTITY_TYPES.register("kitchen_table_te",
                     () -> TileEntityType.Builder.create(KitchenTableTE::new, RegBlocks.KITCHEN_TABLE.get()).build(null));
+
+    public static final RegistryObject<TileEntityType<StillageTileEntity>> STILLAGE_TE = TILE_ENTITY_TYPES
+            .register("stillage_te",
+                    () -> TileEntityType.Builder.create(StillageTileEntity::new, RegBlocks.STILLAGE.get()).build(null));
+
     private static <T extends TileEntity> RegistryObject<TileEntityType<T>> register(String name, Supplier<T> factoryIn, Supplier<Block[]> validBlocksSupplier) {
         return TILE_ENTITY_TYPES.register(name, () -> TileEntityType.Builder.create(factoryIn, validBlocksSupplier.get()).build(null)); //Null until someone can explain data fixers
     }

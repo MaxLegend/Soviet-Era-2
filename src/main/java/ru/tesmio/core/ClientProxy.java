@@ -3,9 +3,12 @@ package ru.tesmio.core;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import ru.tesmio.blocks.affinage_factory.AffinageScreen;
 import ru.tesmio.blocks.crusher.CrusherScreen;
+import ru.tesmio.blocks.decorative.props.stillage.StillageScreen;
+import ru.tesmio.blocks.decorative.props.stillage.StillageTER;
 import ru.tesmio.blocks.diesel_generator.DieselGeneratorScreen;
 import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersScreen;
 import ru.tesmio.blocks.storage.dsp_tump.DspTumbScreen;
@@ -15,6 +18,7 @@ import ru.tesmio.entity.renderer.EntitySittableBlockRender;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegContainers;
 import ru.tesmio.reg.RegEntitys;
+import ru.tesmio.reg.RegTileEntitys;
 
 public class ClientProxy {
     public static void init() {
@@ -67,9 +71,10 @@ public class ClientProxy {
         ScreenManager.registerFactory(RegContainers.SAFE_CONT.get(), ScreenSafe::new);
         ScreenManager.registerFactory(RegContainers.DSP_TUMB_CONT.get(), DspTumbScreen::new);
         ScreenManager.registerFactory(RegContainers.KITCHEN_TABLE_CONT.get(), KitchenTableScreen::new);
+        ScreenManager.registerFactory(RegContainers.STILLAGE_CONT.get(), StillageScreen::new);
     }
     private static void registerTileEntityRenderers() {
-
+        ClientRegistry.bindTileEntityRenderer(RegTileEntitys.STILLAGE_TE.get(), StillageTER::new);
     }
     private static void registerEntityRenderers() {
         RenderingRegistry.registerEntityRenderingHandler(RegEntitys.SEAT.get(), EntitySittableBlockRender::new);

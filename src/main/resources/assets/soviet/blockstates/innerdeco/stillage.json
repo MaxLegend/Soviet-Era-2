@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "part=down":  { "model": "soviet:block/innerdeco/stillage"},
+        "part=mid":  { "model": "soviet:block/innerdeco/stillage_mid"},
+        "part=up":  { "model": "soviet:block/innerdeco/stillage_up"}
+    }
+}

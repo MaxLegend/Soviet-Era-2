@@ -9,6 +9,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -18,6 +19,7 @@ import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.blocks.doors.AirlockDoorBlock;
 import ru.tesmio.enums.EnumStatus;
+import ru.tesmio.reg.RegSounds;
 
 public class AirlockDoorController extends BlockSideCustomModel {
     public static EnumProperty<EnumStatus> STATUS = EnumProperty.create("status", EnumStatus.class);
@@ -42,7 +44,8 @@ public class AirlockDoorController extends BlockSideCustomModel {
                     w.setBlockState(p.offset(f), offset);
                 }
             }
-                return ActionResultType.SUCCESS;
+            w.playSound(null, p, RegSounds.SOUND_RUSTY_LEVER.get(), SoundCategory.BLOCKS, 0.10f, 1f);
+            return ActionResultType.SUCCESS;
         }
 
         return ActionResultType.FAIL;

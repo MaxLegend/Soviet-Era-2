@@ -6,6 +6,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -15,6 +16,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class ElectronicaClock extends BlockSideCustomModel {
@@ -55,6 +57,7 @@ public class ElectronicaClock extends BlockSideCustomModel {
     }
     public BlockState updateState(World w, BlockPos p, BlockState s) {
         if (w.isBlockPowered(p)) {
+            w.playSound(null, p, RegSounds.SOUND_SPARKING.get(), SoundCategory.BLOCKS, 0.05f, 1f);
             s = s.with(ENABLE, true);
         } else {
             s = s.with(ENABLE, false);

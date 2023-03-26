@@ -33,7 +33,7 @@ public class RedstoneGrinder extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack s, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flag) {
         tooltip.add(new TranslationTextComponent("info.redstone_grinder"));
-        tooltip.add(new TranslationTextComponent("info.uses " + this.getDamage(s) + "/" + this.getMaxDamage(s)));
+        tooltip.add(new TranslationTextComponent(new TranslationTextComponent("info.uses ").getString() + this.getDamage(s) + "/" + this.getMaxDamage(s)));
     }
     @Override
     public int getMaxDamage(ItemStack stack) {

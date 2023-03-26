@@ -9,9 +9,7 @@ import net.minecraft.state.properties.DoorHingeSide;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -20,6 +18,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.reg.RegItems;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 import javax.annotation.Nullable;
@@ -32,10 +31,11 @@ public class ContainmentDoor extends LockedDoor implements IWaterLoggable {
 
     public ContainmentDoor(Properties builder) {
         super(builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(OPEN, Boolean.valueOf(false)).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.valueOf(false)).with(HALF, DoubleBlockHalf.LOWER).with(LOCKED, Boolean.valueOf(true)).with(WATERLOGGED, Boolean.valueOf(false)));
+        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(OPEN, false).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.valueOf(false)).with(HALF, DoubleBlockHalf.LOWER).with(LOCKED, Boolean.valueOf(true)).with(WATERLOGGED, Boolean.valueOf(false)));
 
     }
-    //нужно придумать что делать с гермодверью. Либо новая модель размером в масштабах блока. Второй вариант -
+
+
     public void putMapVoxelShape() {
         VoxelShape SHAPES[] = new VoxelShape[] {
                 Block.makeCuboidShape(0D, 0D, 12D, 16D, 16D, 16D),
@@ -69,6 +69,7 @@ public class ContainmentDoor extends LockedDoor implements IWaterLoggable {
             boolean isLocked = state.get(LOCKED);
 
                  if(player.getHeldItem(h).getItem() == RegItems.WRENCH.get()) {
+                     worldIn.playSound(null, pos, RegSounds.SOUND_CONTAINMENT_DOOR.get(), SoundCategory.BLOCKS, 0.30f, 1f);
                      state = state.cycleValue(LOCKED);
                      worldIn.setBlockState(pos, state, 10);
                      return ActionResultType.SUCCESS;
@@ -77,6 +78,7 @@ public class ContainmentDoor extends LockedDoor implements IWaterLoggable {
             if(hit.getFace() == state.get(FACING)) {
                 if(player.isCrouching()) {
                     if(!state.get(OPEN)) {
+                        worldIn.playSound(null, pos, RegSounds.SOUND_CONTAINMENT_DOOR.get(), SoundCategory.BLOCKS, 0.30f, 1f);
                         state = state.cycleValue(LOCKED);
                     }
                     worldIn.setBlockState(pos, state, 10);
@@ -84,6 +86,7 @@ public class ContainmentDoor extends LockedDoor implements IWaterLoggable {
                 }
             }
             if(!isLocked) {
+                worldIn.playSound(null, pos, RegSounds.SOUND_CONTAINMENT_DOOR.get(), SoundCategory.BLOCKS, 0.30f, 1f);
                 state = state.cycleValue(OPEN);
                 worldIn.setBlockState(pos, state, 10);
                 return ActionResultType.SUCCESS;

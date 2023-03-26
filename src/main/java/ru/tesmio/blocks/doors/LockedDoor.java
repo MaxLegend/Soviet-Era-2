@@ -13,9 +13,7 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -27,13 +25,14 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import ru.tesmio.reg.RegItems;
+import ru.tesmio.reg.RegSounds;
 
 import javax.annotation.Nullable;
 
 public class LockedDoor extends DoorBlock implements IWaterLoggable {
     public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-
+    public SoundEvent soundOpen;
     public LockedDoor(Properties builder) {
         super(builder);
     }
@@ -73,6 +72,10 @@ public class LockedDoor extends DoorBlock implements IWaterLoggable {
         player.addExhaustion(0.005F);
         spawnDrops(state, worldIn, pos, te, player, stack);
     }
+
+    public SoundEvent getSoundOpen() {
+        return soundOpen;
+    }
     @OnlyIn(Dist.CLIENT)
     public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return 1F;
@@ -84,15 +87,18 @@ public class LockedDoor extends DoorBlock implements IWaterLoggable {
             Item activeItemLeft = player.getHeldItemOffhand().getItem();
             if(isLocked) {
                 if(activeItemRight == RegItems.KEY_DOOR.get() || activeItemLeft == RegItems.KEY_DOOR.get()) {
+                    worldIn.playSound(null, pos, RegSounds.SOUND_LOCKED.get(), SoundCategory.BLOCKS, 0.30f, 1f);
                     state = state.cycleValue(LOCKED);
                     worldIn.setBlockState(pos, state, 10);
                     return ActionResultType.SUCCESS;
                 } else return ActionResultType.FAIL;
             } else {
                 if(activeItemRight == RegItems.KEY_DOOR.get() || activeItemLeft == RegItems.KEY_DOOR.get()) {
+                    worldIn.playSound(null, pos, RegSounds.SOUND_LOCKED.get(), SoundCategory.BLOCKS, 0.30f, 1f);
                     state = state.cycleValue(LOCKED);
 
                 } else {
+                    worldIn.playSound(null, pos, getSoundOpen(), SoundCategory.BLOCKS, 0.40f, 1f);
                     state = state.cycleValue(OPEN);
                 }
                 worldIn.setBlockState(pos, state, 10);

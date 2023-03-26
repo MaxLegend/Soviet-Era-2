@@ -28,6 +28,7 @@ import ru.tesmio.blocks.decorative.props.chairs.BiolabChair;
 import ru.tesmio.blocks.decorative.props.chairs.Chair;
 import ru.tesmio.blocks.decorative.props.chairs.DspChair;
 import ru.tesmio.blocks.decorative.props.chairs.PurpleChair;
+import ru.tesmio.blocks.decorative.props.stillage.StillageBlock;
 import ru.tesmio.blocks.decorative.props.tables.DspTable;
 import ru.tesmio.blocks.decorative.props.tables.PurpleTable;
 import ru.tesmio.blocks.decorative.slabs.BaseSlab;
@@ -100,7 +101,7 @@ public class RegBlocks {
     public static RegistryObject<Block> TELEGRAPH, SOLDERING_STATION, AUDIORECORDER2, AUDIORECORDER, RADIOSTATION,TRANSFORMATOR_ISOLATORS, TRANSFORMATOR_BASE, TRANSFORMATOR_COIL, CLOCK_ELECTRONICA,MOTION_SENSOR,TURNSTILE, REDSTONE_WIRE;
 
     public static RegistryObject<Block> A_METER,ASSIGNER_BLOCK, AUTOWRITER, CONTROLLER, EM_METER, FREQUE_ANALISATOR, FREQUE_METER, GEIGER_STATIC, M_METER, K_METER, OM_METER, OSCILLOSCOPE, P_METER, V_METER, W_METER;
-    public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE, PINK_CHAIR, PURPLE_TABLE, PURPLE_CHAIR;
+    public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE, STILLAGE, PINK_CHAIR, PURPLE_TABLE, PURPLE_CHAIR;
     public static RegistryObject<Block> ALUM_FRAMES, ALUM_FRAMES_EMPTY, ALUM_WINDOW, ALUM_WINDOW_EMPTY, MODERN_WINDOW, MODERN_WINDOW_EMPTY, MODERN_WINDOW_LEAF, MODERN_WINDOW_LEAF_EMPTY
             , WOOD_WINDOW, WOOD_WINDOW_EMPTY, WOOD_WINDOW_LEAF, WOOD_WINDOW_LEAF_EMPTY, FACTORY_WINDOW, FACTORY_WINDOW_EMPTY;
     public static RegistryObject<Block> IRON_BED, ex_po, SAFE, DSP_TUMB, BATH_TUBE, LAB_SINK, KITCHEN_SINK, ELECTRO_STOVE,KITCHEN_TABLE, SMALL_SINK, TOILET, SINK, BARB_WIRE,CONTACT_WIRE_OUTER,CONTACT_WIRE_INNER;
@@ -167,6 +168,7 @@ public class RegBlocks {
         PURPLE_TABLE = registerBlockWithModel("innerdeco/furniture/purple_table", () -> new PurpleTable(FURNITURE_PROPERTIES) {}, Core.ItemGroups.TAB_INNER_DECO);
         PURPLE_CHAIR = registerBlockWithModel("innerdeco/furniture/purple_chair", () -> new PurpleChair(CLOTH_PROPERTIES, 0.5F) {}, Core.ItemGroups.TAB_INNER_DECO);
         PINK_CHAIR = registerBlockWithModel("innerdeco/furniture/pink_chair", () -> new Chair(CLOTH_PROPERTIES, 0.5F) {}, Core.ItemGroups.TAB_INNER_DECO);
+        STILLAGE = registerBlockWithModel("innerdeco/stillage", () -> new StillageBlock(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)), Core.ItemGroups.TAB_INNER_DECO);
 
         //other devices
         AbstractBlock.Properties DEVICES_PROPERTIES = getP(Material.IRON, 0.7f,1f,null, 0, SoundType.METAL, false, true);

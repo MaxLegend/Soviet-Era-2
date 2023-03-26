@@ -15,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -26,6 +27,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import ru.tesmio.reg.RegSounds;
 
 import javax.annotation.Nullable;
 
@@ -126,9 +128,10 @@ public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {{
         boolean isLocked = state.get(LOCKED);
         if(!isLocked) {
+
             state = state.cycleValue(OPEN);
             worldIn.setBlockState(pos, state, 10);
-            //   worldIn.playEvent(player, state.get(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
+            worldIn.playSound(null, pos, RegSounds.SOUND_AIRLOCK_DOOR.get(), SoundCategory.BLOCKS, 1.00f, 1f);
             return ActionResultType.func_233537_a_(worldIn.isRemote);
         }
         }

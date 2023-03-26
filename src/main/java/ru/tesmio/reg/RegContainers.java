@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.blocks.affinage_factory.AffinageContainer;
 import ru.tesmio.blocks.crusher.CrusherContainer;
+import ru.tesmio.blocks.decorative.props.stillage.StillageContainer;
 import ru.tesmio.blocks.diesel_generator.DieselGeneratorContainer;
 import ru.tesmio.blocks.storage.desc_drawers.LinearTableDrawersContainer;
 import ru.tesmio.blocks.storage.dsp_tump.DspTumbContainer;
@@ -32,6 +33,10 @@ public class RegContainers {
 
     public static final RegistryObject<ContainerType<KitchenTableContainer>> KITCHEN_TABLE_CONT = CONTAINER_TYPES
             .register("kitchen_table_cont", () -> IForgeContainerType.create(KitchenTableContainer::new));
+
+    public static final RegistryObject<ContainerType<StillageContainer>> STILLAGE_CONT = CONTAINER_TYPES
+            .register("stillage_cont", () -> IForgeContainerType.create(StillageContainer::new));
+
     public static final RegistryObject<ContainerType<DieselGeneratorContainer>> DIESEL_CONTAINER = CONTAINER_TYPES.register("diesel_container", () -> IForgeContainerType.create((windowId, inv, data) -> {
         BlockPos pos = data.readBlockPos();
         World world = inv.player.getEntityWorld();

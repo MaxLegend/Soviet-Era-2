@@ -18,6 +18,7 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class Turnstile extends BlockSideCustomModel {
@@ -158,9 +159,11 @@ public class Turnstile extends BlockSideCustomModel {
     @Override
     public ActionResultType onBlockActivated(BlockState s, World w, BlockPos p, PlayerEntity pl, Hand hand, BlockRayTraceResult hit) {
         if(s.get(STATUS) == EnumStatus.CLOSE) {
+            w.playSound(null, p, RegSounds.SOUND_RUSTY_LEVER.get(), SoundCategory.BLOCKS, 0.10f, 1f);
             w.setBlockState(p, s.with(STATUS, EnumStatus.OPEN));
             return ActionResultType.SUCCESS;
         } else if(s.get(STATUS) == EnumStatus.OPEN) {
+            w.playSound(null, p, RegSounds.SOUND_RUSTY_LEVER.get(), SoundCategory.BLOCKS, 0.10f, 1f);
             w.setBlockState(p, s.with(STATUS, EnumStatus.CLOSE));
             return ActionResultType.SUCCESS;
         }

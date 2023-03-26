@@ -3,11 +3,13 @@ package ru.tesmio.blocks.tumbler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModelLeveler;
+import ru.tesmio.reg.RegSounds;
 
 public class ElectroFenceTumbler extends BlockSideCustomModelLeveler {
     //добавить коннекты по бокам в модели, сделать чтобы коннектился только по ним. Или сделать контактные пластины, в которые типа заходят проводки
@@ -31,6 +33,9 @@ public class ElectroFenceTumbler extends BlockSideCustomModelLeveler {
 
         }
         return defShape;
+    }
+    public SoundEvent getSoundChangeState() {
+        return RegSounds.SOUND_RUSTY_LEVER.get();
     }
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

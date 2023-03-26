@@ -35,5 +35,69 @@
 	"stream": true
       }
     ]
+  },
+  "airlock_door": {
+    "subtitle": "airlock_door",
+    "sounds": [
+      {
+        "name": "soviet:airlock"
+      }
+    ]
+  },
+  "containment_door": {
+    "subtitle": "containment_door",
+    "sounds": [
+      {
+        "name": "soviet:openhermodoor"
+      }
+    ]
+  },
+  "alm_door": {
+    "subtitle": "alm_door",
+    "sounds": [
+      {
+        "name": "soviet:alm_door"
+      }
+    ]
+  },
+  "wood_door": {
+    "subtitle": "wood_door",
+    "sounds": [
+      {
+        "name": "soviet:wood_door"
+      }
+    ]
+  },
+  "rusty_lever": {
+    "subtitle": "rusty_lever",
+    "sounds": [
+      {
+        "name": "soviet:rusty_lever"
+      }
+    ]
+  },
+  "locked": {
+    "subtitle": "locked",
+    "sounds": [
+      {
+        "name": "soviet:locked"
+      }
+    ]
+  },
+  "metal_door": {
+    "subtitle": "metal_door",
+    "sounds": [
+      {
+        "name": "soviet:metal_door"
+      }
+    ]
+  },
+  "sparking": {
+    "subtitle": "sparking",
+    "sounds": [
+      {
+        "name": "soviet:sound_sparking"
+      }
+    ]
   }
 }
