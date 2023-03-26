@@ -31,6 +31,9 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Tesmio
  */
 public class UndergroundLabsPieces {
+
+    private static final ResourceLocation concertHall = new ResourceLocation("soviet:proc_lab/fragment_concert_hall");
+
     private static final ResourceLocation stairsTop = new ResourceLocation("soviet:proc_lab/fragment_stairs_top");
     private static final ResourceLocation stairsMid = new ResourceLocation("soviet:proc_lab/fragment_stairs_mid");
     private static final ResourceLocation stairsDown = new ResourceLocation("soviet:proc_lab/fragment_stairs_down");
@@ -61,6 +64,7 @@ public class UndergroundLabsPieces {
         POOL.put(stairsMid, BlockPos.ZERO);
         POOL.put(stairsTop, BlockPos.ZERO);
         POOL.put(stairsDown, BlockPos.ZERO);
+        POOL.put(concertHall, BlockPos.ZERO);
     }
     static int lenthFragment = 5;
     public static void addPieces(TemplateManager tm, BlockPos bPos, List<StructurePiece> listPieces) {
@@ -73,6 +77,7 @@ public class UndergroundLabsPieces {
         listPieces.add(new UndergroundLabsPieces.Piece(tm, stairsMid, bPos, Rotation.NONE,Mirror.NONE, 8,0,4));
         listPieces.add(new UndergroundLabsPieces.Piece(tm, stairsTop, bPos, Rotation.NONE,Mirror.NONE, 8,0,-1));
 
+        listPieces.add(new UndergroundLabsPieces.Piece(tm, concertHall, bPos, Rotation.NONE,Mirror.NONE, -20,0,-9));
     }
 
 
@@ -356,12 +361,8 @@ public class UndergroundLabsPieces {
             int i = sr.getHeight(Heightmap.Type.WORLD_SURFACE_WG, blockpos1.getX(), blockpos1.getZ());
             BlockPos blockpos2;
 
-       //     ThreadLocalRandom tr = ThreadLocalRandom.current();
-          //  int rH = tr.nextInt(45,35);
             blockpos2 = this.templatePosition;
-       //     this.templatePosition = this.templatePosition.add(0, -74, 0);
-            //мне нужна высота от сгенерировавшего куска до поверхности земли.
-        //    System.out.println(location);
+
             boolean flag = false;
 
             if(this.location == stairsMid) {

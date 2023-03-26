@@ -24,7 +24,7 @@ public class BlockMoss extends BlockRotatedAllSideCM {
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return this.getShape(state, worldIn, pos, context);
+        return VoxelShapes.empty();
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         if(state.getBlock() == RegBlocks.BLOCK_MOSS_FULL.get()) {

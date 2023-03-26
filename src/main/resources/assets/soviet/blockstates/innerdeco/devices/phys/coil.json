@@ -1,0 +1,17 @@
+
+{
+    "variants": {
+        "facing=east,part=down":  { "model": "soviet:block/innerdeco/devices/phys/coil_down", "y": 270},
+        "facing=west,part=down":  { "model": "soviet:block/innerdeco/devices/phys/coil_down", "y": 90},
+        "facing=south,part=down": { "model": "soviet:block/innerdeco/devices/phys/coil_down", "y": 0 },
+        "facing=north,part=down": { "model": "soviet:block/innerdeco/devices/phys/coil_down", "y": 180 },
+        "facing=east,part=mid":  { "model": "soviet:block/innerdeco/devices/phys/coil", "y": 270},
+        "facing=west,part=mid":  { "model": "soviet:block/innerdeco/devices/phys/coil", "y": 90},
+        "facing=south,part=mid": { "model": "soviet:block/innerdeco/devices/phys/coil", "y": 0 },
+        "facing=north,part=mid": { "model": "soviet:block/innerdeco/devices/phys/coil", "y": 180 },
+        "facing=east,part=up":  { "model": "soviet:block/innerdeco/devices/phys/coil_up", "y": 270},
+        "facing=west,part=up":  { "model": "soviet:block/innerdeco/devices/phys/coil_up", "y": 90},
+        "facing=south,part=up": { "model": "soviet:block/innerdeco/devices/phys/coil_up", "y": 0 },
+        "facing=north,part=up": { "model": "soviet:block/innerdeco/devices/phys/coil_up", "y": 180 }
+    }
+}
