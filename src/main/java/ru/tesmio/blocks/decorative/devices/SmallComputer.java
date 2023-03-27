@@ -2,9 +2,12 @@ package ru.tesmio.blocks.decorative.devices;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -13,11 +16,18 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
+import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SmallComputer extends BlockSideCustomModel {
     public static final BooleanProperty ENABLE = BooleanProperty.create("enable");
+
     public SmallComputer(Properties properties, float shadingInside) {
         super(properties, shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(ENABLE, false));
@@ -36,6 +46,38 @@ public class SmallComputer extends BlockSideCustomModel {
             }
         }
         return s;
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+
+            return new ItemStack[] {
+                new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(2,4)),
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(2,3))
+        };
+    }
+    @Override
+    public ItemStack getStackAddDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+
+            if (tr.nextInt(25) == 4) {
+                return new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), 1);
+            } else {
+                return ItemStack.EMPTY;
+            }
+
+    }
+    @Override
+    public void tick(BlockState s, ServerWorld w, BlockPos p, Random rand) {
+        if(!w.isRemote()) {
+            if (w.isBlockPowered(p)) {
+                w.getPendingBlockTicks().scheduleTick(p, this, 113);
+                w.playSound(null, p, RegSounds.SOUND_DEVICE.get(), SoundCategory.BLOCKS, 0.10f, 1f);
+            }
+        }
+    }
+    public void neighborChanged(BlockState s, World w, BlockPos p, Block b, BlockPos fromPos, boolean isMoving) {
+        w.getPendingBlockTicks().scheduleTick(p, this, 6);
     }
     @Override
     public int getLightValue(BlockState s, IBlockReader br, BlockPos p) {

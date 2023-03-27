@@ -2,13 +2,19 @@ package ru.tesmio.blocks.decorative.devices;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class Televisor extends BlockSideCustomModel {
@@ -20,6 +26,19 @@ public class Televisor extends BlockSideCustomModel {
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return this.getShape(state, worldIn, pos, context);
+    }
+    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        if (stateIn.get(WATERLOGGED)) {
+            worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+        }
+        if(worldIn instanceof WorldGenRegion) return stateIn;
+        return updateState((World) worldIn, currentPos,stateIn);
+    }
+    public BlockState updateState(World w, BlockPos p, BlockState s) {
+        if (w.isBlockPowered(p)) {
+            w.playSound(null, p, RegSounds.SOUND_SPARKING.get(), SoundCategory.BLOCKS, 0.05f, 1f);
+        }
+        return s;
     }
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

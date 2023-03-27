@@ -49,8 +49,39 @@ public abstract class BaseLootProvider extends LootTableProvider {
                 );
         return LootTable.builder().addLootPool(builder);
     }
-
-
+//    static Map map = new HashMap<Block, Integer>();
+//    protected static Map<Block, Integer> formedMap(Block[] b, Integer[] i) {
+//        for(Block b2 : b) {
+//            for(int i2 : i) {
+//                map.put(b2, i2);
+//            }
+//        }
+//        return map;
+//    }
+//    protected void getMap(Map<Block, Integer> map) {
+//
+//    }
+//    protected static LootTable.Builder standartBlocksBuilder(String name, Block[] b, Integer[] i) {
+//
+//        for (Map.Entry<Block, Integer> m : formedMap(b,i).entrySet()) {
+//            LootPool.Builder builder = LootPool.builder().name(name)
+//                    .rolls(ConstantRange.of(m.getValue()))
+//                    .addEntry(ItemLootEntry.builder(m.getKey()));
+//            return LootTable.builder().addLootPool(builder);
+//        }
+//        return LootTable.builder();
+//
+//    }
+//    protected static LootTable.Builder standartItemsBuilder(String name, Map<Item, Integer> map) {
+//        for (Map.Entry<Item, Integer> entry: map.entrySet()) {
+//            LootPool.Builder builder = LootPool.builder().name(name)
+//                    .rolls(ConstantRange.of(entry.getValue()))
+//                    .addEntry(ItemLootEntry.builder(entry.getKey()));
+//            return LootTable.builder().addLootPool(builder);
+//        }
+//        return LootTable.builder();
+//
+//    }
     protected static LootTable.Builder standartItemBlockBuilder(String name, Item item, int count) {
         LootPool.Builder builder = LootPool.builder().name(name)
                 .rolls(ConstantRange.of(count))

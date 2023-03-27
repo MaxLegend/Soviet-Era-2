@@ -21,10 +21,8 @@ import ru.tesmio.core.Core;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 public class RedstoneGrinder extends Item {
-    private static final Random RAND = new Random();
     public RedstoneGrinder() {
         super(new Item.Properties()
                 .group(Core.ItemGroups.TAB_ITEMS)
@@ -48,18 +46,37 @@ public class RedstoneGrinder extends Item {
             if(this.getDamage(stack) == 0) {
                 return 0.2F;
             }
-            return 55F;
+            return 8F;
         }
         return 0.2F;
     }
+
     public boolean canHarvestBlock(BlockState s) {
         if(s.getBlock().getMaterialColor() == MaterialColor.IRON) {
             return true;
         } else return false;
     }
+
+//сделать включаемым по конфигу
+//    public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+//        if(entityIn instanceof PlayerEntity) {
+//            if(this.getDamage(stack) > 0) {
+//            if(isSelected) {
+//                if (entityIn.ticksExisted == 2) {
+//                    worldIn.playSound((PlayerEntity) entityIn, entityIn.getPosition(), RegSounds.SOUND_GRINDER_IDLE.get(), SoundCategory.PLAYERS, 0.1F, 1f);
+//                }
+//                if (entityIn.ticksExisted % 39 == 0) {
+//                    worldIn.playSound((PlayerEntity) entityIn, entityIn.getPosition(), RegSounds.SOUND_GRINDER_IDLE.get(), SoundCategory.PLAYERS, 0.04F, 1f);
+//                }
+//            }
+//            }
+//        }
+//
+//    }
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, BlockState state, BlockPos pos, LivingEntity entityLiving) {
             if(state.getBlock().getMaterialColor() == MaterialColor.IRON) {
+
                 this.setDamage(stack, this.getDamage(stack) - 1);
                 return true;
             }

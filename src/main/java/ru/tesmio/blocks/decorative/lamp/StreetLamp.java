@@ -9,6 +9,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.util.Direction;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -18,6 +19,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class StreetLamp extends BlockSideCustomModel {
@@ -39,8 +41,10 @@ public class StreetLamp extends BlockSideCustomModel {
         if (!w.isRemote()) {
             BlockState ts = w.getBlockState(p);
             if(w.isBlockPowered(p)) {
+                w.playSound(null, p, RegSounds.SOUND_FLUO_LAMP.get(), SoundCategory.BLOCKS, 0.40f, 1f);
                 ts = ts.with(LIT, true);
             } else if(!w.isBlockPowered(p)) {
+
                 ts = ts.with(LIT, false);
             }
             return ts;

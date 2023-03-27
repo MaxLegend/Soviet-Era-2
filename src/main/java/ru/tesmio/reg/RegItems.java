@@ -26,9 +26,9 @@ public class RegItems {
     public static final RegistryObject<Item> SMALL_TILE = ITEMS.register("small_tile", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static final RegistryObject<Item> CERAMIC_DUST = ITEMS.register("ceramic_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static final RegistryObject<Item> SILICON_INGOT = ITEMS.register("silicon_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
-    public static final RegistryObject<Item> MORTAR = ITEMS.register("mortar", () -> new Mortar());
-    public static final RegistryObject<Item> PESTLE = ITEMS.register("pestle", () -> new Pestle());
-    public static final RegistryObject<Item> SIEVE = ITEMS.register("sieve", () -> new DamagebleItem());
+    public static final RegistryObject<Item> MORTAR = ITEMS.register("mortar", Mortar::new);
+    public static final RegistryObject<Item> PESTLE = ITEMS.register("pestle", Pestle::new);
+    public static final RegistryObject<Item> SIEVE = ITEMS.register("sieve", DamagebleItem::new);
 
 
     public static final RegistryObject<Item> LEAD_DUST = ITEMS.register("lead_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
@@ -37,30 +37,32 @@ public class RegItems {
 
     public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
     public static RegistryObject<Item> LEADCERAMIC_TILE;
-    public static RegistryObject<Item> KEY_DOOR, WRENCH, REDSTONE_GRINDER;
+    public static RegistryObject<Item> FUEL_CANISTER,KEY_DOOR, WRENCH, REDSTONE_GRINDER;
     public static RegistryObject<Item> VARIANT_ITEM;
 
     public static RegistryObject<Item> AUTOMATIC_RIFLE_5_45, AUTOMATIC_RIFLE_7_62, AMMO_7_62, AMMO_5_45;
 
+    public static RegistryObject<Item> WOOD_SCRAP, COPPER_SCRAP;
 
     public static RegistryObject<Item> RED_CONDENSER, ORANGE_CONDENSER, YELLOW_CONDENSER, GREEN_CONDENSER, BLUE_CONDENSER, DIODE_BLACK, DIODE_GRAY, BLACK_MICRO, DARK_YELLOW_MICRO,
             DARK_RED_MICRO, DARK_BLUE_MICRO, DARK_YELLOW_TRANSISTOR, DARK_GRAY_TRANSISTOR, YELLOW_JACK, GREEN_JACK, BLUE_JACK;
     public static RegistryObject<Item> RED_CONDENSER_DUST, ORANGE_CONDENSER_DUST, YELLOW_CONDENSER_DUST, GREEN_CONDENSER_DUST, BLUE_CONDENSER_DUST, DIODE_BLACK_DUST, DIODE_GRAY_DUST, BLACK_MICRO_DUST, DARK_YELLOW_MICRO_DUST,
             DARK_RED_MICRO_DUST, DARK_BLUE_MICRO_DUST, DARK_YELLOW_TRANSISTOR_DUST, DARK_GRAY_TRANSISTOR_DUST, YELLOW_JACK_DUST, GREEN_JACK_DUST, BLUE_JACK_DUST;
+
     public static RegistryObject<Item> WIRE_CUTTERS, PULLER, FLUOLAMP;
 
     public static RegistryObject<Item> PLATINUM_PICKAXE, PLATINUM_AXE, PLATINUM_SHOVEL, PLATINUM_SWORD, PLATINUM_HOE;
     public static RegistryObject<Item> PLATOL_PICKAXE, PLATOL_AXE, PLATOL_SHOVEL, PLATOL_SWORD, PLATOL_HOE;
-    public static RegistryObject<Item> COPPER_INGOT, COPPER_DUST, SILVER_INGOT, SILVER_DUST, GOLD_DUST, DIAMOND_DUST, NETHERITE_DUST, PLATINUM_INGOT, PLATINUM_DUST, PLATOL_DUST, PLATOL_INGOT;
+    public static RegistryObject<Item> ALUMINUM_SCRAP, ALUMINUM_INGOT, COPPER_INGOT, COPPER_DUST, SILVER_INGOT, SILVER_DUST, GOLD_DUST, DIAMOND_DUST, NETHERITE_DUST, PLATINUM_INGOT, PLATINUM_DUST, PLATOL_DUST, PLATOL_INGOT;
     public static void init() {
         VARIANT_ITEM = registerItem("variant_item", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.variant_item"));
         FLUOLAMP = registerItem("fluolamp", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
-        PULLER = registerItem("puller", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.puller"));
+      FUEL_CANISTER = registerItem("fuel_canister", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1), "info.fuel_canister"));
 
         KEY_DOOR = registerItem2("key_door", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "key.key_door"));
         WRENCH = registerItem("wrench", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "wrench.info"));
-        REDSTONE_GRINDER = registerItem("redstone_grinder", () -> new RedstoneGrinder());
 
+        WOOD_SCRAP = registerItem("wood_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.wood_scrap"));
 
         PLATOL_INGOT = registerItem("platol_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         PLATOL_DUST = registerItem("platol_dust", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "platol.platol_dust"));
@@ -76,7 +78,15 @@ public class RegItems {
         PLATINUM_SHOVEL = registerItem("platinum_shovel", () -> new ShovelItem(SovietItemTier.PLATINUM, 2, -3F, (new Item.Properties()).group(ItemGroup.TOOLS)));
         PLATINUM_AXE = registerItem("platinum_axe", () -> new AxeItem(SovietItemTier.PLATINUM, 8, -3F, (new Item.Properties()).group(ItemGroup.TOOLS)));
         PLATINUM_PICKAXE = registerItem("platinum_pickaxe", () -> new PickaxeItem(SovietItemTier.PLATINUM, 2, -2.8F, (new Item.Properties()).group(ItemGroup.TOOLS)));
+        WIRE_CUTTERS = registerItem("wire_cutters", () -> new WireCutter());
+        REDSTONE_GRINDER = registerItem("redstone_grinder", () -> new RedstoneGrinder());
+        PULLER = registerItem("puller", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.puller"));
+        //  DISMANTLING_ITEM = registerItem("dism", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.desm"));
+
         //ingots and dust
+        COPPER_SCRAP = registerItem("copper_scrap", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
+        ALUMINUM_SCRAP = registerItem("aluminum_scrap", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
+        ALUMINUM_INGOT = registerItem("aluminum_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         COPPER_INGOT = registerItem("copper_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         COPPER_DUST = registerItem("copper_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         SILVER_INGOT = registerItem("silver_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
@@ -121,7 +131,7 @@ public class RegItems {
         BLUE_JACK = registerItem("circuits/blue_jack", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "circ.blue_jack"));
         GREEN_JACK = registerItem("circuits/green_jack", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "circ.green_jack"));
         ORANGE_CONDENSER = registerItem("circuits/orange_condenser", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "circ.orange_condenser"));
-        WIRE_CUTTERS = registerItem("wire_cutters", () -> new WireCutter());
+
     }
     private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
         RegistryObject<T> toReturn = ITEMS.register(name, item);

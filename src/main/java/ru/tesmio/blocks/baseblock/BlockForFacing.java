@@ -7,7 +7,6 @@ import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IStringSerializable;
@@ -24,11 +23,7 @@ public class BlockForFacing extends Block {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH));
     }
-    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-        player.addStat(Stats.BLOCK_MINED.get(this));
-        player.addExhaustion(0.005F);
-        spawnDrops(state, worldIn, pos, te, player, stack);
-    }
+
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         for(Direction direction : context.getNearestLookingDirections()) {
             if (direction.getAxis() == Direction.Axis.Y) {
@@ -38,6 +33,32 @@ public class BlockForFacing extends Block {
             }
         }
         return this.getDefaultState();
+    }
+    @Override
+    public void harvestBlock(World w, PlayerEntity pl, BlockPos p, BlockState s, @Nullable TileEntity te, ItemStack st) {
+        if (!w.isRemote) {
+            if (!pl.isCreative()) {
+                getDropsWithBlock(w, p, pl);
+                getAdditionDrops(w,p,getStackAddDrop(pl));
+            }
+        }
+    }
+    public ItemStack getStackAddDrop(PlayerEntity pl) {
+        return ItemStack.EMPTY;
+    }
+    @Nullable
+    public void getAdditionDrops(World w, BlockPos p, ItemStack is) {
+        spawnAsEntity(w, p, is);
+    }
+
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {ItemStack.EMPTY};
+    }
+
+    protected void getDropsWithBlock(World w, BlockPos p, PlayerEntity pl) {
+        for(ItemStack is : getItemsDrop(pl)) {
+            spawnAsEntity(w, p, is);
+        }
     }
     public BlockState rotate(BlockState state, Rotation rot) {
         switch (rot)

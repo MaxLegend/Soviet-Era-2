@@ -1,5 +1,6 @@
 package ru.tesmio.data.providers;
 
+import net.minecraft.block.Block;
 import net.minecraft.data.DataGenerator;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
@@ -10,8 +11,41 @@ public class SovietLootProvider extends BaseLootProvider {
         super(dataGeneratorIn);
     }
 
+    public void forEachStandartBlock(Block block, String name) {
+        lootTables.put(block, standartBuilder(name, block));
+    }
+
     @Override
     protected void addTables() {
+
+
+        forEachStandartBlock(RegBlocks.TURNSTILE.get(), "devices");
+        forEachStandartBlock(RegBlocks.MOTION_SENSOR.get(), "devices");
+        forEachStandartBlock(RegBlocks.STILLAGE.get(), "stuff");
+        lootTables.put(RegBlocks.PURPLE_TABLE.get(), standartItemBlockBuilder("stuff", RegItems.WOOD_SCRAP.get(),2));
+        lootTables.put(RegBlocks.PURPLE_CHAIR.get(), standartItemBlockBuilder("stuff", RegItems.WOOD_SCRAP.get(),1));
+        forEachStandartBlock(RegBlocks.BIOLAB_TABLE2.get(), "stuff");
+        forEachStandartBlock(RegBlocks.BIOLAB_TABLE3.get(), "stuff");
+        forEachStandartBlock(RegBlocks.BIOLAB_TABLE4.get(), "stuff");
+        forEachStandartBlock(RegBlocks.BIOLAB_TABLE_CASE.get(), "stuff");
+        forEachStandartBlock(RegBlocks.BIOLAB_TABLE.get(), "stuff");
+        forEachStandartBlock(RegBlocks.CHEMLAB_TABLE_CASE.get(), "stuff");
+        forEachStandartBlock(RegBlocks.CHEMLAB_TABLE.get(), "stuff");
+        forEachStandartBlock(RegBlocks.BIO_STILLAGE.get(), "stuff");
+        lootTables.put(RegBlocks.REDSTONE_WIRE.get(), standartItemBlockBuilder("copperscrap", RegItems.COPPER_SCRAP.get(),1));
+        //windows
+        lootTables.put(RegBlocks.ALUM_FRAMES_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.ALUMINUM_SCRAP.get(),1));
+        lootTables.put(RegBlocks.ALUM_FRAMES.get(), standartItemBlockBuilder("windows", RegItems.ALUMINUM_SCRAP.get(),1));
+        lootTables.put(RegBlocks.ALUM_WINDOW_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.ALUMINUM_SCRAP.get(),1));
+        lootTables.put(RegBlocks.ALUM_WINDOW.get(), standartItemBlockBuilder("windows", RegItems.ALUMINUM_SCRAP.get(),1));
+        lootTables.put(RegBlocks.MODERN_WINDOW_LEAF.get(), standartItemBlockBuilder("windows", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.MODERN_WINDOW_LEAF_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.MODERN_WINDOW_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.MODERN_WINDOW.get(), standartItemBlockBuilder("windows", RegItems.ARMATURES.get(),1));
+        lootTables.put(RegBlocks.WOOD_WINDOW_LEAF.get(), standartItemBlockBuilder("windows", RegItems.WOOD_SCRAP.get(),1));
+        lootTables.put(RegBlocks.WOOD_WINDOW_LEAF_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.WOOD_SCRAP.get(),1));
+        lootTables.put(RegBlocks.WOOD_WINDOW_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.WOOD_SCRAP.get(),1));
+        lootTables.put(RegBlocks.WOOD_WINDOW.get(), standartItemBlockBuilder("windows", RegItems.WOOD_SCRAP.get(),1));
         //slabs
         lootTables.put(RegBlocks.CONCRETE_SLAB_GRAY.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));
         lootTables.put(RegBlocks.CONCRETE_SLAB_GREEN.get(), standartItemBlockBuilder("slab", RegItems.ARMATURES.get(),1));

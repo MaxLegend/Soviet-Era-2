@@ -26,10 +26,13 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.network.NetworkHooks;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class AffinageFactory extends Block {
     private static final VoxelShape NORTH_AABB = VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 5.0D, 9.0D, 10.0D, 14.0D),
@@ -101,7 +104,18 @@ public class AffinageFactory extends Block {
     public BlockState rotate(BlockState state, Rotation rot) {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
-
+    @Override
+    public void tick(BlockState s, ServerWorld w, BlockPos p, Random rand) {
+        if(!w.isRemote()) {
+            if (w.isBlockPowered(p)) {
+                w.getPendingBlockTicks().scheduleTick(p, this, 40);
+                w.playSound(null, p, RegSounds.SOUND_AFFINAGE.get(), SoundCategory.BLOCKS, 0.20f, 1f);
+            }
+        }
+    }
+    public void neighborChanged(BlockState s, World w, BlockPos p, Block b, BlockPos fromPos, boolean isMoving) {
+        w.getPendingBlockTicks().scheduleTick(p, this, 6);
+    }
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());

@@ -33,4 +33,20 @@ public class RegSounds {
             SOUNDS.register("rusty_lever", () -> new SoundEvent(new ResourceLocation(Core.MODID, "rusty_lever")));
     public static final RegistryObject<SoundEvent> SOUND_SPARKING =
             SOUNDS.register("sparking", () -> new SoundEvent(new ResourceLocation(Core.MODID, "sparking")));
+    public static final RegistryObject<SoundEvent> SOUND_CRUSHER =
+            SOUNDS.register("crusher", () -> new SoundEvent(new ResourceLocation(Core.MODID, "crusher")));
+    public static final RegistryObject<SoundEvent> SOUND_DEVICE =
+            SOUNDS.register("device_enable", () -> new SoundEvent(new ResourceLocation(Core.MODID, "device_enable")));
+    public static final RegistryObject<SoundEvent> SOUND_SNAP =
+            SOUNDS.register("snap", () -> new SoundEvent(new ResourceLocation(Core.MODID, "snap")));
+    public static final RegistryObject<SoundEvent> SOUND_RELAY =
+            SOUNDS.register("relay", () -> new SoundEvent(new ResourceLocation(Core.MODID, "relay")));
+    public static final RegistryObject<SoundEvent> SOUND_FLUO_LAMP =
+            SOUNDS.register("fluo_lamp", () -> new SoundEvent(new ResourceLocation(Core.MODID, "fluo_lamp")));
+    public static final RegistryObject<SoundEvent> SOUND_AFFINAGE =
+            SOUNDS.register("affinage", () -> new SoundEvent(new ResourceLocation(Core.MODID, "affinage")));
+    public static final RegistryObject<SoundEvent> SOUND_GRINDER_IDLE =
+            SOUNDS.register("grinder_idle", () -> new SoundEvent(new ResourceLocation(Core.MODID, "grinder_idle")));
+    public static final RegistryObject<SoundEvent> SOUND_GRINDER_WORK =
+            SOUNDS.register("grinder_work", () -> new SoundEvent(new ResourceLocation(Core.MODID, "grinder_work")));
 }

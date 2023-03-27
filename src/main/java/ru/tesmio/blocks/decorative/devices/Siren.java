@@ -3,6 +3,7 @@ package ru.tesmio.blocks.decorative.devices;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
@@ -18,10 +19,12 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.baseblock.BlockForFacing;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Siren extends BlockForFacing {
 
@@ -33,6 +36,14 @@ public class Siren extends BlockForFacing {
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return getShape(state, worldIn, pos, context);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1,2))
+        };
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 

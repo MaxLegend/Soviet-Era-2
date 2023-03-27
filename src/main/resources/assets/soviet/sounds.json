@@ -99,5 +99,72 @@
         "name": "soviet:sound_sparking"
       }
     ]
+  },
+  "crusher": {
+    "subtitle": "crusher",
+    "sounds": [
+      {
+        "name": "soviet:crusher",
+        "stream": true
+      }
+    ]
+  },
+  "device_enable": {
+    "subtitle": "device_enable",
+    "sounds": [
+      {
+        "name": "soviet:device_enable",
+        "stream": true
+      }
+    ]
+  },
+  "snap": {
+    "subtitle": "snap",
+    "sounds": [
+      {
+        "name": "soviet:snap"
+      }
+    ]
+  },
+  "relay": {
+    "subtitle": "relay",
+    "sounds": [
+      {
+        "name": "soviet:relay"
+      }
+    ]
+  },
+  "fluo_lamp": {
+    "subtitle": "fluo_lamp",
+    "sounds": [
+      {
+        "name": "soviet:fluo_lamp"
+      }
+    ]
+  },
+  "affinage": {
+    "subtitle": "affinage",
+    "sounds": [
+      {
+        "name": "soviet:affinage",
+        "stream": true
+      }
+    ]
+  },
+  "grinder_idle": {
+    "subtitle": "grinder_idle",
+    "sounds": [
+      {
+        "name": "soviet:grinder_idle"
+      }
+    ]
+  },
+  "grinder_work": {
+    "subtitle": "grinder_work",
+    "sounds": [
+      {
+        "name": "soviet:grinder_work"
+      }
+    ]
   }
 }

@@ -14,6 +14,7 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -28,6 +29,7 @@ import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
+import ru.tesmio.reg.RegSounds;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -172,6 +174,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
         return updateState((World) w, p, s);
 
     }
+
     public BlockState updateState(World w, BlockPos p, BlockState s) {
         if (w.isBlockPowered(p)) {
             for (Direction facing : Direction.values()) {
@@ -189,6 +192,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
                     return s.with(LIT_VALUE, 4);
                 }
             }
+            w.playSound(null, p, RegSounds.SOUND_FLUO_LAMP.get(), SoundCategory.BLOCKS, 1f, 1f);
         }
         return s.with(LIT_VALUE, 0);
     }

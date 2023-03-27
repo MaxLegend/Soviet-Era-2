@@ -26,10 +26,13 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.fml.network.NetworkHooks;
+import ru.tesmio.reg.RegSounds;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class BlockCrusher extends Block {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -42,6 +45,7 @@ public class BlockCrusher extends Block {
 
     public BlockCrusher(Properties properties) {
         super(properties);
+
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(LIT, false).with(WATERLOGGED, false));
     }
     public FluidState getFluidState(BlockState state) {
@@ -49,8 +53,6 @@ public class BlockCrusher extends Block {
     }
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-
-
         return AABB;
     }
     @Override
@@ -62,7 +64,18 @@ public class BlockCrusher extends Block {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return RegTileEntitys.CRUSHER_TE.get().create();
     }
-
+    @Override
+    public void tick(BlockState s, ServerWorld w, BlockPos p, Random rand) {
+        if(!w.isRemote()) {
+            if (w.isBlockPowered(p)) {
+                w.getPendingBlockTicks().scheduleTick(p, this, 113);
+                w.playSound(null, p, RegSounds.SOUND_CRUSHER.get(), SoundCategory.BLOCKS, 0.40f, 1f);
+            }
+        }
+    }
+    public void neighborChanged(BlockState s, World w, BlockPos p, Block b, BlockPos fromPos, boolean isMoving) {
+        w.getPendingBlockTicks().scheduleTick(p, this, 6);
+    }
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         super.fillStateContainer(builder);

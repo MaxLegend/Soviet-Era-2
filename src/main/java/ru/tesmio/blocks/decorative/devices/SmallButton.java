@@ -6,9 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -17,6 +15,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockForFacing;
+import ru.tesmio.reg.RegSounds;
 
 public class SmallButton extends BlockForFacing {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -32,7 +31,7 @@ public class SmallButton extends BlockForFacing {
         return true;
     }
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-
+            worldIn.playSound(null, pos, RegSounds.SOUND_SNAP.get(), SoundCategory.BLOCKS, 0.5F, 1F);
             state = state.cycleValue(ENABLE);
             worldIn.setBlockState(pos, state);
             return ActionResultType.SUCCESS;

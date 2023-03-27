@@ -7,10 +7,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -21,6 +18,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegSounds;
 
 public class InfoTable extends BlockSideCustomModel {
 
@@ -60,6 +58,7 @@ public class InfoTable extends BlockSideCustomModel {
     }
     public BlockState updateState(World w, BlockPos p, BlockState s) {
         if (w.isBlockPowered(p)) {
+            w.playSound(null, p, RegSounds.SOUND_RELAY.get(), SoundCategory.BLOCKS, 0.05f, 1f);
             s = s.with(ENABLE, true);
         } else {
             s = s.with(ENABLE, false);
