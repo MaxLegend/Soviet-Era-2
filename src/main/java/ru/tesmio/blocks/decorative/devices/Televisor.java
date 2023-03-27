@@ -13,11 +13,11 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class Televisor extends BlockSideCustomModel {
+public class Televisor extends BlockSideDevice {
     final VoxelShape BOX = Block.makeCuboidShape(3,0.5,0,13,13.5,16);
     public Televisor(Properties properties, float shadingInside) {
         super(properties, shadingInside);

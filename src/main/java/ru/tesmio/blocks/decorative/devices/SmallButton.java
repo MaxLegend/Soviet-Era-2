@@ -6,7 +6,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.*;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Direction;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -14,10 +17,10 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.baseblock.BlockForFacing;
+import ru.tesmio.blocks.decorative.devices.base.BlockForFacingDevice;
 import ru.tesmio.reg.RegSounds;
 
-public class SmallButton extends BlockForFacing {
+public class SmallButton extends BlockForFacingDevice {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty ENABLE = BooleanProperty.create("enable");
     public SmallButton(Properties properties) {
@@ -33,9 +36,32 @@ public class SmallButton extends BlockForFacing {
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
             worldIn.playSound(null, pos, RegSounds.SOUND_SNAP.get(), SoundCategory.BLOCKS, 0.5F, 1F);
             state = state.cycleValue(ENABLE);
+
             worldIn.setBlockState(pos, state);
+        this.updateNeighbors(state, worldIn, pos);
             return ActionResultType.SUCCESS;
 
+    }
+    protected static Direction getFacing(BlockState state) {
+        switch(state.get(FACING)) {
+            case UP:
+                return Direction.DOWN;
+            case DOWN:
+                return Direction.UP;
+            case NORTH:
+            default:
+                return Direction.NORTH;
+            case SOUTH:
+                return Direction.SOUTH;
+            case EAST:
+                return Direction.EAST;
+            case WEST:
+                return Direction.WEST;
+        }
+    }
+    private void updateNeighbors(BlockState state, World world, BlockPos pos) {
+        world.notifyNeighborsOfStateChange(pos, this);
+        world.notifyNeighborsOfStateChange(pos.offset(getFacing(state).getOpposite()), this);
     }
     public int getWeakPower(BlockState s, IBlockReader br, BlockPos p, Direction side) {
         if(s.get(ENABLE)){

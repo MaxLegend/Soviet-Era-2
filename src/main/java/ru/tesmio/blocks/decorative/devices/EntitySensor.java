@@ -23,12 +23,12 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegSounds;
 
 import java.util.Random;
 
-public abstract class EntitySensor extends BlockSideCustomModel {
+public abstract class EntitySensor extends BlockSideDevice {
     public static final BooleanProperty POWERED = BooleanProperty.create("active");
     public static final BooleanProperty DOWN = BooleanProperty.create("down");
     public static final BooleanProperty UP = BooleanProperty.create("up");

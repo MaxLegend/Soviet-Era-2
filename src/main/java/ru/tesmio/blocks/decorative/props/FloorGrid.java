@@ -25,10 +25,8 @@ public class FloorGrid extends BlockRotatedAxisCustomModel {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
         for(Direction direction : context.getNearestLookingDirections()) {
             if (direction.getAxis() == Direction.Axis.Y) {
-
                 return this.getDefaultState().with(FACING, EnumOrientation.forFacing(direction.getOpposite(), context.getPlacementHorizontalFacing().getOpposite())).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
             } else {
-
                 return this.getDefaultState().with(FACING, EnumOrientation.forFacing(direction.getOpposite(), direction.getOpposite())).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
             }
         }

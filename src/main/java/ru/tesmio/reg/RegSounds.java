@@ -49,4 +49,6 @@ public class RegSounds {
             SOUNDS.register("grinder_idle", () -> new SoundEvent(new ResourceLocation(Core.MODID, "grinder_idle")));
     public static final RegistryObject<SoundEvent> SOUND_GRINDER_WORK =
             SOUNDS.register("grinder_work", () -> new SoundEvent(new ResourceLocation(Core.MODID, "grinder_work")));
+    public static final RegistryObject<SoundEvent> SOUND_DEMONTAGE =
+            SOUNDS.register("demont", () -> new SoundEvent(new ResourceLocation(Core.MODID, "demont")));
 }

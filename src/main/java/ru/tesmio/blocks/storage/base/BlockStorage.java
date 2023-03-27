@@ -15,9 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 
-public class BlockStorage extends BlockSideCustomModel {
+public class BlockStorage extends BlockSideDevice {
     public BlockStorage(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

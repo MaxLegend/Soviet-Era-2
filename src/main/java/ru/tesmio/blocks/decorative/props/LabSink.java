@@ -4,9 +4,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 
-public class LabSink extends BlockSideCustomModel {
+public class LabSink extends BlockSideDevice {
     public LabSink(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

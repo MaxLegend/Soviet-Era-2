@@ -27,6 +27,8 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import ru.tesmio.blocks.decorative.devices.Turnstile;
+import ru.tesmio.blocks.tumbler.AirlockDoorController;
 import ru.tesmio.reg.RegSounds;
 
 import javax.annotation.Nullable;
@@ -142,8 +144,25 @@ public class AirlockDoorBlock extends DoorBlock implements IWaterLoggable {
     }
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         DoubleBlockHalf doubleblockhalf = stateIn.get(HALF);
+        BlockState neigbour;
+        for(Direction d : Direction.values()) {
+            neigbour = worldIn.getBlockState(currentPos.offset(d));
+            if(neigbour.getBlock() instanceof AirlockDoorController) {
+                if(neigbour.get(Turnstile.STATUS) == Turnstile.EnumStatus.OPEN) {
+                   stateIn = stateIn.with(LOCKED, false);
+                } else {
+                    stateIn = stateIn.with(LOCKED, true);
+                }
+            }
+        }
         if (facing.getAxis() == Direction.Axis.Y && doubleblockhalf == DoubleBlockHalf.LOWER == (facing == Direction.UP)) {
-            return facingState.matchesBlock(this) && facingState.get(HALF) != doubleblockhalf ? stateIn.with(FACING, facingState.get(FACING)).with(OPEN, facingState.get(OPEN)).with(HINGE, facingState.get(HINGE)).with(POWERED, facingState.get(POWERED)).with(LOCKED, facingState.get(LOCKED)) : Blocks.AIR.getDefaultState();
+            return facingState.matchesBlock(this) && facingState.get(HALF) != doubleblockhalf ?
+                    stateIn
+                            .with(FACING, facingState.get(FACING))
+                            .with(OPEN, facingState.get(OPEN))
+                            .with(HINGE, facingState.get(HINGE))
+                            .with(POWERED, facingState.get(POWERED))
+                            .with(LOCKED, facingState.get(LOCKED)) : Blocks.AIR.getDefaultState();
         } else {
             return doubleblockhalf == DoubleBlockHalf.LOWER && facing == Direction.DOWN && !stateIn.isValidPosition(worldIn, currentPos) ? Blocks.AIR.getDefaultState() : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
         }

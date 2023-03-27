@@ -166,5 +166,13 @@
         "name": "soviet:grinder_work"
       }
     ]
+  },
+  "demont": {
+    "subtitle": "demont",
+    "sounds": [
+      {
+        "name": "soviet:demont"
+      }
+    ]
   }
 }

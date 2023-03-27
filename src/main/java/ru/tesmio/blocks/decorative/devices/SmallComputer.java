@@ -17,7 +17,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import net.minecraft.world.server.ServerWorld;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
@@ -25,7 +25,7 @@ import ru.tesmio.utils.VoxelShapeUtil;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SmallComputer extends BlockSideCustomModel {
+public class SmallComputer extends BlockSideDevice {
     public static final BooleanProperty ENABLE = BooleanProperty.create("enable");
 
     public SmallComputer(Properties properties, float shadingInside) {

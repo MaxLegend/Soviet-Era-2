@@ -81,7 +81,6 @@ public class RegItems {
         WIRE_CUTTERS = registerItem("wire_cutters", () -> new WireCutter());
         REDSTONE_GRINDER = registerItem("redstone_grinder", () -> new RedstoneGrinder());
         PULLER = registerItem("puller", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.puller"));
-        //  DISMANTLING_ITEM = registerItem("dism", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.desm"));
 
         //ingots and dust
         COPPER_SCRAP = registerItem("copper_scrap", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));

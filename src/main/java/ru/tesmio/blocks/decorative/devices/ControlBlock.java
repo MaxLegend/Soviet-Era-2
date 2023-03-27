@@ -24,13 +24,13 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegItems;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ControlBlock extends BlockSideCustomModel {
+public class ControlBlock extends BlockSideDevice {
     public static final IntegerProperty VARIANT = IntegerProperty.create("var",0,9);
 
     public ControlBlock(float shadingInside) {

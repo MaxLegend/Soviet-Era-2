@@ -10,10 +10,10 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class Cryocapsule extends BlockSideCustomModel {
+public class Cryocapsule extends BlockSideDevice {
     public Cryocapsule(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

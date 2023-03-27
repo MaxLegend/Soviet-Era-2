@@ -124,8 +124,9 @@ public class Turnstile extends BlockSideCustomModel {
                 .with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
     }
 
-    public static final EnumProperty<EnumStatus> STATUS = EnumProperty.create("status", EnumStatus.class);
+    public static final EnumProperty<Turnstile.EnumStatus> STATUS = EnumProperty.create("status", Turnstile.EnumStatus.class);
     public static final EnumProperty<EnumHinge> HINGE = EnumProperty.create("hinge", EnumHinge.class);
+
     public Turnstile(Properties properties) {
         super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STATUS,EnumStatus.OFF).with(WATERLOGGED, Boolean.valueOf(false)).with(HINGE, EnumHinge.LEFT));

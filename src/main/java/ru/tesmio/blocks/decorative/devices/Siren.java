@@ -18,7 +18,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import ru.tesmio.blocks.baseblock.BlockForFacing;
+import ru.tesmio.blocks.decorative.devices.base.BlockForFacingDevice;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
@@ -26,7 +26,7 @@ import ru.tesmio.utils.VoxelShapeUtil;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Siren extends BlockForFacing {
+public class Siren extends BlockForFacingDevice {
 
     public static final EnumProperty<Type> TYPE = EnumProperty.create("type", Type.class);
     public Siren(Properties properties) {

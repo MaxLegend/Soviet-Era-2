@@ -6,9 +6,9 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 
-public class PowerSocket extends BlockSideCustomModel {
+public class PowerSocket extends BlockSideDevice {
     public PowerSocket(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

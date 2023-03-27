@@ -8,9 +8,9 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.baseblock.BlockForFacing;
+import ru.tesmio.blocks.decorative.devices.base.BlockForFacingDevice;
 
-public class VentFilter extends BlockForFacing {
+public class VentFilter extends BlockForFacingDevice {
     VoxelShape[] BOXS = new VoxelShape[] {
             VoxelShapes.create(0.19D, 0.19D, 1D, 0.81D, 0.81D, 0.89D),
             VoxelShapes.create(0.19D, 0.19D, 0D, 0.81D, 0.81D, 0.11D),

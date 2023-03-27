@@ -26,7 +26,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
-import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
+import ru.tesmio.blocks.decorative.lamp.base.BlockRotLamp;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
@@ -34,7 +34,7 @@ import ru.tesmio.reg.RegSounds;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FluoLamp extends BlockRotatedAxisCustomModel {
+public class FluoLamp extends BlockRotLamp {
 
     public static final IntegerProperty LIT_VALUE = IntegerProperty.create("lit_power", 0, 4);
     public static final BooleanProperty CLOSED = BooleanProperty.create("closed");
@@ -47,7 +47,7 @@ public class FluoLamp extends BlockRotatedAxisCustomModel {
             Block.makeCuboidShape(14D, 5D, 0D, 16D, 11D, 16D),
             Block.makeCuboidShape(0D, 5D, 0D, 2D, 11D, 16D)};
     public FluoLamp(Properties builder) {
-        super(builder, 1F);
+        super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false).with(CLOSED, true));
     }
     public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {

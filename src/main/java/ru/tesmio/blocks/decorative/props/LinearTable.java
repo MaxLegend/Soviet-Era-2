@@ -15,11 +15,11 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class LinearTable extends BlockSideCustomModel {
+public class LinearTable extends BlockSideDevice {
 
     public static final EnumProperty<EnumState> STATES = EnumProperty.create("states", EnumState.class);
 

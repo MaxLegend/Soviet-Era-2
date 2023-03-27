@@ -9,12 +9,12 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SystemBlock extends BlockSideCustomModel {
+public class SystemBlock extends BlockSideDevice {
     public SystemBlock(Properties properties, float shadingInside) {
         super(properties, shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));

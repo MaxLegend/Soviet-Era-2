@@ -1,5 +1,6 @@
 package ru.tesmio.items;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
@@ -11,7 +12,6 @@ import net.minecraft.util.ActionResultType;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import ru.tesmio.core.Core;
@@ -38,8 +38,8 @@ public class WireCutter extends Item {
         if (!context.getWorld().isRemote) {
             if(state.getBlock() == RegBlocks.REDSTONE_WIRE.get()) {
                 PlayerEntity playerEntity = context.getPlayer();
-                if (playerEntity != null) {
-                    context.getWorld().getBlockState(context.getPos()).spawnAdditionalDrops((ServerWorld) context.getWorld(), context.getPos(), new ItemStack(RegBlocks.REDSTONE_WIRE.get()));
+                if (playerEntity != null && !playerEntity.isCreative()) {
+                    Block.spawnAsEntity(context.getWorld(), context.getPos(), new ItemStack(RegBlocks.REDSTONE_WIRE.get()));
                     context.getWorld().setBlockState(context.getPos(), Blocks.AIR.getDefaultState());
                     context.getItem().damageItem(1, playerEntity, (player) -> {
                         player.sendBreakAnimation(context.getHand());

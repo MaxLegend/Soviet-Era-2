@@ -25,14 +25,14 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ControlTable extends BlockSideCustomModel implements IWaterLoggable {
+public class ControlTable extends BlockSideDevice implements IWaterLoggable {
     final VoxelShape BOXS[] = new VoxelShape[] {
             Block.makeCuboidShape(8D, 0D, 0D, 16D, 16D, 16D), Block.makeCuboidShape(0D, 0D, 0D, 8D, 16D, 16D)
     ,Block.makeCuboidShape(0D, 0D, 8D, 16D, 16D, 16D),Block.makeCuboidShape(0D, 0D, 0D, 16D, 16D, 8D), VoxelShapes.or(Block.makeCuboidShape(8D, 0D, 0D, 16D, 16D, 16D),

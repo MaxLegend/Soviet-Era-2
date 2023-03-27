@@ -25,14 +25,15 @@ public class BlockSideCustomModelLeveler extends BlockSideCustomModel {
     public SoundEvent getSoundChangeState() {
         return soundChangeState;
     }
+
     public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (!world.isRemote()) {
-            world.playSound(null, pos, getSoundChangeState(), SoundCategory.BLOCKS, 0.40f, 1f);
-            state = state.cycleValue(POWERED);
-            world.setBlockState(pos, state, 3);
-            return ActionResultType.SUCCESS;
+        if(hit.getFace() == state.get(FACING)) {
+                world.playSound(null, pos, getSoundChangeState(), SoundCategory.BLOCKS, 0.1f, 1f);
+                state = state.cycleValue(POWERED);
+                world.setBlockState(pos, state, 3);
+                return ActionResultType.SUCCESS;
         }
-        return ActionResultType.SUCCESS;
+        return ActionResultType.FAIL;
     }
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return blockState.get(POWERED) ? 15 : 0;

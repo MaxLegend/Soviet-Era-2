@@ -4,10 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 
-public class LeadWall extends BlockSideCustomModel {
+public class LeadWall extends BlockSideDevice {
     public LeadWall(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

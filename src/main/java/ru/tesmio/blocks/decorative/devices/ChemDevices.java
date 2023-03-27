@@ -6,10 +6,10 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 
-public class ChemDevices extends BlockSideCustomModel {
+public class ChemDevices extends BlockSideDevice {
     public ChemDevices(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

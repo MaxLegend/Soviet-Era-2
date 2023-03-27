@@ -17,10 +17,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegSounds;
 
-public class InfoTable extends BlockSideCustomModel {
+public class InfoTable extends BlockSideDevice {
 
     public static final BooleanProperty ENABLE = BooleanProperty.create("enable");
     public static final EnumProperty<EnumType> TYPE = EnumProperty.create("type", EnumType.class);

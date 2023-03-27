@@ -15,10 +15,11 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import ru.tesmio.blocks.baseblock.BlockAxisCustomModel;
+import ru.tesmio.blocks.decorative.props.base.BlockAxisProps;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class BioStillage extends BlockAxisCustomModel {
+
+public class BioStillage extends BlockAxisProps {
     public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
     public BioStillage(Properties properties) {
         super(properties);

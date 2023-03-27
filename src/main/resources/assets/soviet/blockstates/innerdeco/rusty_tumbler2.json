@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "facing=east,powered=false": { "model": "soviet:block/innerdeco/rusty_tumbler2", "y": 90 },
+        "facing=west,powered=false": { "model": "soviet:block/innerdeco/rusty_tumbler2",  "y": 270 },
+        "facing=south,powered=false": { "model": "soviet:block/innerdeco/rusty_tumbler2", "y": 180 },
+        "facing=north,powered=false": { "model": "soviet:block/innerdeco/rusty_tumbler2"},
+        "facing=east,powered=true": { "model": "soviet:block/innerdeco/rusty_tumbler2_on", "y": 90 },
+        "facing=west,powered=true": { "model": "soviet:block/innerdeco/rusty_tumbler2_on", "y": 270 },
+        "facing=south,powered=true": { "model": "soviet:block/innerdeco/rusty_tumbler2_on","y": 180 },
+        "facing=north,powered=true": { "model": "soviet:block/innerdeco/rusty_tumbler2_on"}
+    }
+}

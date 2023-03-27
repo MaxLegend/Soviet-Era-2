@@ -6,9 +6,9 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
+import ru.tesmio.blocks.decorative.props.base.BlockRotatedAxisCMProps;
 
-public class VentFilterRest extends BlockRotatedAxisCustomModel {
+public class VentFilterRest extends BlockRotatedAxisCMProps {
     VoxelShape[] BOXS = new VoxelShape[] {
             VoxelShapes.create(1D, 0D, 0.87D, 0D, 0.265D, 0.13D), //upx
             VoxelShapes.create(0.87D, 0D, 1D, 0.13D, 0.265D, 0D),//upz

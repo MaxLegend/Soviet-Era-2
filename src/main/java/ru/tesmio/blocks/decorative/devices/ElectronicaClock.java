@@ -15,11 +15,11 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class ElectronicaClock extends BlockSideCustomModel {
+public class ElectronicaClock extends BlockSideDevice {
     public static final BooleanProperty ENABLE = BooleanProperty.create("enable");
 
 

@@ -12,10 +12,10 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraftforge.common.ToolType;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
 
-public class PhysDevices extends BlockSideCustomModel {
+public class PhysDevices extends BlockSideDevice {
     public PhysDevices(float shadingInside) {
         super(AbstractBlock.Properties.create(Material.IRON)
                 .setRequiresTool()

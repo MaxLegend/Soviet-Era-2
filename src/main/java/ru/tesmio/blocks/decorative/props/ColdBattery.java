@@ -8,7 +8,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.utils.VoxelShapeUtil;
 
-public class ColdBattery extends LinearTable{
+public class ColdBattery extends LinearTable {
 //    private static VoxelShape[] SIDE_AABB = new VoxelShape[] {
 //            VoxelShapes.create(0D, 0D, 0D, 1D, 1D, 0.3D),
 //            VoxelShapes.create(0D, 0D, 0.7D, 1D, 1D, 1D),

@@ -10,9 +10,9 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 
-public class Autoclave extends BlockSideCustomModel {
+public class Autoclave extends BlockSideDevice {
     public Autoclave(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }

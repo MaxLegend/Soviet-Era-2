@@ -12,6 +12,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particles.RedstoneParticleData;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.StateContainer;
@@ -27,6 +28,8 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.reg.RegTileEntitys;
@@ -88,6 +91,22 @@ public class AffinageFactory extends Block {
         player.addStat(Stats.BLOCK_MINED.get(this));
         player.addExhaustion(0.005F);
         spawnDrops(state, worldIn, pos, te, player, stack);
+    }
+    @OnlyIn(Dist.CLIENT)
+    public void animateTick(BlockState s, World w, BlockPos p, Random rand) {
+        if (w.isBlockPowered(p)) {
+            Direction direction = s.get(FACING);
+            double d0 = (double)p.getX() + 0.5D + (rand.nextDouble() - 0.5D) * 0.2D;
+            double d1 = (double)p.getY() + 0.4D + (rand.nextDouble() - 0.5D) * 0.2D;
+            double d2 = (double)p.getZ() + 0.5D + (rand.nextDouble() - 0.5D) * 0.2D;
+            float f = -5.0F;
+
+            f = f / 16.0F;
+            double d3 = (f * (float)direction.getXOffset());
+            double d4 = (f * (float)direction.getZOffset());
+            w.addParticle(RedstoneParticleData.REDSTONE_DUST, d0 + d3, d1 + 0.5, d2 + d4-0.5, 0.0D, 0.0D, 0.0D);
+            w.addParticle(RedstoneParticleData.REDSTONE_DUST, d0 + d3, d1 + 0.5, d2 + d4-0.5, 0.0D, 0.0D, 0.0D);
+        }
     }
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

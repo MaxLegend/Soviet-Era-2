@@ -13,11 +13,11 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
+import ru.tesmio.blocks.decorative.lamp.base.BlockRotLamp;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
-public class BrokenFluoLamp2 extends BlockRotatedAxisCustomModel {
+public class BrokenFluoLamp2 extends BlockRotLamp {
     final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(16D, 0D, 11D, 0D, 2D, 5D),
             Block.makeCuboidShape(11D, 0D, 16D, 5D, 2D, 0D),
             Block.makeCuboidShape(11D, 16D, 16D, 5D, 14D, 0D),
@@ -28,7 +28,7 @@ public class BrokenFluoLamp2 extends BlockRotatedAxisCustomModel {
             Block.makeCuboidShape(0D, 5D, 0D, 2D, 11D, 16D)};
 
     public BrokenFluoLamp2(Properties builder) {
-        super(builder, 1F);
+        super(builder);
     }
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
