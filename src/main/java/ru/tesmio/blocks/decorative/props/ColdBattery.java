@@ -1,12 +1,17 @@
 package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ColdBattery extends LinearTable {
 //    private static VoxelShape[] SIDE_AABB = new VoxelShape[] {
@@ -18,6 +23,15 @@ public class ColdBattery extends LinearTable {
 //    };
     public ColdBattery(Properties properties) {
         super(properties);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(4,10)),
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(6,12)),
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(4))
+        };
     }
     @Override
     public VoxelShape getCollisionShape(BlockState s, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

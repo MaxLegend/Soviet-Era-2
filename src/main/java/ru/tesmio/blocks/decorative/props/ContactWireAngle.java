@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -15,8 +17,10 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
 
 public class ContactWireAngle extends BlockSideCustomModel {
@@ -43,6 +47,15 @@ public class ContactWireAngle extends BlockSideCustomModel {
                 this.poweredBlocks(s, w, p, () -> new Block[]{RegBlocks.CONTACT_WIRE_INNER.get(), RegBlocks.CONTACT_WIRE.get(),RegBlocks.CONTACT_WIRE_OUTER.get()});
             }
         }
+    }
+
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(1,2)),
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1,2))
+        };
     }
     public void poweredBlocks (BlockState s, World w, BlockPos p, Supplier<Block[]> targetBlock) {
         if (s.getBlock() == targetBlock && !s.get(SIGNAL)) {

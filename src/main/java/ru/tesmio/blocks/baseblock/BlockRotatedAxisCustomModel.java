@@ -5,9 +5,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -20,6 +22,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ToolType;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -33,6 +39,21 @@ public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(WATERLOGGED, Boolean.valueOf(false)));
     this.shadingInside = shadingInside;
 
+    }
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        if(this == RegBlocks.TUBING_HORIZONTAL.get()) {
+            return new ItemStack[]{
+                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(8,15)),
+            };
+        } else
+        if(this == RegBlocks.TUBING_VERTICAL.get()) {
+            return new ItemStack[]{
+                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(8,15)),
+            };
+        } else       return new ItemStack[]{
+                ItemStack.EMPTY
+        };
     }
     public BlockRotatedAxisCustomModel(Properties p, float shadingInside) {
         super(p);

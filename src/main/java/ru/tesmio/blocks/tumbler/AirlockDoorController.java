@@ -3,6 +3,7 @@ package ru.tesmio.blocks.tumbler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
@@ -17,7 +18,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.blocks.decorative.devices.Turnstile;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegSounds;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AirlockDoorController extends BlockSideCustomModel {
     public static EnumProperty<Turnstile.EnumStatus> STATUS = EnumProperty.create("status", Turnstile.EnumStatus.class);
@@ -37,6 +41,16 @@ public class AirlockDoorController extends BlockSideCustomModel {
         } else {
             w.setBlockState(p, s.with(STATUS, Turnstile.EnumStatus.OFF));
         }
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(4)),
+                new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(3)),
+                new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(2)),
+                new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), tr.nextInt(1))
+        };
     }
     @Override
     public ActionResultType onBlockActivated(BlockState s, World w, BlockPos p, PlayerEntity pl, Hand hand, BlockRayTraceResult hit) {

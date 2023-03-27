@@ -42,6 +42,7 @@ public class FluoLamp3 extends BlockRotLamp {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false));
     }
+
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
         ItemStack activeItemRight = playerEntity.getHeldItemMainhand();
         ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();

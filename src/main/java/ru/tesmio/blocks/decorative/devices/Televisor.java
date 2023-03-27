@@ -2,7 +2,9 @@ package ru.tesmio.blocks.decorative.devices;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -14,8 +16,11 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Televisor extends BlockSideDevice {
     final VoxelShape BOX = Block.makeCuboidShape(3,0.5,0,13,13.5,16);
@@ -34,6 +39,24 @@ public class Televisor extends BlockSideDevice {
         if(worldIn instanceof WorldGenRegion) return stateIn;
         return updateState((World) worldIn, currentPos,stateIn);
     }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(1,3)),
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1,2))
+        };
+    }
+
+    @Override
+    public ItemStack getStackAddDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        if(tr.nextInt(34) == 4) {
+            return new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), 1);
+        }
+        return ItemStack.EMPTY;
+    }
+
     public BlockState updateState(World w, BlockPos p, BlockState s) {
         if (w.isBlockPowered(p)) {
             w.playSound(null, p, RegSounds.SOUND_SPARKING.get(), SoundCategory.BLOCKS, 0.05f, 1f);

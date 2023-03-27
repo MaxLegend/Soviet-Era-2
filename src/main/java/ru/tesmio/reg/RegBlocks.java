@@ -226,7 +226,7 @@ public class RegBlocks {
         BROKEN_FLUORESCENT_LAMP3 = registerBlockWithModel("innerdeco/lamp/broken_fluo_lamp3", () -> new BrokenFluoLamp3(LAMP_PROPERTIES), Core.ItemGroups.TAB_INNER_DECO);
         STREET_LAMP = registerBlockWithModel("innerdeco/lamp/street_lamp", () -> new StreetLamp(LAMP_PROPERTIES, 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
-        //doors
+        //doors - настроить дроп дверей. Почему то не работает как везде
         WOOD_DOOR_2 = registerOnlyCustomBlock("innerdeco/wood_door_2", () -> new WoodDoor(getP(Material.WOOD, 0.7f,0.9f, ToolType.AXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
         WOOD_DOOR_1 = registerOnlyCustomBlock("innerdeco/wood_door_1", () -> new WoodDoor(getP(Material.WOOD, 0.7f,0.9f, ToolType.AXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
         AIRLOCK_DOOR_CONTROLLER = registerBlockWithModel("innerdeco/airlock_door_controller", () -> new AirlockDoorController(getP(Material.IRON, 0.9f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
@@ -235,34 +235,31 @@ public class RegBlocks {
         RUSTY_IRON_DOOR = registerOnlyCustomBlock("innerdeco/rusty_iron_door", () -> new RustyIronDoor(getP(Material.IRON, 1.0f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
         ALUMINIUM_DOOR = registerOnlyCustomBlock("innerdeco/aluminium_door", () -> new AluminiumDoorBlock(getP(Material.IRON, 0.8f,0.6f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
         RAILING_DOOR = registerOnlyCustomBlock("innerdeco/railing_door", () -> new RailingDoorBlock(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-        RUSTY_BARS = registerBlockWithModel("innerdeco/rusty_bars", () -> new RustyBars(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-        LADDER_1 = registerBlockWithModel("innerdeco/ladder_1", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-        LADDER_2 = registerBlockWithModel("innerdeco/ladder_2", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
         CONTAINMENT_TRAPDOOR = registerOnlyCustomBlock("innerdeco/containment_trapdoor", () -> new ContainmentTrapdoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-        VENT_PIPE = registerBlockWithModel("innerdeco/pipes/ventpipe", () -> new VentPipe(getP(Material.IRON, 0.5f,0.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-        VENT_PIPE_BASE = registerBlockWithModel("innerdeco/pipes/ventpipe_base", () -> new VentPipeBase(getP(Material.IRON, 1.5f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+
 
         //circuits
-        PLATE_GOLDEN_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack", () -> new PlateGoldenJack(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
-        PLATE_GOLDEN_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2, 1F), Core.ItemGroups.TAB_ITEMS);
-        PLATE_PLATINUM_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack", () -> new PlatePlatinumJack(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
-        PLATE_PLATINUM_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack_empty", () -> new BlockCopperCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
-        COPPER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/copper_plate", () -> new BlockCopperCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        COPPER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/copper_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        SILVER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/silver_plate", () -> new BlockSilverCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        SILVER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/silver_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        GOLD_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/gold_plate", () -> new BlockGoldCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        GOLD_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/gold_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        DIAMOND_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate", () -> new BlockDiamondCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        DIAMOND_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        NETHERITE_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate", () -> new BlockNetheriteCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        NETHERITE_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
-        PLATINUM_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate", () -> new BlockPlatinumCircuit(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
-        PLATINUM_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, ToolType.AXE, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        PLATE_GOLDEN_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack", () -> new PlateGoldenJack(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
+        PLATE_GOLDEN_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_golden_jack_empty", () -> new BlockCustomModel(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2, 1F), Core.ItemGroups.TAB_ITEMS);
+        PLATE_PLATINUM_JACKS = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack", () -> new PlatePlatinumJack(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
+        PLATE_PLATINUM_JACKS_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/plate_platinum_jack_empty", () -> new BlockCopperCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT2), Core.ItemGroups.TAB_ITEMS);
+        COPPER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/copper_plate", () -> new BlockCopperCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        COPPER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/copper_plate_empty", () -> new BlockCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        SILVER_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/silver_plate", () -> new BlockSilverCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        SILVER_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/silver_plate_empty", () -> new BlockCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        GOLD_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/gold_plate", () -> new BlockGoldCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        GOLD_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/gold_plate_empty", () -> new BlockCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        DIAMOND_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate", () -> new BlockDiamondCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        DIAMOND_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/diamond_plate_empty", () -> new BlockCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        NETHERITE_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate", () -> new BlockNetheriteCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        NETHERITE_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/netherite_plate_empty", () -> new BlockCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
+        PLATINUM_CIRCUIT = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate", () -> new BlockPlatinumCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT), Core.ItemGroups.TAB_ITEMS);
+        PLATINUM_CIRCUIT_EMPTY = registerOnlyCustomBlock("innerdeco/circuit/platinum_plate_empty", () -> new BlockCircuit(getP(Material.CORAL, 0.2f,0.1f, null, 1, SoundType.CLOTH, false, true), SHAPE_CIRCUIT, 1F), Core.ItemGroups.TAB_ITEMS);
 
         //innerdeco
         TUBING_HORIZONTAL = registerBlockWithModel("innerdeco/tubing_horizontal", () -> new BlockRotatedAxisCustomModel(0.6F), Core.ItemGroups.TAB_INNER_DECO);
         TUBING_VERTICAL = registerBlockWithModel("innerdeco/tubing_vertical", () -> new BlockRotatedAxisCustomModel(0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        //-- остановился здесь - дропы
         RUSTY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/rusty_handhold", () -> new RustyHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
         BALCONY_HANDHOLD = registerBlockWithModel("innerdeco/handhold/balcony_handhold", () -> new ThinHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
         STREET_FENCE = registerBlockWithModel("innerdeco/handhold/street_handhold", () -> new ThinHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
@@ -305,6 +302,11 @@ public class RegBlocks {
         CHAIN = registerBlockWithModel("innerdeco/chain", () -> new Chain(getP(Material.IRON, 0.3f,0.4f,ToolType.PICKAXE, 0, SoundType.METAL, false, true)) {}, Core.ItemGroups.TAB_INNER_DECO);
         LEAD_WALL = registerBlockWithModel("innerdeco/lead_wall", () -> new LeadWall(getP(Material.IRON, 2.8f,8.6f,ToolType.PICKAXE, 2, SoundType.STONE, true, true), 1F) {}, Core.ItemGroups.TAB_INNER_DECO);
         THIN_LEAD_WALL = registerBlockWithModel("innerdeco/thin_lead_wall", () -> new LeadWall(getP(Material.IRON, 1.6f,6.6f,ToolType.PICKAXE, 2, SoundType.STONE, true, true), 1F) {}, Core.ItemGroups.TAB_INNER_DECO);
+        RUSTY_BARS = registerBlockWithModel("innerdeco/rusty_bars", () -> new RustyBars(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        LADDER_1 = registerBlockWithModel("innerdeco/ladder_1", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        LADDER_2 = registerBlockWithModel("innerdeco/ladder_2", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        VENT_PIPE = registerBlockWithModel("innerdeco/pipes/ventpipe", () -> new VentPipe(getP(Material.IRON, 0.5f,0.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        VENT_PIPE_BASE = registerBlockWithModel("innerdeco/pipes/ventpipe_base", () -> new VentPipeBase(getP(Material.IRON, 1.5f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
 
         //phys devices
         EM_METER = registerBlockWithModel("innerdeco/devices/phys/em_meter", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);

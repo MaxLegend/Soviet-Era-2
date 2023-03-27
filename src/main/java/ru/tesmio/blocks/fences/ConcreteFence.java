@@ -3,9 +3,11 @@ package ru.tesmio.blocks.fences;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -17,6 +19,9 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegItems;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ConcreteFence extends BlockSideCustomModel {
     final VoxelShape BOXS[] = new VoxelShape[] {Block.makeCuboidShape(0D, 0D, 4D, 16D, 16D, 12D),
@@ -28,6 +33,13 @@ public class ConcreteFence extends BlockSideCustomModel {
     public ConcreteFence(Properties properties) {
         super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, Boolean.valueOf(false)).with(PART, EnumPart.DOWN));
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(2)),
+        };
     }
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

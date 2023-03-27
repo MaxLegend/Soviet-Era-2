@@ -2,15 +2,20 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegItems;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Autoclave extends BlockSideDevice {
     public Autoclave(Properties properties, float shadingInside) {
@@ -38,6 +43,15 @@ public class Autoclave extends BlockSideDevice {
             Block.makeCuboidShape(4,15,4,12,16,12),
             Block.makeCuboidShape(3,15,6,13,16,10),
     };
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(3,5)),
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(3,4)),
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(2))
+        };
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
         switch (state.get(FACING)) {

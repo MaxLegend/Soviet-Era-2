@@ -20,13 +20,14 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegItems;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class GasStove extends BlockSideCustomModel {
+public class GasStove extends BlockSideDevice {
     public static final IntegerProperty VARIANT = IntegerProperty.create("var",0,1);
     public GasStove(Properties properties, float shadingInside) {
         super(properties, shadingInside);
@@ -49,6 +50,13 @@ public class GasStove extends BlockSideCustomModel {
     public VoxelShape getFacingShape(BlockState s) {
 
         return SHP;
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(3,2))
+        };
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());

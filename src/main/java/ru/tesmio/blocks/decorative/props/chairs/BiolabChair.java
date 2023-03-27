@@ -3,6 +3,7 @@ package ru.tesmio.blocks.decorative.props.chairs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +15,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.SittableBlock;
 import ru.tesmio.entity.EntitySittableBlock;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BiolabChair extends SittableBlock {
     public BiolabChair(Properties properties, float shadingInside) {
@@ -33,6 +37,13 @@ public class BiolabChair extends SittableBlock {
             Block.makeCuboidShape(3,7.75,3,13,8.5,13),
             Block.makeCuboidShape(4,0,4,12,8,12)
     };
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.WOOD_SCRAP.get(), 1)
+        };
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
 
         switch (state.get(FACING)) {

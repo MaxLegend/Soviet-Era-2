@@ -50,6 +50,7 @@ public class FluoLamp extends BlockRotLamp {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false).with(CLOSED, true));
     }
+
     public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return this.getShape(state, worldIn, pos, null);
     }

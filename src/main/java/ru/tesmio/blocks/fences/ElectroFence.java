@@ -3,6 +3,8 @@ package ru.tesmio.blocks.fences;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.DamageSource;
@@ -17,9 +19,11 @@ import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.blocks.tumbler.ElectroFenceTumbler;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class ElectroFence extends BlockSideCustomModel {
@@ -43,7 +47,14 @@ public class ElectroFence extends BlockSideCustomModel {
 
         }
     }
-
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1,3))
+        };
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape defShape = Block.makeCuboidShape(7D, 0D, 7D, 9D, 16D, 9D);
         switch (state.get(FACING)) {

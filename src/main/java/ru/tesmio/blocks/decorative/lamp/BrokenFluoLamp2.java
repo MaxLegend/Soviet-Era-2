@@ -30,6 +30,7 @@ public class BrokenFluoLamp2 extends BlockRotLamp {
     public BrokenFluoLamp2(Properties builder) {
         super(builder);
     }
+
     @Override
     public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return this.getShape(state, worldIn, pos, context);

@@ -2,16 +2,21 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Cryocapsule extends BlockSideDevice {
     public Cryocapsule(Properties properties, float shadingInside) {
@@ -35,7 +40,14 @@ public class Cryocapsule extends BlockSideDevice {
         }
         return VoxelShapes.fullCube();
     }
-
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(2,4)),
+                new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1,3))
+        };
+    }
     @Override
     public VoxelShape getFacingShape(BlockState s) {
         return super.getFacingShape(s);

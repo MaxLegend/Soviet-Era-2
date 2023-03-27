@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.ActionResultType;
@@ -16,6 +17,9 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegBlocks;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ElectricalPanel extends BlockSideCustomModel {
     public static final BooleanProperty OPEN = BooleanProperty.create("open");
@@ -34,6 +38,13 @@ public class ElectricalPanel extends BlockSideCustomModel {
         return ActionResultType.SUCCESS;
     }
     return ActionResultType.FAIL;
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1,2))
+        };
     }
     @Override
     public VoxelShape getFacingShape(BlockState s) {

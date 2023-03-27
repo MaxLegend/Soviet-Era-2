@@ -10,10 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.stats.Stats;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -21,12 +20,11 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import ru.tesmio.blocks.baseblock.BlockCircuit;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
-import javax.annotation.Nullable;
-
-public class PlatePlatinumJack extends Block {
+public class PlatePlatinumJack extends BlockCircuit {
     protected static VoxelShape SHAPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -35,11 +33,10 @@ public class PlatePlatinumJack extends Block {
         this.SHAPE = shape;
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.FALSE));
     }
-    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-        player.addStat(Stats.BLOCK_MINED.get(this));
-        player.addExhaustion(0.005F);
-        state.getBlock().spawnAsEntity(worldIn, pos, new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), 1));
+    public IItemProvider getDrop() {
+        return this;
     }
+
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE;
     }
