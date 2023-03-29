@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
@@ -19,7 +20,10 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockCustomModel;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class HeatPipes extends BlockCustomModel {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
@@ -36,7 +40,14 @@ public class HeatPipes extends BlockCustomModel {
         this.setDefaultState(this.stateContainer.getBaseState().with(AXIS, Direction.Axis.X).with(WATERLOGGED, Boolean.valueOf(false))
                 .with(FRONT, Boolean.FALSE).with(BACK, Boolean.FALSE));
     }
-
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        return new ItemStack[] {
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(6)),
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(2)),
+        };
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape vs;
         switch (state.get(AXIS)) {

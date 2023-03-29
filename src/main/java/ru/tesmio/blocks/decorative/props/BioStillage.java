@@ -2,6 +2,8 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -16,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import ru.tesmio.blocks.decorative.props.base.BlockAxisProps;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 
@@ -23,6 +26,12 @@ public class BioStillage extends BlockAxisProps {
     public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
     public BioStillage(Properties properties) {
         super(properties);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(1,3)),
+        };
     }
     @Override
     public BlockState updatePostPlacement(BlockState s, Direction f, BlockState bs, IWorld w, BlockPos p, BlockPos facingPos) {

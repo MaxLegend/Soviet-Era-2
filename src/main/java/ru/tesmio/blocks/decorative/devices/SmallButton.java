@@ -3,6 +3,7 @@ package ru.tesmio.blocks.decorative.devices;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -18,6 +19,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.decorative.devices.base.BlockForFacingDevice;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 
 public class SmallButton extends BlockForFacingDevice {
@@ -29,6 +31,12 @@ public class SmallButton extends BlockForFacingDevice {
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, ENABLE, WATERLOGGED);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1))
+        };
     }
     public boolean canProvidePower(BlockState state) {
         return true;

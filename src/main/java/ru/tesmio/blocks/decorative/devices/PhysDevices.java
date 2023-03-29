@@ -5,15 +5,18 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraftforge.common.ToolType;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 public class PhysDevices extends BlockSideDevice {
     public PhysDevices(float shadingInside) {
@@ -28,11 +31,248 @@ public class PhysDevices extends BlockSideDevice {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing()).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
     }
+
+
+
+    public boolean isCustomDrop() {
+        return true;
+    }
+
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        if(this == RegBlocks.EM_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.A_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1))
+            };
+        }
+        if(this == RegBlocks.P_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.OM_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(1))
+            };
+        }
+        if(this == RegBlocks.V_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1))
+            };
+        }
+        if(this == RegBlocks.W_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1))
+            };
+        }
+        if(this == RegBlocks.K_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(2))
+            };
+        }
+        if(this == RegBlocks.FREQUE_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.ASSIGNER_BLOCK.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.OSCILLOSCOPE.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.CONTROLLER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.FREQUE_ANALISATOR.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.AUTOWRITER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.REOCHORD.get(), tr.nextInt(4)),
+                    new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.M_METER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.STANDART_SIGNAL_GEN.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.TELEGRAPH.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.AUDIORECORDER2.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.E_CONVERTER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.E_TESTER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.SOUND_POWER_AMPLIFIER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(8)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.COULOMETRIC_INTEGRATOR.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(8)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1)),
+            };
+        }
+        if(this == RegBlocks.COULOMETRIC_INTEGRATOR2.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(8)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(3)),
+                    new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.WELDING_MACHINE.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(12)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(15)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(4))
+            };
+        }
+        if(this == RegBlocks.WAVEMETER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(3))
+            };
+        }
+        if(this == RegBlocks.TRANSFORMATOR_BASE.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(6))
+            };
+        }
+        if(this == RegBlocks.TRANSFORMATOR_ISOLATORS.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(4)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(32))
+            };
+        }
+        if(this == RegBlocks.RADIOSTATION.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(3)),
+                    new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(2)),
+            };
+        }
+        if(this == RegBlocks.AUDIORECORDER.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(4))
+            };
+        }
+        if(this == RegBlocks.SOLDERING_STATION.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(2))
+            };
+        }
+        return new ItemStack[] {
+                ItemStack.EMPTY
+        };
+    }
+
     @Override
     public VoxelShape getFacingShape(BlockState s) {
         VoxelShape SHP[] = new VoxelShape[] {
                 Block.makeCuboidShape(1,0,1.25,15,4,14),
-                Block.makeCuboidShape(0.75,0.5,2.25,15.25,7.5,14),
+                Block.makeCuboidShape(0.75,0.5,2,15.25,7.5,14),
                 Block.makeCuboidShape(1.5,0.5,0.5,14.5,13.5,15),
                 Block.makeCuboidShape(2.75,0,0.5,12.25,7.25,15),
                 Block.makeCuboidShape(0,0,0,16,6,14),

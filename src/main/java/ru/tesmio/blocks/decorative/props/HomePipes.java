@@ -2,12 +2,15 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.baseblock.BlockCornerCustomModel;
+import ru.tesmio.reg.RegItems;
 
 public class HomePipes extends BlockCornerCustomModel {
     final VoxelShape BOXS[] = new VoxelShape[] {
@@ -18,7 +21,12 @@ public class HomePipes extends BlockCornerCustomModel {
     public HomePipes(Properties properties, float shadingInside) {
         super(properties, shadingInside);
     }
-
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(1,2))
+        };
+    }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape BOXS[] = new VoxelShape[] {
                 Block.makeCuboidShape(0D, 0D, 0D, 3D, 16D, 16D),

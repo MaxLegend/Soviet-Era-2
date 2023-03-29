@@ -2,10 +2,11 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FourWayBlock;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -14,9 +15,14 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
+import ru.tesmio.blocks.baseblock.BaseFourWayBlock;
 import ru.tesmio.blocks.doors.RailingDoorBlock;
+import ru.tesmio.reg.RegItems;
 
-public class RustyBars extends FourWayBlock {
+import java.util.concurrent.ThreadLocalRandom;
+
+public class RustyBars extends BaseFourWayBlock {
+    public final ThreadLocalRandom tr = ThreadLocalRandom.current();
     private final VoxelShape[] renderShapes;
     public RustyBars(Properties properties) {
         super(2.0F, 2.0F, 16.0F, 16.0F, 24.0F, properties);
@@ -27,7 +33,12 @@ public class RustyBars extends FourWayBlock {
     public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return this.renderShapes[this.getIndex(state)];
     }
-
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(1,2)),
+        };
+    }
     public VoxelShape getRayTraceShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
         return this.getShape(state, reader, pos, context);
     }

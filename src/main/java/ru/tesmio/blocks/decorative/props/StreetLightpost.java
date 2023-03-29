@@ -55,6 +55,7 @@ public class StreetLightpost extends BlockSideCustomModel {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
         return new ItemStack[] {
                 new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(5)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(3)),
         };
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {

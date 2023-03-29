@@ -17,11 +17,11 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockSide extends Block {
+public class BlockSide extends BaseBlock {
+
+    boolean isCustomDrop = false;
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
-    public Integer integer = 0;
-    public ItemStack is;
 
     public BlockSide(Properties properties) {
         super(properties);
@@ -29,6 +29,10 @@ public class BlockSide extends Block {
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite());
+    }
+
+    public boolean isCustomDrop() {
+        return isCustomDrop;
     }
 
     @Override
@@ -40,12 +44,14 @@ public class BlockSide extends Block {
         return state.rotate(mirrorIn.toRotation(state.get(FACING)));
     }
 
-    //сделать почти мгновенный дроп при добыче специальным предметом.
+
     @Override
     public void harvestBlock(World w, PlayerEntity pl, BlockPos p, BlockState s, @Nullable TileEntity te, ItemStack st) {
         if (!w.isRemote) {
             if (!pl.isCreative()) {
-                getDropsWithBlock(w, p,pl);
+                if(isCustomDrop()) {
+                    getDropsWithBlock(w, p, pl);
+                }
                 getAdditionDrops(w,p,getStackAddDrop(pl));
             }
         }

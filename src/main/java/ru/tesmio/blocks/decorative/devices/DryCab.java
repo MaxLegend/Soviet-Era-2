@@ -36,7 +36,7 @@ public class DryCab extends BlockSideDevice {
         return new ItemStack[] {
                 new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(3)),
                 new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(5)),
-                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(2)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2)),
                 new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(1))
         };
     }

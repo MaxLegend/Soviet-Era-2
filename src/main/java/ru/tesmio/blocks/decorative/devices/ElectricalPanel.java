@@ -18,6 +18,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -43,7 +44,8 @@ public class ElectricalPanel extends BlockSideCustomModel {
     public ItemStack[] getItemsDrop(PlayerEntity pl) {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
         return new ItemStack[] {
-                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1,2))
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1,2)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(1,2))
         };
     }
     @Override

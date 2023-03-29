@@ -2,9 +2,11 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -13,6 +15,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.baseblock.BlockRotatedAxis;
 import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class SlateBlock extends BlockRotatedAxisCustomModel {
@@ -21,6 +24,13 @@ public class SlateBlock extends BlockRotatedAxisCustomModel {
     VoxelShape SHP3 = Block.makeCuboidShape(0,0,0,1.5,16,16);
     public SlateBlock(Properties properties) {
         super(properties, 1F);
+    }
+
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.CERAMIC_SHARD.get(), tr.nextInt(1)),
+        };
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());

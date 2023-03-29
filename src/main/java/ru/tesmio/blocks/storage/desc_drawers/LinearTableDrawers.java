@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -15,6 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.blocks.decorative.props.LinearTable;
 import ru.tesmio.blocks.storage.base.TileEntityStorage;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegTileEntitys;
 
 public class LinearTableDrawers extends LinearTable {
@@ -26,7 +28,12 @@ public class LinearTableDrawers extends LinearTable {
     public boolean hasTileEntity(BlockState state) {
         return true;
     }
-
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.WOOD_SCRAP.get(), tr.nextInt(2,4)),
+        };
+    }
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return RegTileEntitys.DRAWERS_STORAGE_TE.get().create();

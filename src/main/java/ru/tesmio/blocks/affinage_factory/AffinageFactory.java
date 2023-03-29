@@ -31,13 +31,14 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
+import ru.tesmio.blocks.baseblock.BaseBlock;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class AffinageFactory extends Block {
+public class AffinageFactory extends BaseBlock {
     private static final VoxelShape NORTH_AABB = VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 5.0D, 9.0D, 10.0D, 14.0D),
             Block.makeCuboidShape(1.0D, 10.0D, 5.0D, 8.0D, 16.0D, 14.0D),
             Block.makeCuboidShape(0.0D, 1.5D, 7.5D, 11.0D, 9.5D, 10.5D),

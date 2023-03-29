@@ -19,6 +19,7 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.blocks.decorative.devices.Fridge;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 import javax.annotation.Nullable;
@@ -34,6 +35,12 @@ public class DressCabin extends BlockSideCustomModel {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         return state.get(HALF) == Fridge.EnumPart.LOWER ? blockstate.isSolidSide(worldIn, blockpos, Direction.UP) : blockstate.matchesBlock(this);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(1,2))
+        };
     }
     public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!worldIn.isRemote && player.isCreative()) {

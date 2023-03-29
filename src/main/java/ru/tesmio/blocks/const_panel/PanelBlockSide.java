@@ -14,10 +14,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import ru.tesmio.blocks.baseblock.BaseBlock;
 
 import javax.annotation.Nullable;
 
-public class PanelBlockSide extends Block {
+public class PanelBlockSide extends BaseBlock {
     public static final DirectionProperty FACING = DirectionProperty.create("facing", Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST, Direction.UP, Direction.DOWN );
     public PanelBlockSide() {
         super(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3f,8f));

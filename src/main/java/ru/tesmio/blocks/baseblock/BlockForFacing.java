@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockForFacing extends Block {
+public class BlockForFacing extends BaseBlock {
     public static final EnumProperty<EnumOrientation> FACING = EnumProperty.create("facing", EnumOrientation.class);
 
     public BlockForFacing(Properties properties) {

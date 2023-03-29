@@ -3,9 +3,11 @@ package ru.tesmio.blocks.storage.dsp_tump;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -13,6 +15,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.storage.base.BlockStorage;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegTileEntitys;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -21,6 +24,12 @@ public class DspTumbBlock extends BlockStorage {
     VoxelShape BOX2 = Block.makeCuboidShape(0D, 15D, 3.21D, 16D, 16D, 12.5D);
     public DspTumbBlock(AbstractBlock.Properties properties) {
         super(properties,1F);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.WOOD_SCRAP.get(), tr.nextInt(1,3))
+        };
     }
     @Override
     public boolean hasTileEntity(BlockState state) {

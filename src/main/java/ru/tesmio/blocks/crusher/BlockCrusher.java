@@ -31,13 +31,14 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
+import ru.tesmio.blocks.baseblock.BaseBlock;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockCrusher extends Block {
+public class BlockCrusher extends BaseBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final  VoxelShape AABB = VoxelShapes.or(Block.makeCuboidShape(5.5D, 1.25D, 1.5D, 10.5D, 14.0D, 14.5D),
             Block.makeCuboidShape(3.5D, 1.25D, 2.5D, 12.5D, 14.0D, 13.5D),

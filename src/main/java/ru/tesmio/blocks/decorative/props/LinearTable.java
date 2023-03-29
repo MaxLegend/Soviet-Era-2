@@ -27,6 +27,9 @@ public class LinearTable extends BlockSideDevice {
         super(properties, 0.8F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STATES, EnumState.DEF));
     }
+    public boolean isCustomDrop() {
+        return true;
+    }
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
         return true;
     }

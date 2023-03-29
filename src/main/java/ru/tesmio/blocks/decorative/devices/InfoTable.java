@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
@@ -18,6 +19,8 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 
 public class InfoTable extends BlockSideDevice {
@@ -30,6 +33,14 @@ public class InfoTable extends BlockSideDevice {
     }
     public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return this.getShape(state, worldIn, pos, null);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1))
+        };
     }
     final VoxelShape BOXS[] = new VoxelShape[] {
             Block.makeCuboidShape(0D, 5D, 0D, 16D, 11D, 2D), //north

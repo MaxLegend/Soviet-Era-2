@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.decorative.devices.base.BlockForFacingDevice;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -42,7 +43,8 @@ public class Siren extends BlockForFacingDevice {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
 
         return new ItemStack[] {
-                new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1,2))
+                new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(1,2)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2,3))
         };
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

@@ -25,6 +25,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
 import javax.annotation.Nullable;
@@ -40,6 +41,16 @@ public class ControlBlock extends BlockSideDevice {
                 .notSolid()
                 .harvestTool(ToolType.PICKAXE)
                 .sound(SoundType.METAL), shadingInside);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.PLATE_GOLDEN_JACKS.get(), tr.nextInt(10)),
+                new ItemStack(RegBlocks.PLATE_PLATINUM_JACKS.get(), tr.nextInt(7)),
+                new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(8)),
+                new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), tr.nextInt(8)),
+                new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(12)),
+        };
     }
     @Override
     public void addInformation(ItemStack stack, @Nullable IBlockReader reader, List<ITextComponent> list, ITooltipFlag flags) {

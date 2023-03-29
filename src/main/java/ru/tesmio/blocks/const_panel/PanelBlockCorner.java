@@ -16,10 +16,11 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import ru.tesmio.blocks.baseblock.BaseBlock;
 
 import javax.annotation.Nullable;
 
-public class PanelBlockCorner extends Block {
+public class PanelBlockCorner extends BaseBlock {
 
     public static final EnumProperty<EnumHalf> HALF = EnumProperty.create("half", EnumHalf.class);
 

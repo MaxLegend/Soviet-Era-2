@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockAxis extends Block {
+public class BlockAxis extends BaseBlock {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public BlockAxis(Properties properties) {
         super(properties);

@@ -28,6 +28,7 @@ public class ColdBattery extends LinearTable {
     public ItemStack[] getItemsDrop(PlayerEntity pl) {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
         return new ItemStack[] {
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(1,3)),
                 new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(4,10)),
                 new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(6,12)),
                 new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(4))

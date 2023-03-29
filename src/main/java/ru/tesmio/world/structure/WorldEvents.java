@@ -27,7 +27,7 @@ import java.util.Map;
 public class WorldEvents {
     @SubscribeEvent
     public static void biomeLoadingEvent(final BiomeLoadingEvent event) {
-        StructureGeneration.generateStructures(event);
+   //     StructureGeneration.generateStructures(event);
 
     }
     @SubscribeEvent

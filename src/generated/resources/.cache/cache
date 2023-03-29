@@ -339,6 +339,7 @@ c4f780f9d00ba87ba29f58759f8bf6ecb0ec5cb8 assets/soviet/models/item/brick/yellow_
 960aebcc49b06b0c1bc61489ca247379114f7c13 assets/soviet/models/item/brick/yellow_bricks_3.json
 b424fe06d882014056209ec059abdb1dc8cd2124 assets/soviet/models/item/brick/yellow_bricks_3_br.json
 582afb5698f5bdabe00350c24abb8cf76ad7e81c assets/soviet/models/item/ceramic_dust.json
+3345fa1aeafef07b67f34d3ef21b7ed0397844a4 assets/soviet/models/item/ceramic_shard.json
 76967c1b63f19de33774198d1bc65802d0133417 assets/soviet/models/item/circuits/black_micro.json
 f5f844e427d8d08ff87314c576f786b83cdae609 assets/soviet/models/item/circuits/blue_condenser.json
 54470b16d2f7d157d72da9009696763a38e89b0b assets/soviet/models/item/circuits/blue_jack.json
@@ -353,6 +354,7 @@ a88b9f77dd1cfb26f4e15a37cf26c0c74fe98be1 assets/soviet/models/item/circuits/diod
 30fa12cd3335453923957507da8b9e7cb679332a assets/soviet/models/item/circuits/green_jack.json
 b6c452c5c86cfddc409717a3ce1472d839c096ba assets/soviet/models/item/circuits/orange_condenser.json
 6f9b5046c162485bfc9b8590be1fc60c7bc25231 assets/soviet/models/item/circuits/red_condenser.json
+f5b8976074b4b24d047603f5158205b30724b983 assets/soviet/models/item/circuits/reochord.json
 267695d00c61373b965b39168996997a38f680fe assets/soviet/models/item/circuits/yellow_condenser.json
 9a00c77c845584d1bc6c18c7d01581d8a63ed6fc assets/soviet/models/item/circuits/yellow_jack.json
 c146de7dfda3f693bf33d856e8d54ff1b2555327 assets/soviet/models/item/concrete/concrete_beige.json
@@ -538,6 +540,7 @@ ebdf0431aa6f5a3cffd5d2f8e74148204c257833 assets/soviet/models/item/innerdeco/win
 c538802da9789cb0ca065ef8d300fefb90e057f9 assets/soviet/models/item/innerdeco/windows/wood_window_leaf_empty.json
 b5a20cc0d566ad3e79dcb0882661b7ff1f3f4c3c assets/soviet/models/item/lead_dust.json
 37daf5373c8c1ba257261be9c8ecac354e351888 assets/soviet/models/item/lead_ingot.json
+c602e1e84dc3cafcfebf505a693a6d6c9200db92 assets/soviet/models/item/lead_scrap.json
 aade9807a2f8ac745fbfe162020af286be203a7a assets/soviet/models/item/leadceramic_dust.json
 626c6ebe47325e53052fca924c43f9ab49764c12 assets/soviet/models/item/leadceramic_tile.json
 469b0872b072a1d23f6a0334feebcf0006391020 assets/soviet/models/item/lino.json
@@ -631,6 +634,8 @@ f60565c98d4325af80bb73c90fc6c7e03fcd6fa4 assets/soviet/models/item/outerdeco/sym
 7ccbf9e9ac8ee422d784311dec74eddd5484ff13 assets/soviet/models/item/outerdeco/symbols/ya.json
 a7de7d1111c31c37b0cac052e551f1db4cab9fc3 assets/soviet/models/item/outerdeco/symbols/z.json
 823a7942ce455cd9104ee31da57142dd55c26b47 assets/soviet/models/item/outerdeco/symbols/zero.json
+451e65a3fbd7bc2dbc478d252801de6c833e5a0a assets/soviet/models/item/palladium_dust.json
+ad8f829d964740b2c531e0c5c1ec7718a269e712 assets/soviet/models/item/palladium_ingot.json
 d98b02c41ed5643d228f47ffa204b3205018d277 assets/soviet/models/item/pestle.json
 5f1692928e5f2c14f17d82d4aa494461da689743 assets/soviet/models/item/platinum_axe.json
 c129dade0ff48eec3ed14c6c0ebe5a2f564cfec2 assets/soviet/models/item/platinum_dust.json
@@ -682,6 +687,7 @@ b0817ffefdad9ab3009dab8c9e2875670d55f94f assets/soviet/models/item/resttile/tile
 8207ddccb53db0207f18e3c9e79bfae33534d917 assets/soviet/models/item/resttile/tile_rest_dark_blue_br.json
 dd04e2a5e3027ba95d3a88d8a45f27d89123c99d assets/soviet/models/item/resttile/tile_rest_white.json
 a6e62b68143b588a7dec20eb72c9bf620f6fcbc1 assets/soviet/models/item/resttile/tile_rest_white_br.json
+28096c8569d53fe7309ac651d08765d62c2bcdd8 assets/soviet/models/item/rusty_scrap.json
 079a0996ee63c1c8833423c659795da8240e5ebd assets/soviet/models/item/sieve.json
 df69096cfa7eac267f997a355d2832a2c700cb26 assets/soviet/models/item/silicon_ingot.json
 75815f769ccc2f252e19b0c0a4019ec4d6dc53d1 assets/soviet/models/item/silver_dust.json
@@ -798,20 +804,6 @@ c0b1ff6af951f5a2a99d55b972e1811adae58245 data/soviet/loot_tables/blocks/horiztil
 fbcb0ab1f59b7927aaf5e02e66c643465c499a4c data/soviet/loot_tables/blocks/horiztile/horiz_tile_dark_blue_br.json
 b9109e131b95db9e035b8c79dab6a851f41bcf73 data/soviet/loot_tables/blocks/horiztile/horiz_tile_white.json
 4cf58c66f82921a9929a2a2ce65495fed4c4b422 data/soviet/loot_tables/blocks/horiztile/horiz_tile_white_br.json
-7c839f7dac4741f074e7e10397dc0728823c48fe data/soviet/loot_tables/blocks/innerdeco/bio_stillage.json
-2fd151e28e43c66c194f8beef301787df0519d3b data/soviet/loot_tables/blocks/innerdeco/biolab_table.json
-7f542cc17593d5f71fbe3c1524147d42226d6d5d data/soviet/loot_tables/blocks/innerdeco/biolab_table2.json
-62d531e7195053b2fe35a75134a20e03faa1356e data/soviet/loot_tables/blocks/innerdeco/biolab_table3.json
-8c00be80b62b4c3607259635c31317e92c6d9ad1 data/soviet/loot_tables/blocks/innerdeco/biolab_table4.json
-b9d0198f008579bf7124e8c26eba97f7c14d5dd9 data/soviet/loot_tables/blocks/innerdeco/biolab_table_up.json
-1b4097f3e354c38d463749e8917b5e84bed5d491 data/soviet/loot_tables/blocks/innerdeco/chemlab_table.json
-12a24a9fc380a7e22040e4303541558a428ef345 data/soviet/loot_tables/blocks/innerdeco/chemlab_table_up.json
-1b930dfbf8ee57381717732484cbbb5b9392289e data/soviet/loot_tables/blocks/innerdeco/devices/motion_sensor.json
-740f6d43a613f651103d773502b751714bcf93ae data/soviet/loot_tables/blocks/innerdeco/devices/redstone_wire.json
-c49e146d384218acfa935ff554a372e197c43deb data/soviet/loot_tables/blocks/innerdeco/devices/turnstile_off.json
-946e257a9f52fce2b332eb9b3969f5e98ba88234 data/soviet/loot_tables/blocks/innerdeco/furniture/purple_chair.json
-03e2e11fe3c7098c691de68d67a3f3871e17bb52 data/soviet/loot_tables/blocks/innerdeco/furniture/purple_table.json
-362cf457db28a0d981bbcf3c7e67896da497ee5c data/soviet/loot_tables/blocks/innerdeco/stillage.json
 5d9449a3ec26ea33d027429ff6ff86d67db258cb data/soviet/loot_tables/blocks/innerdeco/windows/alum_frame.json
 5d9449a3ec26ea33d027429ff6ff86d67db258cb data/soviet/loot_tables/blocks/innerdeco/windows/alum_frame_empty.json
 5d9449a3ec26ea33d027429ff6ff86d67db258cb data/soviet/loot_tables/blocks/innerdeco/windows/alum_window.json

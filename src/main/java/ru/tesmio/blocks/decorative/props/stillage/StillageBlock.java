@@ -9,6 +9,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -21,6 +22,7 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 import ru.tesmio.blocks.baseblock.BlockSideUpDownCM;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegTileEntitys;
 
 public class StillageBlock extends BlockSideUpDownCM {
@@ -37,6 +39,13 @@ public class StillageBlock extends BlockSideUpDownCM {
             return Block.makeCuboidShape(0,0,0,16,1,16);
         }
         return VoxelShapes.fullCube();
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.WOOD_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(1,3))
+        };
     }
     public void onReplaced(BlockState state, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         if (!state.matchesBlock(newState.getBlock())) {

@@ -13,6 +13,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
@@ -25,6 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.ToolType;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class FactoryWindow extends BlockSideCustomModel {
@@ -35,6 +37,13 @@ public class FactoryWindow extends BlockSideCustomModel {
                 .harvestTool(ToolType.PICKAXE)
                 .sound(SoundType.GLASS), shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.ARMATURE.get(), tr.nextInt(2)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2))
+        };
     }
     public void onEntityCollision(BlockState s, World w, BlockPos p, Entity e) {
         if(!(e instanceof LivingEntity)) {

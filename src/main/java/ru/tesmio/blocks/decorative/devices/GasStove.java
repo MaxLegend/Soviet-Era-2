@@ -21,11 +21,11 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegItems;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class GasStove extends BlockSideDevice {
     public static final IntegerProperty VARIANT = IntegerProperty.create("var",0,1);
@@ -53,9 +53,16 @@ public class GasStove extends BlockSideDevice {
     }
     @Override
     public ItemStack[] getItemsDrop(PlayerEntity pl) {
-        ThreadLocalRandom tr = ThreadLocalRandom.current();
+        if(this == RegBlocks.ELECTRO_STOVE.get()) {
+            return new ItemStack[] {
+                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(1,4)),
+                    new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), 1),
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2,5))
+            };
+        }
         return new ItemStack[] {
-                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(3,2))
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(1,4)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(1,3))
         };
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {

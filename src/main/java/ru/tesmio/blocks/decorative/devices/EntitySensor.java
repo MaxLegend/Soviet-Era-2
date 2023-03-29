@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.IntegerProperty;
@@ -24,6 +25,8 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 
 import java.util.Random;
@@ -58,6 +61,16 @@ public abstract class EntitySensor extends BlockSideDevice {
         super(properties, 1F);
 
         this.setDefaultState(this.getDefaultState().with(POWERED, false).with(RANGE, 0).with(DOWN, false).with(UP, false));
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+
+        return new ItemStack[] {
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(2,4)),
+                new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(),  tr.nextInt(1,2)),
+                new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(),  1)
+        };
     }
 //    public <T extends Entity> Predicate<T> getEntityFilter(World world, BlockPos p) {
 //        BlockState s = world.getBlockState(p);

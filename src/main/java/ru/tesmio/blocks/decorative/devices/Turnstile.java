@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.*;
@@ -18,6 +19,8 @@ import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -131,6 +134,15 @@ public class Turnstile extends BlockSideCustomModel {
         super(properties, 1F);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(STATUS,EnumStatus.OFF).with(WATERLOGGED, Boolean.valueOf(false)).with(HINGE, EnumHinge.LEFT));
     }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+
+        return new ItemStack[] {
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2,4)),
+                new ItemStack(RegBlocks.GOLD_CIRCUIT.get(),  tr.nextInt(1,2))
+        };
+    }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, STATUS, HINGE, WATERLOGGED);
     }
@@ -157,6 +169,7 @@ public class Turnstile extends BlockSideCustomModel {
             w.setBlockState(p, s.with(STATUS, EnumStatus.OFF));
         }
     }
+
     @Override
     public ActionResultType onBlockActivated(BlockState s, World w, BlockPos p, PlayerEntity pl, Hand hand, BlockRayTraceResult hit) {
         if(s.get(STATUS) == EnumStatus.CLOSE) {

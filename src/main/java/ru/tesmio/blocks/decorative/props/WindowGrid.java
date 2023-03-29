@@ -2,9 +2,11 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -12,6 +14,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.baseblock.BlockRotatedAllSideCM;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 public class WindowGrid extends BlockRotatedAllSideCM {
@@ -19,6 +22,18 @@ public class WindowGrid extends BlockRotatedAllSideCM {
 
         super(builder, shadingInside);
     }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(1)),
+        };
+    }
+
+    @Override
+    public boolean isCustomDrop() {
+        return true;
+    }
+
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         VoxelShape SHAPE = Block.makeCuboidShape(15.5D, 0D, 0D, 16D, 16D, 16D);
         VoxelShape SHAPE_DOWN = Block.makeCuboidShape(0D, 0D, 0D, 16D, 0.5D, 16D);

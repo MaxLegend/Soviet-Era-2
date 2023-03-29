@@ -15,6 +15,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModel;
+import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 import javax.annotation.Nullable;
 
@@ -29,6 +31,15 @@ public class Fridge extends BlockSideCustomModel {
         BlockPos blockpos = pos.down();
         BlockState blockstate = worldIn.getBlockState(blockpos);
         return state.get(HALF) == EnumPart.LOWER ? blockstate.isSolidSide(worldIn, blockpos, Direction.UP) : blockstate.matchesBlock(this);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(6)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(10)),
+                new ItemStack(RegBlocks.GOLD_CIRCUIT.get(), tr.nextInt(2)),
+                new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(3))
+        };
     }
     public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!worldIn.isRemote && player.isCreative()) {

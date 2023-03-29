@@ -2,9 +2,11 @@ package ru.tesmio.blocks.decorative.props;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -17,6 +19,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockCustomModel;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 
 public class VentPipe extends BlockCustomModel {
     public VentPipe(Properties properties) {
@@ -30,6 +33,12 @@ public class VentPipe extends BlockCustomModel {
         if(!worldIn.isRemote() && worldIn.getBlockState(pos).isAir()) {
 
         }
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(2,4)),
+        };
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         World w = context.getWorld();

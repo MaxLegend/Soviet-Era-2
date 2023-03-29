@@ -2,12 +2,15 @@ package ru.tesmio.blocks.decorative.props.tables;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import ru.tesmio.blocks.decorative.props.LinearTable;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.utils.VoxelShapeUtil;
 
 import java.util.HashMap;
@@ -27,6 +30,12 @@ public class PurpleTable extends LinearTable {
     };
     public PurpleTable(Properties properties) {
         super(properties);
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.WOOD_SCRAP.get(), tr.nextInt(1,3)),
+        };
     }
     public void putMapVoxelShape() {
         SHAPE_MAP.put("top", SHAPES[0]);

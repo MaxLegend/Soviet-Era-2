@@ -2,7 +2,9 @@ package ru.tesmio.blocks.decorative.devices;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
@@ -16,6 +18,7 @@ import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
+import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -33,6 +36,13 @@ public class ElectronicaClock extends BlockSideDevice {
             return 2;
         }
         return 0;
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.PLATE_PLATINUM_JACKS.get(), tr.nextInt(7)),
+                new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(5))
+        };
     }
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         switch (state.get(FACING)) {

@@ -47,6 +47,16 @@ public class ControlTable extends BlockSideDevice implements IWaterLoggable {
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(VARIANT, Integer.valueOf(0)).with(WATERLOGGED, Boolean.valueOf(false)));
     }
     @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegBlocks.PLATE_GOLDEN_JACKS.get(), tr.nextInt(10)),
+                new ItemStack(RegBlocks.PLATE_PLATINUM_JACKS.get(), tr.nextInt(7)),
+                new ItemStack(RegBlocks.NETHERITE_CIRCUIT.get(), tr.nextInt(8)),
+                new ItemStack(RegBlocks.PLATINUM_CIRCUIT.get(), tr.nextInt(8)),
+                new ItemStack(RegBlocks.DIAMOND_CIRCUIT.get(), tr.nextInt(12)),
+        };
+    }
+    @Override
     public void addInformation(ItemStack stack, @Nullable IBlockReader reader, List<ITextComponent> list, ITooltipFlag flags) {
         list.add(new TranslationTextComponent("info.control_table", Integer.toString(1000)));
     }

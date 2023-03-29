@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -45,9 +46,9 @@ public class Computer extends BlockSideDevice {
 
     @Override
     public ItemStack[] getItemsDrop(PlayerEntity pl) {
-        ThreadLocalRandom tr = ThreadLocalRandom.current();
-
         return new ItemStack[] {
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(2,4)),
                 new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(3,5)),
                 new ItemStack(RegBlocks.GOLD_CIRCUIT.get(),  tr.nextInt(1,2))
         };

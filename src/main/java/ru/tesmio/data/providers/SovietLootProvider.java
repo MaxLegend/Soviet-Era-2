@@ -19,20 +19,20 @@ public class SovietLootProvider extends BaseLootProvider {
     protected void addTables() {
 
 
-        forEachStandartBlock(RegBlocks.TURNSTILE.get(), "devices");
-        forEachStandartBlock(RegBlocks.MOTION_SENSOR.get(), "devices");
-        forEachStandartBlock(RegBlocks.STILLAGE.get(), "stuff");
-        lootTables.put(RegBlocks.PURPLE_TABLE.get(), standartItemBlockBuilder("stuff", RegItems.WOOD_SCRAP.get(),2));
-        lootTables.put(RegBlocks.PURPLE_CHAIR.get(), standartItemBlockBuilder("stuff", RegItems.WOOD_SCRAP.get(),1));
-        forEachStandartBlock(RegBlocks.BIOLAB_TABLE2.get(), "stuff");
-        forEachStandartBlock(RegBlocks.BIOLAB_TABLE3.get(), "stuff");
-        forEachStandartBlock(RegBlocks.BIOLAB_TABLE4.get(), "stuff");
-        forEachStandartBlock(RegBlocks.BIOLAB_TABLE_CASE.get(), "stuff");
-        forEachStandartBlock(RegBlocks.BIOLAB_TABLE.get(), "stuff");
-        forEachStandartBlock(RegBlocks.CHEMLAB_TABLE_CASE.get(), "stuff");
-        forEachStandartBlock(RegBlocks.CHEMLAB_TABLE.get(), "stuff");
-        forEachStandartBlock(RegBlocks.BIO_STILLAGE.get(), "stuff");
-        lootTables.put(RegBlocks.REDSTONE_WIRE.get(), standartItemBlockBuilder("copperscrap", RegItems.COPPER_SCRAP.get(),1));
+//        forEachStandartBlock(RegBlocks.TURNSTILE.get(), "devices");
+//        forEachStandartBlock(RegBlocks.MOTION_SENSOR.get(), "devices");
+//        forEachStandartBlock(RegBlocks.STILLAGE.get(), "stuff");
+//        lootTables.put(RegBlocks.PURPLE_TABLE.get(), standartItemBlockBuilder("stuff", RegItems.WOOD_SCRAP.get(),2));
+//        lootTables.put(RegBlocks.PURPLE_CHAIR.get(), standartItemBlockBuilder("stuff", RegItems.WOOD_SCRAP.get(),1));
+//        forEachStandartBlock(RegBlocks.BIOLAB_TABLE2.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.BIOLAB_TABLE3.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.BIOLAB_TABLE4.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.BIOLAB_TABLE_CASE.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.BIOLAB_TABLE.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.CHEMLAB_TABLE_CASE.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.CHEMLAB_TABLE.get(), "stuff");
+//        forEachStandartBlock(RegBlocks.BIO_STILLAGE.get(), "stuff");
+//        lootTables.put(RegBlocks.REDSTONE_WIRE.get(), standartItemBlockBuilder("copperscrap", RegItems.COPPER_SCRAP.get(),1));
         //windows
         lootTables.put(RegBlocks.ALUM_FRAMES_EMPTY.get(), standartItemBlockBuilder("windows", RegItems.ALUMINUM_SCRAP.get(),1));
         lootTables.put(RegBlocks.ALUM_FRAMES.get(), standartItemBlockBuilder("windows", RegItems.ALUMINUM_SCRAP.get(),1));

@@ -29,7 +29,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-public class BlockSideConnect extends Block {
+public class BlockSideConnect extends BaseBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     final VoxelShape SHAPE = Block.makeCuboidShape(4D, 0D, 4D, 12D, 16D, 12D);
     public static final BooleanProperty IS_NORTH = BooleanProperty.create("north");

@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.WorldGenRegion;
 import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.reg.RegBlocks;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegSounds;
 import ru.tesmio.utils.VoxelShapeUtil;
 
@@ -44,6 +45,7 @@ public class Televisor extends BlockSideDevice {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
         return new ItemStack[] {
                 new ItemStack(RegBlocks.COPPER_CIRCUIT.get(), tr.nextInt(1,3)),
+                new ItemStack(RegItems.WOOD_SCRAP.get(), tr.nextInt(1,3)),
                 new ItemStack(RegBlocks.SILVER_CIRCUIT.get(), tr.nextInt(1,2))
         };
     }

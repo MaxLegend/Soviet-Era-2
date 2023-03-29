@@ -33,7 +33,9 @@ public class BlockSideCustomModel extends  BlockSide implements IWaterLoggable {
         super(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL));
         this.shadingInside = shadingInside;
     }
-
+    public boolean isCustomDrop() {
+        return true;
+    }
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (stateIn.get(WATERLOGGED)) {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));

@@ -43,7 +43,7 @@ public class StreetLamp extends BlockSideCustomModel {
         return new ItemStack[] {
                 new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2)),
                 new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(3)),
-                new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(1)),
+                new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(1)),
         };
     }
     @Override

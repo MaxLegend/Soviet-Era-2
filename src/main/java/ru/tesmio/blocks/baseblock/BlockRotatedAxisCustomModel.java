@@ -44,12 +44,14 @@ public class BlockRotatedAxisCustomModel extends BlockRotatedAxis {
         ThreadLocalRandom tr = ThreadLocalRandom.current();
         if(this == RegBlocks.TUBING_HORIZONTAL.get()) {
             return new ItemStack[]{
-                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(8,15)),
+                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(4,6)),
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(3,8)),
             };
         } else
         if(this == RegBlocks.TUBING_VERTICAL.get()) {
             return new ItemStack[]{
-                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(8,15)),
+                    new ItemStack(RegItems.ARMATURES.get(), tr.nextInt(4,6)),
+                    new ItemStack(RegItems.RUSTY_SCRAP.get(), tr.nextInt(3,8)),
             };
         } else       return new ItemStack[]{
                 ItemStack.EMPTY

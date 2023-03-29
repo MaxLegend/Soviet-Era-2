@@ -3,9 +3,11 @@ package ru.tesmio.blocks.decorative.devices;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
@@ -17,6 +19,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockCornerCustomModel;
+import ru.tesmio.reg.RegItems;
 
 import java.util.Set;
 
@@ -31,6 +34,12 @@ public class BlockRedstoneWire extends BlockCornerCustomModel {
     public BlockRedstoneWire(Properties properties, float shadingInside) {
         super(properties, shadingInside);
         this.setDefaultState(this.stateContainer.getBaseState().with(POWER, 0).with(FACING, Direction.NORTH).with(ENUM_CONNECT, EnumConnent.NOT_CONNECT));
+    }
+    @Override
+    public ItemStack[] getItemsDrop(PlayerEntity pl) {
+        return new ItemStack[] {
+                new ItemStack(RegItems.COPPER_SCRAP.get(), tr.nextInt(2,4))
+        };
     }
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(FACING, POWER, ENUM_CONNECT, WATERLOGGED);
