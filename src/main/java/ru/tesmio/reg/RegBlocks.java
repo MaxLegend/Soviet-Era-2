@@ -111,13 +111,13 @@ public class RegBlocks {
     ,WINDPROOF_BETON_GRAY ,WINDPROOF_BETON_GREEN ,WINDPROOF_BETON_RED ,WINDPROOF_BETON_ORANGE ,WINDPROOF_BETON_YELLOW ,WINDPROOF_BETON_BLUE ,WINDPROOF_BETON_BEIGE ,WINDPROOF_BETON_BEIGE2 ,WINDPROOF_BETON_WHITE;
     protected static VoxelShape SHAPE_CIRCUIT = Block.makeCuboidShape(0.0D, 0.0D, 2.0D, 16.0D, 0.25D, 13.0D);
     protected static VoxelShape BOX = Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 16D, 16.0D);
-    protected static VoxelShape BOX_CONCRETE_FENCE_BASE[] = new VoxelShape[] {VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 6D, 16.0D),
+    protected static VoxelShape[] BOX_CONCRETE_FENCE_BASE = new VoxelShape[] {VoxelShapes.or(Block.makeCuboidShape(0.0D, 0.0D, 0D, 16.0D, 6D, 16.0D),
             Block.makeCuboidShape(1.0D, 6.0D, 1D, 15.0D, 12D, 15.0D),
             Block.makeCuboidShape(2.0D, 12.0D, 2D, 14.0D, 16D, 14.0D))};
     protected static VoxelShape SHAPE_CIRCUIT2 = Block.makeCuboidShape(0.0D, 0.0D, 3.0D, 16.0D, 0.25D, 13.0D);
 
     public static RegistryObject<Block> SYS_BLOCK, COMPUTER, SPEC_MONITOR, TELEVISOR, SIREN, SMALL_COMPUTER, ELECTRICAL_PANEL, CRYOCAPSULE, AUTOCLAVE, BIOLAB_CHAIR, GAS_STOVE;
-    public static RegistryObject<Block> STANDART_SIGNAL_GEN, PULT, PULT1, PULT2, PULT3, E_CONVERTER, E_TESTER, SOUND_POWER_AMPLIFIER, COULOMETRIC_INTEGRATOR,WAVEMETER,COULOMETRIC_INTEGRATOR2, WELDING_MACHINE;
+    public static RegistryObject<Block> STANDART_SIGNAL_GEN, PULT, E_CONVERTER, E_TESTER, SOUND_POWER_AMPLIFIER, COULOMETRIC_INTEGRATOR,WAVEMETER,COULOMETRIC_INTEGRATOR2, WELDING_MACHINE;
 
     public static RegistryObject<Block> BLOCK_MOULD,BLOCK_MOSS_FULL,BLOCK_MOSS;
     public static void init() {

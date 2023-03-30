@@ -21,10 +21,6 @@ public class RegItems {
     public static RegistryObject<Item> LINO, ARMATURE, ARMATURES,QUAD_TILE,BIG_TILE,REST_TILE,SMALL_TILE,CERAMIC_DUST,SILICON_INGOT,MORTAR,PESTLE,SIEVE,LEAD_DUST,SMALL_LEAD_DUST,
     LEADCERAMIC_DUST,LEAD_INGOT ;
 
-
-
-
-
     public static RegistryObject<Item> LEADCERAMIC_TILE;
 
     public static RegistryObject<Item> FUEL_CANISTER,KEY_DOOR, WRENCH, REDSTONE_GRINDER;
@@ -55,7 +51,7 @@ public class RegItems {
 
         LEAD_SCRAP = registerItem("lead_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         WOOD_SCRAP = registerItem("wood_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.wood_scrap"));
-        RUSTY_SCRAP = registerItem("rusty_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
+        RUSTY_SCRAP = registerItem("rusty_scrap", () -> new WoodScrap(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         CERAMIC_SHARD = registerItem("ceramic_shard", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         ARMATURES = registerItem("armatures", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         ARMATURE = registerItem("armature", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
@@ -68,8 +64,8 @@ public class RegItems {
         PLATINUM_SHOVEL = registerItem("platinum_shovel", () -> new ShovelItem(SovietItemTier.PLATINUM, 2, -3F, (new Item.Properties()).group(ItemGroup.TOOLS)));
         PLATINUM_AXE = registerItem("platinum_axe", () -> new AxeItem(SovietItemTier.PLATINUM, 8, -3F, (new Item.Properties()).group(ItemGroup.TOOLS)));
         PLATINUM_PICKAXE = registerItem("platinum_pickaxe", () -> new PickaxeItem(SovietItemTier.PLATINUM, 2, -2.8F, (new Item.Properties()).group(ItemGroup.TOOLS)));
-        WIRE_CUTTERS = registerItem("wire_cutters", () -> new WireCutter());
-        REDSTONE_GRINDER = registerItem("redstone_grinder", () -> new RedstoneGrinder());
+        WIRE_CUTTERS = registerItem("wire_cutters", WireCutter::new);
+        REDSTONE_GRINDER = registerItem("redstone_grinder", RedstoneGrinder::new);
         PULLER = registerItem("puller", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.puller"));
         PLATOL_SWORD = registerItem("platol_sword", () -> new SwordItem(SovietItemTier.PLATOL, 5, -1F, (new Item.Properties()).group(ItemGroup.COMBAT)));
         PLATOL_HOE = registerItem("platol_hoe", () -> new HoeItem(SovietItemTier.PLATOL, 1, -2F, (new Item.Properties()).group(ItemGroup.TOOLS)));
@@ -145,12 +141,10 @@ public class RegItems {
 
     }
     private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
-        RegistryObject<T> toReturn = ITEMS.register(name, item);
-        return toReturn;
+        return ITEMS.register(name, item);
     }
     private static <T extends Item> RegistryObject<T> registerItem2(String name, Supplier<T> item) {
-        RegistryObject<T> toReturn = ITEMS_2.register(name, item);
-        return toReturn;
+        return ITEMS_2.register(name, item);
     }
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

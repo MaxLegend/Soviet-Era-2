@@ -2,7 +2,6 @@ package ru.tesmio.blocks.diesel_generator;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
@@ -22,6 +21,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import ru.tesmio.core.Core;
 import ru.tesmio.energy.SEEnergyStorage;
+import ru.tesmio.reg.RegItems;
 import ru.tesmio.reg.RegTileEntitys;
 
 import javax.annotation.Nonnull;
@@ -63,22 +63,24 @@ public class TileDieselGenerator extends TileEntity implements ITickableTileEnti
         if (world.isRemote) {
             return;
         }
+        if (counter <= 0) {
+            ItemStack stack = itemHandler.getStackInSlot(0);
+            if (stack.getItem() == RegItems.FUEL_CANISTER.get()) {
+                itemHandler.extractItem(0, 1, false);
+                counter = 1;
+                markDirty();
+            }
+        }
 
         if (counter > 0) {
             counter--;
             if (counter <= 0) {
+
                 energyStorage.addEnergy(1000);
-            }
-            markDirty();
+
         }
 
-        if (counter <= 0) {
-            ItemStack stack = itemHandler.getStackInSlot(0);
-            if (stack.getItem() == Items.DIAMOND) {
-                itemHandler.extractItem(0, 1, false);
-                counter = 20;
-                markDirty();
-            }
+
         }
 
         BlockState blockState = world.getBlockState(getPos());
@@ -146,13 +148,13 @@ public class TileDieselGenerator extends TileEntity implements ITickableTileEnti
 
             @Override
             public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-                return stack.getItem() == Items.DIAMOND;
+                return stack.getItem() == RegItems.FUEL_CANISTER.get();
             }
 
             @Nonnull
             @Override
             public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                if (stack.getItem() != Items.DIAMOND) {
+                if (stack.getItem() != RegItems.FUEL_CANISTER.get()) {
                     return stack;
                 }
                 return super.insertItem(slot, stack, simulate);

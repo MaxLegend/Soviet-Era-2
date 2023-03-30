@@ -5,7 +5,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.IntReferenceHolder;
@@ -20,6 +19,7 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 import ru.tesmio.energy.SEEnergyStorage;
 import ru.tesmio.reg.RegBlocks;
 import ru.tesmio.reg.RegContainers;
+import ru.tesmio.reg.RegItems;
 
 public class DieselGeneratorContainer extends Container {
 
@@ -98,7 +98,7 @@ public class DieselGeneratorContainer extends Container {
                 }
                 slot.onSlotChange(stack, itemstack);
             } else {
-                if (stack.getItem() == Items.DIAMOND) {
+                if (stack.getItem() == RegItems.FUEL_CANISTER.get()) {
                     if (!this.mergeItemStack(stack, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
