@@ -1,0 +1,52 @@
+{
+  "multipart": [
+    {
+      "when": { "facing": "north" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch" }
+    },
+    {
+      "when": { "facing": "south" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch", "y": 180 }
+    },
+    {
+      "when": { "facing": "east" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch", "y": 90 }
+    },
+    {
+      "when": { "facing": "west" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch", "y": 270 }
+    },
+    {
+      "when": { "facing": "north", "up": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_up" }
+    },
+    {
+      "when": { "facing": "south", "up": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_up", "y": 180 }
+    },
+    {
+      "when": { "facing": "east", "up": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_up", "y": 90 }
+    },
+    {
+      "when": { "facing": "west", "up": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_up", "y": 270 }
+    },
+    {
+      "when": { "facing": "north", "down": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_down" }
+    },
+    {
+      "when": { "facing": "south", "down": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_down", "y": 180 }
+    },
+    {
+      "when": { "facing": "east", "down": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_down", "y": 90 }
+    },
+    {
+      "when": { "facing": "west", "down": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/switch_down", "y": 270 }
+    }
+  ]
+}

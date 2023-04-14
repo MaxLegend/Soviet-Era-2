@@ -1,0 +1,13 @@
+{
+	"type": "soviet:crusher",
+	"output": {
+		"item": "soviet:lead_dust"
+	},
+	"countOutput": 1,
+	"input": {
+		"item": "soviet:lead_scrap"
+	},
+	"countInput": 4, 
+	"oneByOne": false
+
+}

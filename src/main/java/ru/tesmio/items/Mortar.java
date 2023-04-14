@@ -26,11 +26,6 @@ public class Mortar extends Item {
         return 750;
     }
 
-	/*@Override
-    public int getDamage(ItemStack stack) {
-        return !stack.hasTag() ? getMaxDamage(stack) : stack.getOrCreateTag().getInt("Damage");
-    }*/
-
     @Override
     public boolean hasContainerItem(ItemStack stack) {
         return true;

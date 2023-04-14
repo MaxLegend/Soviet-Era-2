@@ -1,0 +1,22 @@
+{
+	"credit": "Autor Tesmio special for SovietEra 2023",
+	"textures": {
+		"0": "soviet:block/mech/generator_base",
+		"particle": "soviet:block/mech/generator_base"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 7],
+			"to": [7, 2, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 16]},
+			"faces": {
+				"north": {"uv": [7, 1, 0, 3], "texture": "#0"},
+				"east": {"uv": [2, 0, 0, 2], "texture": "#0"},
+				"south": {"uv": [16, 1, 9, 3], "texture": "#0"},
+				"west": {"uv": [2, 0, 0, 2], "texture": "#0"},
+				"up": {"uv": [4, 7, 6, 0], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [3, 16, 5, 9], "rotation": 270, "texture": "#0"}
+			}
+		}
+	]
+}

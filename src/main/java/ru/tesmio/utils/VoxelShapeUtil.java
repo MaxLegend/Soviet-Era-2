@@ -43,6 +43,7 @@ public class VoxelShapeUtil {
         }
         return vs;
     }
+
     public static VoxelShape shapeMirror(VoxelShape vs) {
         return shapeRot180(vs);
     }

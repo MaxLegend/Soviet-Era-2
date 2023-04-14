@@ -6,7 +6,7 @@ import ru.tesmio.blocks.baseblock.BaseBlock;
 
 public class WoodBlock extends BaseBlock {
     public WoodBlock() {
-        super(AbstractBlock.Properties.create(Material.ROCK)
+        super(AbstractBlock.Properties.create(Material.WOOD)
                 .setRequiresTool()
                 .hardnessAndResistance(3f,8f));
     }

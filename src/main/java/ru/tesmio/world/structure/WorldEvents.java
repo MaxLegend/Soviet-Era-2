@@ -27,8 +27,7 @@ import java.util.Map;
 public class WorldEvents {
     @SubscribeEvent
     public static void biomeLoadingEvent(final BiomeLoadingEvent event) {
-   //     StructureGeneration.generateStructures(event);
-
+        StructureGeneration.generateStructures(event);
     }
     @SubscribeEvent
     public static void addDimensionalSpacing(final WorldEvent.Load event) {

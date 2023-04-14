@@ -573,7 +573,16 @@
   "item.soviet.lead_scrap": "Свинцовый лом",
   "item.soviet.ceramic_shard": "Керамический осколок",
   "item.soviet.circuits.reochord": "Реохорд",
-  "info.wood_scrap": "Можно сжечь",
+  "info.wood_scrap": "§7Можно сжечь",
+  "item.soviet.aluminum_dust": "Порошковый алюминий",
   "circ.reochord": "§7Содержит §3палладий (75%)",
-  "info.uses ": "§cЗаряд: "
+  "info.uses ": "§cЗаряд: ",
+  "info.affinage_factory": "§7Экстрагирует полезные металлы из измельченных деталей. Для работы необходим сигнал §cредстоуна",
+  "info.crusher": "§7Измельчает радиодетали. Для работы необходим сигнал §cредстоуна", 
+  "block.soviet.innerdeco.devices.horiz_redstone_wire": "Кабель питания",
+  "block.soviet.innerdeco.devices.switch_redstone_wire": "Кабели питания с распределителем",
+  "info.switch_redstone_wire": "§7Для соединения настенных и горизонтальных кабелей",
+  "info.horiz_redstone_wire": "§7Устанавливается на пол и потолок",
+  "info.redstone_wire": "§7Устанавливается на стены"
+
 }

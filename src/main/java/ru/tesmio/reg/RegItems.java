@@ -1,6 +1,7 @@
 package ru.tesmio.reg;
 
 import net.minecraft.item.*;
+import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -10,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import ru.tesmio.core.Core;
 import ru.tesmio.items.*;
 
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class RegItems {
@@ -38,7 +40,7 @@ public class RegItems {
 
     public static RegistryObject<Item> PLATINUM_PICKAXE, PLATINUM_AXE, PLATINUM_SHOVEL, PLATINUM_SWORD, PLATINUM_HOE;
     public static RegistryObject<Item> PLATOL_PICKAXE, PLATOL_AXE, PLATOL_SHOVEL, PLATOL_SWORD, PLATOL_HOE;
-    public static RegistryObject<Item>  PALLADIUM_DUST, PALLADIUM_INGOT, ALUMINUM_INGOT, COPPER_INGOT, COPPER_DUST, SILVER_INGOT, SILVER_DUST, GOLD_DUST, DIAMOND_DUST, NETHERITE_DUST, PLATINUM_INGOT, PLATINUM_DUST, PLATOL_DUST, PLATOL_INGOT;
+    public static RegistryObject<Item>  ALUMINUM_DUST, PALLADIUM_DUST, PALLADIUM_INGOT, ALUMINUM_INGOT, COPPER_INGOT, COPPER_DUST, SILVER_INGOT, SILVER_DUST, GOLD_DUST, DIAMOND_DUST, NETHERITE_DUST, PLATINUM_INGOT, PLATINUM_DUST, PLATOL_DUST, PLATOL_INGOT;
     public static void init() {
         //other items
         QUAD_TILE = registerItem("quad_tile", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
@@ -50,8 +52,14 @@ public class RegItems {
         FUEL_CANISTER = registerItem("fuel_canister", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1), "info.fuel_canister"));
 
         LEAD_SCRAP = registerItem("lead_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
-        WOOD_SCRAP = registerItem("wood_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.wood_scrap"));
-        RUSTY_SCRAP = registerItem("rusty_scrap", () -> new WoodScrap(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
+
+        WOOD_SCRAP = registerItem("wood_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.wood_scrap") {
+            @Override
+            public int getBurnTime(ItemStack itemStack, @Nullable IRecipeType<?> recipeType) {
+                return 250;
+            }
+        });
+        RUSTY_SCRAP = registerItem("rusty_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         CERAMIC_SHARD = registerItem("ceramic_shard", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         ARMATURES = registerItem("armatures", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         ARMATURE = registerItem("armature", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
@@ -89,6 +97,7 @@ public class RegItems {
         SILICON_INGOT = registerItem("silicon_ingot", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
 
         //dust
+        ALUMINUM_DUST = registerItem("aluminum_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         LEAD_DUST = registerItem("lead_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         SMALL_LEAD_DUST = registerItem("small_lead_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         LEADCERAMIC_DUST = registerItem("leadceramic_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));

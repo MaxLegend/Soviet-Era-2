@@ -3,6 +3,7 @@ package ru.tesmio.blocks.decorative.devices;
 import com.google.common.collect.Sets;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -16,11 +17,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import ru.tesmio.blocks.baseblock.BlockCornerCustomModel;
 import ru.tesmio.reg.RegItems;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Set;
 
 public class BlockRedstoneWire extends BlockCornerCustomModel {
@@ -115,49 +120,16 @@ public class BlockRedstoneWire extends BlockCornerCustomModel {
             BlockState eastPos = w.getBlockState(p.east());
             BlockState westPos = w.getBlockState(p.west());
             w.getPendingBlockTicks().scheduleTick(p, this, 4);
-            switch(s.get(FACING)) {
-                case SOUTH:
-                    if (southPos.getBlock() instanceof BlockCornerCustomModel) {
-                        if (southPos.get(FACING) == Direction.EAST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
-                        if (southPos.get(FACING) == Direction.WEST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
-                    } else {
-                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
-                    }
-                    break;
-                case WEST:
-                    if (westPos.getBlock() instanceof BlockCornerCustomModel) {
-                        if (westPos.get(ENUM_CONNECT) == EnumConnent.NOT_CONNECT) {
-                            if (westPos.get(FACING) == Direction.NORTH) w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
-                            if (westPos.get(FACING) == Direction.SOUTH) w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
-                        }
-                    } else {
-                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
-                    }
-                    break;
-                case EAST:
-                    if (eastPos.getBlock() instanceof BlockCornerCustomModel) {
-                        if (eastPos.get(FACING) == Direction.NORTH) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
-                        if (eastPos.get(FACING) == Direction.SOUTH) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
-                    } else {
-                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
-                    }
-                    break;
-                case NORTH:
-                    if (northPos.getBlock() instanceof BlockCornerCustomModel) {
-                        if (northPos.get(FACING) == Direction.WEST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_LEFT));
-                        if (northPos.get(FACING) == Direction.EAST) w.setBlockState(p,state.with(ENUM_CONNECT, EnumConnent.CORNER_RIGHT));
-                    } else {
-                        w.setBlockState(p, state.with(ENUM_CONNECT, EnumConnent.NOT_CONNECT).with(FACING, s.get(FACING)));
-                    }
-                    break;
-            }
         }
     }
 
     public int getStrongPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return !this.canProvidePower ? 0 : blockState.getWeakPower(blockAccess, pos, side);
     }
-
+    @Override
+    public void addInformation(ItemStack stack, @Nullable IBlockReader reader, List<ITextComponent> list, ITooltipFlag flags) {
+        list.add(new TranslationTextComponent("info.redstone_wire", Integer.toString(1000)));
+    }
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         if (this.canProvidePower) {
             int i = blockState.get(POWER);

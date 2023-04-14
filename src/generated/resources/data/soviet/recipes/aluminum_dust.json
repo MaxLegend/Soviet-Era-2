@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "ingredient": {
-    "item": "soviet:lead_scrap"
+    "item": "soviet:aluminum_dust"
   },
-  "result": "soviet:lead_ingot",
+  "result": "soviet:aluminum_ingot",
   "experience": 0.7,
   "cookingtime": 600
 }

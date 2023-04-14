@@ -1,0 +1,44 @@
+{
+  "multipart": [
+    {
+      "when": { "place": "ceiling" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/def_horiz", "x": 180 }
+    },
+    {
+      "when": { "place": "floor" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/def_horiz" }
+    },
+    {
+      "when": { "place": "floor", "north": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/north_horiz" }
+    },
+    {
+      "when": { "place": "floor", "south": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/south_horiz" }
+    },
+    {
+      "when": { "place": "floor", "east": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/east_horiz" }
+    },
+    {
+      "when": { "place": "floor", "west": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/west_horiz" }
+    },
+    {
+      "when": { "place": "ceiling", "north": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/north_horiz", "x": 180, "y": 180 }
+    },
+    {
+      "when": { "place": "ceiling", "south": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/south_horiz", "x": 180, "y": 180 }
+    },
+    {
+      "when": { "place": "ceiling", "east": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/east_horiz", "x": 180 }
+    },
+    {
+      "when": { "place": "ceiling", "west": "true" },
+      "apply": { "model": "soviet:block/innerdeco/redstone_wire/west_horiz", "x": 180 }
+    }
+  ]
+}

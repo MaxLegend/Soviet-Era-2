@@ -8,11 +8,10 @@ import javax.annotation.Nullable;
 public class WoodScrap extends ItemInfo{
     public WoodScrap(Properties properties, String info) {
         super(properties, info);
-
     }
 
     @Override
     public int getBurnTime(ItemStack itemStack, @Nullable IRecipeType<?> recipeType) {
-        return 190;
+        return 220;
     }
 }

@@ -1,0 +1,21 @@
+{
+	"credit": "Made special for SovietLab",
+	"textures": {
+		"1": "soviet:block/mech/generator_base",
+		"particle": "soviet:block/structural/rusty_ralling"
+	},
+	"elements": [
+		{
+			"from": [7, 14, 0],
+			"to": [9, 16, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#1"},
+				"east": {"uv": [3, 2, 16, 4], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#1"},
+				"west": {"uv": [0, 2, 13, 4], "texture": "#1"},
+				"up": {"uv": [1, 0, 3, 13], "texture": "#1"},
+				"down": {"uv": [5, 3, 7, 16], "texture": "#1"}
+			}
+		}
+	]
+}

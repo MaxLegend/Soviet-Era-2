@@ -169,14 +169,17 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
                 .patternLine(" $ ")
                 .patternLine(" # ")
                 .patternLine(" # ")
-                .addCriterion("has_item",  hasItem(Items.IRON_INGOT))
+                .addCriterion("platol_shovel",  hasItem(Items.IRON_INGOT))
                 .build(consumer, "platol_shovel");
         ShapelessRecipeBuilder.shapelessRecipe(RegItems.LEAD_DUST.get(), 1)
                 .addIngredient(RegItems.SMALL_LEAD_DUST.get(), 4)
-                .addCriterion("has_item", hasItem(RegItems.LEAD_DUST.get()))
+                .addCriterion("platol_ingot", hasItem(RegItems.LEAD_DUST.get()))
                 .build(consumer);
-        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PLATOL_DUST.get()), RegItems.PLATOL_INGOT.get(), 0.7f, 100)
-                .addCriterion("has_item", hasItem(RegItems.PLATOL_DUST.get()))
+
+        //blasting recipe
+
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PLATOL_DUST.get()), RegItems.PLATOL_INGOT.get(), 5f, 100)
+                .addCriterion("platol_ingot", hasItem(RegItems.PLATOL_DUST.get()))
                 .build(consumer, modId("platol_ingot"));
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.LEAD_DUST.get()), RegItems.LEAD_INGOT.get(), 0.7f, 100)
                 .addCriterion("has_item", hasItem(RegItems.LEAD_DUST.get()))
@@ -193,7 +196,7 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.DIAMOND_DUST.get()), Items.DIAMOND, 0.4f, 600)
                 .addCriterion("has_item", hasItem(RegItems.DIAMOND_DUST.get()))
                 .build(consumer, modId("diamond"));
-        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PLATINUM_DUST.get()), RegItems.PLATINUM_INGOT.get(), 0.4f, 600)
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PLATINUM_DUST.get()), RegItems.PLATINUM_INGOT.get(), 3f, 600)
                 .addCriterion("has_item", hasItem(RegItems.PLATINUM_DUST.get()))
                 .build(consumer, modId("platinum_ingot"));
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.SILVER_DUST.get()), RegItems.SILVER_INGOT.get(), 0.4f, 600)
@@ -202,7 +205,19 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.COPPER_DUST.get()), RegItems.COPPER_INGOT.get(), 0.4f, 600)
                 .addCriterion("has_item", hasItem(RegItems.COPPER_DUST.get()))
                 .build(consumer, modId("copper_ingot"));
-        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.NETHERITE_DUST.get()), Items.NETHERITE_INGOT, 0.4f, 600)
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.ALUMINUM_DUST.get()), RegItems.ALUMINUM_INGOT.get(), 0.7f, 600)
+                .addCriterion("has_item", hasItem(RegItems.ALUMINUM_DUST.get()))
+                .build(consumer, modId("aluminum_dust"));
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.LEAD_DUST.get()), RegItems.LEAD_INGOT.get(), 0.7f, 600)
+                .addCriterion("has_item", hasItem(RegItems.LEAD_DUST.get()))
+                .build(consumer, modId("lead_dust2"));
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.RUSTY_SCRAP.get()), Items.IRON_INGOT, 0.2f, 350)
+                .addCriterion("has_item", hasItem(RegItems.RUSTY_SCRAP.get()))
+                .build(consumer, modId("rusty_scrap"));
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PALLADIUM_DUST.get()), RegItems.PALLADIUM_INGOT.get(), 3.5f, 800)
+                .addCriterion("has_item", hasItem(RegItems.PALLADIUM_DUST.get()))
+                .build(consumer, modId("palladium_ingot"));
+        CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.NETHERITE_DUST.get()), Items.NETHERITE_INGOT, 0.9f, 600)
                 .addCriterion("has_item", hasItem(RegItems.NETHERITE_DUST.get()))
                 .build(consumer, modId("netherite_ingot"));
     }

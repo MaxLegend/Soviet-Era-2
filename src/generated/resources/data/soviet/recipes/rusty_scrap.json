@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "soviet:rusty_scrap"
+  },
+  "result": "minecraft:iron_ingot",
+  "experience": 0.2,
+  "cookingtime": 350
+}

@@ -574,7 +574,10 @@
   "item.soviet.rusty_scrap": "Rusty Iron Scrap",
   "item.soviet.copper_scrap": "Copper Scrap",
   "item.soviet.lead_scrap": "Lead Scrap",
+  "item.soviet.aluminum_dust": "Aluminum Dust",
   "item.soviet.circuits.reochord": "Reohord",
   "info.wood_scrap": "§7Can burn",
-  "circ.reochord": "§7Contains §3palladium (75%)"
+  "circ.reochord": "§7Contains §3palladium (75%)",
+  "info.affinage_factory": "§7Extracts useful metals from crushed parts. A signal §cRedstone §7is required for operation",
+  "info.crusher": "§7Grinds the parts. A signal §cRedstone §7is required for operation"
 }

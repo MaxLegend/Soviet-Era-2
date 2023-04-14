@@ -314,6 +314,7 @@ d967ef2d69042cc6c0eeaa1fe2af0c62bf09055e assets/soviet/models/block/structural/t
 41201f2e563856712d5ebb71fba2b4c07cf3eca6 assets/soviet/models/block/structural/trim_tile_1_br.json
 280c3ef10b708ab0b4f92cb1161f41a825ecd6fa assets/soviet/models/block/structural/trim_tile_blue.json
 7a54f57d2b5ac09f94c7d1e271f53c4c11a9cffa assets/soviet/models/block/structural/trim_tile_red.json
+a9bb655e3ea34a40e0a1ad08b67f2c9db0c01f60 assets/soviet/models/item/aluminum_dust.json
 f830b6e689e8974679d9fbe466ca43394daadc2c assets/soviet/models/item/aluminum_ingot.json
 7b72d806c9282d6b311b114e864da669a67c9829 assets/soviet/models/item/aluminum_scrap.json
 9207b5137f8743c4540efcc6c8614b22d3c4bc9c assets/soviet/models/item/armature.json
@@ -431,6 +432,7 @@ ae40ba3d652c4e5316cdc025f0bd7de195dfb673 assets/soviet/models/item/innerdeco/con
 d6832dc92a931aeb903b24517d26b2b31d6d5171 assets/soviet/models/item/innerdeco/devices/computer.json
 186af94066c556f71fe58082e6384155fbacb784 assets/soviet/models/item/innerdeco/devices/dry_cab.json
 980ca4ae5a3a40ef616cfa81bfcfc3ac60c823f2 assets/soviet/models/item/innerdeco/devices/electrical_panel.json
+364f16b1754b8bb13c7ebb5e79141a836b41446f assets/soviet/models/item/innerdeco/devices/horiz_redstone_wire.json
 81365a0791c506644a66355b3db6b933a094c66d assets/soviet/models/item/innerdeco/devices/infotable.json
 48c545477994d273e8f8fc3f12965e97c6c3a675 assets/soviet/models/item/innerdeco/devices/lab_stove.json
 767fef89d054ec3ad2395f83fd232f340816447b assets/soviet/models/item/innerdeco/devices/magnet_mixer.json
@@ -471,6 +473,7 @@ a9829d2ea14baced6f301fad3b2cc69f6ec996f5 assets/soviet/models/item/innerdeco/dev
 48d2e1289d8174056c1d2fd22f830fa052a15b36 assets/soviet/models/item/innerdeco/devices/small_button.json
 1d2b4105859dfbbc4bb2c5d08a606667a0b0192e assets/soviet/models/item/innerdeco/devices/small_computer.json
 0b9f627a2699dac69e568ba893d06e9394e9bd26 assets/soviet/models/item/innerdeco/devices/spec_monitor.json
+54d6d35dfd01d7bc1739a6e6c8feb2b14c9e8bda assets/soviet/models/item/innerdeco/devices/switch_redstone_wire.json
 e15193f1206ed63e3a63acb031cae9920816ac2c assets/soviet/models/item/innerdeco/devices/sys_block.json
 2c35afe1ddafff8daccfeadc412a053471964800 assets/soviet/models/item/innerdeco/devices/telegraph.json
 8e8d44f43899f54f4b6cde938d6a2ff4c76557a5 assets/soviet/models/item/innerdeco/devices/televisor.json
@@ -902,15 +905,19 @@ b8d160f6d44f28da45c00e6b341b9fa130e79144 data/soviet/loot_tables/blocks/structur
 474e492ec36acc0fca7d1418c27909ec49805a63 data/soviet/loot_tables/blocks/structural/panel_tile.json
 bea1d5a96f4194fd0d817985a4e20ea2d39fac08 data/soviet/loot_tables/blocks/structural/panel_tile_corner.json
 4df0202a167f0169c1a0c1a5d96e45785c63b1e8 data/soviet/loot_tables/blocks/structural/panel_tile_side.json
+b7441dca3409fb2f50544ca2387486d6ed45ab20 data/soviet/recipes/aluminum_dust.json
 6a18736706f2b365d322b0af18264d5b22b56b6f data/soviet/recipes/copper_ingot.json
 318d0b3bca2d5ad04466718ba3410632757e6778 data/soviet/recipes/diamond.json
 8754c7c2819a445e3adcbdf4b1de216032ba067f data/soviet/recipes/gold_ingot.json
 0741159ae1181759e9456e668c39856e36fc64db data/soviet/recipes/iron_ingot.json
 c9d571f80299e4b31ed7c9d312136c6a781813b7 data/soviet/recipes/lead_dust.json
+83431f5fb55e9d22705f09212820adfc1757a08f data/soviet/recipes/lead_dust2.json
 bcdafff1328d042bdfdc2dab79cfe8da9af225e5 data/soviet/recipes/lead_ingot.json
-54717ce203dd666fdd49129bb7c2ba0079a72680 data/soviet/recipes/netherite_ingot.json
-68fcf360f80de7660178c118e82a757e5d400e8f data/soviet/recipes/platinum_ingot.json
-1fa02e8ba0447a7e5f9942b37fcddc621493f324 data/soviet/recipes/platol_ingot.json
+b34a7fb862ee9806b7fc6cb7df18cd13220e0159 data/soviet/recipes/netherite_ingot.json
+314ce86a04984972bda1be4b22c0a2e4fde91cfa data/soviet/recipes/palladium_ingot.json
+1a7a626e59064e5cda77918c98dea0e44977f635 data/soviet/recipes/platinum_ingot.json
+486a6403b797b312d3dd53bd8288bb7fcd7277a5 data/soviet/recipes/platol_ingot.json
+aa2c1b2bcdaa5c84fb19a08a47555932047551a1 data/soviet/recipes/rusty_scrap.json
 6b5d326861256023c6414682ff0544d2d9761c1f data/soviet/recipes/silicon_ingot.json
 f6b52eec0ebd68408ca6340116fe2804d0fbdeb5 data/soviet/recipes/silver_ingot.json
 7c26bdb4888057380b7e25866a452cb92c918163 data/soviet/recipes/small_lead_dust.json

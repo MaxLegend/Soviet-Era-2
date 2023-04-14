@@ -3,11 +3,12 @@ package ru.tesmio.blocks.decorative.lamp.base;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import ru.tesmio.blocks.baseblock.BlockRotatedAxisCustomModel;
+import ru.tesmio.blocks.decorative.devices.IRedstoneDevice;
 import ru.tesmio.reg.RegItems;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class BlockRotLamp extends BlockRotatedAxisCustomModel {
+public abstract class BlockRotLamp extends BlockRotatedAxisCustomModel implements IRedstoneDevice {
     public BlockRotLamp(Properties p) {
         super(p, 1F);
     }
@@ -19,4 +20,5 @@ public class BlockRotLamp extends BlockRotatedAxisCustomModel {
                 new ItemStack(RegItems.ALUMINUM_SCRAP.get(), tr.nextInt(1)),
         };
     }
+
 }

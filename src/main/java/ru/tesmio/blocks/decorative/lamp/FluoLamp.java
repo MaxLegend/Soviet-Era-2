@@ -49,6 +49,7 @@ public class FluoLamp extends BlockRotLamp {
     public FluoLamp(Properties builder) {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH).with(LIT_VALUE, Integer.valueOf(0)).with(WATERLOGGED, false).with(CLOSED, true));
+
     }
 
     public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
@@ -151,6 +152,9 @@ public class FluoLamp extends BlockRotLamp {
 
     @Override
     public int  getLightValue(BlockState s, IBlockReader br, BlockPos pos) {
+        return getLight(s);
+    }
+    public int getLight(BlockState s) {
         switch (s.get(LIT_VALUE)) {
             case 0:
             default:
