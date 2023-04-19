@@ -12,13 +12,18 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.IStringSerializable;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import ru.tesmio.utils.VoxelShapeUtil;
 
 import javax.annotation.Nullable;
 
 public class BlockRotatedAxis extends BaseBlock {
     public static final EnumProperty<EnumOrientation> FACING = EnumProperty.create("facing", EnumOrientation.class);
-
+    public static VoxelShape FACING_SHAPE = VoxelShapes.fullCube();
     public BlockRotatedAxis(Properties builder) {
         super(builder);
         this.setDefaultState(this.stateContainer.getBaseState().with(FACING, EnumOrientation.NORTH));
@@ -31,6 +36,30 @@ public class BlockRotatedAxis extends BaseBlock {
                 getAdditionDrops(w,p,getStackAddDrop(pl));
             }
         }
+    }
+    public VoxelShape getShape(BlockState s, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+
+        switch (s.get(FACING)) {
+            case NORTH:
+                return getFacingShape(s);
+            case SOUTH:
+                   return VoxelShapeUtil.shapeRot180(getFacingShape(s));
+            case EAST:
+                  return VoxelShapeUtil.shapeRotCCW90(getFacingShape(s));
+            case WEST:
+                  return VoxelShapeUtil.shapeRotCW90(getFacingShape(s));
+            case UP_X:
+            case UP_Z:
+                return VoxelShapeUtil.shapeRotCWX90(getFacingShape(s));
+            case DOWN_Z:
+            case DOWN_X:
+                return VoxelShapeUtil.shapeRotCCWX90(getFacingShape(s));
+        }
+        return VoxelShapes.fullCube();
+    }
+
+    public VoxelShape getFacingShape(BlockState s) {
+        return this.FACING_SHAPE;
     }
     public ItemStack getStackAddDrop(PlayerEntity pl) {
         return ItemStack.EMPTY;

@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class BlockRotatedAxisCustomModelInfo extends BlockRotatedAxisCustomModel{
+
     String info;
     public BlockRotatedAxisCustomModelInfo(Properties builder, String info, float sI) {
         super(builder, sI);

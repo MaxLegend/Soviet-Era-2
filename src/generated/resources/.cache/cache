@@ -447,6 +447,9 @@ d6832dc92a931aeb903b24517d26b2b31d6d5171 assets/soviet/models/item/innerdeco/dev
 58257f7540051c673d74c2153b0781cb27f214ac assets/soviet/models/item/innerdeco/devices/phys/controller.json
 d28c3cad7fee31fac2011e764a7a88c13771d2b7 assets/soviet/models/item/innerdeco/devices/phys/coulometric_integrator.json
 07d2ca4dd68c85e665380c93a20165b0d0453911 assets/soviet/models/item/innerdeco/devices/phys/coulometric_integrator2.json
+62f9747175c897bfcad9704435e1dd4ebc4e4f0e assets/soviet/models/item/innerdeco/devices/phys/digital_ms_base.json
+487c3352a4d0408de1e8265ed4f83276babf899c assets/soviet/models/item/innerdeco/devices/phys/digital_ms_calcblock.json
+db19c1e82758e749892a8b88be4092c971576d1f assets/soviet/models/item/innerdeco/devices/phys/digital_ms_control.json
 629dd122916baba906b020111310b3783d53796f assets/soviet/models/item/innerdeco/devices/phys/e_converter.json
 4e2a8bb62ce980d0fb3a55e733d7596125ee93a6 assets/soviet/models/item/innerdeco/devices/phys/e_tester.json
 0b3b245554ef0c41541f9db80c7b7b93050070b2 assets/soviet/models/item/innerdeco/devices/phys/em_meter.json
@@ -497,6 +500,7 @@ ab77c6cfc8d93a0aa186a7c07221d7a17333abe4 assets/soviet/models/item/innerdeco/fur
 b7e94efd5cd3f38432d6d76240d86afe06223089 assets/soviet/models/item/innerdeco/furniture/sink.json
 d084a36d95349e1c2b1e371a91d37d10db99d657 assets/soviet/models/item/innerdeco/furniture/small_sink.json
 1b1b4f8bfeebaad9ff230090307510bd7c4dae8c assets/soviet/models/item/innerdeco/furniture/toilet.json
+0cde1f62aec01da76934d3cb445a32f404feab08 assets/soviet/models/item/innerdeco/furniture/tumbler.json
 880f4537c2ee4fc02d545df074ad8bf32f2c9006 assets/soviet/models/item/innerdeco/handhold/balcony_handhold.json
 2bd823fcb783296b41a0426fcc7331a66970da03 assets/soviet/models/item/innerdeco/handhold/rusty_handhold.json
 5cc92b9c9e03d3a58c264f9bfd6f409d77f0ca74 assets/soviet/models/item/innerdeco/handhold/street_handhold.json

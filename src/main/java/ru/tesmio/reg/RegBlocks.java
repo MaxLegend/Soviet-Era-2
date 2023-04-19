@@ -89,7 +89,7 @@ public class RegBlocks {
     public static RegistryObject<Block> AIRLOCK_DOOR,ALUMINIUM_DOOR,RAILING_DOOR,RUSTY_IRON_DOOR, RUSTY_BARS, CONTAINMENT_TRAPDOOR, LADDER_1, VENT_PIPE_BASE, VENT_PIPE, LADDER_2, AIRLOCK_DOOR_CONTROLLER, CONTAINMENT_DOOR, WOOD_DOOR_1, WOOD_DOOR_2;
     public static RegistryObject<Block> ACCELERATOR_CALC_BLOCK, ACCELERATOR_STAND, ACCELERATOR, ACCELERATOR_RINGS_END, ACCELERATOR_RINGS,
             ACCELERATOR_RINGS_CORNER_LEFT, ACCELERATOR_RINGS_CORNER_RIGHT, INFO_TABLE, SMALL_BUTTON, DRESS_CABIN,FRIDGE,DSP_TABLE2,DSP_TABLE,DSP_CHAIR,HOME_PIPES,HOME_PIPES_BATTERY;
-    public static RegistryObject<Block> RUSTY_HANDHOLD, STREET_FENCE, BALCONY_HANDHOLD, HEAT_PIPES,HEAT_PIPES_CORNER, COLD_BATTERY, BIO_TUMBLER, BIO_POWER_SOCKET;
+    public static RegistryObject<Block> RUSTY_HANDHOLD, STREET_FENCE, BALCONY_HANDHOLD, HEAT_PIPES,HEAT_PIPES_CORNER, COLD_BATTERY, TUMBLER, BIO_TUMBLER, BIO_POWER_SOCKET;
     public static RegistryObject<Block> COPPER_CIRCUIT, COPPER_CIRCUIT_EMPTY, SILVER_CIRCUIT,SILVER_CIRCUIT_EMPTY, GOLD_CIRCUIT,GOLD_CIRCUIT_EMPTY, DIAMOND_CIRCUIT, DIAMOND_CIRCUIT_EMPTY,NETHERITE_CIRCUIT, NETHERITE_CIRCUIT_EMPTY,PLATINUM_CIRCUIT, PLATINUM_CIRCUIT_EMPTY , PLATE_GOLDEN_JACKS, PLATE_GOLDEN_JACKS_EMPTY, PLATE_PLATINUM_JACKS, PLATE_PLATINUM_JACKS_EMPTY;
 
     public static RegistryObject<Block> CONCRETE_STAIRS_GRAY, CONCRETE_STAIRS_GREEN, CONCRETE_STAIRS_BLUE, CONCRETE_STAIRS_BEIGE,
@@ -98,7 +98,7 @@ public class RegBlocks {
             CONCRETE_SLAB_BEIGE2, CONCRETE_SLAB_RED, CONCRETE_SLAB_YELLOW, CONCRETE_SLAB_WHITE, CONCRETE_SLAB_ORANGE;
 
     public static RegistryObject<Block> CONCRETE_FENCE, CONCRETE_FENCE_HIGH, CONCRETE_FENCE_BASE, FLOOR_GRID, CONCRETE_WALL, CONTACT_WIRE, ELECTRO_FENCE, ELECTRO_FENCE_TUMBLER, ELECTRO_FENCE_DOUBLE, SPIRAL_BARB_WIRE;
-    public static RegistryObject<Block> TELEGRAPH, SOLDERING_STATION, AUDIORECORDER2, AUDIORECORDER, RADIOSTATION,TRANSFORMATOR_ISOLATORS, TRANSFORMATOR_BASE, TRANSFORMATOR_COIL, CLOCK_ELECTRONICA,MOTION_SENSOR,TURNSTILE, RUSTY_TUMBLER, RUSTY_TUMBLER2,SWITCH_REDSTONE_WIRE,HORIZONTAL_REDSTONE_WIRE, REDSTONE_WIRE;
+    public static RegistryObject<Block> DIG_MICROSCOPE_CALC_BLOCK, DIG_MICROSCOPE_CONTROL, DIG_MICROSCOPE, TELEGRAPH, SOLDERING_STATION, AUDIORECORDER2, AUDIORECORDER, RADIOSTATION,TRANSFORMATOR_ISOLATORS, TRANSFORMATOR_BASE, TRANSFORMATOR_COIL, CLOCK_ELECTRONICA,MOTION_SENSOR,TURNSTILE, RUSTY_TUMBLER, RUSTY_TUMBLER2,SWITCH_REDSTONE_WIRE,HORIZONTAL_REDSTONE_WIRE, REDSTONE_WIRE;
 
     public static RegistryObject<Block> A_METER,ASSIGNER_BLOCK, AUTOWRITER, CONTROLLER, EM_METER, FREQUE_ANALISATOR, FREQUE_METER, GEIGER_STATIC, M_METER, K_METER, OM_METER, OSCILLOSCOPE, P_METER, V_METER, W_METER;
     public static RegistryObject<Block> BIOLAB_TABLE, BIOLAB_TABLE2, BIOLAB_TABLE3, BIOLAB_TABLE4,BIOLAB_TABLE_CASE, CHEMLAB_TABLE, CHEMLAB_TABLE_CASE, STILLAGE, PINK_CHAIR, PURPLE_TABLE, PURPLE_CHAIR;
@@ -195,6 +195,7 @@ public class RegBlocks {
         DRY_CAB = registerBlockWithModel("innerdeco/devices/dry_cab", () -> new DryCab(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         MIXER = registerBlockWithModel("innerdeco/devices/mixer", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         MAGNET_MIXER = registerBlockWithModel("innerdeco/devices/magnet_mixer", () -> new ChemDevices(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        TUMBLER = registerBlockWithModel("innerdeco/furniture/tumbler", () -> new PowerTumbler(DEVICES_PROPERTIES, 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //fence
         CONCRETE_FENCE = registerOnlyCustomBlock("outerdeco/fences/concrete_fence", () -> new ConcreteFence(getP(Material.ROCK, 1.1f,1.3f, ToolType.PICKAXE, 1, SoundType.STONE, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
@@ -350,6 +351,9 @@ public class RegBlocks {
         AUDIORECORDER2 = registerBlockWithModel("innerdeco/devices/phys/audiorecorder2", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
         SOLDERING_STATION = registerBlockWithModel("innerdeco/devices/phys/soldering_station", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
         TELEGRAPH = registerBlockWithModel("innerdeco/devices/telegraph", () -> new PhysDevices(1F), Core.ItemGroups.TAB_INNER_DECO);
+        DIG_MICROSCOPE = registerBlockWithModel("innerdeco/devices/phys/digital_ms_base", () -> new DigitalMicroscope(getP(Material.IRON, 0.6f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true),1F), Core.ItemGroups.TAB_INNER_DECO);
+        DIG_MICROSCOPE_CONTROL = registerBlockWithModel("innerdeco/devices/phys/digital_ms_control", () -> new DigitalMicroscope(getP(Material.IRON, 0.6f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true),1F), Core.ItemGroups.TAB_INNER_DECO);
+        DIG_MICROSCOPE_CALC_BLOCK = registerBlockWithModel("innerdeco/devices/phys/digital_ms_calcblock", () -> new DigitalMicroscope(getP(Material.IRON, 0.6f,1f,ToolType.PICKAXE, 0, SoundType.METAL, false, true),1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //mech
         CRUSHER = registerBlockWithModel("mech/crusher", () -> new BlockCrusher(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid()), Core.ItemGroups.TAB_INNER_DECO);
@@ -406,15 +410,15 @@ public class RegBlocks {
 
         AbstractBlock.Properties CONCRETE_RAILING_PROPERTIES = getP(Material.ROCK, 2,1,ToolType.PICKAXE, 2, SoundType.STONE, true, true);
         //concrete_railing
-        CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.orange", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_WHITE = registerBlockWithModel("structural/concrete_railing_white", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.white", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_GRAY = registerBlockWithModel("structural/concrete_railing_gray", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.gray", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_GREEN = registerBlockWithModel("structural/concrete_railing_green", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.green", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_RED = registerBlockWithModel("structural/concrete_railing_red", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.red", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_BLUE = registerBlockWithModel("structural/concrete_railing_blue", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.blue", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_BEIGE = registerBlockWithModel("structural/concrete_railing_beige", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.beige", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_BEIGE2 = registerBlockWithModel("structural/concrete_railing_beige2", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.beige2", 0.5F), Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RAILING_YELLOW = registerBlockWithModel("structural/concrete_railing_yellow", () -> new BlockRotatedAxisCustomModelInfo(CONCRETE_RAILING_PROPERTIES, "info.yellow", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.orange", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_WHITE = registerBlockWithModel("structural/concrete_railing_white", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.white", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_GRAY = registerBlockWithModel("structural/concrete_railing_gray", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.gray", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_GREEN = registerBlockWithModel("structural/concrete_railing_green", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.green", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_RED = registerBlockWithModel("structural/concrete_railing_red", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.red", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_BLUE = registerBlockWithModel("structural/concrete_railing_blue", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.blue", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_BEIGE = registerBlockWithModel("structural/concrete_railing_beige", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.beige", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_BEIGE2 = registerBlockWithModel("structural/concrete_railing_beige2", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.beige2", 0.5F), Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RAILING_YELLOW = registerBlockWithModel("structural/concrete_railing_yellow", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.yellow", 0.5F), Core.ItemGroups.TAB_MAIN);
 
         //beams
         IRON_BEAM_CONCRETE = registerBlockWithModel("structural/iron_beam_concrete", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_MAIN);

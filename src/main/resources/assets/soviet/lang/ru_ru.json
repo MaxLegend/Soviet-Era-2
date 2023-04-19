@@ -583,6 +583,6 @@
   "block.soviet.innerdeco.devices.switch_redstone_wire": "Кабели питания с распределителем",
   "info.switch_redstone_wire": "§7Для соединения настенных и горизонтальных кабелей",
   "info.horiz_redstone_wire": "§7Устанавливается на пол и потолок",
-  "info.redstone_wire": "§7Устанавливается на стены"
-
+  "info.redstone_wire": "§7Устанавливается на стены",
+  "block.soviet.innerdeco.furniture.tumbler": "Переключатель"
 }

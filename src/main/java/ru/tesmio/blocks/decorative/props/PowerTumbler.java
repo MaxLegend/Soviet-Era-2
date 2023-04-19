@@ -10,7 +10,6 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import ru.tesmio.blocks.baseblock.BlockSideCustomModelLeveler;
 import ru.tesmio.reg.RegItems;
-import ru.tesmio.utils.VoxelShapeUtil;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -20,7 +19,7 @@ public class PowerTumbler extends BlockSideCustomModelLeveler {
     }
     public BlockState getStateForPlacement(BlockItemUseContext context) {
         FluidState fluidstate = context.getWorld().getFluidState(context.getPos());
-        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing()).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
+        return this.getDefaultState().with(FACING, context.getPlacementHorizontalFacing().getOpposite()).with(WATERLOGGED, Boolean.valueOf(fluidstate.getFluid() == Fluids.WATER));
     }
     @Override
     public ItemStack[] getItemsDrop(PlayerEntity pl) {
@@ -31,6 +30,6 @@ public class PowerTumbler extends BlockSideCustomModelLeveler {
     }
     @Override
     public VoxelShape getFacingShape(BlockState s) {
-        return VoxelShapeUtil.shapeRot180(VoxelShapes.create(0.377D, 0.377D, 1D, 0.623D, 0.623D, 0.956D));
+        return VoxelShapes.create(0.377D, 0.377D, 1D, 0.623D, 0.623D, 0.956D);
     }
 }

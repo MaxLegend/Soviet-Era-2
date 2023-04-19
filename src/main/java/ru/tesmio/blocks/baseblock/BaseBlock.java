@@ -13,4 +13,5 @@ public class BaseBlock extends Block {
     public boolean canProvidePower(BlockState state) {
         return true;
     }
+
 }
