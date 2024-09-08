@@ -12,7 +12,7 @@ displayName = "Soviet Era 2" #mandatory
 updateJSONURL="https://github.com/MaxLegend/Soviet-Era-2/blob/1.16.5-dev/update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/soviet-era-mod" #optional
 logoFile="logo.png"
-credits="Thanks Max_Freemen, SlimeF, Vincent11A, Peresmechnic, lrx1tp, for 3d models and textures"
+credits="Thanks Max_Freemen, SlimeF, Vincent11A, Peresmechnic, lrx1tp, feulim for 3d models and textures"
 authors="Tesmio"
 
 description = '''

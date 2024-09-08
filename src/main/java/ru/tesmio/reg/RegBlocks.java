@@ -128,6 +128,7 @@ public class RegBlocks {
     public static RegistryObject<Block> METRO_RAIL, TOXIC_AIR;
     public static RegistryObject<Block> RASTY_FRAME, STEEL_PYLON, HORIZONTAL_STEEL_PYLON, ANTENN, RAILING_BLOCK;
 
+    public static RegistryObject<Block> CLEAN_RAILING_BLOCK, CLEAN_IRON_BEAM, CLEAN_IRON_BEAM_CONCRETE, CLEAN_IRON_BEAM_THIN, CLEAN_RAILING_DOOR, CLEAN_RUSTY_BARS;
     public static RegistryObject<Block> DYE_BUCKET;
 
     public static void init() {
@@ -141,11 +142,22 @@ public class RegBlocks {
         TOXIC_AIR = registerBlock("toxic_air", () -> new ToxicAir(getP(Material.AIR, 0f,0f, null, 0, SoundType.WOOD, false, true)), null);
 
         RASTY_FRAME = registerBlockWithModel("rasty_frames", () -> new RastyFrameBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
-        DYE_BUCKET = registerBlockWithModel("placeable/dye_bucket", () -> new BucketDye(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        DYE_BUCKET = registerOnlyCustomBlock("placeable/dye_bucket", () -> new BucketDye(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
 
         STEEL_PYLON = registerBlockWithModel("structural/steel_pylon", () -> new PylonBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
         HORIZONTAL_STEEL_PYLON = registerBlockWithModel("structural/steel_pylon_horizontal", () -> new PylonBlockH(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
         ANTENN = registerBlockWithModel("structural/antenn", () -> new Antenn(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
+
+        //cleaned metal blocks
+        CLEAN_IRON_BEAM_CONCRETE = registerBlockWithModel("cleaned/iron_beam_concrete", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEAN_IRON_BEAM = registerBlockWithModel("cleaned/iron_beam", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEAN_IRON_BEAM_THIN = registerBlockWithModel("cleaned/iron_beam_thin", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEAN_RAILING_BLOCK = registerBlockWithModel("cleaned/railing_clean", () -> new RailingBlock(getP(Material.IRON, 0.5f,0.25f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), "info.railing", 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEAN_RAILING_DOOR = registerOnlyCustomBlock("cleaned/railing_door", () -> new RailingDoorBlock(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEAN_RUSTY_BARS = registerBlockWithModel("cleaned/rusty_bars", () -> new RustyBars(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+//        CONTAINMENT_TRAPDOOR = registerOnlyCustomBlock("innerdeco/containment_trapdoor", () -> new ContainmentTrapdoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+//        CONTAINMENT_DOOR = registerOnlyCustomBlock("innerdeco/containment_door", () -> new ContainmentDoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+//        RUSTY_IRON_DOOR = registerOnlyCustomBlock("innerdeco/rusty_iron_door", () -> new RustyIronDoor(getP(Material.IRON, 1.0f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
 
 
 
@@ -449,6 +461,8 @@ public class RegBlocks {
         LINO_7 = registerBlock("lino/lino7", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
         LINO_8 = registerBlock("lino/lino8", () -> new LinoBlock(),Core.ItemGroups.TAB_MAIN);
 
+
+
         AbstractBlock.Properties CONCRETE_RAILING_PROPERTIES = getP(Material.ROCK, 2,1,ToolType.PICKAXE, 2, SoundType.STONE, true, true);
         //concrete_railing
         CONCRETE_RAILING_ORANGE = registerBlockWithModel("structural/concrete_railing_orange", () -> new BlockRailing(CONCRETE_RAILING_PROPERTIES, "info.orange", 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
@@ -467,6 +481,7 @@ public class RegBlocks {
         IRON_BEAM = registerBlockWithModel("structural/iron_beam", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
         IRON_BEAM_THIN = registerBlockWithModel("structural/iron_beam_thin", () -> new BlockRotatedAxisCustomModel(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(3f,8f).notSolid(), 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
 
+
         //concrete
         CONCRETE_ORANGE = registerBlock("concrete/concrete_orange", () -> new FerroconcreteBlock("info.orange"),Core.ItemGroups.TAB_MAIN);
         CONCRETE_BLUE = registerBlock("concrete/concrete_blue", () -> new FerroconcreteBlock("info.blue"),Core.ItemGroups.TAB_MAIN);
@@ -477,15 +492,15 @@ public class RegBlocks {
         CONCRETE_GREEN = registerBlock("concrete/concrete_green", () -> new FerroconcreteBlock( "info.green"),Core.ItemGroups.TAB_MAIN);
         CONCRETE_GRAY = registerBlock("concrete/concrete_gray", () -> new FerroconcreteBlock( "info.gray"),Core.ItemGroups.TAB_MAIN);
         CONCRETE_BEIGE2 = registerBlock("concrete/concrete_beige2", () -> new FerroconcreteBlock( "info.beige2"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BLUE_BR = registerBlock("concrete/concrete_blue_br", () -> new FerroconcreteBlock("info.blue"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_ORANGE_BR = registerBlock("concrete/concrete_orange_br", () -> new FerroconcreteBlock("info.orange"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_RED_BR = registerBlock("concrete/concrete_red_br", () -> new FerroconcreteBlock("info.red"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_YELLOW_BR = registerBlock("concrete/concrete_yellow_br", () -> new FerroconcreteBlock( "info.yellow"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_WHITE_BR = registerBlock("concrete/concrete_white_br", () -> new FerroconcreteBlock( "info.white"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BEIGE_BR = registerBlock("concrete/concrete_beige_br", () -> new FerroconcreteBlock( "info.beige"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_GREEN_BR = registerBlock("concrete/concrete_green_br", () -> new FerroconcreteBlock( "info.green"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_GRAY_BR = registerBlock("concrete/concrete_gray_br", () -> new FerroconcreteBlock( "info.gray"),Core.ItemGroups.TAB_MAIN);
-        CONCRETE_BEIGE2_BR = registerBlock("concrete/concrete_beige2_br", () -> new FerroconcreteBlock("info.beige2"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BLUE_BR = registerBlock("concrete/concrete_blue_br", () -> new FerroconcreteBlockDmg("info.blue"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_ORANGE_BR = registerBlock("concrete/concrete_orange_br", () -> new FerroconcreteBlockDmg("info.orange"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_RED_BR = registerBlock("concrete/concrete_red_br", () -> new FerroconcreteBlockDmg("info.red"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_YELLOW_BR = registerBlock("concrete/concrete_yellow_br", () -> new FerroconcreteBlockDmg( "info.yellow"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_WHITE_BR = registerBlock("concrete/concrete_white_br", () -> new FerroconcreteBlockDmg( "info.white"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BEIGE_BR = registerBlock("concrete/concrete_beige_br", () -> new FerroconcreteBlockDmg( "info.beige"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_GREEN_BR = registerBlock("concrete/concrete_green_br", () -> new FerroconcreteBlockDmg( "info.green"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_GRAY_BR = registerBlock("concrete/concrete_gray_br", () -> new FerroconcreteBlockDmg( "info.gray"),Core.ItemGroups.TAB_MAIN);
+        CONCRETE_BEIGE2_BR = registerBlock("concrete/concrete_beige2_br", () -> new FerroconcreteBlockDmg("info.beige2"),Core.ItemGroups.TAB_MAIN);
         //stairs
         CONCRETE_STAIRS_GRAY = registerBlock("stairs/concrete_gray_stairs", () -> new BaseStairs(CONCRETE_GRAY.get().getDefaultState(), "info.gray"),Core.ItemGroups.TAB_MAIN);
         CONCRETE_STAIRS_GREEN = registerBlock("stairs/concrete_green_stairs", () -> new BaseStairs(CONCRETE_GREEN.get().getDefaultState(),  "info.green"),Core.ItemGroups.TAB_MAIN);

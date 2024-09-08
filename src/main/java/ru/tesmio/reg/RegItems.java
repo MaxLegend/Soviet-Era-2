@@ -50,15 +50,18 @@ public class RegItems {
 
     public static RegistryObject<Item> WHITE_BRICK, BROKEN_WHITE_BRICK, CRACKED_YELLOW_BRICK, BROKEN_YELLOW_BRICK, CRACKED_RED_BRICK, BROKEN_RED_BRICK;
 
-    public static RegistryObject<Item> DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE;
+    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY;
 
     public static void init() {
+
+        SANDSPRAY = registerItem2("sandspray", () -> new SandsprayItem(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
 
         BEIGE_DYE = registerItem("beige_dye", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         BEIGE2_DYE = registerItem("beige2_dye", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
 
         DYE_SCRAPPER = registerItem("dye_scrapper", () -> new DyeScrapper("info.dye_scrapper"));
-        DYE_BRUSH = registerItem("dye_brush", () -> new DyeBrush(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.dye_brush"));
+        DYE_SCRAPPER_FILLER = registerItem("dye_scrapper_filler", () -> new FillerScrapper());
+        DYE_BRUSH = registerItem("dye_brush", () -> new DyeBrush());
 
         //suit
         SUIT_GAS_MASK = registerItem("adc_gasmask", () -> new Suit(ArmorMaterial.DIAMOND, EquipmentSlotType.HEAD, (new Item.Properties()).group(Core.ItemGroups.TAB_ITEMS)));
@@ -96,7 +99,7 @@ public class RegItems {
         });
         RUSTY_SCRAP = registerItem("rusty_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         CERAMIC_SHARD = registerItem("ceramic_shard", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
-        ARMATURES = registerItem("armatures", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
+        ARMATURES = registerItem("armatures", () -> new ArmatureFrame(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         ARMATURE = registerItem("armature", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         COPPER_SCRAP = registerItem("copper_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));
         ALUMINUM_SCRAP = registerItem("aluminum_scrap", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.restore"));

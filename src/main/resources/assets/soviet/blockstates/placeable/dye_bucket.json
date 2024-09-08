@@ -3,6 +3,13 @@
     "color=empty":  { "model": "soviet:block/placeable/dye_bucket"},
     "color=water":  { "model": "soviet:block/placeable/dye_bucket_water"},
     "color=beige":  { "model": "soviet:block/placeable/dye_bucket_beige"},
+"color=green":  { "model": "soviet:block/placeable/dye_bucket_green"},
+"color=red":  { "model": "soviet:block/placeable/dye_bucket_red"},
+"color=orange":  { "model": "soviet:block/placeable/dye_bucket_orange"},
+"color=blue":  { "model": "soviet:block/placeable/dye_bucket_blue"},
+"color=yellow":  { "model": "soviet:block/placeable/dye_bucket_yellow"},
+"color=white":  { "model": "soviet:block/placeable/dye_bucket_white"},
+"color=filler":  { "model": "soviet:block/placeable/dye_bucket_filler"},
     "color=beige2":  { "model": "soviet:block/placeable/dye_bucket_beige2"}
   }
 }

@@ -2,11 +2,13 @@ package ru.tesmio.enums;
 
 import net.minecraft.util.IStringSerializable;
 
-public enum EnumSovietColor implements IStringSerializable
+public enum EnumBucketState implements IStringSerializable
 {
     EMPTY("empty"),
     WATER("water"),
+
     //-----//
+    //сделать все цвета кисточка готова, шпатель готов, скраппер для краски готов. Настроить
     ORANGE("orange"),
     BLUE("blue"),
     RED("red"),
@@ -14,12 +16,12 @@ public enum EnumSovietColor implements IStringSerializable
     WHITE("white"),
     BEIGE("beige"),
     GREEN("green"),
-    GRAY("gray"),
+    FILLER("filler"), //it "gray" color
     BEIGE2("beige2");
 
     private final String name;
 
-    EnumSovietColor(String name)
+    EnumBucketState(String name)
     {
         this.name = name;
     }

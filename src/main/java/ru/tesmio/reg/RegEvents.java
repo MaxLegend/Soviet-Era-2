@@ -3,10 +3,15 @@ package ru.tesmio.reg;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.Hand;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,13 +26,31 @@ import ru.tesmio.blocks.decorative.devices.base.BlockSideDevice;
 import ru.tesmio.blocks.decorative.props.WindowGrid;
 import ru.tesmio.blocks.decorative.props.base.BlockAxisProps;
 import ru.tesmio.blocks.decorative.props.base.BlockRotatedAxisCMProps;
+import ru.tesmio.blocks.placeable.BucketDye;
 import ru.tesmio.core.Config;
 import ru.tesmio.core.Core;
 import ru.tesmio.data.providers.advancements.triggers.DiscoveryBlockTrigger;
+import ru.tesmio.enums.EnumBucketState;
 import ru.tesmio.items.RedstoneGrinder;
 
 @Mod.EventBusSubscriber(modid = Core.MODID)
 public class RegEvents {
+    @SubscribeEvent
+    public static void rightClickWaterBucket(PlayerInteractEvent.RightClickBlock e) {
+        World w = e.getWorld();
+        BlockPos p = e.getPos();
+        BlockState s = w.getBlockState(p);
+        PlayerEntity pl = e.getPlayer();
+        Hand h = e.getHand();
+        if(s.getBlock() instanceof BucketDye) {
+            if (s.get(BucketDye.COLOR) == EnumBucketState.EMPTY && pl.getHeldItemMainhand().getStack().getItem() == Items.WATER_BUCKET) {
+                w.setBlockState(p, s.with(BucketDye.COLOR, EnumBucketState.WATER));
+                if (!pl.isCreative()) pl.getHeldItemMainhand().shrink(1);
+                if (!pl.isCreative()) pl.setHeldItem(Hand.MAIN_HAND, new ItemStack(Items.BUCKET));
+
+            }
+        }
+    }
     @SubscribeEvent
     public static void leftClickGrinder(PlayerInteractEvent.LeftClickEmpty e) {
         if(e.getPlayer().ticksExisted == 2) {
@@ -95,6 +118,7 @@ public class RegEvents {
                 }
             }
         }
+
     }
 
 
