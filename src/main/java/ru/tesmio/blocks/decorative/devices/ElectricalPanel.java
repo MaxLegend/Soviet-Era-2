@@ -51,7 +51,6 @@ public class ElectricalPanel extends BlockSideCustomModel {
     final VoxelShape SHP = Block.makeCuboidShape(0,0,0,16,16,3.5);
     @Override
     public VoxelShape getFacingShape(BlockState s) {
-
         return SHP;
     }
 

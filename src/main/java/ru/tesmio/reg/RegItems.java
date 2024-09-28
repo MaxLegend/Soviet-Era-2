@@ -50,7 +50,7 @@ public class RegItems {
 
     public static RegistryObject<Item> WHITE_BRICK, BROKEN_WHITE_BRICK, CRACKED_YELLOW_BRICK, BROKEN_YELLOW_BRICK, CRACKED_RED_BRICK, BROKEN_RED_BRICK;
 
-    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY, SANDSPRAY_DUST;
+    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY, SANDSPRAY_DUST, FRAME_BIG_TILE, FRAME_QUAD_TILE, FRAME_REST_TILE, FRAME_SMALL_TILE;
 
     public static void init() {
 
@@ -72,6 +72,12 @@ public class RegItems {
 
 
         //other items
+        FRAME_BIG_TILE= registerItem("frame_big_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.frame_big_tile"));
+        FRAME_QUAD_TILE = registerItem("frame_quad_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.frame_quad_tile"));
+        FRAME_REST_TILE = registerItem("frame_rest_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.frame_rest_tile"));
+        FRAME_SMALL_TILE = registerItem("frame_small_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.frame_small_tile"));
+
+
         QUAD_TILE = registerItem("quad_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.quad_tile"));
         BIG_TILE = registerItem("big_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.big_tile"));
         REST_TILE = registerItem("rest_tile", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS), "info.rest_tile"));

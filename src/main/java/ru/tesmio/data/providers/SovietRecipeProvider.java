@@ -206,6 +206,40 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
                 .patternLine(" # ")
                 .addCriterion("has_item",  hasItem(RegItems.PLATOL_INGOT.get()))
                 .build(consumer, modId("platol_shovel"));
+
+        ShapedRecipeBuilder.shapedRecipe(RegItems.FRAME_BIG_TILE.get())
+                .key('#', Items.OAK_PLANKS)
+                .key('$', Items.STICK)
+                .patternLine(" $ ")
+                .patternLine(" # ")
+                .patternLine(" $ ")
+                .addCriterion("has_item",  hasItem(RegItems.FRAME_BIG_TILE.get()))
+                .build(consumer, modId("frame_big_tile"));
+
+        ShapedRecipeBuilder.shapedRecipe(RegItems.FRAME_REST_TILE.get())
+                .key('#', Items.OAK_PLANKS)
+                .key('$', Items.STICK)
+                .patternLine("   ")
+                .patternLine("$#$")
+                .patternLine("   ")
+                .addCriterion("has_item",  hasItem(RegItems.FRAME_REST_TILE.get()))
+                .build(consumer, modId("frame_rest_tile"));
+
+        ShapedRecipeBuilder.shapedRecipe(RegItems.FRAME_QUAD_TILE.get())
+                .key('#', Items.OAK_PLANKS)
+                .key('$', Items.STICK)
+                .patternLine(" $ ")
+                .patternLine("$#$")
+                .patternLine(" $ ")
+                .addCriterion("has_item",  hasItem(RegItems.FRAME_QUAD_TILE.get()))
+                .build(consumer, modId("frame_quad_tile"));
+
+        ShapelessRecipeBuilder2.shapelessRecipe(RegItems.FRAME_SMALL_TILE.get())
+                .addIngredient(Items.OAK_PLANKS, 1)
+                .addIngredient(Items.STICK, 1)
+                .addCriterion("has_item", hasItem(RegItems.FRAME_SMALL_TILE.get()))
+                .build(consumer, modId("frame_small_tile"));
+
         ShapelessRecipeBuilder.shapelessRecipe(RegItems.LEAD_DUST.get(), 1)
                 .addIngredient(RegItems.SMALL_LEAD_DUST.get(), 4)
                 .addCriterion("has_item", hasItem(RegItems.SMALL_LEAD_DUST.get()))
@@ -258,9 +292,29 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
         ShapelessRecipeBuilder2.shapelessRecipe(RegItems.SANDSPRAY_DUST.get())
                 .addIngredient(Items.SAND, 1)
                 .addIngredient(Items.GLASS, 1)
-                .addCriterion("has_item", hasItem(Items.CRIMSON_ROOTS))
+                .addCriterion("has_item", hasItem(Items.SAND))
                 .build(consumer, modId("sandspray_dust"));
 
+        ShapelessRecipeBuilder2.shapelessRecipe(RegItems.BIG_TILE_NEW.get())
+                .addIngredient(RegItems.FRAME_BIG_TILE.get(), 1)
+                .addIngredient(Items.CLAY_BALL, 1)
+                .addCriterion("has_item", hasItem(RegItems.FRAME_BIG_TILE.get()))
+                .build(consumer, modId("frame_big_tile_cb"));
+        ShapelessRecipeBuilder2.shapelessRecipe(RegItems.QUAD_TILE_NEW.get())
+                .addIngredient(RegItems.FRAME_QUAD_TILE.get(), 1)
+                .addIngredient(Items.CLAY_BALL, 1)
+                .addCriterion("has_item", hasItem(RegItems.FRAME_QUAD_TILE.get()))
+                .build(consumer, modId("frame_quad_tile_cb"));
+        ShapelessRecipeBuilder2.shapelessRecipe(RegItems.REST_TILE_NEW.get())
+                .addIngredient(RegItems.FRAME_REST_TILE.get(), 1)
+                .addIngredient(Items.CLAY_BALL, 1)
+                .addCriterion("has_item", hasItem(RegItems.FRAME_REST_TILE.get()))
+                .build(consumer, modId("frame_rest_tile_cb"));
+        ShapelessRecipeBuilder2.shapelessRecipe(RegItems.SMALL_TILE_NEW.get())
+                .addIngredient(RegItems.FRAME_SMALL_TILE.get(), 1)
+                .addIngredient(Items.CLAY_BALL, 1)
+                .addCriterion("has_item", hasItem(RegItems.FRAME_SMALL_TILE.get()))
+                .build(consumer, modId("frame_small_tile_cb"));
         //blasting recipe
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PLATOL_DUST.get()), RegItems.PLATOL_INGOT.get(), 5f, 100)
                 .addCriterion("has_item", hasItem(RegItems.PLATOL_DUST.get()))

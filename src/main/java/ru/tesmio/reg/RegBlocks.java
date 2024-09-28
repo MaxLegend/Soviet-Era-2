@@ -133,7 +133,7 @@ public class RegBlocks {
             CLEANED_FULL_DIAGONAL_GRID_INVERT, CLEANED_BARB_WIRE, CLEANED_SPIRAL_BARB_WIRE, CLEANED_FLOOR_GRID, CLEANED_CHAIN, CLEANED_LADDER_1, CLEANED_LADDER_2, CLEANED_VENT_PIPE, CLEANED_VENT_PIPE_BASE, CLEANED_VENT_PIPE_FILTER,
             CLEANED_HOME_PIPES, CLEANED_HOME_PIPES_BATTERY, CLEANED_VENT_GRID, CLEANED_TUBING_HORIZONTAL, CLEANED_TUBING_VERTICAL, CLEANED_METRO_RAIL, CLEANED_RUSTY_HANDHOLD, CLEANED_STREET_FENCE;
     public static RegistryObject<Block> DYE_BUCKET;
-
+    public static RegistryObject<Block> AMPLIFIER_REDSTONE_WIRE;
     public static void init() {
         Symbols.addSymbols();
         Symbols.addSymbolsName();
@@ -142,6 +142,10 @@ public class RegBlocks {
         for (int iter = 0; iter < Symbols.SYMBOLS_NAME.size(); iter++) {
            registerBlockWithModel("outerdeco/symbols/" + Symbols.SYMBOLS_NAME.get(iter), () -> new SymbolBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_SYMBOLS);
         }
+
+       // REDSTONE_CABLE = registerOnlyCustomBlock("innerdeco/redstone_cable", () -> new RedstoneCable(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
+
+
         TOXIC_AIR = registerBlock("toxic_air", () -> new ToxicAir(getP(Material.AIR, 0f,0f, null, 0, SoundType.WOOD, false, true)), null);
 
         RASTY_FRAME = registerBlockWithModel("rasty_frames", () -> new RastyFrameBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
@@ -216,6 +220,7 @@ public class RegBlocks {
         REDSTONE_WIRE = registerBlockWithModel("innerdeco/devices/redstone_wire", () -> new BlockRedstoneWire(getP(Material.WOOL, 0.8f,1.1f,ToolType.AXE, 0, SoundType.CLOTH, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
         RUSTY_TUMBLER = registerBlockWithModel("innerdeco/rusty_tumbler", () -> new RustyTumbler(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
         RUSTY_TUMBLER2 = registerBlockWithModel("innerdeco/rusty_tumbler2", () -> new RustyTumbler(AbstractBlock.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(1f,4f).notSolid().harvestTool(ToolType.PICKAXE).sound(SoundType.METAL), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        AMPLIFIER_REDSTONE_WIRE = registerBlockWithModel("innerdeco/devices/amplifier_redstone_wire", () -> new AmplifierRedstoneWire(getP(Material.WOOL, 0.8f,1.1f,ToolType.AXE, 0, SoundType.CLOTH, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //furniture
         AbstractBlock.Properties FURNITURE_PROPERTIES = getP(Material.WOOD, 1f,1.2f,ToolType.AXE, 0, SoundType.WOOD, true, true);

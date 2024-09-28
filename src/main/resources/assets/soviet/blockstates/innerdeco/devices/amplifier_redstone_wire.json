@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "powered=false, facing=west":  { "model": "soviet:block/innerdeco/redstone_wire/amplifier", "y": 270},
+        "powered=false,facing=east":  { "model": "soviet:block/innerdeco/redstone_wire/amplifier", "y": 90},
+  	"powered=false,facing=north": { "model": "soviet:block/innerdeco/redstone_wire/amplifier", "y": 0 },
+	"powered=false,facing=south": { "model": "soviet:block/innerdeco/redstone_wire/amplifier", "y": 180 },
+        "powered=true, facing=west":  { "model": "soviet:block/innerdeco/redstone_wire/amplifier_on", "y": 270},
+        "powered=true,facing=east":  { "model": "soviet:block/innerdeco/redstone_wire/amplifier_on", "y": 90},
+  	"powered=true,facing=north": { "model": "soviet:block/innerdeco/redstone_wire/amplifier_on", "y": 0 },
+	"powered=true,facing=south": { "model": "soviet:block/innerdeco/redstone_wire/amplifier_on", "y": 180 }
+ }
+}
