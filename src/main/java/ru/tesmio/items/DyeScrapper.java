@@ -50,7 +50,7 @@ public class DyeScrapper extends ItemInfo {
                     w.setBlockState(pos, RegBlocks.CONCRETE_GRAY_BR.get().getDefaultState());
 
                     if(!playerEntity.isCreative()) {
-                        playerEntity.experience += 0.01F;
+                        context.getPlayer().giveExperiencePoints(1);
                         context.getItem().damageItem(1, playerEntity, (player) -> {
                             player.sendBreakAnimation(context.getHand());
                         });

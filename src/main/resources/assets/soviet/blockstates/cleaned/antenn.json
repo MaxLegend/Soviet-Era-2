@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "part=def":  { "model": "soviet:block/cleaned/antenn"},
+        "part=down":  { "model": "soviet:block/cleaned/antenn_down"},
+        "part=mid":  { "model": "soviet:block/cleaned/antenn"},
+        "part=up":  { "model": "soviet:block/cleaned/antenn_top"}
+ }
+}

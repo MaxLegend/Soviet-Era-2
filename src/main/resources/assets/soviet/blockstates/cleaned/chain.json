@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "part=def":  { "model": "soviet:block/cleaned/chain"},
+        "part=down":  { "model": "soviet:block/cleaned/chain_down"},
+        "part=mid":  { "model": "soviet:block/cleaned/chain_mid"},
+        "part=up":  { "model": "soviet:block/cleaned/chain_up"}
+ }
+}

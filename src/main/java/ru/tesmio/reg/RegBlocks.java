@@ -128,7 +128,10 @@ public class RegBlocks {
     public static RegistryObject<Block> METRO_RAIL, TOXIC_AIR;
     public static RegistryObject<Block> RASTY_FRAME, STEEL_PYLON, HORIZONTAL_STEEL_PYLON, ANTENN, RAILING_BLOCK;
 
-    public static RegistryObject<Block> CLEAN_RAILING_BLOCK, CLEAN_IRON_BEAM, CLEAN_IRON_BEAM_CONCRETE, CLEAN_IRON_BEAM_THIN, CLEAN_RAILING_DOOR, CLEAN_RUSTY_BARS;
+    public static RegistryObject<Block> CLEAN_RAILING_BLOCK, CLEAN_IRON_BEAM, CLEAN_IRON_BEAM_CONCRETE, CLEAN_IRON_BEAM_THIN, CLEAN_RAILING_DOOR, CLEAN_RUSTY_BARS, CLEAN_RUSTYMETAL_BLOCK, CLEAN_CONTAINMENT_BLOCK,
+    CLEANED_ANTENN, CLEANED_STEEL_PYLON,CLEANED_HORIZONTAL_STEEL_PYLON, CLEANED_CONTAINMENT_TRAPDOOR, CLEANED_CONTAINMENT_DOOR, CLEANED_RUSTY_IRON_DOOR, CLEANED_HALF_CIRCLE_GRID,CLEANED_DIAGONAL_GRID, CLEANED_FULL_DIAGONAL_GRID,
+            CLEANED_FULL_DIAGONAL_GRID_INVERT, CLEANED_BARB_WIRE, CLEANED_SPIRAL_BARB_WIRE, CLEANED_FLOOR_GRID, CLEANED_CHAIN, CLEANED_LADDER_1, CLEANED_LADDER_2, CLEANED_VENT_PIPE, CLEANED_VENT_PIPE_BASE, CLEANED_VENT_PIPE_FILTER,
+            CLEANED_HOME_PIPES, CLEANED_HOME_PIPES_BATTERY, CLEANED_VENT_GRID, CLEANED_TUBING_HORIZONTAL, CLEANED_TUBING_VERTICAL, CLEANED_METRO_RAIL, CLEANED_RUSTY_HANDHOLD, CLEANED_STREET_FENCE;
     public static RegistryObject<Block> DYE_BUCKET;
 
     public static void init() {
@@ -155,11 +158,35 @@ public class RegBlocks {
         CLEAN_RAILING_BLOCK = registerBlockWithModel("cleaned/railing_clean", () -> new RailingBlock(getP(Material.IRON, 0.5f,0.25f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), "info.railing", 0.5F), Core.ItemGroups.TAB_OUTER_DECO);
         CLEAN_RAILING_DOOR = registerOnlyCustomBlock("cleaned/railing_door", () -> new RailingDoorBlock(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
         CLEAN_RUSTY_BARS = registerBlockWithModel("cleaned/rusty_bars", () -> new RustyBars(getP(Material.IRON, 0.95f,1.1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-//        CONTAINMENT_TRAPDOOR = registerOnlyCustomBlock("innerdeco/containment_trapdoor", () -> new ContainmentTrapdoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
-//        CONTAINMENT_DOOR = registerOnlyCustomBlock("innerdeco/containment_door", () -> new ContainmentDoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
-//        RUSTY_IRON_DOOR = registerOnlyCustomBlock("innerdeco/rusty_iron_door", () -> new RustyIronDoor(getP(Material.IRON, 1.0f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
-
-
+        CLEAN_RUSTYMETAL_BLOCK = registerBlock("cleaned/cleaned_rusty_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
+        CLEAN_CONTAINMENT_BLOCK = registerBlock("cleaned/cleaned_containment_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
+        CLEANED_ANTENN = registerBlockWithModel("cleaned/antenn", () -> new Antenn(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_STEEL_PYLON = registerBlockWithModel("cleaned/steel_pylon", () -> new PylonBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_HORIZONTAL_STEEL_PYLON = registerBlockWithModel("cleaned/steel_pylon_horizontal", () -> new PylonBlockH(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_CONTAINMENT_TRAPDOOR = registerOnlyCustomBlock("cleaned/containment_trapdoor", () -> new ContainmentTrapdoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_CONTAINMENT_DOOR = registerOnlyCustomBlock("cleaned/containment_door", () -> new ContainmentDoor(getP(Material.ANVIL, 4.8f,12.0f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_RUSTY_IRON_DOOR = registerOnlyCustomBlock("cleaned/rusty_iron_door", () -> new RustyIronDoor(getP(Material.IRON, 1.0f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_HALF_CIRCLE_GRID = registerBlockWithModel("cleaned/half_circle_grid", () -> new WindowGrid(getP(Material.IRON, 1.6f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_DIAGONAL_GRID = registerBlockWithModel("cleaned/diagonal_grid", () -> new WindowGrid(getP(Material.IRON, 1.6f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_FULL_DIAGONAL_GRID = registerBlockWithModel("cleaned/full_diagonal_grid", () -> new WindowGrid(getP(Material.IRON, 1.4f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_FULL_DIAGONAL_GRID_INVERT = registerBlockWithModel("cleaned/full_diagonal_grid_invert", () -> new WindowGrid(getP(Material.IRON, 1.4f,3f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_BARB_WIRE = registerBlockWithModel("cleaned/barb_wire", () -> new BarbWire(getP(Material.IRON, 0.65f,1f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_SPIRAL_BARB_WIRE = registerBlockWithModel("cleaned/spiral_barb_wire", () -> new SpiralBarbWire(getP(Material.IRON, 0.9f,2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_FLOOR_GRID = registerBlockWithModel("cleaned/floor_grid", () -> new FloorGrid(getP(Material.IRON, 0.78f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
+        CLEANED_CHAIN = registerBlockWithModel("cleaned/chain", () -> new Chain(getP(Material.IRON, 0.3f,0.4f,ToolType.PICKAXE, 0, SoundType.METAL, true, true)) {}, Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_LADDER_1 = registerBlockWithModel("cleaned/ladder_1", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_LADDER_2 = registerBlockWithModel("cleaned/ladder_2", () -> new BlockLadder(getP(Material.IRON, 0.8f,1.2f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_VENT_PIPE = registerBlockWithModel("cleaned/ventpipe", () -> new VentPipe(getP(Material.IRON, 0.5f,0.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_VENT_PIPE_BASE = registerBlockWithModel("cleaned/ventpipe_base", () -> new VentPipeBase(getP(Material.IRON, 1.5f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_VENT_PIPE_FILTER = registerBlockWithModel("cleaned/ventpipe_filter", () -> new VentPipeFilter(getP(Material.IRON, 1.5f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_HOME_PIPES = registerBlockWithModel("cleaned/home_pipes", () -> new HomePipes(getP(Material.IRON, 1f,2f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_HOME_PIPES_BATTERY = registerBlockWithModel("cleaned/home_pipes_battery", () -> new HomePipesBattery(getP(Material.IRON, 2f,4f,ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_VENT_GRID = registerBlockWithModel("cleaned/vent_grid", () -> new VentGrid(getP(Material.IRON, 1.5f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true)), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_TUBING_HORIZONTAL = registerBlockWithModel("cleaned/tubing_horizontal", () -> new TubingBlock(getP(Material.IRON, 1.7f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true),0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_TUBING_VERTICAL = registerBlockWithModel("cleaned/tubing_vertical", () -> new TubingBlock(getP(Material.IRON, 1.7f,2.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true),0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_METRO_RAIL = registerBlockWithModel("cleaned/metro_rail", () -> new MetroRail(0.6F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_RUSTY_HANDHOLD = registerBlockWithModel("cleaned/rusty_handhold", () -> new RustyHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
+        CLEANED_STREET_FENCE = registerBlockWithModel("cleaned/street_handhold", () -> new ThinHandhold(getP(Material.IRON, 0.7f,1.8f, ToolType.PICKAXE, 1, SoundType.METAL, true, true), 1F), Core.ItemGroups.TAB_INNER_DECO);
 
         //windows
         AbstractBlock.Properties WINDOW_PROPERTIES = getP(Material.IRON, 0.9f,1.9f,ToolType.PICKAXE, 0, SoundType.GLASS, true, true);
@@ -427,12 +454,12 @@ public class RegBlocks {
         TRIM_TILE_RED = registerBlock("structural/trim_tile_red", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_TILE_BLUE = registerBlock("structural/trim_tile_blue", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
         CONCRETE_PLATE = registerBlock("structural/concrete_plate", () -> new BaseBlock(getP(Material.ROCK, 5.5f,15f,ToolType.PICKAXE, 2, SoundType.STONE, true, false)),Core.ItemGroups.TAB_MAIN);
-        CONTAINMENT_BLOCK = registerBlock("structural/containment_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
+
         TRIM_METAL_1 = registerBlock("structural/trim_metal_1", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
         TRIM_METAL_2 = registerBlock("structural/trim_metal_2", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
         LEADCERAMIC_TILE = registerBlock("structural/leadceramic_tile", () -> new TilledBlock(),Core.ItemGroups.TAB_MAIN);
         RUSTYMETAL_BLOCK = registerBlock("structural/rusty_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
-
+        CONTAINMENT_BLOCK = registerBlock("structural/containment_block", () -> new MetalBlock(),Core.ItemGroups.TAB_MAIN);
 
         AbstractBlock.Properties WINDPROOF_PROPERTIES = getP(Material.ROCK, 2,1,ToolType.PICKAXE, 2, SoundType.STONE, true, true);
         //windproof

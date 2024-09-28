@@ -1,0 +1,50 @@
+{
+	"credit": "Tesmio for Soviet Era 2",
+	"parent": "block/cube_all",
+	"textures": {
+		"0": "soviet:block/structural/steel_2",
+		"1": "soviet:block/structural/steel_2d",
+		"particle": "soviet:block/structural/steel_2"
+	},
+	"elements": [
+		{
+			"from": [0, 5, 6],
+			"to": [16, 11, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 5, 5]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 6], "texture": "#1"},
+				"east": {"uv": [0, 0, 4, 6], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 6], "texture": "#1"},
+				"west": {"uv": [0, 0, 4, 6], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 4], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 4], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 3, 5],
+			"to": [16, 5, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 3, 5]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"east": {"uv": [0, 0, 6, 2], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"west": {"uv": [0, 0, 6, 2], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 6], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 6], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 11, 5],
+			"to": [16, 13, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 14, 5]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"east": {"uv": [0, 0, 6, 2], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 2], "texture": "#0"},
+				"west": {"uv": [0, 0, 6, 2], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 6], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 6], "texture": "#0"}
+			}
+		}
+	]
+}

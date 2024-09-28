@@ -67,7 +67,11 @@ public class FluoLamp extends BlockRotLamp {
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
         ItemStack activeItemRight = playerEntity.getHeldItemMainhand();
         ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();
-
+        if(playerEntity.isCreative()) {
+            state = state.cycleValue(LIT_VALUE);
+            worldIn.setBlockState(pos, state);
+            return ActionResultType.SUCCESS;
+        }
         if(activeItemRight.getItem() == RegItems.VARIANT_ITEM.get() || activeItemLeft.getItem() == RegItems.VARIANT_ITEM.get()) {
             state = state.cycleValue(CLOSED);
             worldIn.setBlockState(pos, state);

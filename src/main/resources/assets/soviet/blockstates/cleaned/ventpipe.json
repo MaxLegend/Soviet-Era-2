@@ -1,0 +1,25 @@
+{
+    "multipart": [
+        {   "when": { "default": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe" }
+        },
+     	{   "when": { "down": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe_down", "uvlock": true }
+        },
+     	{   "when": { "up": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe_up", "uvlock": true }
+        },
+        {   "when": { "north": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe_north", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe_east", "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe_south","uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "soviet:block/cleaned/ventpipe_west", "uvlock": true }
+        }
+    ]
+}

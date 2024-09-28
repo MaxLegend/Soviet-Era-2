@@ -50,7 +50,7 @@ public class RegItems {
 
     public static RegistryObject<Item> WHITE_BRICK, BROKEN_WHITE_BRICK, CRACKED_YELLOW_BRICK, BROKEN_YELLOW_BRICK, CRACKED_RED_BRICK, BROKEN_RED_BRICK;
 
-    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY;
+    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY, SANDSPRAY_DUST;
 
     public static void init() {
 
@@ -58,6 +58,7 @@ public class RegItems {
 
         BEIGE_DYE = registerItem("beige_dye", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         BEIGE2_DYE = registerItem("beige2_dye", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
+        SANDSPRAY_DUST = registerItem("sandspray_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
 
         DYE_SCRAPPER = registerItem("dye_scrapper", () -> new DyeScrapper("info.dye_scrapper"));
         DYE_SCRAPPER_FILLER = registerItem("dye_scrapper_filler", () -> new FillerScrapper());

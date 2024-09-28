@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/cleaned/metro_rail", "y": 270},
+        "facing=west":  { "model": "soviet:block/cleaned/metro_rail", "y": 90},
+        "facing=south": { "model": "soviet:block/cleaned/metro_rail", "y": 0 },
+        "facing=north": { "model": "soviet:block/cleaned/metro_rail", "y": 180 }
+ }
+}

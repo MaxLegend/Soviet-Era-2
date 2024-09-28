@@ -255,6 +255,12 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
                 .addCriterion("has_item", hasItem(Items.CRIMSON_ROOTS))
                 .build(consumer, modId("dye_bucket"));
 
+        ShapelessRecipeBuilder2.shapelessRecipe(RegItems.SANDSPRAY_DUST.get())
+                .addIngredient(Items.SAND, 1)
+                .addIngredient(Items.GLASS, 1)
+                .addCriterion("has_item", hasItem(Items.CRIMSON_ROOTS))
+                .build(consumer, modId("sandspray_dust"));
+
         //blasting recipe
         CookingRecipeBuilder.blastingRecipe(Ingredient.fromItems(RegItems.PLATOL_DUST.get()), RegItems.PLATOL_INGOT.get(), 5f, 100)
                 .addCriterion("has_item", hasItem(RegItems.PLATOL_DUST.get()))

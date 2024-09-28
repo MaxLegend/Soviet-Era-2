@@ -1,0 +1,22 @@
+{
+	"credit": "Tesmio for Soviet Era 2",
+	"textures": {
+		"0": "soviet:block/structural/d_dark_metal",
+		"particle": "soviet:block/structural/d_dark_metal"
+	},
+	"elements": [
+		{
+			"from": [6.5, 6.5, 9.5],
+			"to": [9.5, 9.5, 17],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 3]},
+			"faces": {
+				"north": {"uv": [0, 0, 3, 3], "texture": "#0"},
+				"east": {"uv": [0, 0, 7.5, 3], "texture": "#0"},
+				"south": {"uv": [0, 0, 3, 3], "texture": "#0"},
+				"west": {"uv": [0, 0, 7.5, 3], "texture": "#0"},
+				"up": {"uv": [0, 0, 3, 7.5], "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 7.5], "texture": "#0"}
+			}
+		}
+	]
+}

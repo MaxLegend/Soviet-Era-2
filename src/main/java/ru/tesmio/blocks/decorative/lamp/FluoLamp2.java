@@ -57,7 +57,11 @@ public class FluoLamp2 extends BlockRotLamp {
     public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
         ItemStack activeItemRight = playerEntity.getHeldItemMainhand();
         ItemStack activeItemLeft = playerEntity.getHeldItemOffhand();
-
+        if(playerEntity.isCreative()) {
+            state = state.cycleValue(LIT_VALUE);
+            worldIn.setBlockState(pos, state);
+            return ActionResultType.SUCCESS;
+        }
         if(activeItemRight.getItem() == RegItems.PULLER.get()) {
             worldIn.setBlockState(pos, RegBlocks.BROKEN_FLUORESCENT_LAMP2.get().getDefaultState().with(BrokenFluoLamp.FACING, state.get(FACING)).with(FluoLamp.WATERLOGGED, state.get(WATERLOGGED)));
             if(!playerEntity.isCreative())activeItemRight.damageItem(2, playerEntity, (player) -> player.sendBreakAnimation(handIn));

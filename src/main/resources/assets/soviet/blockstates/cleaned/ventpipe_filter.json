@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=east":  { "model": "soviet:block/cleaned/ventpipe_filter", "y": 270},
+        "facing=west":  { "model": "soviet:block/cleaned/ventpipe_filter", "y": 90},
+        "facing=south": { "model": "soviet:block/cleaned/ventpipe_filter", "y": 0 },
+        "facing=north": { "model": "soviet:block/cleaned/ventpipe_filter", "y": 180 }
+ }
+}

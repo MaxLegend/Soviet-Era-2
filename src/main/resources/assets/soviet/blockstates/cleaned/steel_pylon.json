@@ -1,0 +1,48 @@
+{
+    "multipart": [
+        {   "when": { "axis": "z" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon", "uvlock": true }
+        },
+        {   "when": { "axis": "x"},
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon", "y": 90, "uvlock": true }
+        },
+        {   "when": { "axis": "z", "west": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_west", "uvlock": true }
+        },
+        {   "when": { "axis": "z", "east": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_east", "uvlock": true }
+        },
+        {   "when": { "axis": "z", "north": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_north", "uvlock": true }
+        },
+        {   "when": { "axis": "z", "south": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_south", "uvlock": true }
+        },
+        {   "when": { "axis": "z", "up": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_top", "uvlock": true }
+        },
+        {   "when": { "axis": "z", "down": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_down", "uvlock": true }
+        }
+
+    ,
+        {   "when": { "axis": "x", "west": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_south", "y": 90, "uvlock": true }
+        },
+        {   "when": { "axis": "x", "east": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_north","y": 90, "uvlock": true }
+        },
+        {   "when": { "axis": "x", "north": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_west","y": 90, "uvlock": true }
+        },
+        {   "when": { "axis": "x", "south": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_east","y": 90, "uvlock": true }
+        },
+        {   "when": { "axis": "x", "up": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_top", "y": 90, "uvlock": true }
+        },
+        {   "when": { "axis": "x", "down": "true" },
+            "apply": { "model": "soviet:block/cleaned/pylons/steel_pylon_down", "y": 90, "uvlock": true }
+        }
+    ]
+}
