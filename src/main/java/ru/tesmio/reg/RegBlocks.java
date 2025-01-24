@@ -69,7 +69,7 @@ public class RegBlocks {
 
     public static RegistryObject<Block> CONCRETE_ORANGE,CONCRETE_ORANGE_BR,CONCRETE_BLUE,CONCRETE_RED,CONCRETE_GREEN,CONCRETE_GRAY,CONCRETE_BEIGE,CONCRETE_BEIGE2,CONCRETE_YELLOW,CONCRETE_WHITE,CONCRETE_BLUE_BR,CONCRETE_RED_BR,CONCRETE_GREEN_BR,CONCRETE_GRAY_BR,CONCRETE_BEIGE_BR,CONCRETE_BEIGE2_BR,CONCRETE_YELLOW_BR,CONCRETE_WHITE_BR;
     public static RegistryObject<Block> TILE_QUAD_WHITE,TILE_QUAD_GRAY, TILE_QUAD_BLUE, TILE_QUAD_CONCRETE, TILE_QUAD_WHITE_BR, TILE_QUAD_BLUE_BR;
-    public static RegistryObject<Block>  TILE_QUAD_3, TILE_QUAD_3_BR, TILE_QUAD_4, TILE_QUAD_5,TILE_QUAD_5_BR,TILE_QUAD_5_BRf;
+    public static RegistryObject<Block>  TILE_QUAD_3, TILE_QUAD_3_BR, TILE_QUAD_4, TILE_QUAD_5,TILE_QUAD_5_BR,TILE_QUAD_5_BRf, TILE_QUAD_6;
     public static RegistryObject<Block> REGULAR_BROWN_TILE, REGULAR_BROWN_TILE_BR, REGULAR_AM_TILE, REGULAR_AM_TILE_BR, REGULAR_LIL_TILE, REGULAR_LIL_TILE_BR;
 
     public static RegistryObject<Block> TILE_REST_DARK_BLUE, TILE_REST_DARK_BLUE_BR,TILE_REST_BLUE, TILE_REST_BLUE_BR, TILE_REST_BROWN, TILE_REST_BROWN_BR, TILE_REST_WHITE, TILE_REST_WHITE_BR, TILE_REST_BLACK, TILE_REST_BLACK_BR;
@@ -146,7 +146,7 @@ public class RegBlocks {
        // REDSTONE_CABLE = registerOnlyCustomBlock("innerdeco/redstone_cable", () -> new RedstoneCable(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
 
 
-        TOXIC_AIR = registerBlock("toxic_air", () -> new ToxicAir(getP(Material.AIR, 0f,0f, null, 0, SoundType.WOOD, false, true)), null);
+        TOXIC_AIR = registerBlockWithModel("toxic_air", () -> new ToxicAir(getP(Material.AIR, 0f,0f, null, 0, SoundType.WOOD, false, true)), null);
 
         RASTY_FRAME = registerBlockWithModel("rasty_frames", () -> new RastyFrameBlock(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true)), Core.ItemGroups.TAB_OUTER_DECO);
         DYE_BUCKET = registerOnlyCustomBlock("placeable/dye_bucket", () -> new BucketDye(getP(Material.IRON, 0.4f,0.6f, null, 1, SoundType.METAL, false, true), 1F), Core.ItemGroups.TAB_OUTER_DECO);
@@ -597,6 +597,7 @@ public class RegBlocks {
         TILE_QUAD_2 = registerBlock("quadtile/tile_quad_2", () -> new TilledBlock( "info.quadtile_2"),Core.ItemGroups.TAB_MAIN);
         TILE_QUAD_4 = registerBlock("quadtile/tile_quad_4", () -> new TilledBlock( "info.quadtile_4"),Core.ItemGroups.TAB_MAIN);
         TILE_QUAD_5 = registerBlock("quadtile/tile_quad_5", () -> new TilledBlock( "info.quadtile_5"),Core.ItemGroups.TAB_MAIN);
+        TILE_QUAD_6 = registerBlock("quadtile/tile_quad_6", () -> new TilledBlock( "info.quadtile_6"),Core.ItemGroups.TAB_MAIN);
         TILE_QUAD_3 = registerBlock("quadtile/tile_quad_3", () -> new TilledBlock( "info.quadtile_3"),Core.ItemGroups.TAB_MAIN);
         TILE_QUAD_3_BR = registerBlock("quadtile/tile_quad_3_br", () -> new TilledBlock( "info.quadtile_3_br"),Core.ItemGroups.TAB_MAIN);
         TILE_QUAD_5_BR = registerBlock("quadtile/tile_quad_5_br", () -> new TilledBlock( "info.quadtile_5_br"),Core.ItemGroups.TAB_MAIN);

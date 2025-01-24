@@ -29,7 +29,7 @@ public class RegItems {
 
     public static RegistryObject<Item> LEADCERAMIC_TILE;
 
-    public static RegistryObject<Item> FUEL_CANISTER,KEY_DOOR, WRENCH, REDSTONE_GRINDER;
+    public static RegistryObject<Item> FUEL_CANISTER,KEY_DOOR, WRENCH; // REDSTONE_GRINDER;
     public static RegistryObject<Item> VARIANT_ITEM;
 
 
@@ -50,7 +50,7 @@ public class RegItems {
 
     public static RegistryObject<Item> WHITE_BRICK, BROKEN_WHITE_BRICK, CRACKED_YELLOW_BRICK, BROKEN_YELLOW_BRICK, CRACKED_RED_BRICK, BROKEN_RED_BRICK;
 
-    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY, SANDSPRAY_DUST, FRAME_BIG_TILE, FRAME_QUAD_TILE, FRAME_REST_TILE, FRAME_SMALL_TILE;
+    public static RegistryObject<Item> DYE_SCRAPPER_FILLER, DYE_SCRAPPER, DYE_BRUSH, HAMMER, BEIGE_DYE, BEIGE2_DYE, SANDSPRAY, SANDSPRAY_DUST, FRAME_BIG_TILE, FRAME_QUAD_TILE, FRAME_REST_TILE, FRAME_SMALL_TILE;
 
     public static void init() {
 
@@ -60,6 +60,7 @@ public class RegItems {
         BEIGE2_DYE = registerItem("beige2_dye", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
         SANDSPRAY_DUST = registerItem("sandspray_dust", () -> new Item(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS)));
 
+        HAMMER = registerItem("hammer", () -> new Hammer("info.hammer"));
         DYE_SCRAPPER = registerItem("dye_scrapper", () -> new DyeScrapper("info.dye_scrapper"));
         DYE_SCRAPPER_FILLER = registerItem("dye_scrapper_filler", () -> new FillerScrapper());
         DYE_BRUSH = registerItem("dye_brush", () -> new DyeBrush());
@@ -127,7 +128,7 @@ public class RegItems {
         PLATINUM_AXE = registerItem("platinum_axe", () -> new AxeItem(SovietItemTier.PLATINUM, 8, -3F, (new Item.Properties()).group(ItemGroup.TOOLS)));
         PLATINUM_PICKAXE = registerItem("platinum_pickaxe", () -> new PickaxeItem(SovietItemTier.PLATINUM, 2, -2.8F, (new Item.Properties()).group(ItemGroup.TOOLS)));
         WIRE_CUTTERS = registerItem("wire_cutters", WireCutter::new);
-        REDSTONE_GRINDER = registerItem("redstone_grinder", RedstoneGrinder::new);
+      //  REDSTONE_GRINDER = registerItem("redstone_grinder", RedstoneGrinder::new);
         PULLER = registerItem("puller", () -> new ItemInfo(new Item.Properties().group(Core.ItemGroups.TAB_ITEMS).maxStackSize(1).defaultMaxDamage(180).setNoRepair(), "info.puller"));
         PLATOL_SWORD = registerItem("platol_sword", () -> new SwordItem(SovietItemTier.PLATOL, 5, -1F, (new Item.Properties()).group(ItemGroup.COMBAT)));
         PLATOL_HOE = registerItem("platol_hoe", () -> new HoeItem(SovietItemTier.PLATOL, 1, -2F, (new Item.Properties()).group(ItemGroup.TOOLS)));

@@ -22,16 +22,16 @@ public class SovietRecipeProvider extends ForgeRecipeProvider {
     @Override
     protected void registerRecipes(Consumer<IFinishedRecipe> consumer)
     {
-        ShapedRecipeBuilder.shapedRecipe(RegItems.REDSTONE_GRINDER.get())
-                .key('#', Items.IRON_INGOT)
-                .key('$', SETags.Items.TAG_COPPER_INGOT)
-                .key('R', Items.REDSTONE)
-                .key('T', Items.DIAMOND)
-                .patternLine("T##")
-                .patternLine("TR#")
-                .patternLine("#$$")
-                .addCriterion("has_item", hasItem(Items.DIAMOND))
-                .build(consumer, modId("redstone_grinder"));
+//        ShapedRecipeBuilder.shapedRecipe(RegItems.REDSTONE_GRINDER.get())
+//                .key('#', Items.IRON_INGOT)
+//                .key('$', SETags.Items.TAG_COPPER_INGOT)
+//                .key('R', Items.REDSTONE)
+//                .key('T', Items.DIAMOND)
+//                .patternLine("T##")
+//                .patternLine("TR#")
+//                .patternLine("#$$")
+//                .addCriterion("has_item", hasItem(Items.DIAMOND))
+//                .build(consumer, modId("redstone_grinder"));
         ShapedRecipeBuilder.shapedRecipe(RegItems.WIRE_CUTTERS.get())
                 .key('#', Items.IRON_INGOT)
                 .key('$', Items.STICK)

@@ -52,7 +52,7 @@ public class RedstoneGrinder extends Item {
     }
 
     public boolean canHarvestBlock(BlockState s) {
-        if(s.getBlock().getMaterialColor() == MaterialColor.IRON) {
+        if(s.getMaterial() == Material.IRON || s.getMaterial() == Material.ANVIL) {
             return true;
         } else return false;
     }

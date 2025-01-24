@@ -7,12 +7,15 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.server.command.ConfigCommand;
+import ru.tesmio.core.Core;
 import ru.tesmio.utils.structure_saver.CommandStrucSave;
 
-//@Mod.EventBusSubscriber(modid = Core.MODID)
+@Mod.EventBusSubscriber(modid = Core.MODID)
 public class RegCommands {
-  //  @SubscribeEvent
+    @SubscribeEvent
     public static void onCommandRegister(RegisterCommandsEvent e) {
         new CommandStrucSave(e.getDispatcher());
         ConfigCommand.register(e.getDispatcher());
@@ -20,7 +23,7 @@ public class RegCommands {
 
     public static BlockPos pos1;
     public static BlockPos pos2;
-  //  @SubscribeEvent
+    @SubscribeEvent
     public static void getPosRight(PlayerInteractEvent.RightClickBlock e) {
         if(!e.getWorld().isRemote) {
 

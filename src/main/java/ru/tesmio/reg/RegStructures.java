@@ -32,7 +32,7 @@ public class RegStructures {
         setupMapSpacingAndLand(PROCEDURAL_LABORATORY.get(), new StructureSeparationSettings(25,18, 1234567890), true);
         setupMapSpacingAndLand(ANTENN.get(), new StructureSeparationSettings(28,18, 223434535), true);
         setupMapSpacingAndLand(RADIOCENTER.get(), new StructureSeparationSettings(29,18, 117663554), true);
-        setupMapSpacingAndLand(VAULT.get(), new StructureSeparationSettings(30,20, 994343642), true);
+        setupMapSpacingAndLand(VAULT.get(), new StructureSeparationSettings(10,5, 994343642), false);
     }
     /*
     Добавляет предоставленную структуру в реестр и добавляет настройки разделения.

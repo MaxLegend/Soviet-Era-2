@@ -68,6 +68,8 @@ public class ClientProxy {
         RenderTypeLookup.setRenderLayer(RegFluids.TOXIC_WATER_FLOWING.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(RegFluids.TOXIC_WATER.get(), RenderType.getTranslucent());
 
+        RenderTypeLookup.setRenderLayer(RegBlocks.TOXIC_AIR.get(), RenderType.getTranslucent());
+
         RenderTypeLookup.setRenderLayer(RegBlocks.DYE_BUCKET.get(), RenderType.getTranslucent());
     }
     private static void registerScreenFactories() {

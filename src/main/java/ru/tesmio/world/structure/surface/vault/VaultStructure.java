@@ -49,7 +49,7 @@ public class VaultStructure extends Structure<NoFeatureConfig> {
                 int x = chunkX * 16;
                 int z = chunkZ * 16;
                 BlockPos blockpos = new BlockPos(x, 0, z);
-                VaultPieces.addPieces(tm, blockpos, this.components);
+                VaultPieces.addPieces(tm, blockpos, this.components, VaultPieces.GenerationContext.INSTANCE);
                 this.recalculateStructureSize();
            }
         }

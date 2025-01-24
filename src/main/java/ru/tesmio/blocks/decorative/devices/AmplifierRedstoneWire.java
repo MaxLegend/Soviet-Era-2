@@ -82,7 +82,7 @@ public class AmplifierRedstoneWire extends BlockSideDevice {
     }
     private void updatePower(World world, BlockPos pos, BlockState state) {
         int i = this.getStrongestSignal(world, state, pos);
-        System.out.println("fff " + i);
+
         if (state.get(POWER) != i) {
             if (world.getBlockState(pos) == state) {
                 world.setBlockState(pos, state.with(POWER, Integer.valueOf(i)), 2);

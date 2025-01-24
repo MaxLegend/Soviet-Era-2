@@ -5,7 +5,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Hand;
@@ -31,7 +30,6 @@ import ru.tesmio.core.Config;
 import ru.tesmio.core.Core;
 import ru.tesmio.data.providers.advancements.triggers.DiscoveryBlockTrigger;
 import ru.tesmio.enums.EnumBucketState;
-import ru.tesmio.items.RedstoneGrinder;
 
 @Mod.EventBusSubscriber(modid = Core.MODID)
 public class RegEvents {
@@ -51,20 +49,20 @@ public class RegEvents {
             }
         }
     }
-    @SubscribeEvent
-    public static void leftClickGrinder(PlayerInteractEvent.LeftClickEmpty e) {
-        if(e.getPlayer().ticksExisted == 2) {
-            e.getWorld().playSound(e.getPlayer(), e.getPlayer().getPosition(), RegSounds.SOUND_GRINDER_WORK.get(), SoundCategory.PLAYERS, 0.1F, 1f);
-        }
-
-        if(e.getPlayer().ticksExisted % 35 == 0) {
-            Item item = e.getPlayer().getHeldItem(e.getHand()).getItem();
-            if(item instanceof RedstoneGrinder) {
-                if(item.getDamage(e.getPlayer().getHeldItem(e.getHand())) > 0)
-                e.getWorld().playSound(e.getPlayer(), e.getPlayer().getPosition(), RegSounds.SOUND_GRINDER_WORK.get(), SoundCategory.PLAYERS, 0.04F, 1f);
-            }
-        }
-    }
+//    @SubscribeEvent
+//    public static void leftClickGrinder(PlayerInteractEvent.LeftClickEmpty e) {
+//        if(e.getPlayer().ticksExisted == 2) {
+//            e.getWorld().playSound(e.getPlayer(), e.getPlayer().getPosition(), RegSounds.SOUND_GRINDER_WORK.get(), SoundCategory.PLAYERS, 0.1F, 1f);
+//        }
+//
+//        if(e.getPlayer().ticksExisted % 35 == 0) {
+//            Item item = e.getPlayer().getHeldItem(e.getHand()).getItem();
+//            if(item instanceof RedstoneGrinder) {
+//                if(item.getDamage(e.getPlayer().getHeldItem(e.getHand())) > 0)
+//                e.getWorld().playSound(e.getPlayer(), e.getPlayer().getPosition(), RegSounds.SOUND_GRINDER_WORK.get(), SoundCategory.PLAYERS, 0.04F, 1f);
+//            }
+//        }
+//    }
     public static void renderWorkGrinder(RenderHandEvent e) {
 
     }

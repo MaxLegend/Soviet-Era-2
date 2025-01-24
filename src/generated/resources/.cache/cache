@@ -72,6 +72,7 @@ f1e619e0ea3e37be3978c242e93e6cf6a12112b2 assets/soviet/blockstates/quadtile/tile
 4277e5076e43cf15bfeaed9a9136b2922837bd0f assets/soviet/blockstates/quadtile/tile_quad_5.json
 d7c83e7ee2c67bf36a6ce9aefdfece9de209e529 assets/soviet/blockstates/quadtile/tile_quad_5_br.json
 84fc20b033d9a77a9f5dac0cc6cdf81a84501e77 assets/soviet/blockstates/quadtile/tile_quad_5_brf.json
+bd412802056ee461bb4b93d72e5e25fc44350357 assets/soviet/blockstates/quadtile/tile_quad_6.json
 cec1d902a421b94bb30a57116d30e3cd7c19e231 assets/soviet/blockstates/quadtile/tile_quad_blue.json
 63dd0d74d39c27a47742dad1c0ddf0c007590255 assets/soviet/blockstates/quadtile/tile_quad_blue_br.json
 64807fbd7334f7d4034c229cff2cac0478c43072 assets/soviet/blockstates/quadtile/tile_quad_concrete.json
@@ -231,6 +232,7 @@ ab868f19c02be77f0657b2fc33a806ca526f8c5f assets/soviet/models/block/quadtile/til
 9835eed8bafb78a41edd8e59a94e9de21a11cc08 assets/soviet/models/block/quadtile/tile_quad_5.json
 ce6ace8c461265e6b02b908d35a7324445cd3bdd assets/soviet/models/block/quadtile/tile_quad_5_br.json
 906a5b3ce1151e1d2b6a13a520a23eb8604b4606 assets/soviet/models/block/quadtile/tile_quad_5_brf.json
+daabe6bb1a1813a36de990efbb455fcc8591543e assets/soviet/models/block/quadtile/tile_quad_6.json
 b688d5a51b36225d8020521a1be729a45d8247b4 assets/soviet/models/block/quadtile/tile_quad_blue.json
 2ad620bc42290b5bd1d9f8c440849e3e930a7cea assets/soviet/models/block/quadtile/tile_quad_blue_br.json
 616212f32de96114610cc24299162b27664addd4 assets/soviet/models/block/quadtile/tile_quad_concrete.json
@@ -470,6 +472,7 @@ d3b69dc6f53e63421b88671a49b0f4d9d28d9540 assets/soviet/models/item/frame_quad_ti
 12de9aebb23370edcdffd3def16670b0ecf435bf assets/soviet/models/item/frame_small_tile.json
 78eb3f82f9580c2b774ffe6c48a66cd225fb08a0 assets/soviet/models/item/fuel_canister.json
 ef6c56d63549cdc283f939520e8ff93800c5f3ca assets/soviet/models/item/gold_dust.json
+a94c33ba0d79684ece035575cd49636b515f699f assets/soviet/models/item/hammer.json
 56c50d47683eadd194ef6e042d15068834ace011 assets/soviet/models/item/horiztile/horiz_tile_blue.json
 d90a1ab3183d2007678b48475b3c7b981333f5eb assets/soviet/models/item/horiztile/horiz_tile_blue_br.json
 4e66e496bcce5cdf8943a7ff1fea7d9fd3b34440 assets/soviet/models/item/horiztile/horiz_tile_dark_blue.json
@@ -747,13 +750,13 @@ a7d2bf196c929d07649b8fa115c6a59e452328f4 assets/soviet/models/item/quadtile/tile
 4e4670d447fa4ecb3515dc70a8daba1a0af7c1c4 assets/soviet/models/item/quadtile/tile_quad_5.json
 476c75803a91c2f6117421009e4a155153d6ac66 assets/soviet/models/item/quadtile/tile_quad_5_br.json
 6b27fc5add5644eb4fa9ccbad3b683821801e5f8 assets/soviet/models/item/quadtile/tile_quad_5_brf.json
+bb9c312cf8e39b28a927c01588ebc2fce2429517 assets/soviet/models/item/quadtile/tile_quad_6.json
 de955d0e6d69964ee8ff2dca28c77ce87d0e9f11 assets/soviet/models/item/quadtile/tile_quad_blue.json
 a752a6897c5bf17fc750c8ce04a18f8c3720e147 assets/soviet/models/item/quadtile/tile_quad_blue_br.json
 d7f078b1b9c20c7c76257ab8104dc164bd7934df assets/soviet/models/item/quadtile/tile_quad_concrete.json
 c2beffc408f75ea821b75e4e95bcd60d7b0c3a13 assets/soviet/models/item/quadtile/tile_quad_gray.json
 f858b2d93062d14b78b3b0771b875b2c4eaf8268 assets/soviet/models/item/quadtile/tile_quad_white.json
 b9f54d676e9cd07ac9b8c5b48667c5873da06f18 assets/soviet/models/item/quadtile/tile_quad_white_br.json
-71ce65945cb8721207ded0cf4d6cfb1449fd1942 assets/soviet/models/item/redstone_grinder.json
 f9d38c98aecbb87eafba482825ababc7974ecead assets/soviet/models/item/regtile/tile_reg_am.json
 79d8d10f640e6a3434053d3f8c2431ae41988e07 assets/soviet/models/item/regtile/tile_reg_am_br.json
 b9ba69f9a0fc242fd98055a5c7219b2f1f345970 assets/soviet/models/item/regtile/tile_reg_brown.json
@@ -851,6 +854,7 @@ b8432d3949e51df7cec712db8af72d1984523a74 assets/soviet/models/item/structural/st
 73013c16f4d9c40805d65be5ad52af5557578c6a assets/soviet/models/item/structural/trim_tile_1_br.json
 09604f7a6d11b412b99e388a5cbfb55a8388d0fc assets/soviet/models/item/structural/trim_tile_blue.json
 b3e7bfa38af4a7f2c4bc9eaaa880045fb2a85b93 assets/soviet/models/item/structural/trim_tile_red.json
+c3f2bb802b6842fd6dc16411c689d4c430cb8329 assets/soviet/models/item/toxic_air.json
 7180f4293dfd559b8402cf656de142d1ec31e84e assets/soviet/models/item/toxic_water_bucket.json
 2ddb2f9678af11d3b184c28801138a2721e46657 assets/soviet/models/item/variant_item.json
 0a88606beb7a7dc1bc4af8f86169fb2ecde24682 assets/soviet/models/item/wallpapers/wp1.json
@@ -1086,7 +1090,6 @@ cf1940d12e6693f068fa449f2e5d121a4fe0de02 data/soviet/recipes/platinum_sword.json
 4dfc033a6add34f39810cd7330b658fc559565a9 data/soviet/recipes/platol_sword.json
 a7bb867a2adef868c229799fc4d176adbc0ec6f2 data/soviet/recipes/puller.json
 b764a5f43ee1e42126223a7f8b31e02fb231efc9 data/soviet/recipes/red_bricks.json
-c56b36366d81fc364410668c8a1408a0a0d341ea data/soviet/recipes/redstone_grinder.json
 2133d07dcfc46deff8d9456a445d2f8b16227033 data/soviet/recipes/rusty_scrap.json
 3c921ff5835ad81fb524719cb037124525e1fde6 data/soviet/recipes/sandspray_dust.json
 d0219f35661718f7401ecf85deaca42782874456 data/soviet/recipes/sieve.json
